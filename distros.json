@@ -10,7 +10,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Debian",
@@ -23,7 +24,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Devuan",
@@ -36,7 +38,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Kali Linux",
@@ -49,7 +52,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Knoppix",
@@ -62,7 +66,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Kubuntu",
@@ -75,7 +80,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Linux Lite",
@@ -88,7 +94,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Linux Mint",
@@ -101,7 +108,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Lubuntu",
@@ -114,7 +122,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "MX Linux",
@@ -127,7 +136,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Parrot OS",
@@ -140,7 +150,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Peppermint OS",
@@ -153,7 +164,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Pop!_OS",
@@ -166,7 +178,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Porteus",
@@ -179,7 +192,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Puppy Linux",
@@ -192,7 +206,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "PureOS",
@@ -205,7 +220,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Slax",
@@ -218,7 +234,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "SparkyLinux",
@@ -231,7 +248,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Tails",
@@ -244,7 +262,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Trisquel",
@@ -257,7 +276,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Ubuntu",
@@ -270,7 +290,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Ubuntu Budgie",
@@ -283,7 +304,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Ubuntu MATE",
@@ -296,7 +318,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Ubuntu Studio",
@@ -309,7 +332,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Xubuntu",
@@ -322,7 +346,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Zorin OS",
@@ -335,7 +360,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "antiX",
@@ -348,7 +374,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "deepin",
@@ -361,7 +388,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "elementary OS",
@@ -374,7 +402,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Arch Linux",
@@ -387,7 +416,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Artix Linux",
@@ -400,7 +430,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "BlackArch",
@@ -413,7 +444,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "CachyOS",
@@ -426,7 +458,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "EndeavourOS",
@@ -439,7 +472,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Garuda Linux",
@@ -452,7 +486,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Manjaro",
@@ -465,7 +500,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "AlmaLinux",
@@ -478,7 +514,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Astra Linux",
@@ -491,7 +528,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "CentOS Stream",
@@ -504,7 +542,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Fedora",
@@ -517,7 +556,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Mageia",
@@ -530,7 +570,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "OpenMandriva",
@@ -543,7 +584,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Oracle Linux",
@@ -556,7 +598,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "PCLinuxOS",
@@ -569,7 +612,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "ROSA",
@@ -582,7 +626,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Rocky Linux",
@@ -595,7 +640,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Scientific Linux",
@@ -608,7 +654,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "openSUSE",
@@ -621,7 +668,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "openSUSE Tumbleweed",
@@ -634,7 +682,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Calculate Linux",
@@ -647,7 +696,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Gentoo",
@@ -660,7 +710,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Redcore",
@@ -673,7 +724,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Absolute Linux",
@@ -686,7 +738,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Salix",
@@ -699,7 +752,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Slackel",
@@ -712,7 +766,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Slackware",
@@ -725,7 +780,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Guix System",
@@ -738,7 +794,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "NixOS",
@@ -751,7 +808,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "AUSTRUMI",
@@ -764,7 +822,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Alpine Linux",
@@ -777,7 +836,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Berry Linux",
@@ -790,7 +850,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "BigLinux",
@@ -803,7 +864,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Bluestar",
@@ -816,7 +878,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "CAELinux",
@@ -829,7 +892,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Chimera Linux",
@@ -842,7 +906,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Clear Linux",
@@ -855,7 +920,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Clonezilla",
@@ -868,7 +934,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Commodore OS",
@@ -881,7 +948,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Damn Small Linux",
@@ -894,7 +962,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "EasyOS",
@@ -907,7 +976,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Elive",
@@ -920,7 +990,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Emmabunt\u00fcs",
@@ -933,7 +1004,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Fatdog64",
@@ -946,7 +1018,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "FuguIta",
@@ -959,7 +1032,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "GeckoLinux",
@@ -972,7 +1046,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Hyperbola",
@@ -985,7 +1060,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "IPFire",
@@ -998,7 +1074,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "KaOS",
@@ -1011,7 +1088,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "LibreELEC",
@@ -1024,7 +1102,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Lunar Linux",
@@ -1037,7 +1116,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Mabox",
@@ -1050,7 +1130,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "MakuluLinux",
@@ -1063,7 +1144,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Minimal Linux Live",
@@ -1076,7 +1158,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Neptune",
@@ -1089,7 +1172,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Nitrux",
@@ -1102,7 +1186,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Parabola",
@@ -1115,7 +1200,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Pardus",
@@ -1128,7 +1214,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Q4OS",
@@ -1141,7 +1228,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Raspberry Pi OS",
@@ -1154,7 +1242,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "RebornOS",
@@ -1167,7 +1256,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Regolith",
@@ -1180,7 +1270,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Siduction",
@@ -1193,7 +1284,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "SliTaz",
@@ -1206,7 +1298,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Solus",
@@ -1219,7 +1312,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "SteamOS",
@@ -1232,7 +1326,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "SystemRescue",
@@ -1245,7 +1340,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Tiny Core Linux",
@@ -1258,7 +1354,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Uruk",
@@ -1271,7 +1368,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Void Linux",
@@ -1284,7 +1382,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Red Hat Enterprise Linux",
@@ -1297,7 +1396,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": "Server: $384-$1,429/yr | Workstation: $197-$329/yr"
   },
   {
     "name": "SUSE Linux Enterprise",
@@ -1310,7 +1410,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": "Server: $799-$1,299/yr | Desktop: $129-$237/yr"
   },
   {
     "name": "Ubuntu Pro",
@@ -1323,7 +1424,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": "Workstation: $25/yr | Server: $500/yr (free for \u22645 machines)"
   },
   {
     "name": "Zorin OS Pro",
@@ -1336,7 +1438,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": "$47.99 one-time"
   },
   {
     "name": "CRUX",
@@ -1349,7 +1452,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Funtoo",
@@ -1362,7 +1466,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "GoboLinux",
@@ -1375,7 +1480,8 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   },
   {
     "name": "Sabayon",
@@ -1388,6 +1494,7 @@
     "package_manager": "",
     "status": "Active",
     "website": "",
-    "description": ""
+    "description": "",
+    "price": ""
   }
 ]

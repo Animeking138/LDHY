@@ -44,6 +44,7 @@ fetch('distros.json').then(r=>r.json()).then(data=>{
     ['Package manager', d.package_manager || '—'],
     ['Status', d.status || '—'],
     ['Official website', d.website ? `<a href="${d.website}" target="_blank" rel="noopener noreferrer">${d.website}</a>` : '—'],
+    ['Price', d.price || '—'],
     ['Download', d.download ? `<a href="${d.download}" target="_blank" rel="noopener noreferrer">Download →</a>` : '—'],
   ];
   document.getElementById('content').innerHTML = `
