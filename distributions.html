@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linux Distributions Archive</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0a0e14; --surface:#121820; --border:#243040; --text:#e8eef5; --muted:#7d8a99; --accent:#6ea8fe; --gold:#f0b429; --radius:12px; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+  body::before { content:''; position:fixed; inset:0; z-index:-1; background:radial-gradient(circle at 20% 10%,#1f6feb33 0%,transparent 40%),radial-gradient(circle at 80% 80%,#a78bfa22 0%,transparent 40%); }
+  .topbar { padding:1rem 1.5rem; border-bottom:1px solid var(--border); }
+  .topbar a { color:var(--accent); text-decoration:none; font-weight:500; }
+  .container { max-width:1000px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
+  h1 { font-size:clamp(1.8rem,5vw,2.6rem); font-weight:800; margin-bottom:.5rem; }
+  .subtitle { color:var(--muted); font-size:1.1rem; margin-bottom:2rem; }
+  .search { width:100%; padding:.75rem 1rem; background:var(--surface); border:1px solid var(--border); border-radius:8px; color:var(--text); font-size:1rem; margin-bottom:2rem; }
+  .search:focus { outline:none; border-color:var(--accent); }
+  h2 { color:var(--accent); margin:2rem 0 1rem; font-size:1.3rem; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.25rem; transition:transform .2s,border-color .2s; cursor:pointer; }
+  .card:hover { transform:translateY(-2px); border-color:var(--accent); }
+  .card .name { font-weight:700; font-size:1.05rem; margin-bottom:.25rem; }
+  .card .meta { color:var(--muted); font-size:.85rem; }
+  .card .base { color:var(--gold); font-size:.8rem; margin-top:.5rem; display:inline-block; }
+  .count { color:var(--muted); font-size:.9rem; margin-bottom:1rem; }
+</style>
+</head>
+<body>
+<div class="topbar"><a href="index.html">← Back to Linux history</a></div>
+<div class="container">
+  <h1>Linux Distributions Archive</h1>
+  <p class="subtitle">A catalog of notable Linux distributions, grouped by family. Tap to filter.</p>
+  <div style="display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap;">
+    <button class="sortbtn active" data-sort="date" onclick="setSort('date')" style="padding:.5rem 1rem;border-radius:8px;border:1px solid var(--border);background:var(--surface-2);color:var(--text);cursor:pointer;">By release date</button>
+    <button class="sortbtn" data-sort="diff" onclick="setSort('diff')" style="padding:.5rem 1rem;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer;">By difficulty</button>
+  </div>
+  <input class="search" id="search" placeholder="Search distributions..." oninput="filter()">
+  <div id="content"></div>
+</div>
+<script>
+const distros = [
+  // Debian family
+  {n:"Debian", b:"Independent", m:"apt (dpkg)", u:"Universal, stable server/desktop"},
+  {n:"Ubuntu", b:"Debian", m:"apt", u:"Desktop, server, cloud"},
+  {n:"Linux Mint", b:"Ubuntu/Debian", m:"apt", u:"Desktop (beginner-friendly)"},
+  {n:"Pop!_OS", b:"Ubuntu", m:"apt", u:"Desktop, gaming, developers"},
+  {n:"Kali Linux", b:"Debian", m:"apt", u:"Security/penetration testing"},
+  {n:"Parrot OS", b:"Debian", m:"apt", u:"Security, privacy"},
+  {n:"MX Linux", b:"Debian", m:"apt", u:"Lightweight desktop"},
+  {n:"antiX", b:"Debian", m:"apt", u:"Lightweight, old hardware"},
+  {n:"Devuan", b:"Debian", m:"apt", u:"systemd-free Debian"},
+  {n:"Deepin", b:"Debian", m:"apt", u:"Desktop (Chinese)"},
+  {n:"Zorin OS", b:"Ubuntu", m:"apt", u:"Windows-like desktop"},
+  {n:"elementary OS", b:"Ubuntu", m:"apt", u:"macOS-like desktop"},
+  {n:"Peppermint OS", b:"Debian/Ubuntu", m:"apt", u:"Lightweight cloud desktop"},
+  {n:"Bodhi Linux", b:"Ubuntu", m:"apt", u:"Lightweight (Enlightenment)"},
+  {n:"Lubuntu", b:"Ubuntu", m:"apt", u:"Lightweight LXQt desktop"},
+  {n:"Xubuntu", b:"Ubuntu", m:"apt", u:"Lightweight XFCE desktop"},
+  {n:"Kubuntu", b:"Ubuntu", m:"apt", u:"KDE desktop"},
+  {n:"Ubuntu MATE", b:"Ubuntu", m:"apt", u:"MATE desktop"},
+  {n:"Ubuntu Budgie", b:"Ubuntu", m:"apt", u:"Budgie desktop"},
+  {n:"Ubuntu Studio", b:"Ubuntu", m:"apt", u:"Multimedia creation"},
+  {n:"Ubuntu Server", b:"Ubuntu", m:"apt", u:"Server"},
+  // Red Hat family
+  {n:"Fedora", b:"Independent (Red Hat)", m:"dnf (rpm)", u:"Cutting-edge desktop/server"},
+  {n:"RHEL", b:"Independent", m:"dnf/yum", u:"Enterprise server"},
+  {n:"CentOS Stream", b:"RHEL", m:"dnf", u:"RHEL preview/community"},
+  {n:"Rocky Linux", b:"RHEL", m:"dnf", u:"RHEL-compatible (community)"},
+  {n:"AlmaLinux", b:"RHEL", m:"dnf", u:"RHEL-compatible (community)"},
+  {n:"Oracle Linux", b:"RHEL", m:"dnf/yum", u:"Enterprise (Oracle)"},
+  {n:"Amazon Linux", b:"RHEL/Fedora", m:"dnf/yum", u:"AWS cloud"},
+  // Arch family
+  {n:"Arch Linux", b:"Independent", m:"pacman", u:"Rolling release, DIY"},
+  {n:"Manjaro", b:"Arch", m:"pacman", u:"User-friendly Arch"},
+  {n:"EndeavourOS", b:"Arch", m:"pacman", u:"Arch-based, friendly installer"},
+  {n:"Garuda Linux", b:"Arch", m:"pacman", u:"Gaming, performance"},
+  {n:"Artix Linux", b:"Arch", m:"pacman", u:"systemd-free Arch"},
+  {n:"BlackArch", b:"Arch", m:"pacman", u:"Security/penetration testing"},
+  {n:"ArcoLinux", b:"Arch", m:"pacman", u:"Learning Arch"},
+  {n:"CachyOS", b:"Arch", m:"pacman", u:"Performance-optimized"},
+  // SUSE family
+  {n:"openSUSE Leap", b:"SUSE", m:"zypper (rpm)", u:"Stable desktop/server"},
+  {n:"openSUSE Tumbleweed", b:"SUSE", m:"zypper", u:"Rolling release"},
+  {n:"SLES", b:"SUSE", m:"zypper", u:"Enterprise server"},
+  // Slackware family
+  {n:"Slackware", b:"Independent", m:"pkgtool", u:"Oldest surviving distro"},
+  {n:"Slax", b:"Slackware", m:"pkgtool", u:"Live USB"},
+  {n:"VectorLinux", b:"Slackware", m:"pkgtool", u:"Lightweight desktop"},
+  {n:"Zenwalk", b:"Slackware", m:"netpkg", u:"Lightweight desktop"},
+  // Gentoo family
+  {n:"Gentoo", b:"Independent", m:"Portage (source)", u:"Source-based, customizable"},
+  {n:"Funtoo", b:"Gentoo", m:"Portage", u:"Gentoo variant"},
+  {n:"Calculate Linux", b:"Gentoo", m:"Portage", u:"Gentoo-based, ready-to-use"},
+  {n:"Sabayon", b:"Gentoo", m:"Entropy/Portage", u:"Gentoo-based (discontinued)"},
+  // Independent / niche
+  {n:"Alpine Linux", b:"Independent", m:"apk", u:"Minimal, containers, security"},
+  {n:"Void Linux", b:"Independent", m:"xbps", u:"Rolling, runit init"},
+  {n:"NixOS", b:"Independent", m:"Nix", u:"Declarative, reproducible"},
+  {n:"Guix System", b:"Independent", m:"Guix", u:"Declarative (GNU)"},
+  {n:"Clear Linux", b:"Independent (Intel)", m:"swupd", u:"Performance, cloud"},
+  {n:"Solus", b:"Independent", m:"eopkg", u:"Desktop-focused"},
+  {n:"PCLinuxOS", b:"Independent (Mandriva)", m:"apt-rpm", u:"Desktop"},
+  {n:"Mageia", b:"Mandriva", m:"urpmi/dnf", u:"Desktop"},
+  {n:"OpenMandriva", b:"Mandriva", m:"dnf", u:"Desktop"},
+  {n:"Puppy Linux", b:"Independent", m:"petget", u:"Tiny, runs in RAM"},
+  {n:"Tiny Core Linux", b:"Independent", m:"tce", u:"Minimal (11MB)"},
+  {n:"Damn Small Linux", b:"Debian", m:"apt", u:"Tiny (discontinued)"},
+  {n:"Slitaz", b:"Independent", m:"tazpkg", u:"Tiny"},
+  {n:"Porteus", b:"Slackware", m:"pkgtool", u:"Live, modular"},
+  {n:"Knoppix", b:"Debian", m:"apt", u:"Live CD (pioneer)"},
+  {n:"Tails", b:"Debian", m:"apt", u:"Privacy, anonymity (Tor)"},
+  {n:"Qubes OS", b:"Fedora/Xen", m:"dnf", u:"Security by isolation"},
+  {n:"ChromeOS Flex", b:"Gentoo/ChromeOS", m:"portage", u:"Cloud, Chromebooks"},
+  {n:"Android (AOSP)", b:"Linux kernel", m:"apk (apps)", u:"Mobile"},
+  {n:"postmarketOS", b:"Alpine", m:"apk", u:"Mobile Linux"},
+  {n:"Mobian", b:"Debian", m:"apt", u:"Mobile (Debian-based)"},
+  {n:"Ubuntu Touch", b:"Ubuntu", m:"apt", u:"Mobile"},
+  {n:"Raspberry Pi OS", b:"Debian", m:"apt", u:"Raspberry Pi"},
+  {n:"DietPi", b:"Debian", m:"apt", u:"Lightweight SBC"},
+  {n:"Armbian", b:"Debian/Ubuntu", m:"apt", u:"ARM SBCs"},
+  {n:"Alpine (containers)", b:"Alpine", m:"apk", u:"Container base image"},
+  {n:"Photon OS", b:"Independent (VMware)", m:"tdnf", u:"Container/cloud"},
+  {n:"Flatcar", b:"CoreOS", m:"", u:"Container host"},
+  {n:"Bottlerocket", b:"Independent (AWS)", m:"", u:"Container host"},
+  {n:"Talos Linux", b:"Independent", m:"", u:"Kubernetes OS"},
+  {n:"k3OS", b:"Alpine/K3s", m:"apk", u:"Kubernetes (discontinued)"},
+  {n:"RancherOS", b:"Independent", m:"", u:"Container (discontinued)"},
+  {n:"CoreOS", b:"Independent", m:"", u:"Container (discontinued)"},
+  {n:"CentOS (classic)", b:"RHEL", m:"yum", u:"Server (discontinued)"},
+  {n:"Scientific Linux", b:"RHEL", m:"yum", u:"Scientific (discontinued)"},
+  {n:"Asianux", b:"RHEL", m:"yum", u:"Asian enterprise"},
+  {n:"NeoKylin", b:"RHEL/Fedora", m:"yum", u:"Chinese enterprise"},
+  {n:"UOS", b:"Debian", m:"apt", u:"Chinese (UnionTech)"},
+  {n:"Kylin", b:"Ubuntu", m:"apt", u:"Chinese (government)"},
+  {n:"Red Flag Linux", b:"RHEL", m:"rpm", u:"Chinese (discontinued)"},
+  {n:"TurboLinux", b:"RHEL", m:"rpm", u:"Asian (discontinued)"},
+  {n:"Mandrake/Mandriva", b:"Red Hat", m:"urpmi", u:"Desktop (discontinued)"},
+  {n:"Conectiva", b:"RPM", m:"apt-rpm", u:"Brazilian (merged)"},
+  {n:"Yellow Dog Linux", b:"RHEL", m:"yum", u:"PowerPC (discontinued)"},
+  {n:"GoboLinux", b:"Independent", m:"Compile", u:"Alternative filesystem layout"},
+  {n:"Source Mage", b:"Independent", m:"sorcery", u:"Source-based"},
+  {n:"Lunar Linux", b:"Source-based", m:"lunar", u:"Source-based"},
+  {n:"CRUX", b:"Independent", m:"pkgutils", u:"Lightweight, source/binary"},
+  {n:"LFS (Linux From Scratch)", b:"Independent", m:"manual", u:"Educational build-your-own"},
+  {n:"Gentoo (hardened)", b:"Gentoo", m:"Portage", u:"Security-hardened"},
+  {n:"Whonix", b:"Debian", m:"apt", u:"Privacy (Tor gateway)"},
+  {n:"Qubes (templates)", b:"Fedora", m:"dnf", u:"Template VMs"},
+  {n:"Kaisen Linux", b:"Debian", m:"apt", u:"IT/forensics"},
+  {n:"CAINE", b:"Ubuntu", m:"apt", u:"Forensics"},
+  {n:"BackBox", b:"Ubuntu", m:"apt", u:"Security"},
+  {n:"BlackArch (live)", b:"Arch", m:"pacman", u:"Security (live)"},
+  {n:"NST", b:"Fedora", m:"dnf", u:"Network security"},
+  {n:"Pentoo", b:"Gentoo", m:"Portage", u:"Security"},
+  {n:"Parrot (Home/Sec)", b:"Debian", m:"apt", u:"Security/home"},
+  {n:"Kali (Purple)", b:"Debian", m:"apt", u:"Purple team"},
+  {n:"ArchBang", b:"Arch", m:"pacman", u:"Lightweight Arch (Openbox)"},
+  {n:"Manjaro (variants)", b:"Arch", m:"pacman", u:"Various DEs"},
+  {n:"RebornOS", b:"Arch", m:"pacman", u:"Arch installer"},
+  {n:"XeroLinux", b:"Arch", m:"pacman", u:"Themed Arch"},
+  {n:"Crystal Linux", b:"Arch", m:"pacman", u:"Modern Arch"},
+  {n:"Vanilla OS", b:"Debian/OCI", m:"apx", u:"Immutable desktop"},
+  {n:"blendOS", b:"Arch", m:"pacman", u:"Immutable, multi-distro"},
+  {n:"Carbon OS", b:"Fedora (immutable)", m:"rpm-ostree", u:"Immutable desktop"},
+  {n:"Silverblue", b:"Fedora", m:"rpm-ostree", u:"Immutable (GNOME)"},
+  {n:"Kinoite", b:"Fedora", m:"rpm-ostree", u:"Immutable (KDE)"},
+  {n:"Sway Atomic", b:"Fedora", m:"rpm-ostree", u:"Immutable (Sway)"},
+  {n:"Budgie Atomic", b:"Fedora", m:"rpm-ostree", u:"Immutable (Budgie)"},
+  {n:"COSMIC (Pop!_OS 24.04)", b:"Ubuntu", m:"apt", u:"Rust desktop (System76)"},
+  {n:"Linux Mint (LMDE)", b:"Debian", m:"apt", u:"Mint on Debian base"},
+  {n:"Devuan (variants)", b:"Devuan", m:"apt", u:"systemd-free"},
+  {n:"Artix (variants)", b:"Arch", m:"pacman", u:"systemd-free Arch"},
+  {n:"Obarun", b:"Arch", m:"pacman", u:"systemd-free (s6)"},
+  {n:"Void (musl)", b:"Void", m:"xbps", u:"musl libc variant"},
+  {n:"Alpine (standard)", b:"Alpine", m:"apk", u:"Minimal"},
+  {n:"Chimera Linux", b:"Independent", m:"apk-like", u:"musl + FreeBSD tools"},
+  {n:"Bedrock Linux", b:"Meta-distro", m:"multi", u:"Multi-distro coexistence"},
+  {n:"GoboLinux", b:"Independent", m:"Compile", u:"Alternative layout"},
+  {n:"Serpent OS", b:"Independent", m:"stone", u:"Modern, from scratch"},
+  {n:"DahliaOS", b:"Zircon/Linux", m:"", u:"Fuchsia-inspired"},
+  {n:"Fuchsia (not Linux)", b:"Zircon", m:"", u:"Google (not Linux kernel)"},
+  {n:"Nobara", b:"Fedora", m:"dnf", u:"Gaming, content creation"},
+  {n:"Bazzite", b:"Fedora (atomic)", m:"rpm-ostree", u:"Gaming (immutable)"},
+  {n:"Bluefin", b:"Fedora (atomic)", m:"rpm-ostree", u:"Developer desktop (immutable)"},
+  {n:"Aurora", b:"Fedora (atomic)", m:"rpm-ostree", u:"KDE desktop (immutable)"},
+  {n:"AnduinOS", b:"Ubuntu", m:"apt", u:"Windows-like desktop"},
+  {n:"AerynOS", b:"Independent", m:"moss", u:"Atomic desktop (Rust)"},
+  {n:"BigLinux", b:"Manjaro/Arch", m:"pacman", u:"Brazilian desktop"},
+  {n:"Asahi Linux", b:"Fedora", m:"dnf", u:"Apple Silicon Macs"},
+];
+const core=new Set(["ubuntu","debian","linux-mint","fedora","arch-linux","manjaro","opensuse-leap","opensuse-tumbleweed","alpine-linux","gentoo","slackware","centos-stream","rocky-linux","almalinux","pop-os","zorin-os","elementary-os","tails","kali-linux","void-linux","nixos","solus","mx-linux","deepin","endeavouros","garuda-linux","nobara","bazzite","bluefin","aurora","anduinos","aerynos","biglinux","asahi-linux"]);
+const years = {"Debian":1993,"Ubuntu":2004,"Linux Mint":2006,"Pop!_OS":2017,"Kali Linux":2013,"Parrot OS":2013,"MX Linux":2014,"antiX":2007,"Devuan":2015,"Deepin":2014,"Zorin OS":2009,"elementary OS":2011,"Peppermint OS":2010,"Bodhi Linux":2011,"Lubuntu":2008,"Xubuntu":2006,"Kubuntu":2005,"Ubuntu MATE":2014,"Ubuntu Budgie":2016,"Ubuntu Studio":2007,"Ubuntu Server":2004,"Fedora":2003,"RHEL":1995,"CentOS Stream":2019,"Rocky Linux":2021,"AlmaLinux":2021,"Oracle Linux":2006,"Amazon Linux":2010,"Arch Linux":2002,"Manjaro":2011,"EndeavourOS":2019,"Garuda Linux":2020,"Artix Linux":2017,"BlackArch":2013,"ArcoLinux":2017,"CachyOS":2022,"openSUSE Leap":2015,"openSUSE Tumbleweed":2010,"SLES":2000,"Slackware":1993,"Slax":2002,"VectorLinux":1999,"Zenwalk":2004,"Gentoo":2002,"Funtoo":2008,"Calculate Linux":2007,"Sabayon":2004,"Alpine Linux":2005,"Void Linux":2008,"NixOS":2006,"Guix System":2012,"Clear Linux":2015,"Solus":2014,"PCLinuxOS":2003,"Mageia":2011,"OpenMandriva":2013,"Puppy Linux":2003,"Tiny Core Linux":2008,"Damn Small Linux":2003,"Slitaz":2007,"Porteus":2010,"Knoppix":2000,"Tails":2009,"Qubes OS":2012,"ChromeOS Flex":2022,"Android (AOSP)":2008,"postmarketOS":2017,"Mobian":2020,"Ubuntu Touch":2013,"Raspberry Pi OS":2012,"DietPi":2014,"Armbian":2013,"Photon OS":2015,"Flatcar":2018,"Bottlerocket":2020,"Talos Linux":2018,"k3OS":2019,"RancherOS":2014,"CoreOS":2013,"CentOS (classic)":2004,"Scientific Linux":2004,"Asianux":2004,"NeoKylin":2010,"UOS":2019,"Kylin":2001,"Red Flag Linux":1999,"TurboLinux":1996,"Mandrake/Mandriva":1998,"Conectiva":1995,"Yellow Dog Linux":1999,"GoboLinux":2002,"Source Mage":2002,"Lunar Linux":2002,"CRUX":2002,"LFS (Linux From Scratch)":1999,"Gentoo (hardened)":2002,"Whonix":2012,"Qubes (templates)":2012,"Kaisen Linux":2020,"CAINE":2008,"BackBox":2010,"BlackArch (live)":2013,"NST":2006,"Pentoo":2005,"Parrot (Home/Sec)":2013,"Kali (Purple)":2020,"ArchBang":2010,"Manjaro (variants)":2011,"RebornOS":2019,"XeroLinux":2021,"Crystal Linux":2022,"Vanilla OS":2022,"blendOS":2023,"Carbon OS":2022,"Silverblue":2017,"Kinoite":2021,"Sway Atomic":2022,"Budgie Atomic":2022,"COSMIC (Pop!_OS 24.04)":2024,"Linux Mint (LMDE)":2008,"Devuan (variants)":2015,"Artix (variants)":2017,"Obarun":2016,"Void (musl)":2008,"Alpine (standard)":2005,"Chimera Linux":2021,"Bedrock Linux":2013,"Serpent OS":2020,"DahliaOS":2020,"Fuchsia (not Linux)":2016,"Nobara":2022,"Bazzite":2023,"Bluefin":2023,"Aurora":2023,"AnduinOS":2024,"AerynOS":2025,"BigLinux":2020,"Asahi Linux":2022};
+function render(q=""){
+  const ql=q.toLowerCase();
+  let list = distros.map(d=>({...d, y: years[d.n]||9999})).filter(d=>!ql||d.n.toLowerCase().includes(ql)||d.b.toLowerCase().includes(ql)||d.u.toLowerCase().includes(ql));
+  list.sort((a,b)=>a.y-b.y);
+  let html="", total=list.length;
+  html+=`<div class="grid">`;
+  list.forEach(d=>{ const slug=d.n.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); if(core.has(slug)){ html+=`<a class="card" href="distro.html?id=${slug}" style="text-decoration:none;color:inherit;display:block"><div class="name">${d.n} <span style="color:var(--gold);font-size:.75rem">${d.y}</span></div><div class="meta">${d.m} · ${d.u}</div><span class="base">${d.b}</span></a>`; } else { html+=`<div class="card"><div class="name">${d.n} <span style="color:var(--gold);font-size:.75rem">${d.y}</span></div><div class="meta">${d.m} · ${d.u}</div><span class="base">${d.b}</span></div>`; } });
+  html+=`</div>`;
+  document.getElementById('content').innerHTML = `<div class="count">${total} distributions shown (sorted by release year)</div>`+html;
+}
+let sortMode='date';
+function setSort(m){ sortMode=m; document.querySelectorAll('.sortbtn').forEach(b=>{ const on=b.dataset.sort===m; b.style.color=on?'var(--text)':'var(--muted)'; b.style.background=on?'var(--surface-2)':'var(--surface)'; }); filter(); }
+const DIFF={"Ubuntu":"Beginner","Debian":"Intermediate","Linux Mint":"Beginner","Pop!_OS":"Beginner","Kali Linux":"Advanced","Parrot OS":"Intermediate","MX Linux":"Beginner","antiX":"Intermediate","Devuan":"Advanced","Deepin":"Beginner","Zorin OS":"Beginner","elementary OS":"Beginner","Peppermint OS":"Beginner","Bodhi Linux":"Beginner","Lubuntu":"Beginner","Xubuntu":"Beginner","Kubuntu":"Beginner","Ubuntu MATE":"Beginner","Ubuntu Budgie":"Beginner","Ubuntu Studio":"Intermediate","Ubuntu Server":"Intermediate","Fedora":"Intermediate","RHEL":"Advanced","CentOS Stream":"Intermediate","Rocky Linux":"Intermediate","AlmaLinux":"Intermediate","Oracle Linux":"Advanced","Amazon Linux":"Intermediate","Arch Linux":"Advanced","Manjaro":"Beginner","EndeavourOS":"Intermediate","Garuda Linux":"Intermediate","Artix Linux":"Advanced","BlackArch":"Advanced","ArcoLinux":"Intermediate","CachyOS":"Intermediate","openSUSE Leap":"Intermediate","openSUSE Tumbleweed":"Intermediate","SLES":"Advanced","Slackware":"Advanced","Slax":"Beginner","VectorLinux":"Intermediate","Zenwalk":"Intermediate","Gentoo":"Advanced","Funtoo":"Advanced","Calculate Linux":"Intermediate","Sabayon":"Intermediate","Alpine Linux":"Advanced","Void Linux":"Advanced","NixOS":"Advanced","Guix System":"Advanced","Clear Linux":"Intermediate","Solus":"Beginner","PCLinuxOS":"Beginner","Mageia":"Beginner","OpenMandriva":"Beginner","Puppy Linux":"Beginner","Tiny Core Linux":"Advanced","Damn Small Linux":"Beginner","Slitaz":"Intermediate","Porteus":"Beginner","Knoppix":"Beginner","Tails":"Intermediate","Qubes OS":"Advanced","ChromeOS Flex":"Beginner","Android (AOSP)":"Intermediate","postmarketOS":"Advanced","Mobian":"Intermediate","Ubuntu Touch":"Beginner","Raspberry Pi OS":"Beginner","DietPi":"Beginner","Armbian":"Intermediate","Photon OS":"Advanced","Flatcar":"Advanced","Bottlerocket":"Advanced","Talos Linux":"Advanced","k3OS":"Intermediate","RancherOS":"Advanced","CoreOS":"Advanced","Nobara":"Intermediate","Bazzite":"Intermediate","Bluefin":"Intermediate","Aurora":"Intermediate","AnduinOS":"Beginner","AerynOS":"Advanced","BigLinux":"Beginner","Asahi Linux":"Advanced"};
+const diffRank={"Beginner":1,"Intermediate":2,"Advanced":3};
+function render(q=""){
+  const ql=q.toLowerCase();
+  let list = distros.map(d=>({...d, y: years[d.n]||9999, diff: DIFF[d.n]||"Intermediate"})).filter(d=>!ql||d.n.toLowerCase().includes(ql)||d.b.toLowerCase().includes(ql)||d.u.toLowerCase().includes(ql));
+  if(sortMode==='date') list.sort((a,b)=>a.y-b.y);
+  else list.sort((a,b)=>(diffRank[a.diff]-diffRank[b.diff])||a.n.localeCompare(b.n));
+  let html="", total=list.length;
+  html+=`<div class="grid">`;
+  list.forEach(d=>{ const slug=d.n.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); if(core.has(slug)){ html+=`<a class="card" href="distro.html?id=${slug}" style="text-decoration:none;color:inherit;display:block"><div class="name">${d.n} <span style="color:var(--gold);font-size:.75rem">${d.y}</span></div><div class="meta">${d.m} · ${d.u}</div><span class="base">${d.b}</span> · <span style="color:var(--accent)">${d.diff}</span></a>`; } else { html+=`<div class="card"><div class="name">${d.n} <span style="color:var(--gold);font-size:.75rem">${d.y}</span></div><div class="meta">${d.m} · ${d.u}</div><span class="base">${d.b}</span> · <span style="color:var(--accent)">${d.diff}</span></div>`; } });
+  html+=`</div>`;
+  document.getElementById('content').innerHTML = `<div class="count">${total} distributions shown (sorted by ${sortMode==='date'?'release year':'difficulty'})</div>`+html;
+}
+function filter(){ render(document.getElementById('search').value); }
+render();
+</script>
+</body>
+</html>

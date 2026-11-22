@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linux Event Detail</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0a0e14; --surface:#121820; --border:#243040; --text:#e8eef5; --muted:#7d8a99; --accent:#6ea8fe; --gold:#f0b429; --radius:12px; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
+  body::before { content:''; position:fixed; inset:0; z-index:-1; background:radial-gradient(circle at 20% 10%,#1f6feb33 0%,transparent 40%),radial-gradient(circle at 80% 80%,#a78bfa22 0%,transparent 40%); }
+  .topbar { padding:1rem 1.5rem; border-bottom:1px solid var(--border); }
+  .topbar a { color:var(--accent); text-decoration:none; font-weight:500; }
+  .container { max-width:760px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
+  .eyebrow { font-family:'JetBrains Mono',monospace; color:var(--gold); font-size:.85rem; margin-bottom:.5rem; }
+  h1 { font-size:clamp(1.8rem,5vw,2.6rem); font-weight:800; margin-bottom:.5rem; }
+  .subtitle { color:var(--muted); font-size:1.1rem; margin-bottom:2rem; }
+  h2 { color:var(--accent); margin:2rem 0 .75rem; font-size:1.25rem; }
+  p { margin-bottom:1rem; } ul { margin:0 0 1rem 1.25rem; color:var(--muted); } li { margin-bottom:.4rem; }
+  .back { display:inline-block; margin-top:2rem; color:var(--accent); text-decoration:none; font-weight:500; }
+</style>
+</head>
+<body>
+<div class="topbar"><a href="index.html">← Back to timeline</a></div>
+<div class="container" id="content"></div>
+<script>
+const E = {
+"1969u": {t:"Unix Created", y:"1969", i:"Ken Thompson and Dennis Ritchie create Unix at Bell Labs.", b:`<h2>What happened</h2><p>Thompson and Ritchie developed Unix as a simple, elegant operating system for the PDP-7, then the PDP-11.</p><h2>Why it matters</h2><p>Unix established the design principles (files, processes, pipes, C) that Linux later inherited.</p>`},
+"1973": {t:"Unix Rewritten in C", y:"1973", i:"Unix is rewritten in C, making it portable across hardware.", b:`<h2>What happened</h2><p>Ritchie rewrote Unix in C, a high-level language, enabling portability.</p><h2>Why it matters</h2><p>Portability let Unix spread to many machines and inspired Linux's cross-platform kernel.</p>`},
+"1983": {t:"GNU Project", y:"1983", i:"Richard Stallman launches the GNU Project to create a free Unix-like OS.", b:`<h2>What happened</h2><p>Stallman announced GNU to provide free software replacing Unix components.</p><h2>Why it matters</h2><p>GNU tools + Linux kernel = GNU/Linux, the complete free operating system.</p>`},
+"1985": {t:"FSF Founded", y:"1985", i:"Free Software Foundation founded; GPL license introduced.", b:`<h2>What happened</h2><p>Stallman founded the FSF and created the GPL, ensuring software freedom.</p><h2>Why it matters</h2><p>The GPL became Linux's license, shaping open-source development.</p>`},
+"1991": {t:"Linux 0.01", y:"1991", i:"Linus Torvalds announces Linux; first kernel released (0.01).", b:`<h2>What happened</h2><p>Torvalds, a Finnish student, released a free Unix-like kernel for the 386.</p><h2>Why it matters</h2><p>This was the birth of Linux, soon combined with GNU to form a full OS.</p>`},
+"1992": {t:"GPL License", y:"1992", i:"Linux relicensed under the GNU GPL, enabling free distribution.", b:`<h2>What happened</h2><p>Torvalds adopted the GPL, aligning Linux with the free software movement.</p><h2>Why it matters</h2><p>Enabled massive collaborative development and distribution.</p>`},
+"1993": {t:"Slackware & Debian", y:"1993", i:"Early Linux distributions Slackware and Debian are founded.", b:`<h2>What happened</h2><p>Slackware (Patrick Volkerding) and Debian (Ian Murdock) launched.</p><h2>Why it matters</h2><p>Distributions made Linux installable and usable by ordinary users.</p>`},
+"1994": {t:"Linux 1.0", y:"1994", i:"First stable Linux kernel (1.0) released.", b:`<h2>What happened</h2><p>Linux 1.0 marked the kernel as production-ready.</p><h2>Why it matters</h2><p>Signaled Linux's readiness for real-world use.</p>`},
+"1996": {t:"Tux Mascot", y:"1996", i:"Tux the penguin becomes the official Linux mascot.", b:`<h2>What happened</h2><p>Larry Ewing created Tux; the community adopted it as mascot.</p><h2>Why it matters</h2><p>Tux became the beloved symbol of Linux.</p>`},
+"1998": {t:"Major Vendor Support", y:"1998", i:"IBM, Oracle, and others announce Linux support.", b:`<h2>What happened</h2><p>Major vendors committed to Linux, validating it for enterprise.</p><h2>Why it matters</h2><p>Accelerated enterprise adoption.</p>`},
+"2003": {t:"SCO Lawsuit", y:"2003", i:"SCO Group sues IBM over Linux; ultimately fails.", b:`<h2>What happened</h2><p>SCO claimed Unix code in Linux; courts rejected the claims.</p><h2>Why it matters</h2><p>Removed legal uncertainty around Linux.</p>`},
+"2004": {t:"Ubuntu Launches", y:"2004", i:"Canonical releases Ubuntu, popularizing desktop Linux.", b:`<h2>What happened</h2><p>Mark Shuttleworth's Canonical released Ubuntu based on Debian.</p><h2>Why it matters</h2><p>Made Linux accessible to desktop users.</p>`},
+"2007": {t:"Android Uses Linux", y:"2007", i:"Android is built on the Linux kernel.", b:`<h2>What happened</h2><p>Google's Android used the Linux kernel for mobile devices.</p><h2>Why it matters</h2><p>Brought Linux to billions of mobile users.</p>`},
+"2011": {t:"Linux 3.0", y:"2011", i:"Kernel 3.0 released, 20th anniversary of Linux.", b:`<h2>What happened</h2><p>Kernel 3.0 released, commemorating 20 years.</p><h2>Why it matters</h2><p>Marked Linux's maturity.</p>`},
+"2015": {t:"Linux 4.0", y:"2015", i:"Kernel 4.0 released with live patching.", b:`<h2>What happened</h2><p>Kernel 4.0 introduced live kernel patching.</p><h2>Why it matters</h2><p>Allowed updates without rebooting.</p>`},
+"2019": {t:"Linux 5.0", y:"2019", i:"Kernel 5.0 released.", b:`<h2>What happened</h2><p>Kernel 5.0 released with new features and hardware support.</p><h2>Why it matters</h2><p>Continued rapid development.</p>`},
+"2022": {t:"Linux 6.0", y:"2022", i:"Kernel 6.0 released; Rust support begins.", b:`<h2>What happened</h2><p>Kernel 6.0 released; initial Rust language support added.</p><h2>Why it matters</h2><p>Rust promises memory safety in kernel code.</p>`},
+"2025": {t:"Linux 6.x", y:"2025", i:"Ongoing 6.x series with continued Rust integration and hardware support.", b:`<h2>What happened</h2><p>The 6.x series continues with Rust integration and new hardware.</p><h2>Why it matters</h2><p>Linux keeps evolving for modern hardware and safety.</p>`}
+};
+const id = new URLSearchParams(location.search).get('id') || "1991";
+const d = E[id] || E["1991"];
+document.title = d.t + " — History of Linux";
+document.getElementById('content').innerHTML = `<div class="eyebrow">${d.y}</div><h1>${d.t}</h1><p class="subtitle">${d.i}</p>${d.b}<a class="back" href="index.html">← Back to timeline</a>`;
+</script>
+</body>
+</html>

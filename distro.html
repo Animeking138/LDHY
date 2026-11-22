@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distro Details — LDHY</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0a0e14; --surface:#121820; --border:#243040; --text:#e8eef5; --muted:#7d8a99; --accent:#6ea8fe; --gold:#f0b429; --radius:12px; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
+  body::before { content:''; position:fixed; inset:0; z-index:-1; background:radial-gradient(circle at 20% 10%,#1f6feb33 0%,transparent 40%),radial-gradient(circle at 80% 80%,#a78bfa22 0%,transparent 40%); }
+  .topbar { padding:1rem 1.5rem; border-bottom:1px solid var(--border); }
+  .topbar a { color:var(--accent); text-decoration:none; font-weight:500; }
+  .container { max-width:820px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
+  .eyebrow { font-family:'JetBrains Mono',monospace; color:var(--gold); font-size:.85rem; margin-bottom:.5rem; }
+  h1 { font-size:clamp(1.8rem,5vw,2.6rem); font-weight:800; margin-bottom:.5rem; }
+  .subtitle { color:var(--muted); font-size:1.1rem; margin-bottom:2rem; }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.25rem; margin-bottom:1.25rem; }
+  .row { display:flex; gap:.75rem; padding:.5rem 0; border-bottom:1px solid var(--border); }
+  .row:last-child { border-bottom:none; }
+  .label { color:var(--muted); min-width:160px; font-weight:600; }
+  .value { flex:1; }
+  .back { display:inline-block; margin-top:2rem; color:var(--accent); text-decoration:none; font-weight:500; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="topbar"><a href="index.html">← Back to list</a></div>
+<div class="container" id="content">Loading…</div>
+<script>
+const params = new URLSearchParams(location.search);
+const name = params.get('name') || '';
+fetch('distros.json').then(r=>r.json()).then(data=>{
+  const d = data.find(x=>x.name===name) || {name};
+  document.title = d.name + ' — Distro Details';
+  const rows = [
+    ['Name', d.name || '—'],
+    ['Family', d.family || '—'],
+    ['Difficulty', d.difficulty || '—'],
+    ['Creator / Developer', d.creator || '—'],
+    ['Initial release', d.release || '—'],
+    ['Based on', d.based_on || '—'],
+    ['Package manager', d.package_manager || '—'],
+    ['Status', d.status || '—'],
+    ['Official website', d.website ? `<a href="${d.website}" target="_blank" rel="noopener noreferrer">${d.website}</a>` : '—'],
+    ['Download', d.download ? `<a href="${d.download}" target="_blank" rel="noopener noreferrer">Download →</a>` : '—'],
+  ];
+  document.getElementById('content').innerHTML = `
+    <div class="eyebrow">${d.family || 'Linux distribution'}</div>
+    <h1>${d.name}</h1>
+    <p class="subtitle">${d.description || 'Details and metadata for this distribution.'}</p>
+    <div class="card">${rows.map(([l,v])=>`<div class="row"><div class="label">${l}</div><div class="value">${v}</div></div>`).join('')}</div>
+    <a class="back" href="index.html">← Back to list</a>`;
+}).catch(()=>{ document.getElementById('content').textContent='Failed to load data.'; });
+</script>
+</body>
+</html>
