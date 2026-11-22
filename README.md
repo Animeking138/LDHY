@@ -26,6 +26,10 @@ A curated list of Linux distributions with official download links, difficulty r
 - All links use `rel="noopener noreferrer"`
 - HTTPS-only links
 
+## Contributing
+
+If you know of any other distros or you have a distro, feel free to add it! Open a pull request or issue with the distro name, download link, and difficulty level.
+
 ## License
 
 MIT
