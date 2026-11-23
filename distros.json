@@ -1073,9 +1073,9 @@
     "based_on": "",
     "package_manager": "",
     "status": "Not yet verified",
-    "website": "",
+    "website": "https://www.redhat.com/en/store/linux-platforms",
     "description": "",
-    "price": "Server: $384-$1,429/yr | Workstation: $197-$329/yr"
+    "price": "US$383.90 starting price for Server; US$196.90 for Workstation (US store; actual cost varies by subscription and support tier)."
   },
   {
     "name": "Redcore",
@@ -1297,9 +1297,9 @@
     "based_on": "",
     "package_manager": "",
     "status": "Not yet verified",
-    "website": "",
+    "website": "https://www.suse.com/shop/server/",
     "description": "",
-    "price": "Server: $799-$1,299/yr | Desktop: $129-$237/yr"
+    "price": "Varies by product, architecture, subscription term and support tier; check SUSE's current store."
   },
   {
     "name": "SystemRescue",
@@ -1409,9 +1409,9 @@
     "based_on": "",
     "package_manager": "",
     "status": "Not yet verified",
-    "website": "",
+    "website": "https://ubuntu.com/pricing/pro",
     "description": "",
-    "price": "Workstation: $25/yr | Server: $500/yr (free for ≤5 machines)"
+    "price": "Free for personal use on up to 5 physical machines. Enterprise base tiers: US$25/workstation/year or US$500/server/year; check current pricing."
   },
   {
     "name": "Ubuntu Studio",
@@ -1493,8 +1493,8 @@
     "based_on": "",
     "package_manager": "",
     "status": "Not yet verified",
-    "website": "",
+    "website": "https://zorin.com/os/pro/",
     "description": "",
-    "price": "$47.99 one-time"
+    "price": "One-time purchase; current price is shown by Zorin at checkout."
   }
 ]
