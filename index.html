@@ -532,11 +532,6 @@ section:nth-child(10) { animation-delay: 0.45s; }
 <section data-section="notfound"><h2>Not found <span class="count">0</span></h2><div class="grid"></div></section>
 </main>
 
-<div class="empty-state" id="empty-state">
-  <p>No distros found</p>
-  <span class="hint">Try a different search or filter</span>
-</div>
-
 <footer>
   <p>LDHY — Linux Distros Heck Yeah</p>
   <div class="footer-links">
@@ -586,6 +581,9 @@ section:nth-child(10) { animation-delay: 0.45s; }
   searchInput.addEventListener('input', filterCards);
   difficultyFilter.addEventListener('change', filterCards);
   familyFilter.addEventListener('change', filterCards);
+
+  // Apply visibility rules immediately, including hiding empty categories on page load.
+  filterCards();
 })();
 </script>
 </body>
