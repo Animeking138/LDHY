@@ -120,9 +120,15 @@ fetch('distros.json')
     addRow(card, 'Based on', d.based_on);
     addRow(card, 'Package manager', d.package_manager);
     addRow(card, 'Maintenance status', d.status);
-    addRow(card, 'Official website', d.website, d.website, 'Visit official website ↗');
+    const isDistroWatchLink = /^https?:\/\/(www\.)?distrowatch\.com\//i.test(d.download || '');
+    const directHomepage = isDistroWatchLink && d.website ? d.website : '';
+    addRow(card, 'Official website', directHomepage ? '' : d.website, d.website, 'Visit official website ↗');
     addRow(card, 'Pricing', d.price);
-    addRow(card, 'Download / project page', d.download, d.download, 'Open download / project page ↗');
+    if (directHomepage) {
+      addRow(card, 'Project homepage', directHomepage, directHomepage, 'Visit official homepage ↗');
+    } else {
+      addRow(card, 'Download / project page', d.download, d.download, 'Open download / project page ↗');
+    }
 
     content.append(eyebrow, heading, subtitle, card);
     const back = document.createElement('a');
