@@ -19,6 +19,10 @@ struct Distro {
     based_on: String,
     package_manager: String,
     status: String,
+    #[serde(default)]
+    source: String,
+    #[serde(default)]
+    verified: String,
     website: String,
     description: String,
     price: String,
@@ -62,6 +66,25 @@ fn valid_url(value: &str) -> bool {
     Url::parse(value)
         .map(|url| matches!(url.scheme(), "http" | "https") && url.host_str().is_some())
         .unwrap_or(false)
+}
+
+fn valid_verification_date(value: &str) -> bool {
+    let bytes = value.as_bytes();
+    if bytes.len() != 10 || bytes[4] != b'-' || bytes[7] != b'-' {
+        return false;
+    }
+
+    let Ok(year) = value[0..4].parse::<u32>() else {
+        return false;
+    };
+    let Ok(month) = value[5..7].parse::<u32>() else {
+        return false;
+    };
+    let Ok(day) = value[8..10].parse::<u32>() else {
+        return false;
+    };
+
+    year > 0 && (1..=12).contains(&month) && (1..=31).contains(&day)
 }
 
 fn find_root() -> Result<PathBuf, Box<dyn std::error::Error>> {
@@ -291,6 +314,24 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 ));
             }
         }
+
+        if record.source.trim().is_empty() != record.verified.trim().is_empty() {
+            errors.push(format!(
+                "{label}: verification source and date must either both be present or both be empty."
+            ));
+        }
+        if !record.source.trim().is_empty() && !valid_url(&record.source) {
+            errors.push(format!(
+                "{label}: verification source is not a valid HTTP(S) URL: {:?}.",
+                record.source
+            ));
+        }
+        if !record.verified.trim().is_empty() && !valid_verification_date(&record.verified) {
+            errors.push(format!(
+                "{label}: verification date must use YYYY-MM-DD format: {:?}.",
+                record.verified
+            ));
+        }
     }
 
     check_homepage(&root, &records, &mut errors)?;
@@ -315,6 +356,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         .iter()
         .filter(|item| item.status.to_lowercase().contains("not yet verified"))
         .count();
+    let with_provenance = records
+        .iter()
+        .filter(|item| !item.source.trim().is_empty() && !item.verified.trim().is_empty())
+        .count();
 
     println!("LDHY catalog check passed.");
     println!("  Catalog entries: {}/{}", records.len(), records.len());
@@ -322,6 +367,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     println!("  Archive detail routes: valid");
     println!("  Duplicate names/slugs: none");
     println!("  URL syntax: valid (reachability not tested)");
+    println!("  Verification provenance: {with_provenance}/{} entries", records.len());
     println!();
     println!("Metadata completeness warnings (not build failures):");
     println!("  Missing official website: {missing_website}");
@@ -361,6 +407,13 @@ mod tests {
         assert_eq!(family_section("Arch-based (Pacman)"), Some("arch"));
         assert_eq!(family_section("Paid (subscription)"), Some("paid"));
         assert_eq!(family_section("Android"), Some("android"));
+    }
+
+    #[test]
+    fn verification_dates_use_iso_format() {
+        assert!(valid_verification_date("2026-11-24"));
+        assert!(!valid_verification_date("2026-13-24"));
+        assert!(!valid_verification_date("24-11-2026"));
     }
 
     #[test]
