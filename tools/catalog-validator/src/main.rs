@@ -74,17 +74,28 @@ fn valid_verification_date(value: &str) -> bool {
         return false;
     }
 
-    let Ok(year) = value[0..4].parse::<u32>() else {
+    if !bytes.iter().enumerate().all(|(index, byte)| {
+        index == 4 || index == 7 || byte.is_ascii_digit()
+    }) {
         return false;
-    };
-    let Ok(month) = value[5..7].parse::<u32>() else {
-        return false;
-    };
-    let Ok(day) = value[8..10].parse::<u32>() else {
-        return false;
+    }
+
+    let year = u32::from(bytes[0] - b'0') * 1000
+        + u32::from(bytes[1] - b'0') * 100
+        + u32::from(bytes[2] - b'0') * 10
+        + u32::from(bytes[3] - b'0');
+    let month = u32::from(bytes[5] - b'0') * 10 + u32::from(bytes[6] - b'0');
+    let day = u32::from(bytes[8] - b'0') * 10 + u32::from(bytes[9] - b'0');
+    let leap_year = year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
+    let days_in_month = match month {
+        1 | 3 | 5 | 7 | 8 | 10 | 12 => 31,
+        4 | 6 | 9 | 11 => 30,
+        2 if leap_year => 29,
+        2 => 28,
+        _ => return false,
     };
 
-    year > 0 && (1..=12).contains(&month) && (1..=31).contains(&day)
+    year > 0 && (1..=days_in_month).contains(&day)
 }
 
 fn find_root() -> Result<PathBuf, Box<dyn std::error::Error>> {
