@@ -97,13 +97,6 @@ fetch('distros.json')
       return;
     }
 
-    // Prefer the official homepage over DistroWatch whenever one is recorded.
-    const pointsToDistroWatch = /^https?:\/\/(www\.)?distrowatch\.com\//i.test(d.download || '');
-    if (pointsToDistroWatch && d.website) {
-      window.location.replace(d.website);
-      return;
-    }
-
     document.title = d.name + ' — Distro Details';
     content.replaceChildren();
 
@@ -128,14 +121,15 @@ fetch('distros.json')
     addRow(card, 'Package manager', d.package_manager);
     addRow(card, 'Maintenance status', d.status);
     const isDistroWatchLink = /^https?:\/\/(www\.)?distrowatch\.com\//i.test(d.download || '');
-    const directHomepage = isDistroWatchLink && d.website ? d.website : '';
-    addRow(card, 'Official website', directHomepage ? '' : d.website, d.website, 'Visit official website ↗');
+    addRow(card, 'Official website', d.website, d.website, 'Visit official website ↗');
     addRow(card, 'Pricing', d.price);
-    if (directHomepage) {
-      addRow(card, 'Project homepage', directHomepage, directHomepage, 'Visit official homepage ↗');
-    } else {
-      addRow(card, 'Download / project page', d.download, d.download, 'Open download / project page ↗');
-    }
+    addRow(
+      card,
+      isDistroWatchLink ? 'DistroWatch profile' : 'Download / project page',
+      d.download,
+      d.download,
+      isDistroWatchLink ? 'View DistroWatch profile ↗' : 'Open download / project page ↗'
+    );
 
     content.append(eyebrow, heading, subtitle, card);
     const back = document.createElement('a');
