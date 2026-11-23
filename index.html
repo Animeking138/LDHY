@@ -42,6 +42,10 @@
 
 html { scroll-behavior: smooth; }
 
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background: var(--bg);
@@ -449,6 +453,10 @@ section:nth-child(10) { animation-delay: 0.45s; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
 [hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
 </style>
 </head>
 <body>
@@ -475,7 +483,7 @@ section:nth-child(10) { animation-delay: 0.45s; }
   <div class="toolbar-inner">
     <div class="search-box">
       <span class="search-icon">⌕</span>
-      <input type="text" id="search" placeholder="Search distributions..." autocomplete="off" spellcheck="false">
+      <input type="text" id="search" aria-label="Search distributions" placeholder="Search distributions..." autocomplete="off" spellcheck="false">
     </div>
     <div class="filter-controls">
       <label class="filter-control">
@@ -508,6 +516,7 @@ section:nth-child(10) { animation-delay: 0.45s; }
     </div>
   </div>
 </div>
+<p class="sr-only" id="results-status" role="status" aria-live="polite" aria-atomic="true"></p>
 
 <main>
 <div class="empty-state" id="empty-state">
@@ -567,6 +576,7 @@ section:nth-child(10) { animation-delay: 0.45s; }
   const familyFilter = document.getElementById('family-filter');
   const sections = document.querySelectorAll('main > section');
   const emptyState = document.getElementById('empty-state');
+  const resultsStatus = document.getElementById('results-status');
 
   function updateFamilyOptions() {
     Array.from(familyFilter.options).forEach(option => {
@@ -608,6 +618,7 @@ section:nth-child(10) { animation-delay: 0.45s; }
     });
 
     emptyState.classList.toggle('visible', visibleCount === 0);
+    resultsStatus.textContent = `${visibleCount} ${visibleCount === 1 ? 'distribution' : 'distributions'} found.`;
   }
 
   searchInput.addEventListener('input', filterCards);
