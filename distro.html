@@ -42,7 +42,12 @@
 <script>
 const params = new URLSearchParams(location.search);
 const requestedName = params.get('name') || '';
+const requestedId = params.get('id') || '';
 const content = document.getElementById('content');
+
+function slugifyName(value) {
+  return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
 
 function cleanRelease(value) {
   if (!value) return '';
@@ -82,7 +87,10 @@ fetch('distros.json')
     return response.json();
   })
   .then(data => {
-    const d = data.find(item => item.name === requestedName);
+    const d = data.find(item =>
+      (requestedName && item.name === requestedName) ||
+      (requestedId && slugifyName(item.name) === requestedId)
+    );
     if (!d) {
       document.title = 'Distribution not found — LDHY';
       content.textContent = 'No catalog entry was found for this distribution.';

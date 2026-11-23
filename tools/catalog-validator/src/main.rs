@@ -1,0 +1,365 @@
+use regex::Regex;
+use serde::Deserialize;
+use std::{
+    collections::{HashMap, HashSet},
+    env, fs,
+    path::{Path, PathBuf},
+    process,
+};
+use url::{form_urlencoded, Url};
+
+#[derive(Debug, Deserialize)]
+struct Distro {
+    name: String,
+    family: String,
+    difficulty: String,
+    download: String,
+    creator: String,
+    release: String,
+    based_on: String,
+    package_manager: String,
+    status: String,
+    website: String,
+    description: String,
+    price: String,
+}
+
+fn slug(value: &str) -> String {
+    let mut output = String::new();
+
+    for character in value.to_lowercase().chars() {
+        if character.is_ascii_alphanumeric() {
+            output.push(character);
+        } else if !output.is_empty() && !output.ends_with('-') {
+            output.push('-');
+        }
+    }
+
+    output.trim_end_matches('-').to_owned()
+}
+
+fn family_section(family: &str) -> Option<&'static str> {
+    match family {
+        "Debian-based" => Some("debian"),
+        "Arch-based" | "Arch-based (Pacman)" => Some("arch"),
+        "RPM-based" => Some("rpm"),
+        "Gentoo-based" => Some("gentoo"),
+        "Slackware-based" => Some("slackware"),
+        "Source/Nix-based" => Some("source"),
+        "Others" => Some("others"),
+        "Paid (subscription)" => Some("paid"),
+        _ => None,
+    }
+}
+
+fn valid_url(value: &str) -> bool {
+    if value.trim().is_empty() {
+        return true;
+    }
+
+    Url::parse(value)
+        .map(|url| matches!(url.scheme(), "http" | "https") && url.host_str().is_some())
+        .unwrap_or(false)
+}
+
+fn find_root() -> Result<PathBuf, Box<dyn std::error::Error>> {
+    let mut current = env::current_dir()?;
+
+    loop {
+        if current.join("distros.json").is_file() && current.join("index.html").is_file() {
+            return Ok(current);
+        }
+
+        if !current.pop() {
+            break;
+        }
+    }
+
+    Err("Could not find the LDHY repository root (distros.json and index.html). Run this command from the repository.".into())
+}
+
+fn check_homepage(
+    root: &Path,
+    records: &[Distro],
+    errors: &mut Vec<String>,
+) -> Result<(), Box<dyn std::error::Error>> {
+    let html = fs::read_to_string(root.join("index.html"))?;
+    let section_re = Regex::new(r#"(?s)<section\s+data-section="([^"]+)"[^>]*>(.*?)</section>"#)?;
+    let card_re = Regex::new(
+        r#"(?s)<a class="card" data-diff="([^"]+)" href="distro\.html\?name=([^"]+)">.*?<h3>([^<]+)</h3></a>"#,
+    )?;
+
+    let catalog: HashMap<&str, &Distro> = records
+        .iter()
+        .map(|record| (record.name.as_str(), record))
+        .collect();
+
+    let mut seen = HashSet::new();
+    let mut card_count = 0usize;
+
+    for section in section_re.captures_iter(&html) {
+        let section_name = &section[1];
+        let section_html = &section[2];
+
+        for card in card_re.captures_iter(section_html) {
+            card_count += 1;
+            let difficulty = &card[1];
+            let encoded_name = &card[2];
+            let heading_name = card[3].trim();
+
+            let decoded_name = form_urlencoded::parse(
+                format!("name={encoded_name}").as_bytes(),
+            )
+            .find(|(key, _)| key == "name")
+            .map(|(_, value)| value.into_owned())
+            .unwrap_or_default();
+
+            if decoded_name != heading_name {
+                errors.push(format!(
+                    "Homepage link/name mismatch: link resolves to {decoded_name:?}, heading is {heading_name:?}."
+                ));
+            }
+
+            if !seen.insert(heading_name.to_owned()) {
+                errors.push(format!("Duplicate homepage card: {heading_name}."));
+            }
+
+            match catalog.get(heading_name) {
+                Some(record) => {
+                    if difficulty != record.difficulty.to_ascii_lowercase() {
+                        errors.push(format!(
+                            "Homepage difficulty mismatch for {}: card={}, JSON={}.",
+                            record.name, difficulty, record.difficulty
+                        ));
+                    }
+
+                    match family_section(&record.family) {
+                        Some(expected) if expected == section_name => {}
+                        Some(expected) => errors.push(format!(
+                            "Homepage section mismatch for {}: section={}, expected={}.",
+                            record.name, section_name, expected
+                        )),
+                        None => errors.push(format!(
+                            "Unknown family {:?} for {}.",
+                            record.family, record.name
+                        )),
+                    }
+                }
+                None => errors.push(format!(
+                    "Homepage card {:?} has no matching distros.json entry.",
+                    heading_name
+                )),
+            }
+        }
+    }
+
+    if card_count != records.len() {
+        errors.push(format!(
+            "Homepage/JSON count mismatch: {} cards versus {} catalog records.",
+            card_count,
+            records.len()
+        ));
+    }
+
+    for record in records {
+        if !seen.contains(&record.name) {
+            errors.push(format!(
+                "Catalog entry is missing from index.html: {}.",
+                record.name
+            ));
+        }
+    }
+
+    Ok(())
+}
+
+fn check_archive_routes(
+    root: &Path,
+    records: &[Distro],
+    errors: &mut Vec<String>,
+) -> Result<(), Box<dyn std::error::Error>> {
+    let archive = fs::read_to_string(root.join("distributions.html"))?;
+    let detail = fs::read_to_string(root.join("distro.html"))?;
+    let core_re = Regex::new(r#"const core=new Set\(\[([^\]]*)\]\)"#)?;
+    let item_re = Regex::new(r#""([^"]+)""#)?;
+
+    let Some(core_match) = core_re.captures(&archive) else {
+        errors.push("Could not find the archive's core detail-link set.".to_owned());
+        return Ok(());
+    };
+
+    let catalog_slugs: HashSet<String> = records.iter().map(|item| slug(&item.name)).collect();
+
+    for item in item_re.captures_iter(&core_match[1]) {
+        let item_slug = &item[1];
+        if !catalog_slugs.contains(item_slug) {
+            errors.push(format!(
+                "Archive marks {item_slug:?} as a detail page, but no matching catalog entry exists."
+            ));
+        }
+    }
+
+    if !archive.contains(&["distro.html?id=$", "{slug}"].concat()) {
+        errors.push("Archive detail links no longer use the expected id route.".to_owned());
+    }
+
+    if !detail.contains("params.get('id')") || !detail.contains("slugifyName") {
+        errors.push(
+            "distro.html does not resolve the archive's id-based links to catalog entries."
+                .to_owned(),
+        );
+    }
+
+    Ok(())
+}
+
+fn run() -> Result<(), Box<dyn std::error::Error>> {
+    let args: Vec<String> = env::args().skip(1).collect();
+
+    if args.iter().any(|arg| arg == "--help" || arg == "-h") {
+        println!("LDHY catalog checker\n\nUsage: cargo run -- [--check]\n\nValidates distros.json, homepage synchronization, and archive detail routes.\nIt checks URL syntax only; it does not claim that links are reachable or that metadata is factually verified.");
+        return Ok(());
+    }
+
+    if args.iter().any(|arg| arg != "--check") {
+        return Err("Unknown argument. Use --help for usage.".into());
+    }
+
+    let root = find_root()?;
+    let json = fs::read_to_string(root.join("distros.json"))?;
+    let records: Vec<Distro> = serde_json::from_str(&json)?;
+    let mut errors = Vec::new();
+
+    if records.is_empty() {
+        errors.push("distros.json contains no catalog entries.".to_owned());
+    }
+
+    let mut names = HashSet::new();
+    let mut slugs = HashSet::new();
+
+    for (index, record) in records.iter().enumerate() {
+        let label = format!("Entry {} ({})", index + 1, record.name);
+
+        if record.name.trim().is_empty() {
+            errors.push(format!("{label}: name is empty."));
+        } else if !names.insert(record.name.trim().to_lowercase()) {
+            errors.push(format!("Duplicate distribution name: {}.", record.name));
+        }
+
+        let item_slug = slug(&record.name);
+        if !item_slug.is_empty() && !slugs.insert(item_slug.clone()) {
+            errors.push(format!(
+                "Duplicate URL slug {item_slug:?}; detail routes would be ambiguous."
+            ));
+        }
+
+        if family_section(&record.family).is_none() {
+            errors.push(format!(
+                "{label}: unsupported family {:?}.",
+                record.family
+            ));
+        }
+
+        if !["Beginner", "Intermediate", "Advanced", "Expert"]
+            .contains(&record.difficulty.as_str())
+        {
+            errors.push(format!(
+                "{label}: unsupported difficulty {:?}.",
+                record.difficulty
+            ));
+        }
+
+        if record.status.trim().is_empty() {
+            errors.push(format!("{label}: maintenance status is empty."));
+        }
+
+        for (field, value) in [
+            ("website", record.website.as_str()),
+            ("download", record.download.as_str()),
+        ] {
+            if !valid_url(value) {
+                errors.push(format!(
+                    "{label}: {field} is not a valid HTTP(S) URL: {value:?}."
+                ));
+            }
+        }
+    }
+
+    check_homepage(&root, &records, &mut errors)?;
+    check_archive_routes(&root, &records, &mut errors)?;
+
+    if !errors.is_empty() {
+        eprintln!("LDHY catalog check failed with {} error(s):", errors.len());
+        for error in &errors {
+            eprintln!("  - {error}");
+        }
+        process::exit(1);
+    }
+
+    let missing_website = records.iter().filter(|item| item.website.trim().is_empty()).count();
+    let missing_package_manager = records.iter().filter(|item| item.package_manager.trim().is_empty()).count();
+    let missing_base = records.iter().filter(|item| item.based_on.trim().is_empty()).count();
+    let missing_description = records.iter().filter(|item| item.description.trim().is_empty()).count();
+    let missing_creator = records.iter().filter(|item| item.creator.trim().is_empty()).count();
+    let missing_release = records.iter().filter(|item| item.release.trim().is_empty()).count();
+    let missing_price = records.iter().filter(|item| item.price.trim().is_empty()).count();
+    let unverified = records
+        .iter()
+        .filter(|item| item.status.to_lowercase().contains("not yet verified"))
+        .count();
+
+    println!("LDHY catalog check passed.");
+    println!("  Catalog entries: {}/{}", records.len(), records.len());
+    println!("  Homepage cards: synchronized");
+    println!("  Archive detail routes: valid");
+    println!("  Duplicate names/slugs: none");
+    println!("  URL syntax: valid (reachability not tested)");
+    println!();
+    println!("Metadata completeness warnings (not build failures):");
+    println!("  Missing official website: {missing_website}");
+    println!("  Missing package manager: {missing_package_manager}");
+    println!("  Missing base distribution: {missing_base}");
+    println!("  Missing description: {missing_description}");
+    println!("  Missing creator: {missing_creator}");
+    println!("  Missing initial release: {missing_release}");
+    println!("  Missing pricing information: {missing_price}");
+    println!("  Marked not yet verified: {unverified}");
+
+    Ok(())
+}
+
+fn main() {
+    if let Err(error) = run() {
+        eprintln!("Error: {error}");
+        process::exit(1);
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn slug_matches_existing_archive_convention() {
+        assert_eq!(slug("Arch Linux"), "arch-linux");
+        assert_eq!(slug("aerynOS"), "aerynos");
+        assert_eq!(slug("Adélie Linux"), "ad-lie-linux");
+    }
+
+    #[test]
+    fn family_names_map_to_homepage_sections() {
+        assert_eq!(family_section("Debian-based"), Some("debian"));
+        assert_eq!(family_section("Arch-based"), Some("arch"));
+        assert_eq!(family_section("Arch-based (Pacman)"), Some("arch"));
+        assert_eq!(family_section("Paid (subscription)"), Some("paid"));
+    }
+
+    #[test]
+    fn only_http_and_https_urls_are_accepted() {
+        assert!(valid_url("https://example.org/download"));
+        assert!(valid_url("http://example.org"));
+        assert!(valid_url(""));
+        assert!(!valid_url("javascript:alert(1)"));
+        assert!(!valid_url("not a URL"));
+    }
+}
