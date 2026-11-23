@@ -8,7 +8,7 @@ A curated directory of Linux distributions. Metadata completeness and verificati
 
 ## Features
 
-- **118 Linux distributions** organized by base family (Debian, Arch, RPM, Gentoo, Slackware, Source/Nix, and Others)
+- **126 Linux distributions** organized by base family (Debian, Arch, RPM, Gentoo, Slackware, Source/Nix, and Others)
 - **Difficulty badges** — Beginner, Intermediate, Advanced, Expert
 - **Official download links** where available, with DistroWatch fallback for others
 - **Paid (subscription)** section with pricing for RHEL, SUSE, Ubuntu Pro, and Zorin OS Pro
@@ -44,3 +44,8 @@ The main catalog currently contains 107 entries. Family labels have been cleaned
 ## Recently added entries
 
 Added 11 entries after checking for normalized-name collisions against the existing main catalog: Bazzite, Bedrock Linux, Bottlerocket, DietPi, Flatcar Container Linux, Mobian, Nobara Linux, Qubes OS, Ubuntu Touch, Vanilla OS and Whonix. Each new record links to its project's official site. Release dates are left blank where a reliable initial-release date was not established; difficulty labels are editorial estimates, not official project ratings.
+
+
+## Lesser-known additions
+
+Added eight entries after normalized-name duplicate checks: Exodia OS, AcreetionOS, aerynOS, Adélie Linux, Exherbo, NuTyX, OpenWrt and Dragora GNU/Linux-Libre. Descriptions and technical details were checked against project sources. aerynOS is explicitly labelled Alpha; Exodia OS is noted as having editions described by its project as under testing. Other maintenance statuses remain unverified rather than being guessed. Difficulty labels are editorial estimates.
