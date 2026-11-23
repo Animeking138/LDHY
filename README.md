@@ -17,15 +17,6 @@ A curated list of Linux distributions with official download links, difficulty r
 - **Responsive design** — works on mobile and desktop
 - **No JavaScript, no trackers, no external dependencies**
 
-## Security
-
-- Content Security Policy (CSP)
-- X-Content-Type-Options: nosniff
-- Referrer-Policy: strict-origin-when-cross-origin
-- Permissions-Policy (geolocation, microphone, camera disabled)
-- All links use `rel="noopener noreferrer"`
-- HTTPS-only links
-
 ## Contributing
 
 If you know of any other distros or you have a distro, feel free to add it! Open a pull request or issue with the distro name, download link, and difficulty level.
