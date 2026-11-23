@@ -467,7 +467,7 @@ section:nth-child(10) { animation-delay: 0.45s; }
   <circle cx="40" cy="25" r="3" fill="#27c93f"/>
   <text x="50" y="65" font-family="monospace" font-weight="bold" font-size="22" fill="#0f0" text-anchor="middle">LDHY</text>
 </svg>
-<h1>LDHY<span class="cursor"></span></h1>
+<h1 aria-label="LDHY"><span id="typed-title" aria-hidden="true">LDHY</span><span class="cursor" aria-hidden="true"></span></h1>
 <p class="sub">Linux Distros Heck Yeah</p>
 </header>
 
@@ -547,6 +547,21 @@ section:nth-child(10) { animation-delay: 0.45s; }
 
 <script>
 (function() {
+  const title = document.getElementById('typed-title');
+  const titleText = 'LDHY';
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (title && !reducedMotion) {
+    title.textContent = '';
+    let position = 0;
+    const typeNextCharacter = () => {
+      if (position >= titleText.length) return;
+      title.textContent += titleText[position++];
+      window.setTimeout(typeNextCharacter, 140);
+    };
+    window.setTimeout(typeNextCharacter, 250);
+  }
+
   const searchInput = document.getElementById('search');
   const difficultyFilter = document.getElementById('difficulty-filter');
   const familyFilter = document.getElementById('family-filter');
