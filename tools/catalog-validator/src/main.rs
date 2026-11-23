@@ -151,10 +151,27 @@ fn check_homepage(
                 .split_once('?')
                 .and_then(|(_, query)| {
                     form_urlencoded::parse(query.as_bytes())
-                        .find(|(key, _)| key == "name")
-                        .map(|(_, value)| value.into_owned())
+                        .find(|(key, _)| key == "name" || key == "id")
+                        .map(|(key, value)| {
+                            let value = value.into_owned();
+                            if key == "id" {
+                                records
+                                    .iter()
+                                    .find(|record| slug(&record.name) == value)
+                                    .map(|record| record.name.clone())
+                                    .unwrap_or(value)
+                            } else {
+                                value
+                            }
+                        })
                 })
                 .unwrap_or_else(|| heading_name.to_owned());
+
+            if section_name == "android" && !href.starts_with("distro.html?id=") {
+                errors.push(format!(
+                    "Android card {heading_name:?} must use the shared JSON detail page: {href:?}."
+                ));
+            }
 
             if !href.starts_with("distro.html?") {
                 let path = Path::new(href);
