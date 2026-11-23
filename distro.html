@@ -138,7 +138,12 @@ fetch('distros.json')
     const sameDestination = (() => {
       if (!officialHomepage || !downloadHref) return false;
       try {
-        return new URL(downloadHref, location.href).href === officialHomepage;
+        const normalizeDestination = value => {
+          const url = new URL(value, location.href);
+          url.pathname = url.pathname.replace(/\/+$/, '') || '/';
+          return url.href;
+        };
+        return normalizeDestination(downloadHref) === normalizeDestination(officialHomepage);
       } catch {
         return false;
       }
