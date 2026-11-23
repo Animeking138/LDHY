@@ -249,7 +249,13 @@ fn check_archive_routes(
     errors: &mut Vec<String>,
 ) -> Result<(), Box<dyn std::error::Error>> {
     let archive = fs::read_to_string(root.join("distributions.html"))?;
+    let archive_script = fs::read_to_string(root.join("assets/js/distributions.js"))?;
     let detail = fs::read_to_string(root.join("distro.html"))?;
+    let detail_script = fs::read_to_string(root.join("assets/js/distro.js"))?;
+
+    if !archive.contains("assets/js/distributions.js") {
+        errors.push("Archive must load its local catalog script.".to_owned());
+    }
 
     for (description, required) in [
         ("load the shared JSON catalog", "fetch('distros.json')"),
@@ -257,14 +263,17 @@ fn check_archive_routes(
         ("render catalog text safely", "textContent"),
         ("rank every difficulty level", "Expert: 4"),
     ] {
-        if !archive.contains(required) {
-            errors.push(format!("Archive must {description}."));
+        if !archive_script.contains(required) {
+            errors.push(format!("Archive script must {description}."));
         }
     }
 
-    if !detail.contains("params.get('id')") || !detail.contains("slugifyName") {
+    if !detail.contains("assets/js/distro.js")
+        || !detail_script.contains("params.get('id')")
+        || !detail_script.contains("slugifyName")
+    {
         errors.push(
-            "distro.html does not resolve the archive's id-based links to catalog entries."
+            "distro.html does not load the shared script that resolves archive id-based links."
                 .to_owned(),
         );
     }
