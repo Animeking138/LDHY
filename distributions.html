@@ -64,6 +64,8 @@ function setSort(mode) {
   document.querySelectorAll('.sortbtn').forEach(button => {
     const active = button.dataset.sort === mode;
     button.classList.toggle('active', active);
+    button.style.color = active ? 'var(--text)' : 'var(--muted)';
+    button.style.background = active ? 'var(--surface-2)' : 'var(--surface)';
     button.setAttribute('aria-pressed', String(active));
   });
   filter();
@@ -107,7 +109,7 @@ function render(query = '') {
 
     const year = releaseYear(distro.release);
     const name = makeText('div', 'name', distro.name + (year ? ' · ' + year : ''));
-    const meta = makeText('div', 'meta', [distro.package_manager, distro.description].filter(Boolean).join(' · '));
+    const meta = makeText('div', 'meta', [distro.family, distro.package_manager].filter(Boolean).join(' · '));
     const base = makeText('span', 'base', distro.based_on || distro.family || 'Base not specified');
     const difficulty = makeText('span', '', distro.difficulty || 'Difficulty not specified');
     difficulty.style.color = 'var(--accent)';
