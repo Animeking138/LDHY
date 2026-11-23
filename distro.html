@@ -31,30 +31,82 @@
 <div class="container" id="content">Loading…</div>
 <script>
 const params = new URLSearchParams(location.search);
-const name = params.get('name') || '';
-fetch('distros.json').then(r=>r.json()).then(data=>{
-  const d = data.find(x=>x.name===name) || {name};
-  document.title = d.name + ' — Distro Details';
-  const rows = [
-    ['Name', d.name || '—'],
-    ['Family', d.family || '—'],
-    ['Difficulty', d.difficulty || '—'],
-    ['Creator / Developer', d.creator || '—'],
-    ['Initial release', d.release || '—'],
-    ['Based on', d.based_on || '—'],
-    ['Package manager', d.package_manager || '—'],
-    ['Status', d.status || '—'],
-    ['Official website', d.website ? `<a href="${d.website}" target="_blank" rel="noopener noreferrer">${d.website}</a>` : '—'],
-    ['Price', d.price || '—'],
-    ['Download', d.download ? `<a href="${d.download}" target="_blank" rel="noopener noreferrer">Download →</a>` : '—'],
-  ];
-  document.getElementById('content').innerHTML = `
-    <div class="eyebrow">${d.family || 'Linux distribution'}</div>
-    <h1>${d.name}</h1>
-    <p class="subtitle">${d.description || 'Details and metadata for this distribution.'}</p>
-    <div class="card">${rows.map(([l,v])=>`<div class="row"><div class="label">${l}</div><div class="value">${v}</div></div>`).join('')}</div>
-    <a class="back" href="index.html">← Back to list</a>`;
-}).catch(()=>{ document.getElementById('content').textContent='Failed to load data.'; });
+const requestedName = params.get('name') || '';
+const content = document.getElementById('content');
+
+function addRow(card, label, value, href) {
+  const row = document.createElement('div');
+  row.className = 'row';
+  const key = document.createElement('div');
+  key.className = 'label';
+  key.textContent = label;
+  const val = document.createElement('div');
+  val.className = 'value';
+  if (href) {
+    const link = document.createElement('a');
+    link.href = href;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = value;
+    val.appendChild(link);
+  } else {
+    val.textContent = value || 'Not supplied';
+  }
+  row.append(key, val);
+  card.appendChild(row);
+}
+
+fetch('distros.json')
+  .then(response => {
+    if (!response.ok) throw new Error('Could not load catalog data');
+    return response.json();
+  })
+  .then(data => {
+    const d = data.find(item => item.name === requestedName);
+    if (!d) {
+      document.title = 'Distribution not found — LDHY';
+      content.textContent = 'No catalog entry was found for this distribution.';
+      return;
+    }
+
+    document.title = d.name + ' — Distro Details';
+    content.replaceChildren();
+
+    const eyebrow = document.createElement('div');
+    eyebrow.className = 'eyebrow';
+    eyebrow.textContent = d.family || 'Linux distribution';
+
+    const heading = document.createElement('h1');
+    heading.textContent = d.name;
+
+    const subtitle = document.createElement('p');
+    subtitle.className = 'subtitle';
+    subtitle.textContent = d.description || 'Metadata is incomplete; see the project website for authoritative details.';
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    addRow(card, 'Name', d.name);
+    addRow(card, 'Family', d.family);
+    addRow(card, 'Difficulty estimate', d.difficulty);
+    addRow(card, 'Creator / Developer', d.creator);
+    addRow(card, 'Initial release', d.release);
+    addRow(card, 'Based on', d.based_on);
+    addRow(card, 'Package manager', d.package_manager);
+    addRow(card, 'Maintenance status', d.status);
+    addRow(card, 'Official website', d.website, d.website);
+    addRow(card, 'Pricing', d.price);
+    addRow(card, 'Download / project page', d.download, d.download);
+
+    content.append(eyebrow, heading, subtitle, card);
+    const back = document.createElement('a');
+    back.className = 'back';
+    back.href = 'index.html';
+    back.textContent = '← Back to list';
+    content.appendChild(back);
+  })
+  .catch(() => {
+    content.textContent = 'Failed to load catalog data. Please try again later.';
+  });
 </script>
 </body>
 </html>
