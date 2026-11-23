@@ -2,7 +2,7 @@
   {
     "name": "/e/OS",
     "family": "Android",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://doc.e.foundation/devices",
     "creator": "e Foundation",
     "release": "",
@@ -16,7 +16,7 @@
   {
     "name": "Absolute Linux",
     "family": "Slackware-based",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://distrowatch.com/table.php?distribution=absolutelinux",
     "creator": "Jordan Tyler Burchett",
     "release": "2007",
@@ -44,7 +44,7 @@
   {
     "name": "Adélie Linux",
     "family": "Others",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://www.adelielinux.org/",
     "creator": "Adélie Linux project",
     "release": "",
@@ -128,7 +128,7 @@
   {
     "name": "Android",
     "family": "Android",
-    "difficulty": "Advanced",
+    "difficulty": "Expert",
     "download": "https://source.android.com/docs/setup/download",
     "creator": "Google",
     "release": "",
@@ -240,7 +240,7 @@
   {
     "name": "AUSTRUMI",
     "family": "Others",
-    "difficulty": "Advanced",
+    "difficulty": "Beginner",
     "download": "https://distrowatch.com/table.php?distribution=austrumi",
     "creator": "Andrejs Meinerts",
     "release": "",
@@ -436,7 +436,7 @@
   {
     "name": "CalyxOS",
     "family": "Android",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://calyxos.org/install/",
     "creator": "Calyx Institute",
     "release": "",
@@ -492,7 +492,7 @@
   {
     "name": "Chimera Linux",
     "family": "Others",
-    "difficulty": "Expert",
+    "difficulty": "Advanced",
     "download": "https://chimera-linux.org/docs/installation",
     "creator": "Chimera Linux developers",
     "release": "",
@@ -562,7 +562,7 @@
   {
     "name": "Commodore OS",
     "family": "Others",
-    "difficulty": "Intermediate",
+    "difficulty": "Beginner",
     "download": "https://distrowatch.com/table.php?distribution=commodoreos",
     "creator": "Commodore USA (until 2013), Leo Nigro, Commodore International Corporation (starting June 2025)",
     "release": "",
@@ -618,7 +618,7 @@
   {
     "name": "Damn Small Linux",
     "family": "Others",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://distrowatch.com/table.php?distribution=damnsmalllinux",
     "creator": "John Andrews, et al.",
     "release": "April 13, 2005 (2005-04-13)",
@@ -744,7 +744,7 @@
   {
     "name": "EasyOS",
     "family": "Others",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://distrowatch.com/table.php?distribution=easyos",
     "creator": "",
     "release": "",
@@ -772,7 +772,7 @@
   {
     "name": "Elive",
     "family": "Others",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://distrowatch.com/table.php?distribution=elive",
     "creator": "Samuel F. Baggen",
     "release": "January 2005 (2005-01)",
@@ -898,7 +898,7 @@
   {
     "name": "FuguIta",
     "family": "Others",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://distrowatch.com/table.php?distribution=fuguita",
     "creator": "",
     "release": "",
@@ -940,7 +940,7 @@
   {
     "name": "GeckoLinux",
     "family": "Others",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://distrowatch.com/table.php?distribution=geckolinux",
     "creator": "",
     "release": "27 May 2016 (2016-05-27)",
@@ -968,7 +968,7 @@
   {
     "name": "GoboLinux",
     "family": "Others",
-    "difficulty": "Expert",
+    "difficulty": "Advanced",
     "download": "",
     "creator": "",
     "release": "2003 (2003)",
@@ -982,7 +982,7 @@
   {
     "name": "GrapheneOS",
     "family": "Android",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://grapheneos.org/install/",
     "creator": "GrapheneOS Foundation",
     "release": "",
@@ -1052,7 +1052,7 @@
   {
     "name": "Hyperbola",
     "family": "Others",
-    "difficulty": "Expert",
+    "difficulty": "Advanced",
     "download": "https://distrowatch.com/table.php?distribution=hyperbola",
     "creator": "",
     "release": "",
@@ -1066,7 +1066,7 @@
   {
     "name": "IPFire",
     "family": "Others",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://distrowatch.com/table.php?distribution=ipfire",
     "creator": "IPFire-Team",
     "release": "",
@@ -1290,7 +1290,7 @@
   {
     "name": "Minimal Linux Live",
     "family": "Others",
-    "difficulty": "Advanced",
+    "difficulty": "Expert",
     "download": "https://distrowatch.com/table.php?distribution=minimallinuxlive",
     "creator": "",
     "release": "",
@@ -1318,7 +1318,7 @@
   {
     "name": "Mobian",
     "family": "Debian-based",
-    "difficulty": "Intermediate",
+    "difficulty": "Advanced",
     "download": "https://mobian.org/",
     "creator": "Mobian community",
     "release": "",
@@ -1430,7 +1430,7 @@
   {
     "name": "NuTyX",
     "family": "Source/Nix-based",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://www.nutyx.org/en/",
     "creator": "NuTyX project",
     "release": "",
@@ -1486,7 +1486,7 @@
   {
     "name": "openSUSE Tumbleweed",
     "family": "RPM-based",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://get.opensuse.org/tumbleweed",
     "creator": "openSUSE Project",
     "release": "March 1994 (1994-03) (as SUSE Linux)7 December 2006 (2006-12-07) (as openSUSE)",
@@ -1654,7 +1654,7 @@
   {
     "name": "Porteus",
     "family": "Slackware-based",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "",
     "creator": "",
     "release": "",
@@ -1738,7 +1738,7 @@
   {
     "name": "Puppy Linux",
     "family": "Debian-based",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://puppylinux-woof-ce.github.io/",
     "creator": "Barry Kauler (original)Larry Short, Mick Amadio and Puppy community (current)",
     "release": "0.1/ 19 June 2003 (2003-06-19)",
@@ -1794,7 +1794,7 @@
   {
     "name": "Raspberry Pi OS",
     "family": "Debian-based",
-    "difficulty": "Intermediate",
+    "difficulty": "Beginner",
     "download": "https://www.raspberrypi.com/software/operating-systems/",
     "creator": "Raspberry Pi Holdings",
     "release": "15 July 2012 (2012-07-15)",
@@ -1836,7 +1836,7 @@
   {
     "name": "Redcore",
     "family": "Gentoo-based",
-    "difficulty": "Expert",
+    "difficulty": "Advanced",
     "download": "https://distrowatch.com/table.php?distribution=redcore",
     "creator": "",
     "release": "",
@@ -1850,7 +1850,7 @@
   {
     "name": "Regolith",
     "family": "Others",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://distrowatch.com/table.php?distribution=regolith",
     "creator": "",
     "release": "",
@@ -1906,7 +1906,7 @@
   {
     "name": "Sabayon",
     "family": "Gentoo-based",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "",
     "creator": "",
     "release": "",
@@ -1920,7 +1920,7 @@
   {
     "name": "Salix",
     "family": "Slackware-based",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://distrowatch.com/table.php?distribution=salix",
     "creator": "",
     "release": "",
@@ -1962,7 +1962,7 @@
   {
     "name": "Slackel",
     "family": "Slackware-based",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://distrowatch.com/table.php?distribution=slackel",
     "creator": "",
     "release": "",
@@ -1976,7 +1976,7 @@
   {
     "name": "Slackware",
     "family": "Slackware-based",
-    "difficulty": "Expert",
+    "difficulty": "Advanced",
     "download": "https://www.slackware.com/getslack/",
     "creator": "Patrick Volkerding",
     "release": "17 July 1993 (1993-07-17)",
@@ -1990,7 +1990,7 @@
   {
     "name": "Slax",
     "family": "Debian-based",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://www.slax.org/",
     "creator": "Tomáš Matějíček",
     "release": "",
@@ -2004,7 +2004,7 @@
   {
     "name": "SliTaz",
     "family": "Others",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://distrowatch.com/table.php?distribution=slitaz",
     "creator": "The SliTaz GNU/Linux AssociationChristophe Lincoln",
     "release": "22 March 2008",
@@ -2144,7 +2144,7 @@
   {
     "name": "Tails",
     "family": "Debian-based",
-    "difficulty": "Advanced",
+    "difficulty": "Intermediate",
     "download": "https://tails.net/install/",
     "creator": "",
     "release": "",
@@ -2158,7 +2158,7 @@
   {
     "name": "Tiny Core Linux",
     "family": "Others",
-    "difficulty": "Expert",
+    "difficulty": "Advanced",
     "download": "https://distrowatch.com/table.php?distribution=tinycorelinux",
     "creator": "",
     "release": "January 5, 2009 (2009-01-05)",
@@ -2242,7 +2242,7 @@
   {
     "name": "Ubuntu Studio",
     "family": "Debian-based",
-    "difficulty": "Intermediate",
+    "difficulty": "Beginner",
     "download": "https://ubuntustudio.org/download/",
     "creator": "Ubuntu Studio Project",
     "release": "7.04 (Feisty Fawn) / 10 May 2007 () (2007-05-10)",
@@ -2326,7 +2326,7 @@
   {
     "name": "Whonix",
     "family": "Debian-based",
-    "difficulty": "Intermediate",
+    "difficulty": "Advanced",
     "download": "https://www.whonix.org/",
     "creator": "Whonix Project",
     "release": "",
