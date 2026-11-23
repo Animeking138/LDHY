@@ -1,30 +1,47 @@
 # LDHY — Linux Distros Heck Yeah
 
-A curated list of Linux distributions with official download links, difficulty ratings, and pricing info.
+A curated catalog for discovering Linux distributions, comparing their basic characteristics, and finding project or download pages.
 
-## Website
+**Live website:** [animeking138.github.io/LDHY](https://animeking138.github.io/LDHY/)
 
-🔗 **[https://animeking138.github.io/LDHY/](https://animeking138.github.io/LDHY/)**
+## Overview
+
+LDHY brings Linux distributions together in one searchable catalog. Entries are grouped by distribution family and include a difficulty estimate to help visitors explore options at different experience levels.
 
 ## Features
 
-- **Linux distributions** organized by base family (Debian, Arch, RPM, Gentoo, Slackware, Source/Nix, and Others)
-- **Difficulty badges** — Beginner, Intermediate, Advanced, Expert
-- **Official download links** where available, with DistroWatch fallback for others
-- **Paid (subscription)** section with pricing for RHEL, SUSE, Ubuntu Pro, and Zorin OS Pro
-- **Not found** section for distros without available links
-- **AMOLED dark theme** with security headers (CSP, X-Content-Type-Options, Referrer-Policy, Permissions-Policy)
-- **Responsive design** — works on mobile and desktop
-- **No JavaScript, no trackers, no external dependencies**
+- **Browse by family** — explore Debian-, Arch-, RPM-, Gentoo-, Slackware-, and other distribution families.
+- **Search and filter** — find entries by name and filter the main catalog by estimated difficulty.
+- **Distribution details** — view available metadata such as developer, initial release, base distribution, package manager, maintenance status, website, pricing, and download or project links.
+- **Extended archive** — search the archive and sort entries by release date or difficulty.
+- **AMOLED-friendly interface** — a dark, responsive layout for desktop and mobile screens.
+
+## Project structure
+
+| File | Purpose |
+| --- | --- |
+| `index.html` | Main catalog with search, difficulty filters, and family sections |
+| `distros.json` | Distribution data used by the detail pages |
+| `distro.html` | Individual distribution information pages |
+| `distributions.html` | Extended distribution archive |
+
+## Data and accuracy
+
+Catalog entries may have incomplete or unverified metadata. Difficulty labels are estimates intended as a general guide, not objective rankings. Check a distribution's official website for current release information, support status, system requirements, and installation instructions before choosing or installing it.
+
+LDHY is an informational catalog. It does not develop, distribute, or install the listed operating systems.
 
 ## Contributing
 
-If you know of any other distros or you have a distro, feel free to add it! Open a pull request or issue with the distro name, download link, and difficulty level.
+Suggestions and corrections are welcome. When proposing a new entry or an update, include:
 
-## Vibecoded
+- The distribution's name and official website.
+- A reliable project or download link.
+- The distribution family and relevant metadata, with sources where possible.
+- A check that the distribution is not already listed.
 
-This project was vibecoded.
+You can contribute by opening an issue or submitting a pull request.
 
-## License
+## Built with
 
-MIT
+HTML, CSS, JavaScript, and JSON.
