@@ -11,6 +11,7 @@
 <style>
   :root { --bg:#000000; --surface:#0b0b0b; --border:#242424; --text:#e8eef5; --muted:#7d8a99; --accent:#6ea8fe; --gold:#f0b429; --radius:12px; }
   * { box-sizing:border-box; margin:0; padding:0; }
+  :focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
   body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
   body::before { content:''; position:fixed; inset:0; z-index:-1; background:#000000; }
   .topbar { padding:1rem 1.5rem; border-bottom:1px solid var(--border); }
@@ -33,6 +34,10 @@
     .row { grid-template-columns:1fr; gap:.2rem; padding:.7rem 0; }
     .label { font-size:.82rem; }
     .subtitle { font-size:1rem; margin-bottom:1.4rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior:auto; }
+    *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
   }
 </style>
 </head>
