@@ -302,6 +302,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let missing_description = records.iter().filter(|item| item.description.trim().is_empty()).count();
     let missing_creator = records.iter().filter(|item| item.creator.trim().is_empty()).count();
     let missing_release = records.iter().filter(|item| item.release.trim().is_empty()).count();
+    let missing_price = records.iter().filter(|item| item.price.trim().is_empty()).count();
     let unverified = records
         .iter()
         .filter(|item| item.status.to_lowercase().contains("not yet verified"))
@@ -321,6 +322,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     println!("  Missing description: {missing_description}");
     println!("  Missing creator: {missing_creator}");
     println!("  Missing initial release: {missing_release}");
+    println!("  Missing pricing information: {missing_price}");
     println!("  Marked not yet verified: {unverified}");
 
     Ok(())
