@@ -17,13 +17,21 @@
   .eyebrow { font-family:'JetBrains Mono',monospace; color:var(--gold); font-size:.85rem; margin-bottom:.5rem; }
   h1 { font-size:clamp(1.8rem,5vw,2.6rem); font-weight:800; margin-bottom:.5rem; }
   .subtitle { color:var(--muted); font-size:1.1rem; margin-bottom:2rem; }
-  .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.25rem; margin-bottom:1.25rem; }
-  .row { display:flex; gap:.75rem; padding:.5rem 0; border-bottom:1px solid var(--border); }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:clamp(1rem,3vw,1.5rem); margin-bottom:1.25rem; }
+  .row { display:grid; grid-template-columns:minmax(145px,190px) minmax(0,1fr); gap:1rem; align-items:start; padding:.8rem 0; border-bottom:1px solid var(--border); }
   .row:last-child { border-bottom:none; }
-  .label { color:var(--muted); min-width:160px; font-weight:600; }
-  .value { flex:1; }
-  .back { display:inline-block; margin-top:2rem; color:var(--accent); text-decoration:none; font-weight:500; }
+  .label { color:var(--muted); font-size:.92rem; font-weight:600; }
+  .value { min-width:0; overflow-wrap:anywhere; color:var(--text); }
+  .value a { display:inline-flex; align-items:center; gap:.35rem; font-weight:600; text-decoration:none; }
+  .value a:hover, .back:hover { text-decoration:underline; }
+  .back { display:inline-block; margin-top:1.5rem; color:var(--accent); text-decoration:none; font-weight:600; }
   a { color:var(--accent); }
+  @media (max-width:560px) {
+    .container { padding:1.75rem 1rem 3rem; }
+    .row { grid-template-columns:1fr; gap:.2rem; padding:.7rem 0; }
+    .label { font-size:.82rem; }
+    .subtitle { font-size:1rem; margin-bottom:1.4rem; }
+  }
 </style>
 </head>
 <body>
@@ -34,7 +42,17 @@ const params = new URLSearchParams(location.search);
 const requestedName = params.get('name') || '';
 const content = document.getElementById('content');
 
-function addRow(card, label, value, href) {
+function cleanRelease(value) {
+  if (!value) return '';
+  return String(value)
+    .replace(/\s*\(\)\s*/g, ' ')
+    .replace(/\s*\(\d{4}-\d{2}-\d{2}\)\s*$/, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function addRow(card, label, value, href, linkText) {
+  if (value === null || value === undefined || String(value).trim() === '') return;
   const row = document.createElement('div');
   row.className = 'row';
   const key = document.createElement('div');
@@ -47,10 +65,10 @@ function addRow(card, label, value, href) {
     link.href = href;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
-    link.textContent = value;
+    link.textContent = linkText || 'Visit official page';
     val.appendChild(link);
   } else {
-    val.textContent = value || 'Not supplied';
+    val.textContent = value;
   }
   row.append(key, val);
   card.appendChild(row);
@@ -85,17 +103,16 @@ fetch('distros.json')
 
     const card = document.createElement('div');
     card.className = 'card';
-    addRow(card, 'Name', d.name);
     addRow(card, 'Family', d.family);
     addRow(card, 'Difficulty estimate', d.difficulty);
     addRow(card, 'Creator / Developer', d.creator);
-    addRow(card, 'Initial release', d.release);
+    addRow(card, 'Initial release', cleanRelease(d.release));
     addRow(card, 'Based on', d.based_on);
     addRow(card, 'Package manager', d.package_manager);
     addRow(card, 'Maintenance status', d.status);
-    addRow(card, 'Official website', d.website, d.website);
+    addRow(card, 'Official website', d.website, d.website, 'Visit official website ↗');
     addRow(card, 'Pricing', d.price);
-    addRow(card, 'Download / project page', d.download, d.download);
+    addRow(card, 'Download / project page', d.download, d.download, 'Open download / project page ↗');
 
     content.append(eyebrow, heading, subtitle, card);
     const back = document.createElement('a');
