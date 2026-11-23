@@ -139,7 +139,9 @@ fetch('distros.json')
       : 'Open download / project page ↗';
     addRow(
       card,
-      isDistroWatchLink ? 'Download / DistroWatch fallback' : 'Download / project page',
+      isDistroWatchLink
+        ? (officialHomepage ? 'Download / official homepage' : 'DistroWatch profile')
+        : 'Download / project page',
       d.download,
       downloadHref,
       downloadText
