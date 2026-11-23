@@ -97,6 +97,13 @@ fetch('distros.json')
       return;
     }
 
+    // Prefer the official homepage over DistroWatch whenever one is recorded.
+    const pointsToDistroWatch = /^https?:\/\/(www\.)?distrowatch\.com\//i.test(d.download || '');
+    if (pointsToDistroWatch && d.website) {
+      window.location.replace(d.website);
+      return;
+    }
+
     document.title = d.name + ' — Distro Details';
     content.replaceChildren();
 
