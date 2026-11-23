@@ -44,6 +44,10 @@ Before downloading or installing anything, check the project's official document
 
 LDHY is an informational catalog. It does not develop, distribute, endorse, or install the operating systems listed.
 
+### Metadata conventions
+
+A blank metadata field means the value has not been independently verified or does not apply; it is not an invitation to infer a value from a broad family label. `Not yet verified` means the project's current maintenance state has not been confirmed. Check official project documentation before relying on any catalog entry.
+
 ## Contributing
 
 Corrections, additions, and suggestions are welcome. When proposing a new entry or changing existing metadata, provide:
