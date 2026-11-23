@@ -225,16 +225,16 @@
   },
   {
     "name": "Astra Linux",
-    "family": "RPM-based",
+    "family": "Debian-based",
     "difficulty": "Advanced",
     "download": "https://distrowatch.com/table.php?distribution=astra",
     "creator": "Rusbitech-Astra",
     "release": "",
-    "based_on": "",
-    "package_manager": "",
+    "based_on": "Debian",
+    "package_manager": "APT (apt; dpkg)",
     "status": "Not yet verified",
     "website": "http://astralinux.ru/",
-    "description": "",
+    "description": "A Debian-derived Linux distribution developed by the Astra Group, with a focus on security and use in government and enterprise environments.",
     "price": ""
   },
   {
@@ -248,7 +248,7 @@
     "package_manager": "pkgtools (Slackware packages)",
     "status": "Not yet verified",
     "website": "http://cyti.latgola.lv/ruuni/",
-    "description": "",
+    "description": "A compact live Linux distribution originating in Latvia, designed to provide a lightweight desktop and run from removable media.",
     "price": ""
   },
   {
@@ -300,11 +300,11 @@
     "download": "https://distrowatch.com/table.php?distribution=berrylinux",
     "creator": "",
     "release": "",
-    "based_on": "",
+    "based_on": "Fedora",
     "package_manager": "",
     "status": "Not yet verified",
     "website": "https://berry-lab.net/",
-    "description": "",
+    "description": "A Japanese live Linux distribution based on Fedora, offering a desktop environment and hardware support from a bootable image.",
     "price": ""
   },
   {
@@ -318,7 +318,7 @@
     "package_manager": "",
     "status": "Not yet verified",
     "website": "https://www.biglinux.com.br/en/",
-    "description": "",
+    "description": "A Brazilian desktop Linux distribution focused on usability, with a customized desktop experience and integrated system tools.",
     "price": ""
   },
   {
@@ -356,11 +356,11 @@
     "download": "https://distrowatch.com/table.php?distribution=bluestar",
     "creator": "",
     "release": "",
-    "based_on": "",
-    "package_manager": "",
+    "based_on": "Arch Linux",
+    "package_manager": "pacman",
     "status": "Not yet verified",
     "website": "https://sourceforge.net/projects/bluestarlinux/",
-    "description": "",
+    "description": "An Arch-based desktop distribution offering preconfigured desktop environments, multimedia support, and access to Arch packages.",
     "price": ""
   },
   {
@@ -412,11 +412,11 @@
     "download": "https://distrowatch.com/table.php?distribution=caelinux",
     "creator": "",
     "release": "",
-    "based_on": "",
+    "based_on": "Ubuntu",
     "package_manager": "APT (apt; dpkg)",
     "status": "Not yet verified",
     "website": "https://www.caelinux.com/CMS3/index.php",
-    "description": "",
+    "description": "An Ubuntu-based distribution assembled for computer-aided engineering, scientific computing, and simulation workflows.",
     "price": ""
   },
   {
@@ -430,7 +430,7 @@
     "package_manager": "Portage (emerge)",
     "status": "Not yet verified",
     "website": "https://www.calculate-linux.org/",
-    "description": "",
+    "description": "A Gentoo-based distribution that combines Portage with prebuilt binary packages and desktop, server, and directory-server editions.",
     "price": ""
   },
   {
@@ -538,11 +538,11 @@
     "download": "https://distrowatch.com/table.php?distribution=clonezilla",
     "creator": "NCHC Free Software Labs",
     "release": "",
-    "based_on": "",
+    "based_on": "Debian",
     "package_manager": "",
     "status": "Not yet verified",
     "website": "https://clonezilla.org/",
-    "description": "",
+    "description": "A Debian-based live system focused on disk imaging, partition cloning, and system deployment rather than general desktop use.",
     "price": ""
   },
   {
@@ -570,7 +570,7 @@
     "package_manager": "",
     "status": "Not yet verified",
     "website": "https://www.commodoreos.net/CommodoreOS.aspx",
-    "description": "",
+    "description": "A desktop Linux distribution inspired by Commodore-era computing, combining a customized desktop environment with bundled applications and retro styling.",
     "price": ""
   },
   {
@@ -622,11 +622,11 @@
     "download": "https://distrowatch.com/table.php?distribution=damnsmalllinux",
     "creator": "John Andrews, et al.",
     "release": "April 13, 2005 (2005-04-13)",
-    "based_on": "",
-    "package_manager": "",
+    "based_on": "Debian",
+    "package_manager": "APT (apt; dpkg)",
     "status": "Not yet verified",
     "website": "https://www.damnsmalllinux.org/",
-    "description": "",
+    "description": "A compact live Linux distribution designed to run on older or resource-constrained computers; its current generation is based on Debian.",
     "price": ""
   },
   {
@@ -748,11 +748,11 @@
     "download": "https://distrowatch.com/table.php?distribution=easyos",
     "creator": "",
     "release": "",
-    "based_on": "",
-    "package_manager": "",
+    "based_on": "Puppy Linux (historical lineage; now independently developed)",
+    "package_manager": "PKGget (PET packages)",
     "status": "Not yet verified",
     "website": "https://easyos.org/",
-    "description": "",
+    "description": "An experimental, lightweight Linux distribution developed by Barry Kauler, using container-oriented design and retaining ideas from the Puppy Linux project.",
     "price": ""
   },
   {
@@ -860,11 +860,11 @@
     "download": "https://distrowatch.com/table.php?distribution=fatdog64",
     "creator": "",
     "release": "",
-    "based_on": "",
-    "package_manager": "",
+    "based_on": "Independent (Puppy-inspired)",
+    "package_manager": "Gslapt (TXZ packages)",
     "status": "Not yet verified",
     "website": "https://distro.ibiblio.org/fatdog/web/",
-    "description": "",
+    "description": "A small, independent 64-bit Linux distribution inspired by Puppy Linux, with a complete desktop and its own package repositories.",
     "price": ""
   },
   {
@@ -902,11 +902,11 @@
     "download": "https://distrowatch.com/table.php?distribution=fuguita",
     "creator": "",
     "release": "",
-    "based_on": "",
-    "package_manager": "",
+    "based_on": "OpenBSD",
+    "package_manager": "pkg_add (OpenBSD packages)",
     "status": "Not yet verified",
     "website": "https://fuguita.org/",
-    "description": "",
+    "description": "A portable live system based on OpenBSD, designed to provide an OpenBSD environment that can boot from removable media.",
     "price": ""
   },
   {
@@ -1070,11 +1070,11 @@
     "download": "https://distrowatch.com/table.php?distribution=ipfire",
     "creator": "IPFire-Team",
     "release": "",
-    "based_on": "",
-    "package_manager": "",
+    "based_on": "Linux From Scratch (LFS)",
+    "package_manager": "Pakfire",
     "status": "Not yet verified",
     "website": "https://www.ipfire.org/",
-    "description": "",
+    "description": "A specialized Linux distribution for firewall and network-security gateway use, managed through a web interface and modular add-ons.",
     "price": ""
   },
   {
@@ -1140,11 +1140,11 @@
     "download": "https://distrowatch.com/table.php?distribution=libreelec",
     "creator": "LibreELEC Team",
     "release": "4 April 2016 (2016-04-04)",
-    "based_on": "",
-    "package_manager": "",
+    "based_on": "Linux From Scratch (LFS)",
+    "package_manager": "N/A (appliance OS; add-ons)",
     "status": "Not yet verified",
     "website": "https://libreelec.tv/",
-    "description": "",
+    "description": "A minimal Linux-based operating system built to run Kodi as a dedicated home-theater media center.",
     "price": ""
   },
   {
@@ -1210,11 +1210,11 @@
     "download": "https://distrowatch.com/table.php?distribution=lunarlinux",
     "creator": "",
     "release": "",
-    "based_on": "",
-    "package_manager": "",
+    "based_on": "Independent",
+    "package_manager": "lin (Lunar package manager)",
     "status": "Not yet verified",
     "website": "https://www.lunar-linux.org/",
-    "description": "",
+    "description": "An independently developed source-based Linux distribution that builds and manages software through its Lunar package-management system.",
     "price": ""
   },
   {
@@ -1270,7 +1270,7 @@
     "package_manager": "",
     "status": "Not yet verified",
     "website": "https://makululinux.com/",
-    "description": "",
+    "description": "A desktop Linux distribution offering themed editions and integrated desktop tools for general-purpose use.",
     "price": ""
   },
   {
@@ -1378,11 +1378,11 @@
     "download": "https://distrowatch.com/table.php?distribution=nitrux",
     "creator": "",
     "release": "",
-    "based_on": "",
-    "package_manager": "",
+    "based_on": "Debian",
+    "package_manager": "APT (apt; dpkg)",
     "status": "Not yet verified",
     "website": "https://nxos.org/",
-    "description": "",
+    "description": "A Debian-based desktop operating system emphasizing an immutable system design, AppImage applications, and the Maui application ecosystem.",
     "price": ""
   },
   {
@@ -1462,11 +1462,11 @@
     "download": "https://distrowatch.com/table.php?distribution=openmandriva",
     "creator": "OpenMandriva Association and Cooker group",
     "release": "November 22, 2013 (2013-11-22)",
-    "based_on": "",
+    "based_on": "Mandriva lineage",
     "package_manager": "",
     "status": "Not yet verified",
     "website": "https://www.openmandriva.org/",
-    "description": "",
+    "description": "A community-developed Linux distribution descended from Mandriva, with its own release engineering and desktop editions.",
     "price": ""
   },
   {
@@ -1560,11 +1560,11 @@
     "download": "https://distrowatch.com/table.php?distribution=pardus",
     "creator": "",
     "release": "",
-    "based_on": "",
-    "package_manager": "",
+    "based_on": "Debian",
+    "package_manager": "APT (apt; dpkg)",
     "status": "Not yet verified",
     "website": "https://pardus.org.tr/",
-    "description": "",
+    "description": "A Debian-based Linux distribution developed in Türkiye, with desktop editions and tools for public-sector, education, and general desktop use.",
     "price": ""
   },
   {
@@ -1812,11 +1812,11 @@
     "download": "https://distrowatch.com/table.php?distribution=rebornos",
     "creator": "",
     "release": "",
-    "based_on": "",
-    "package_manager": "",
+    "based_on": "Arch Linux",
+    "package_manager": "pacman",
     "status": "Not yet verified",
     "website": "https://rebornos.org/",
-    "description": "",
+    "description": "An Arch-based desktop distribution that provides an installer and a selection of desktop environments and system configurations.",
     "price": ""
   },
   {
@@ -1830,7 +1830,7 @@
     "package_manager": "DNF (RPM)",
     "status": "Not yet verified",
     "website": "https://www.redhat.com/en/store/linux-platforms",
-    "description": "",
+    "description": "Red Hat's commercial enterprise Linux platform, providing a supported operating-system foundation for servers, cloud environments, and enterprise workloads.",
     "price": "US$383.90 starting price for Server; US$196.90 for Workstation (US store; actual cost varies by subscription and support tier)."
   },
   {
@@ -1896,11 +1896,11 @@
     "download": "https://distrowatch.com/table.php?distribution=rosa",
     "creator": "",
     "release": "",
-    "based_on": "",
-    "package_manager": "",
+    "based_on": "Mandriva lineage",
+    "package_manager": "urpmi (RPM)",
     "status": "Not yet verified",
     "website": "https://rosa.ru/",
-    "description": "",
+    "description": "A Russian Linux distribution descended from the Mandriva family, offering desktop and enterprise-oriented editions.",
     "price": ""
   },
   {
@@ -1914,7 +1914,7 @@
     "package_manager": "Entropy; Portage",
     "status": "Historical project; current maintenance status not independently verified",
     "website": "",
-    "description": "",
+    "description": "A Gentoo-derived Linux distribution historically known for combining Gentoo's Portage ecosystem with prebuilt binary packages.",
     "price": ""
   },
   {
@@ -1942,7 +1942,7 @@
     "package_manager": "YUM (RPM)",
     "status": "Not yet verified",
     "website": "https://scientificlinux.org/",
-    "description": "",
+    "description": "A former RHEL-based distribution maintained by Fermilab and CERN for scientific and research computing; the project is discontinued.",
     "price": ""
   },
   {
@@ -2051,10 +2051,10 @@
     "creator": "SparkyLinux team[1]",
     "release": "5 May 2012 (2012-05-05)",
     "based_on": "Debian",
-    "package_manager": "",
+    "package_manager": "APT (apt; dpkg)",
     "status": "Not yet verified",
     "website": "https://sparkylinux.org/",
-    "description": "",
+    "description": "A Debian-based Linux distribution offering stable and rolling editions, with multiple desktop and specialized live-image options.",
     "price": ""
   },
   {
@@ -2110,7 +2110,7 @@
     "package_manager": "Zypper (RPM)",
     "status": "Not yet verified",
     "website": "https://www.suse.com/shop/server/",
-    "description": "",
+    "description": "SUSE's commercial enterprise Linux platform, offering supported server and desktop products for business and infrastructure workloads.",
     "price": "Varies by product, architecture, subscription term and support tier; check SUSE's current store."
   },
   {
@@ -2236,7 +2236,7 @@
     "package_manager": "APT (apt; dpkg)",
     "status": "Not yet verified",
     "website": "https://ubuntu.com/pricing/pro",
-    "description": "",
+    "description": "A Canonical subscription for Ubuntu systems that extends security maintenance and compliance features; it is not a separate Linux distribution.",
     "price": "Free for personal use on up to 5 physical machines. Enterprise base tiers: US$25/workstation/year or US$500/server/year; check current pricing."
   },
   {
@@ -2278,7 +2278,7 @@
     "package_manager": "APT (apt; dpkg)",
     "status": "Not yet verified",
     "website": "https://urukproject.org/dist/en.html",
-    "description": "",
+    "description": "An Ubuntu-based GNU/Linux distribution from the Uruk project, emphasizing free software and a desktop-oriented system.",
     "price": ""
   },
   {
@@ -2376,7 +2376,7 @@
     "package_manager": "APT (apt; dpkg); Flatpak; Snap",
     "status": "Not yet verified",
     "website": "https://zorin.com/os/pro/",
-    "description": "",
+    "description": "The paid edition of Zorin OS, adding premium desktop layouts and additional applications to the Ubuntu-based operating system.",
     "price": "One-time purchase; current price is shown by Zorin at checkout."
   }
 ]
