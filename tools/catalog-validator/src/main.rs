@@ -48,6 +48,7 @@ fn family_section(family: &str) -> Option<&'static str> {
         "Source/Nix-based" => Some("source"),
         "Others" => Some("others"),
         "Paid (subscription)" => Some("paid"),
+        "Not found" => Some("notfound"),
         _ => None,
     }
 }
