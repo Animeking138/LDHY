@@ -1776,19 +1776,5 @@
     "website": "https://www.vairous7x.com/",
     "description": "Arabic-first desktop operating system described by its developer as featuring switchable Desktop Worlds, a guided installer, a signed app store, built-in security tools and an update channel. Its underlying Linux base and package manager have not been publicly verified.",
     "price": ""
-  },
-  {
-    "name": "Placeholder",
-    "family": "Not found",
-    "difficulty": "Beginner",
-    "download": "",
-    "creator": "Test placeholder",
-    "release": "",
-    "based_on": "",
-    "package_manager": "",
-    "status": "Not yet verified",
-    "website": "",
-    "description": "Temporary test entry for verifying the hidden Not found category and family filter.",
-    "price": ""
   }
 ]
