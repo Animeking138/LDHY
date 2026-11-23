@@ -3,7 +3,7 @@ use serde::Deserialize;
 use std::{
     collections::{HashMap, HashSet},
     env, fs,
-    path::{Path, PathBuf},
+    path::{Component, Path, PathBuf},
     process,
 };
 use url::{form_urlencoded, Url};
@@ -47,6 +47,7 @@ fn family_section(family: &str) -> Option<&'static str> {
         "Slackware-based" => Some("slackware"),
         "Source/Nix-based" => Some("source"),
         "Others" => Some("others"),
+        "Android" => Some("android"),
         "Paid (subscription)" => Some("paid"),
         "Not found" => Some("notfound"),
         _ => None,
@@ -85,9 +86,10 @@ fn check_homepage(
     errors: &mut Vec<String>,
 ) -> Result<(), Box<dyn std::error::Error>> {
     let html = fs::read_to_string(root.join("index.html"))?;
-    let section_re = Regex::new(r#"(?s)<section\s+data-section="([^"]+)"[^>]*>(.*?)</section>"#)?;
+    let section_re = Regex::new(r#"(?s)<section\b([^>]*)>(.*?)</section>"#)?;
+    let section_name_re = Regex::new(r#"data-section="([^"]+)""#)?;
     let card_re = Regex::new(
-        r#"(?s)<a class="card" data-diff="([^"]+)" href="distro\.html\?name=([^"]+)">.*?<h3>([^<]+)</h3></a>"#,
+        r#"(?s)<a class="card" data-diff="([^"]+)" href="([^"]+)">.*?<h3>([^<]+)</h3></a>"#,
     )?;
 
     let catalog: HashMap<&str, &Distro> = records
@@ -99,21 +101,37 @@ fn check_homepage(
     let mut card_count = 0usize;
 
     for section in section_re.captures_iter(&html) {
-        let section_name = &section[1];
+        let Some(section_name) = section_name_re.captures(&section[1]) else {
+            continue;
+        };
+        let section_name = &section_name[1];
         let section_html = &section[2];
 
         for card in card_re.captures_iter(section_html) {
             card_count += 1;
             let difficulty = &card[1];
-            let encoded_name = &card[2];
+            let href = &card[2];
             let heading_name = card[3].trim();
 
-            let decoded_name = form_urlencoded::parse(
-                format!("name={encoded_name}").as_bytes(),
-            )
-            .find(|(key, _)| key == "name")
-            .map(|(_, value)| value.into_owned())
-            .unwrap_or_default();
+            let decoded_name = href
+                .split_once('?')
+                .and_then(|(_, query)| {
+                    form_urlencoded::parse(query.as_bytes())
+                        .find(|(key, _)| key == "name")
+                        .map(|(_, value)| value.into_owned())
+                })
+                .unwrap_or_else(|| heading_name.to_owned());
+
+            if !href.starts_with("distro.html?") {
+                let path = Path::new(href);
+                let unsafe_path = path.is_absolute()
+                    || path.components().any(|part| !matches!(part, Component::Normal(_)));
+                if unsafe_path || !root.join(path).is_file() {
+                    errors.push(format!(
+                        "Homepage card {heading_name:?} points to a missing or unsafe page: {href:?}."
+                    ));
+                }
+            }
 
             if decoded_name != heading_name {
                 errors.push(format!(
@@ -353,6 +371,7 @@ mod tests {
         assert_eq!(family_section("Arch-based"), Some("arch"));
         assert_eq!(family_section("Arch-based (Pacman)"), Some("arch"));
         assert_eq!(family_section("Paid (subscription)"), Some("paid"));
+        assert_eq!(family_section("Android"), Some("android"));
     }
 
     #[test]
