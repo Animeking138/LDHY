@@ -194,32 +194,21 @@ fn check_homepage(
 
 fn check_archive_routes(
     root: &Path,
-    records: &[Distro],
+    _records: &[Distro],
     errors: &mut Vec<String>,
 ) -> Result<(), Box<dyn std::error::Error>> {
     let archive = fs::read_to_string(root.join("distributions.html"))?;
     let detail = fs::read_to_string(root.join("distro.html"))?;
-    let core_re = Regex::new(r#"const core=new Set\(\[([^\]]*)\]\)"#)?;
-    let item_re = Regex::new(r#""([^"]+)""#)?;
 
-    let Some(core_match) = core_re.captures(&archive) else {
-        errors.push("Could not find the archive's core detail-link set.".to_owned());
-        return Ok(());
-    };
-
-    let catalog_slugs: HashSet<String> = records.iter().map(|item| slug(&item.name)).collect();
-
-    for item in item_re.captures_iter(&core_match[1]) {
-        let item_slug = &item[1];
-        if !catalog_slugs.contains(item_slug) {
-            errors.push(format!(
-                "Archive marks {item_slug:?} as a detail page, but no matching catalog entry exists."
-            ));
+    for (description, required) in [
+        ("load the shared JSON catalog", "fetch('distros.json')"),
+        ("build links from catalog entries", "distro.html?id="),
+        ("render catalog text safely", "textContent"),
+        ("rank every difficulty level", "Expert: 4"),
+    ] {
+        if !archive.contains(required) {
+            errors.push(format!("Archive must {description}."));
         }
-    }
-
-    if !archive.contains(&["distro.html?id=$", "{slug}"].concat()) {
-        errors.push("Archive detail links no longer use the expected id route.".to_owned());
     }
 
     if !detail.contains("params.get('id')") || !detail.contains("slugifyName") {
