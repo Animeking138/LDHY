@@ -1762,5 +1762,19 @@
     "website": "https://www.dragora.org/",
     "description": "An independent GNU/Linux-Libre distribution focused on simplicity, user control and software freedom.",
     "price": ""
+  },
+  {
+    "name": "Horus OS",
+    "family": "Others",
+    "difficulty": "Intermediate",
+    "download": "https://www.vairous7x.com/",
+    "creator": "Younes Tito (V7x / Vairous7x)",
+    "release": "11 November 2026 (v1.1 Sandstorm; developer-reported)",
+    "based_on": "",
+    "package_manager": "",
+    "status": "Developer-reported release; Linux base and download availability not independently verified",
+    "website": "https://www.vairous7x.com/",
+    "description": "Arabic-first desktop operating system described by its developer as featuring switchable Desktop Worlds, a guided installer, a signed app store, built-in security tools and an update channel. Its underlying Linux base and package manager have not been publicly verified.",
+    "price": ""
   }
 ]
