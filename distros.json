@@ -364,6 +364,20 @@
     "price": ""
   },
   {
+    "name": "Bluefin",
+    "family": "RPM-based",
+    "difficulty": "Intermediate",
+    "download": "",
+    "creator": "Project Bluefin",
+    "release": "",
+    "based_on": "Fedora Atomic Desktop",
+    "package_manager": "rpm-ostree / bootc (system image); Flatpak and Homebrew (applications)",
+    "status": "Active; maintained image-based desktop project with current releases.",
+    "website": "https://projectbluefin.io/",
+    "description": "A Fedora-based, image-oriented Linux workstation with GNOME, automatic system updates, rollback support, Flatpak applications, and optional developer tooling.",
+    "price": ""
+  },
+  {
     "name": "Bluestar",
     "family": "Others",
     "difficulty": "Advanced",
@@ -473,6 +487,20 @@
     "status": "Discontinued; final tracked builds are archived.",
     "website": "https://carbonrom.org/",
     "description": "An aftermarket AOSP firmware project focused on flexibility and customization.",
+    "price": ""
+  },
+  {
+    "name": "CarotOS",
+    "family": "Debian-based",
+    "difficulty": "Intermediate",
+    "download": "",
+    "creator": "CarotOS project",
+    "release": "",
+    "based_on": "Debian Stable",
+    "package_manager": "APT (apt; dpkg)",
+    "status": "Active; listed in DistroWatch's active distribution directory.",
+    "website": "https://carotos.org/",
+    "description": "A Debian-based distribution designed for cybersecurity education in classroom settings, with teaching-oriented tools and the CarotOS Poligon learning environment.",
     "price": ""
   },
   {
@@ -728,6 +756,20 @@
     "price": ""
   },
   {
+    "name": "Ditana GNU/Linux",
+    "family": "Arch-based (Pacman)",
+    "difficulty": "Intermediate",
+    "download": "",
+    "creator": "Ditana project",
+    "release": "",
+    "based_on": "Arch Linux",
+    "package_manager": "pacman",
+    "status": "Active; listed in DistroWatch's active distribution directory.",
+    "website": "https://ditana.org/",
+    "description": "An Arch-based Linux distribution that aims to combine extensive user control with a more approachable desktop experience, emphasizing security, performance, and customizability.",
+    "price": ""
+  },
+  {
     "name": "DivestOS",
     "family": "Android",
     "difficulty": "Advanced",
@@ -924,6 +966,20 @@
     "price": ""
   },
   {
+    "name": "Flora Linux",
+    "family": "Debian-based",
+    "difficulty": "Intermediate",
+    "download": "",
+    "creator": "Flora Linux project",
+    "release": "",
+    "based_on": "Debian Stable / MX Linux",
+    "package_manager": "APT (apt; dpkg)",
+    "status": "Active; listed in DistroWatch's active distribution directory.",
+    "website": "https://flora-linux-libre.sourceforge.io/",
+    "description": "A Debian-based Linux distribution using the Linux-libre kernel, which removes proprietary firmware and other non-free or obfuscated components from the kernel.",
+    "price": ""
+  },
+  {
     "name": "FuguIta",
     "family": "Others",
     "difficulty": "Intermediate",
@@ -1064,6 +1120,20 @@
     "price": ""
   },
   {
+    "name": "HeliumOS",
+    "family": "RPM-based",
+    "difficulty": "Intermediate",
+    "download": "",
+    "creator": "HeliumOS project",
+    "release": "",
+    "based_on": "AlmaLinux OS",
+    "package_manager": "bootc / OSTree (system images); Flatpak (desktop applications)",
+    "status": "Active; open-source project repository is maintained.",
+    "website": "https://www.heliumos.org/",
+    "description": "An immutable, image-based Linux desktop built on AlmaLinux, featuring KDE Plasma on Wayland and system updates delivered through OSTree-based images.",
+    "price": ""
+  },
+  {
     "name": "Horus OS",
     "family": "Others",
     "difficulty": "Intermediate",
@@ -1131,6 +1201,34 @@
     "status": "Not yet verified",
     "website": "https://www.kaosx.us/",
     "description": "An independently developed rolling-release Linux distribution focused on KDE Plasma, Qt applications, and a curated set of packages.",
+    "price": ""
+  },
+  {
+    "name": "KDE Linux",
+    "family": "Others",
+    "difficulty": "Advanced",
+    "download": "",
+    "creator": "KDE community",
+    "release": "",
+    "based_on": "Independent (uses Arch Linux packages as build inputs)",
+    "package_manager": "No traditional system package manager; Flatpak is the primary application format",
+    "status": "Active development; alpha/testing-stage operating system, not recommended by KDE for production use.",
+    "website": "https://linux.kde.org/",
+    "description": "A KDE-developed, image-based Linux operating system designed as a reference implementation for KDE Plasma and KDE applications. It is currently in an early testing stage.",
+    "price": ""
+  },
+  {
+    "name": "KDu",
+    "family": "Debian-based",
+    "difficulty": "Intermediate",
+    "download": "",
+    "creator": "GNU/Linux KDu project",
+    "release": "",
+    "based_on": "Ubuntu LTS / KDE neon / Debian",
+    "package_manager": "APT (apt; dpkg)",
+    "status": "Active; listed in DistroWatch's active distribution directory.",
+    "website": "https://www.linux-kdu.com.br/",
+    "description": "A Brazilian desktop Linux distribution with a customized KDE Plasma environment and a broad collection of applications for everyday use, maintenance, recovery, and hardware diagnostics.",
     "price": ""
   },
   {
@@ -1260,6 +1358,20 @@
     "price": ""
   },
   {
+    "name": "Lyra OS",
+    "family": "RPM-based",
+    "difficulty": "Intermediate",
+    "download": "",
+    "creator": "Lyra OS project",
+    "release": "",
+    "based_on": "openSUSE Tumbleweed",
+    "package_manager": "Zypper (RPM)",
+    "status": "Active; listed in DistroWatch's active distribution directory.",
+    "website": "https://lyraos.com.br/",
+    "description": "A Brazilian openSUSE Tumbleweed-based desktop and server distribution featuring a customized GNOME desktop, the Lyra Install installer, Vega control centre, and LinuxToys system tools.",
+    "price": ""
+  },
+  {
     "name": "Mabox",
     "family": "Others",
     "difficulty": "Intermediate",
@@ -1316,6 +1428,20 @@
     "price": ""
   },
   {
+    "name": "matrixOS",
+    "family": "Gentoo-based",
+    "difficulty": "Advanced",
+    "download": "",
+    "creator": "matrixOS project",
+    "release": "",
+    "based_on": "Gentoo",
+    "package_manager": "Portage (emerge); Flatpak and Snap",
+    "status": "Active; listed in DistroWatch's active distribution directory.",
+    "website": "https://github.com/lxnay/matrixos",
+    "description": "A Gentoo-based, immutable Linux distribution for desktops and servers, with gaming-oriented features, atomic upgrades, rollback support, and COSMIC or GNOME desktop options.",
+    "price": ""
+  },
+  {
     "name": "Minimal Linux Live",
     "family": "Others",
     "difficulty": "Expert",
@@ -1369,6 +1495,34 @@
     "status": "Active; official project documentation and releases are maintained.",
     "website": "https://mxlinux.org/",
     "description": "A midweight desktop Linux distribution based on Debian Stable, developed by the MX Linux community. It combines the Xfce, KDE Plasma, or Fluxbox desktop options with a collection of MX system utilities.",
+    "price": ""
+  },
+  {
+    "name": "nakeDeb",
+    "family": "Debian-based",
+    "difficulty": "Advanced",
+    "download": "",
+    "creator": "nakeDeb project",
+    "release": "",
+    "based_on": "Debian Stable",
+    "package_manager": "APT (apt; dpkg)",
+    "status": "Active; listed in DistroWatch's active distribution directory.",
+    "website": "https://nakedeb.arpinux.org/",
+    "description": "A minimalist Debian-based desktop distribution aimed at experienced users, featuring Fluxbox, an alternative i3 setup, custom repositories, and keyboard-oriented workflows.",
+    "price": ""
+  },
+  {
+    "name": "Neko-Void",
+    "family": "Others",
+    "difficulty": "Intermediate",
+    "download": "",
+    "creator": "Neko-Void project",
+    "release": "",
+    "based_on": "Void Linux",
+    "package_manager": "XBPS (xbps)",
+    "status": "Active; listed in DistroWatch's active distribution directory.",
+    "website": "https://www.neko-void-linux.online/",
+    "description": "A Void Linux-based rolling-release desktop distribution with a preconfigured MATE environment and a curated set of desktop applications.",
     "price": ""
   },
   {
@@ -1467,6 +1621,20 @@
     "status": "Not yet verified",
     "website": "https://www.nutyx.org/",
     "description": "A Linux From Scratch-inspired distribution for motivated users, featuring its own CARDS package manager and support for building packages from ports.",
+    "price": ""
+  },
+  {
+    "name": "Omarchy",
+    "family": "Arch-based (Pacman)",
+    "difficulty": "Intermediate",
+    "download": "",
+    "creator": "Omarchy project",
+    "release": "",
+    "based_on": "Arch Linux",
+    "package_manager": "pacman",
+    "status": "Active; official project site publishes current installation images.",
+    "website": "https://omarchy.org/",
+    "description": "An opinionated Arch-based desktop distribution built around Hyprland, with a preconfigured developer-focused environment and a streamlined installation process.",
     "price": ""
   },
   {
@@ -1635,6 +1803,20 @@
     "status": "Not yet verified",
     "website": "https://peppermintos.com/",
     "description": "A lightweight Debian-based desktop distribution focused on a simple, configurable environment and web-application integration.",
+    "price": ""
+  },
+  {
+    "name": "PikaOS",
+    "family": "Debian-based",
+    "difficulty": "Intermediate",
+    "download": "",
+    "creator": "PikaOS project",
+    "release": "",
+    "based_on": "Debian (Unstable)",
+    "package_manager": "APT (apt; dpkg); Pikman tools",
+    "status": "Active; official project site and development repositories are maintained.",
+    "website": "https://pika-os.com/",
+    "description": "A Debian Unstable-based desktop distribution focused on gaming and performance, with custom kernels, graphics packages, and GNOME, KDE Plasma, Hyprland, Niri, and COSMIC editions.",
     "price": ""
   },
   {
@@ -1974,6 +2156,20 @@
     "price": ""
   },
   {
+    "name": "Shanios",
+    "family": "Arch-based (Pacman)",
+    "difficulty": "Intermediate",
+    "download": "",
+    "creator": "Shanios project",
+    "release": "",
+    "based_on": "Arch Linux",
+    "package_manager": "shani-deploy (atomic system deployments); Flatpak",
+    "status": "Active; listed in DistroWatch's active distribution directory.",
+    "website": "https://shani.dev/",
+    "description": "An immutable Arch-based desktop distribution featuring atomic updates, system rollback, and Flatpak application integration.",
+    "price": ""
+  },
+  {
     "name": "Siduction",
     "family": "Others",
     "difficulty": "Intermediate",
@@ -2111,6 +2307,20 @@
     "status": "Not yet verified",
     "website": "https://store.steampowered.com/steamos",
     "description": "Valve's gaming-focused Linux operating system for Steam hardware, with Steam integration and a console-style gaming interface.",
+    "price": ""
+  },
+  {
+    "name": "stillOS",
+    "family": "RPM-based",
+    "difficulty": "Intermediate",
+    "download": "",
+    "creator": "stillHQ",
+    "release": "",
+    "based_on": "AlmaLinux / Fedora",
+    "package_manager": "DNF (RPM); Flatpak",
+    "status": "Active; listed in DistroWatch's active distribution directory.",
+    "website": "https://stillhq.io/",
+    "description": "An immutable Linux desktop project built around a customized GNOME experience, aiming for predictable updates and a stable, consistent system.",
     "price": ""
   },
   {
@@ -2307,6 +2517,20 @@
     "status": "Not yet verified",
     "website": "https://urukproject.org/dist/en.html",
     "description": "An Ubuntu-based GNU/Linux distribution from the Uruk project, emphasizing free software and a desktop-oriented system.",
+    "price": ""
+  },
+  {
+    "name": "Valtux",
+    "family": "Debian-based",
+    "difficulty": "Beginner",
+    "download": "",
+    "creator": "Valtux project",
+    "release": "",
+    "based_on": "Debian Stable",
+    "package_manager": "APT (apt; dpkg)",
+    "status": "Active; listed in DistroWatch's active distribution directory.",
+    "website": "https://mk-infolibre.ch/valtux-os/",
+    "description": "A Swiss Debian-based desktop distribution featuring KDE Plasma and support for Switzerland's four official languages: French, German, Italian, and Romansh.",
     "price": ""
   },
   {
