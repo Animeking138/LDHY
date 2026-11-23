@@ -129,14 +129,24 @@ fetch('distros.json')
         return '';
       }
     })();
-    addRow(card, 'Official website', d.website, officialHomepage, 'Visit official website ↗');
-    addRow(card, 'Pricing', d.price);
     const downloadHref = isDistroWatchLink
       ? (officialHomepage || d.download)
       : d.download;
     const downloadText = isDistroWatchLink
       ? (officialHomepage ? 'Open official homepage ↗' : 'View DistroWatch profile ↗')
       : 'Open download / project page ↗';
+    const sameDestination = (() => {
+      if (!officialHomepage || !downloadHref) return false;
+      try {
+        return new URL(downloadHref, location.href).href === officialHomepage;
+      } catch {
+        return false;
+      }
+    })();
+    if (!sameDestination) {
+      addRow(card, 'Official website', d.website, officialHomepage, 'Visit official website ↗');
+    }
+    addRow(card, 'Pricing', d.price);
     addRow(
       card,
       isDistroWatchLink
