@@ -162,7 +162,21 @@ fetch('distros.json')
       downloadText
     );
 
-    content.append(eyebrow, heading, subtitle, card);
+    if (d.family === 'Android' && d.name !== 'Android') {
+      const note = document.createElement('div');
+      note.className = 'card';
+      note.setAttribute('role', 'note');
+      const noteTitle = document.createElement('strong');
+      noteTitle.textContent = 'Device compatibility';
+      const noteText = document.createElement('p');
+      noteText.style.marginTop = '.45rem';
+      noteText.style.color = 'var(--muted)';
+      noteText.textContent = 'Custom ROM builds are device-specific. A project being active does not mean it supports every phone. Check the project’s official device list and installation instructions for your exact model and codename before proceeding. Build availability and maintenance can change.';
+      note.append(noteTitle, noteText);
+      content.append(eyebrow, heading, subtitle, card, note);
+    } else {
+      content.append(eyebrow, heading, subtitle, card);
+    }
     const back = document.createElement('a');
     back.className = 'back';
     back.href = 'index.html';
