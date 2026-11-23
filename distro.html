@@ -120,6 +120,8 @@ fetch('distros.json')
     addRow(card, 'Based on', d.based_on);
     addRow(card, 'Package manager', d.package_manager);
     addRow(card, 'Maintenance status', d.status);
+    addRow(card, 'Last verified', d.verified);
+    addRow(card, 'Verification source', d.source, d.source, 'View official source ↗');
     const isDistroWatchLink = /^https?:\/\/(www\.)?distrowatch\.com\//i.test(d.download || '');
     const officialHomepage = (() => {
       try {
