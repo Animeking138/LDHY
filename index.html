@@ -500,6 +500,7 @@ section:nth-child(10) { animation-delay: 0.45s; }
           <option value="source">Source/Nix-based</option>
           <option value="others">Others</option>
           <option value="paid">Paid (subscription)</option>
+          <option value="notfound">Not found</option>
           
         </select>
       </label>
@@ -529,6 +530,8 @@ section:nth-child(10) { animation-delay: 0.45s; }
 
 <section data-section="paid"><h2>Paid (subscription) <span class="count">4</span></h2><div class="grid"><a class="card" data-diff="intermediate" href="distro.html?name=Red%20Hat%20Enterprise%20Linux"><span class="badge badge-intermediate">Intermediate</span><h3>Red Hat Enterprise Linux</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=SUSE%20Linux%20Enterprise"><span class="badge badge-intermediate">Intermediate</span><h3>SUSE Linux Enterprise</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Ubuntu%20Pro"><span class="badge badge-beginner">Beginner</span><h3>Ubuntu Pro</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Zorin%20OS%20Pro"><span class="badge badge-beginner">Beginner</span><h3>Zorin OS Pro</h3></a></div></section>
 
+<section data-section="notfound"><h2>Not found <span class="count">0</span></h2><div class="grid"></div></section>
+
 </main>
 
 <footer>
@@ -544,26 +547,29 @@ section:nth-child(10) { animation-delay: 0.45s; }
   const searchInput = document.getElementById('search');
   const difficultyFilter = document.getElementById('difficulty-filter');
   const familyFilter = document.getElementById('family-filter');
-  const cards = document.querySelectorAll('.card');
-
-  // Remove family filter choices that have no distributions in the catalog.
-  Array.from(familyFilter.options).forEach(option => {
-    if (option.value === 'all') return;
-    const section = document.querySelector(`section[data-section="${option.value}"]`);
-    if (!section || section.querySelectorAll('.card').length === 0) {
-      option.remove();
-    }
-  });
-  const sections = document.querySelectorAll('section');
+  const sections = document.querySelectorAll('main > section');
   const emptyState = document.getElementById('empty-state');
 
+  function updateFamilyOptions() {
+    Array.from(familyFilter.options).forEach(option => {
+      if (option.value === 'all') return;
+      const section = document.querySelector(`main > section[data-section="${option.value}"]`);
+      option.hidden = !section || section.querySelectorAll('.card').length === 0;
+    });
+
+    if (familyFilter.selectedOptions[0]?.hidden) {
+      familyFilter.value = 'all';
+    }
+  }
+
   function filterCards() {
+    updateFamilyOptions();
     const query = searchInput.value.toLowerCase().trim();
     const difficulty = difficultyFilter.value;
     const family = familyFilter.value;
     let visibleCount = 0;
 
-    cards.forEach(card => {
+    document.querySelectorAll('main > section .card').forEach(card => {
       const name = card.querySelector('h3').textContent.toLowerCase();
       const cardDifficulty = card.dataset.diff || '';
       const cardFamily = card.closest('section').dataset.section;
