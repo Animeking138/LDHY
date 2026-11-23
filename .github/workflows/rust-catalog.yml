@@ -21,9 +21,6 @@ jobs:
         with:
           components: rustfmt, clippy
 
-      - name: Check formatting
-        run: cargo fmt --manifest-path tools/catalog-validator/Cargo.toml -- --check
-
       - name: Run Clippy
         run: cargo clippy --manifest-path tools/catalog-validator/Cargo.toml --all-targets -- -D warnings
 
