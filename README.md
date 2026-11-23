@@ -1,12 +1,14 @@
 # LDHY — Linux Distros Heck Yeah
 
-A curated catalog for discovering Linux distributions, comparing their basic characteristics, and finding project or download pages.
+A searchable catalog of Linux distributions and related operating-system projects. Browse by family, compare basic metadata, and follow official project or download links.
 
-**Live website:** [animeking138.github.io/LDHY](https://animeking138.github.io/LDHY/)
+**Website:** [LDHY](https://animeking138.github.io/LDHY/)
 
 ## Overview
 
-LDHY brings Linux distributions together in one searchable catalog. Entries are grouped by distribution family and include a difficulty estimate to help visitors explore options at different experience levels.
+LDHY helps users explore a broad range of operating systems through a categorized catalog. Entries include an estimated difficulty level and, where information is available, details such as the developer, release history, upstream base, package manager, maintenance status, official website, and project or download page.
+
+The catalog includes traditional Linux distributions as well as Android and custom Android ROM projects.
 
 ## Note
 
@@ -14,38 +16,46 @@ Android is a Linux Distro we are not ignoring that😂
 
 ## Features
 
-- **Browse by family** — explore Debian-, Arch-, RPM-, Gentoo-, Slackware-, and other distribution families.
-- **Search and filter** — find entries by name and filter the main catalog by estimated difficulty.
-- **Distribution details** — view available metadata such as developer, initial release, base distribution, package manager, maintenance status, website, pricing, and download or project links.
-- **Extended archive** — search the archive and sort entries by release date or difficulty.
-- **AMOLED-friendly interface** — a dark, responsive layout for desktop and mobile screens.
+- **Browse by family:** explore distributions grouped into families such as Debian-based, Arch-based, RPM-based, Gentoo-based, Slackware-based, source-based, and other categories, alongside Android.
+- **Search and filter:** search catalog entries and narrow results by difficulty or family.
+- **Individual detail pages:** open an entry to view its available project information and links.
+- **Android ROM pages:** each of the 42 listed custom Android ROM projects has its own detail page, including a reminder to verify support for the exact device model and codename.
+- **Extended archive:** browse the larger catalog and sort entries by available release-date or difficulty information.
+- **Responsive dark interface:** use the catalog on desktop and mobile, with an AMOLED-friendly black theme.
+- **Automatic empty-section handling:** categories with no visible entries are hidden from the page without removing their underlying section or filter option.
 
 ## Project structure
 
-| File | Purpose |
+| Path | Purpose |
 | --- | --- |
-| `index.html` | Main catalog with search, difficulty filters, and family sections |
-| `distros.json` | Distribution data used by the detail pages |
-| `distro.html` | Individual distribution information pages |
-| `distributions.html` | Extended distribution archive |
+| `index.html` | Main catalog, family sections, search, and filters |
+| `distros.json` | Catalog data and metadata |
+| `distro.html` | Shared detail-page template for entries that use it |
+| `android/` | Standalone detail pages for the custom Android ROM entries |
+| `distributions.html` | Extended catalog archive |
+| `.github/workflows/` | GitHub Actions workflows, including catalog validation |
+| `tools/catalog-validator/` | Rust-based catalog validation tool |
 
-## Data and accuracy
+## Data quality and safety
 
-Catalog entries may have incomplete or unverified metadata. Difficulty labels are estimates intended as a general guide, not objective rankings. Check a distribution's official website for current release information, support status, system requirements, and installation instructions before choosing or installing it.
+Catalog information can be incomplete, outdated, or awaiting verification. Difficulty labels are approximate guidance, not objective measures of how easy an operating system is to use.
 
-LDHY is an informational catalog. It does not develop, distribute, or install the listed operating systems.
+Before downloading or installing anything, check the project's official documentation for current maintenance status, supported hardware, system requirements, and installation instructions. This is especially important for Android ROMs: builds are device-specific, and support for one model or codename does not imply support for another. Treat unofficial builds separately from official project releases.
+
+LDHY is an informational catalog. It does not develop, distribute, endorse, or install the operating systems listed.
 
 ## Contributing
 
-Suggestions and corrections are welcome. When proposing a new entry or an update, include:
+Corrections, additions, and suggestions are welcome. When proposing a new entry or changing existing metadata, provide:
 
-- The distribution's name and official website.
-- A reliable project or download link.
-- The distribution family and relevant metadata, with sources where possible.
-- A check that the distribution is not already listed.
+- The project's name and official website.
+- A reliable official project, source, or download link.
+- Its family/category and relevant metadata.
+- Sources for claims about release history, maintenance, or device support.
+- Confirmation that the project is not already listed.
 
 You can contribute by opening an issue or submitting a pull request.
 
 ## Built with
 
-HTML, CSS, JavaScript, and JSON.
+HTML, CSS, JavaScript, JSON, and Rust (catalog validation).
