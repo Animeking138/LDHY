@@ -48,6 +48,14 @@ LDHY is an informational catalog. It does not develop, distribute, endorse, or i
 
 A blank metadata field means the value has not been independently verified or does not apply; it is not an invitation to infer a value from a broad family label. `Not yet verified` means the project's current maintenance state has not been confirmed. Check official project documentation before relying on any catalog entry. Entries with `source` and `verified` fields include an official page used for the check and the date it was reviewed. These fields document provenance; they do not imply that every metadata field has been independently confirmed.
 
+## Security and deployment
+
+The pages apply a restrictive Content Security Policy through HTML metadata, along with referrer, MIME-sniffing, and browser-permission policies. The policy limits resource origins and disables embedded objects, but currently permits inline scripts and styles because the site uses inline page code. Moving those blocks into local files would allow a stricter script policy without `unsafe-inline`.
+
+These metadata policies are defense-in-depth, not a replacement for HTTP response headers. GitHub Pages does not provide a repository-level custom response-header configuration file; headers such as `Strict-Transport-Security`, `X-Frame-Options`, and a response-header CSP require a hosting layer or proxy that supports them. The `frame-ancestors` CSP directive is not supported in a meta policy.
+
+GitHub Actions dependencies should be reviewed and updated regularly. The repository uses GitHub Actions for automated catalog validation; successful CI checks do not replace a security review of third-party workflow actions or catalog destinations.
+
 ## Contributing
 
 Corrections, additions, and suggestions are welcome. When proposing a new entry or changing existing metadata, provide:
