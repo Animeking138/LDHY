@@ -143,15 +143,17 @@
     "name": "antiX",
     "family": "Debian-based",
     "difficulty": "Intermediate",
-    "download": "https://distrowatch.com/table.php?distribution=antix",
+    "download": "https://antixlinux.com/download/",
     "creator": "",
     "release": "",
     "based_on": "Debian",
     "package_manager": "APT (apt; dpkg)",
-    "status": "Not yet verified",
+    "status": "Active; antiX 26.1 released 29 September 2026.",
     "website": "https://antixlinux.com/",
     "description": "A lightweight Debian-based distribution designed for older computers, offering multiple window-manager environments and systemd-free editions.",
-    "price": ""
+    "price": "",
+    "source": "https://antixlinux.com/download/",
+    "verified": "2026-11-24"
   },
   {
     "name": "AOSP Extended",
@@ -428,10 +430,12 @@
     "release": "July 2021 (2021-07)",
     "based_on": "Arch Linux",
     "package_manager": "pacman",
-    "status": "Not yet verified",
+    "status": "Active; official November 2026 release published 22 November 2026.",
     "website": "https://cachyos.org/",
     "description": "An Arch-based rolling-release distribution focused on desktop performance, with optimized packages and custom kernel options.",
-    "price": ""
+    "price": "",
+    "source": "https://cachyos.org/category/release/",
+    "verified": "2026-11-24"
   },
   {
     "name": "CAELinux",
@@ -708,10 +712,12 @@
     "release": "28 February 2004 (2004-02-28)",
     "based_on": "Debian",
     "package_manager": "APT (apt; dpkg)",
-    "status": "Not yet verified",
+    "status": "Active; deepin 25.3.0 released 11 November 2026.",
     "website": "https://www.deepin.org/en/",
     "description": "A Debian-based desktop distribution developed around the Deepin Desktop Environment and a suite of integrated desktop applications.",
-    "price": ""
+    "price": "",
+    "source": "https://www.deepin.org/en/release-notes/",
+    "verified": "2026-11-24"
   },
   {
     "name": "DerpFest",
@@ -834,10 +840,12 @@
     "release": "31 March 2011 (2011-03-31)",
     "based_on": "Ubuntu LTS",
     "package_manager": "APT (apt; dpkg); Flatpak",
-    "status": "Not yet verified",
+    "status": "Active; official website currently lists elementary OS 8.1.1.",
     "website": "https://elementary.io/",
     "description": "An Ubuntu-based desktop operating system featuring the Pantheon desktop environment and a curated application experience.",
-    "price": ""
+    "price": "",
+    "source": "https://elementary.io/",
+    "verified": "2026-11-24"
   },
   {
     "name": "Elive",
@@ -1184,10 +1192,12 @@
     "release": "13 March 2013 () (2013-03-13)",
     "based_on": "Debian (Testing)",
     "package_manager": "APT (apt; dpkg)",
-    "status": "Not yet verified",
+    "status": "Active; official Kali 2026.3 images released 26 October 2026.",
     "website": "https://www.kali.org/",
     "description": "A Debian-based distribution maintained by Offensive Security for professional penetration testing, security auditing, and digital forensics.",
-    "price": ""
+    "price": "",
+    "source": "https://www.kali.org/releases/",
+    "verified": "2026-11-24"
   },
   {
     "name": "KaOS",
