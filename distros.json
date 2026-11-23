@@ -8,7 +8,7 @@
     "release": "",
     "based_on": "LineageOS",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://e.foundation/",
     "description": "A de-Googled Android operating system with microG integration and an ecosystem of privacy-oriented services.",
     "price": ""
@@ -104,9 +104,9 @@
     "download": "https://alphadroid.org/",
     "creator": "AlphaDroid Project",
     "release": "",
-    "based_on": "LineageOS / crDroid",
+    "based_on": "crDroid",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://alphadroid.org/",
     "description": "A LineageOS- and crDroid-based ROM focused on extensive customization, Material You styling and performance refinements.",
     "price": ""
@@ -162,7 +162,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Discontinued; final builds only",
+    "status": "Discontinued; final tracked builds are archived.",
     "website": "https://www.aospextended.com/",
     "description": "An AOSP-based ROM that combined a near-stock Android experience with additional customization features.",
     "price": ""
@@ -190,7 +190,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Discontinued; final builds only",
+    "status": "Discontinued; final tracked builds are archived.",
     "website": "https://arrowos.net/",
     "description": "A clean and simple AOSP-based Android ROM. The project is no longer shipping current builds.",
     "price": ""
@@ -218,7 +218,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Active; community device builds",
+    "status": "Active; official device builds are currently published.",
     "website": "https://github.com/Pixelify-AOSP",
     "description": "An AOSP-based ROM project from the Pixelify-AOSP community, with official device and source information published through its GitHub organization.",
     "price": ""
@@ -260,7 +260,7 @@
     "release": "",
     "based_on": "LineageOS",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://www.axionos.org/",
     "description": "A LineageOS-based ROM offering GMS and vanilla editions, with an official device directory and downloads.",
     "price": ""
@@ -344,7 +344,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://blissroms.org/",
     "description": "An open-source Android-based operating system emphasizing customization and a broad range of device form factors.",
     "price": ""
@@ -442,7 +442,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://calyxos.org/",
     "description": "A privacy-focused Android operating system developed by the Calyx Institute.",
     "price": ""
@@ -456,7 +456,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Discontinued; final builds only",
+    "status": "Discontinued; final tracked builds are archived.",
     "website": "https://carbonrom.org/",
     "description": "An aftermarket AOSP firmware project focused on flexibility and customization.",
     "price": ""
@@ -484,7 +484,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Discontinued; final builds only",
+    "status": "Discontinued; final tracked builds are archived.",
     "website": "https://cherishos.com/",
     "description": "An AOSP- and Pixel-inspired ROM known for its visual design and feature set.",
     "price": ""
@@ -512,7 +512,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Last known device builds dated July 2025; no current builds confirmed",
+    "status": "Listed as active, but no current device builds are confirmed; newest tracked build was July 27, 2025.",
     "website": "https://cipheros.github.io/",
     "description": "An Android custom operating system project. Its available archive includes older device builds; current device support is not confirmed.",
     "price": ""
@@ -554,7 +554,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://thecloverproject.com/",
     "description": "An AOSP-based, Pixel-inspired ROM available in GMS and vanilla variants, with an official release browser.",
     "price": ""
@@ -582,7 +582,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Discontinued; final builds only",
+    "status": "Discontinued; final tracked builds are archived.",
     "website": "https://github.com/CorvusRom",
     "description": "A formerly gaming-oriented AOSP custom ROM with extensive customization and performance features.",
     "price": ""
@@ -596,7 +596,7 @@
     "release": "",
     "based_on": "LineageOS",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://crdroid.net/",
     "description": "A LineageOS-based ROM focused on performance, reliability and extensive customization.",
     "price": ""
@@ -666,7 +666,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://derpfest.org/",
     "description": "An AOSP-based custom ROM combining Pixel-inspired design with additional features and customization.",
     "price": ""
@@ -708,7 +708,7 @@
     "release": "",
     "based_on": "LineageOS",
     "package_manager": "",
-    "status": "Discontinued in December 2024; final builds only",
+    "status": "Discontinued in December 2024; final builds only.",
     "website": "https://divestos.org/",
     "description": "A discontinued soft fork of LineageOS focused on free software, deblobbing and security hardening.",
     "price": ""
@@ -722,7 +722,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Discontinued; final builds only",
+    "status": "Discontinued; final tracked builds are archived.",
     "website": "https://www.droidontime.com/",
     "description": "A formerly active AOSP-based Android ROM known for its distinctive interface and customization.",
     "price": ""
@@ -820,7 +820,7 @@
     "release": "",
     "based_on": "LineageOS",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://evolution-x.org/",
     "description": "A LineageOS-based ROM bringing Pixel-style features together with extensive customization options.",
     "price": ""
@@ -988,7 +988,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://grapheneos.org/",
     "description": "A security- and privacy-focused mobile operating system with Android app compatibility.",
     "price": ""
@@ -1016,7 +1016,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://hlcyn.org/",
     "description": "A custom Android distribution with official device builds and releases hosted by the project.",
     "price": ""
@@ -1030,7 +1030,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Discontinued; final builds only",
+    "status": "Discontinued; final tracked builds are archived.",
     "website": "https://havoc-os.com/",
     "description": "A formerly popular AOSP-based aftermarket firmware with a broad customization feature set.",
     "price": ""
@@ -1156,7 +1156,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://lineageos.org/",
     "description": "A free and open-source Android distribution with broad device support and a clean, close-to-AOSP experience.",
     "price": ""
@@ -1226,7 +1226,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://github.com/Lunaris-AOSP",
     "description": "An AOSP-based ROM combining features and components from several established custom ROM projects.",
     "price": ""
@@ -1310,7 +1310,7 @@
     "release": "",
     "based_on": "LineageOS",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://github.com/MistOS",
     "description": "A LineageOS-based Android ROM offering multiple Google-app package variants as well as a vanilla build.",
     "price": ""
@@ -1366,7 +1366,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Discontinued; final builds only",
+    "status": "Discontinued; final tracked builds are archived.",
     "website": "https://github.com/nitrogen-project",
     "description": "An AOSP-based custom ROM with archived device builds; no current official device builds are listed.",
     "price": ""
@@ -1422,7 +1422,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Discontinued; final builds only",
+    "status": "Discontinued; final tracked builds are archived.",
     "website": "https://nusantararom.org/",
     "description": "An Indonesian AOSP-based custom ROM project whose listed builds are no longer maintained.",
     "price": ""
@@ -1450,7 +1450,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "No recent current device builds confirmed; legacy project",
+    "status": "Discontinued; final tracked builds are archived.",
     "website": "https://omnirom.org/",
     "description": "An open-source Android firmware project established in 2013 by Android developers.",
     "price": ""
@@ -1548,7 +1548,7 @@
     "release": "",
     "based_on": "AOSP / CAF",
     "package_manager": "",
-    "status": "No current builds confirmed; legacy project",
+    "status": "Discontinued; final tracked builds are archived.",
     "website": "https://aospa.co/",
     "description": "A long-running Android aftermarket firmware project known for its distinctive interface and feature innovations.",
     "price": ""
@@ -1618,7 +1618,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Discontinued; final builds only",
+    "status": "Discontinued; final tracked builds are archived.",
     "website": "https://download.pixelexperience.org/",
     "description": "A discontinued AOSP-based ROM that brought Google Pixel applications and features to supported devices.",
     "price": ""
@@ -1632,7 +1632,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://pixelos.net/",
     "description": "An AOSP-based ROM designed to deliver a Pixel-like Android experience with Google apps and Pixel features.",
     "price": ""
@@ -1674,7 +1674,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Discontinued in January 2025; final builds only",
+    "status": "Discontinued in January 2025; final builds only.",
     "website": "https://www.projectblaze.in/",
     "description": "An AOSP-based ROM with a stock Android look and its own customization features.",
     "price": ""
@@ -1688,7 +1688,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Discontinued; final builds only",
+    "status": "Discontinued; final tracked builds are archived.",
     "website": "https://projectelixiros.com/",
     "description": "A formerly active AOSP-based ROM focused on a minimal interface and selected customization features.",
     "price": ""
@@ -1702,7 +1702,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://projectinfinity-x.com/",
     "description": "An AOSP-based custom ROM offering GApps and vanilla builds with extensive customization.",
     "price": ""
@@ -1716,7 +1716,7 @@
     "release": "",
     "based_on": "crDroid",
     "package_manager": "",
-    "status": "Discontinued; final builds only",
+    "status": "Discontinued; final tracked build was June 27, 2026.",
     "website": "https://www.projectmatrixx.org/",
     "description": "A crDroid-based custom ROM with additional features and customization.",
     "price": ""
@@ -1728,9 +1728,9 @@
     "download": "https://projectsakura.github.io/download.html",
     "creator": "Project Sakura Team",
     "release": "",
-    "based_on": "LineageOS",
+    "based_on": "AOSP",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://projectsakura.me/",
     "description": "A LineageOS-based open-source custom ROM combining timely updates with additional customization.",
     "price": ""
@@ -1870,7 +1870,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://risingosrevived.tech/",
     "description": "An AOSP-based custom ROM with a distinctive interface and a broad set of customization features.",
     "price": ""
@@ -2038,7 +2038,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Discontinued; final builds only",
+    "status": "Discontinued in 2023; final builds only.",
     "website": "https://www.spark-os.live/",
     "description": "A formerly active AOSP-based ROM focused on a lightweight and smooth Android experience.",
     "price": ""
@@ -2066,7 +2066,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Project active; latest tracked device builds are older",
+    "status": "Listed as active, but no current device builds are confirmed; newest tracked build was April 11, 2026.",
     "website": "https://github.com/StatiXOS",
     "description": "An AOSP-based homebrew Android distribution. The project remains identifiable, but its currently supported devices need checking.",
     "price": ""
@@ -2094,7 +2094,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Project active; latest tracked device builds are older",
+    "status": "Listed as active, but no current device builds are confirmed; newest tracked build was October 19, 2026.",
     "website": "https://superioros.github.io/",
     "description": "An AOSP-based custom ROM focused on performance, stability and customization.",
     "price": ""
@@ -2122,7 +2122,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Discontinued; final builds only",
+    "status": "Discontinued; final tracked builds are archived.",
     "website": "https://syberiaos.com/",
     "description": "A formerly maintained AOSP-based project intended to enhance the stock Android experience.",
     "price": ""
@@ -2318,7 +2318,7 @@
     "release": "",
     "based_on": "AOSP",
     "package_manager": "",
-    "status": "Active",
+    "status": "Active; official device builds are currently published.",
     "website": "https://www.voltageos.com/",
     "description": "An AOSP-based ROM focused on performance and simplicity, with privacy features and a sandboxed Google Play environment.",
     "price": ""
