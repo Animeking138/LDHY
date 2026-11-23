@@ -19,7 +19,7 @@ Android is a Linux Distro we are not ignoring that😂
 - **Browse by family:** explore distributions grouped into families such as Debian-based, Arch-based, RPM-based, Gentoo-based, Slackware-based, source-based, and other categories, alongside Android.
 - **Search and filter:** search catalog entries and narrow results by difficulty or family.
 - **Individual detail pages:** open an entry to view its available project information and links.
-- **Android ROM pages:** each of the 42 listed custom Android ROM projects has its own detail page, including a reminder to verify support for the exact device model and codename.
+- **Android ROM details:** all Android catalog cards use the shared JSON-driven detail page, including a reminder to verify support for the exact device model and codename. The old `android/` URLs remain available for compatibility.
 - **Extended archive:** browse the larger catalog and sort entries by available release-date or difficulty information.
 - **Responsive dark interface:** use the catalog on desktop and mobile, with an AMOLED-friendly black theme.
 - **Automatic empty-section handling:** categories with no visible entries are hidden from the page without removing their underlying section or filter option.
@@ -31,7 +31,7 @@ Android is a Linux Distro we are not ignoring that😂
 | `index.html` | Main catalog, family sections, search, and filters |
 | `distros.json` | Catalog data and metadata |
 | `distro.html` | Shared detail-page template for entries that use it |
-| `android/` | Standalone detail pages for the custom Android ROM entries |
+| `android/` | Legacy Android detail URLs retained for compatibility |
 | `distributions.html` | Extended catalog archive |
 | `.github/workflows/` | GitHub Actions workflows, including catalog validation |
 | `tools/catalog-validator/` | Rust-based catalog validation tool |
