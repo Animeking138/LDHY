@@ -238,6 +238,20 @@
     "price": ""
   },
   {
+    "name": "Athena OS",
+    "family": "Arch-based (Pacman)",
+    "difficulty": "Advanced",
+    "download": "https://athenaos.org/en/getting-started/download/",
+    "creator": "Athena OS Project",
+    "release": "",
+    "based_on": "Arch Linux (Athena Arch); NixOS (Athena Nix)",
+    "package_manager": "pacman (Athena Arch); Nix (Athena Nix)",
+    "status": "Active; rolling-release distribution with current installation images.",
+    "website": "https://athenaos.org/",
+    "description": "An open-source, cybersecurity-focused Linux distribution with two installation variants: Athena Arch, based on Arch Linux, and Athena Nix, based on NixOS. The project follows a rolling-release model.",
+    "price": ""
+  },
+  {
     "name": "AUSTRUMI",
     "family": "Others",
     "difficulty": "Beginner",
@@ -613,6 +627,20 @@
     "status": "Active; official project site lists CRUX 3.8 and 2025 infrastructure updates",
     "website": "https://crux.nu/",
     "description": "Independent, lightweight distribution for experienced users, using a simple tar.gz package format and a ports system.",
+    "price": ""
+  },
+  {
+    "name": "Cutefish",
+    "family": "Debian-based",
+    "difficulty": "Intermediate",
+    "download": "https://download.cutefish.org/",
+    "creator": "Cutefish Project",
+    "release": "",
+    "based_on": "Debian 13",
+    "package_manager": "APT (apt; dpkg)",
+    "status": "Active; nightly ISO builds and APT repository are published. No official stable release yet.",
+    "website": "https://cutefish.org/",
+    "description": "A Debian 13-based Linux distribution built around the Cutefish desktop, with its own Wayland compositor, toolkit, and desktop applications. Current images are nightly testing builds.",
     "price": ""
   },
   {
@@ -2378,19 +2406,5 @@
     "website": "https://zorin.com/os/pro/",
     "description": "The paid edition of Zorin OS, adding premium desktop layouts and additional applications to the Ubuntu-based operating system.",
     "price": "One-time purchase; current price is shown by Zorin at checkout."
-  },
-  {
-    "name": "Cutefish",
-    "family": "Debian-based",
-    "difficulty": "Intermediate",
-    "download": "https://download.cutefish.org/",
-    "creator": "Cutefish Project",
-    "release": "",
-    "based_on": "Debian 13",
-    "package_manager": "APT (apt; dpkg)",
-    "status": "Active; nightly ISO builds and APT repository are published. No official stable release yet.",
-    "website": "https://cutefish.org/",
-    "description": "A Debian 13-based Linux distribution built around the Cutefish desktop, with its own Wayland compositor, toolkit, and desktop applications. Current images are nightly testing builds.",
-    "price": ""
   }
 ]
