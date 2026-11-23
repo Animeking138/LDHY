@@ -8,6 +8,10 @@ A curated catalog for discovering Linux distributions, comparing their basic cha
 
 LDHY brings Linux distributions together in one searchable catalog. Entries are grouped by distribution family and include a difficulty estimate to help visitors explore options at different experience levels.
 
+## Note
+
+Android is a Linux Distro we are not ignoring that😂
+
 ## Features
 
 - **Browse by family** — explore Debian-, Arch-, RPM-, Gentoo-, Slackware-, and other distribution families.
