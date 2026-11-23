@@ -121,14 +121,28 @@ fetch('distros.json')
     addRow(card, 'Package manager', d.package_manager);
     addRow(card, 'Maintenance status', d.status);
     const isDistroWatchLink = /^https?:\/\/(www\.)?distrowatch\.com\//i.test(d.download || '');
-    addRow(card, 'Official website', d.website, d.website, 'Visit official website ↗');
+    const officialHomepage = (() => {
+      try {
+        const url = new URL(String(d.website || '').trim());
+        return url.protocol === 'https:' || url.protocol === 'http:' ? url.href : '';
+      } catch {
+        return '';
+      }
+    })();
+    addRow(card, 'Official website', d.website, officialHomepage, 'Visit official website ↗');
     addRow(card, 'Pricing', d.price);
+    const downloadHref = isDistroWatchLink
+      ? (officialHomepage || d.download)
+      : d.download;
+    const downloadText = isDistroWatchLink
+      ? (officialHomepage ? 'Open official homepage ↗' : 'View DistroWatch profile ↗')
+      : 'Open download / project page ↗';
     addRow(
       card,
-      isDistroWatchLink ? 'DistroWatch profile' : 'Download / project page',
+      isDistroWatchLink ? 'Download / DistroWatch fallback' : 'Download / project page',
       d.download,
-      d.download,
-      isDistroWatchLink ? 'View DistroWatch profile ↗' : 'Open download / project page ↗'
+      downloadHref,
+      downloadText
     );
 
     content.append(eyebrow, heading, subtitle, card);
