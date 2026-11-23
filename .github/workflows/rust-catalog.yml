@@ -2,7 +2,7 @@ name: Rust catalog validation
 
 on:
   push:
-    branches: [main, rust-catalog-tool]
+    branches: [main]
   pull_request:
     branches: [main]
 
