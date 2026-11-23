@@ -241,7 +241,7 @@
     "name": "Athena OS",
     "family": "Arch-based (Pacman)",
     "difficulty": "Advanced",
-    "download": "https://athenaos.org/",
+    "download": "",
     "creator": "Athena OS Project",
     "release": "",
     "based_on": "Arch Linux (Athena Arch); NixOS (Athena Nix)",
