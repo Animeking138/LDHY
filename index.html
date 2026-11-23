@@ -545,7 +545,10 @@ section:nth-child(10) { animation-delay: 0.45s; }
     });
 
     sections.forEach(section => {
+      const sectionCards = section.querySelectorAll('.card');
       const visibleCards = section.querySelectorAll('.card:not([style*="display: none"])');
+      const count = section.querySelector('.count');
+      if (count) count.textContent = visibleCards.length;
       section.style.display = visibleCards.length > 0 ? '' : 'none';
     });
 
