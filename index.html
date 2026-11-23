@@ -440,6 +440,7 @@ section:nth-child(10) { animation-delay: 0.45s; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+[hidden] { display: none !important; }
 </style>
 </head>
 <body>
@@ -536,20 +537,16 @@ section:nth-child(10) { animation-delay: 0.45s; }
       const matchesSearch = !query || name.includes(query);
       const matchesFilter = currentFilter === 'all' || diff === currentFilter;
       
-      if (matchesSearch && matchesFilter) {
-        card.style.display = '';
-        visibleCount++;
-      } else {
-        card.style.display = 'none';
-      }
+      const isVisible = matchesSearch && matchesFilter;
+      card.hidden = !isVisible;
+      if (isVisible) visibleCount++;
     });
 
     sections.forEach(section => {
-      const sectionCards = section.querySelectorAll('.card');
-      const visibleCards = section.querySelectorAll('.card:not([style*="display: none"])');
+      const visibleCountInSection = section.querySelectorAll('.card:not([hidden])').length;
       const count = section.querySelector('.count');
-      if (count) count.textContent = visibleCards.length;
-      section.style.display = visibleCards.length > 0 ? '' : 'none';
+      if (count) count.textContent = visibleCountInSection;
+      section.hidden = visibleCountInSection === 0;
     });
 
     emptyState.classList.toggle('visible', visibleCount === 0);
