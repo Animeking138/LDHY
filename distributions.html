@@ -6,10 +6,10 @@
 <title>Linux Distributions Archive</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#0a0e14; --surface:#121820; --border:#243040; --text:#e8eef5; --muted:#7d8a99; --accent:#6ea8fe; --gold:#f0b429; --radius:12px; }
+  :root { --bg:#000000; --surface:#0b0b0b; --border:#242424; --text:#e8eef5; --muted:#7d8a99; --accent:#6ea8fe; --gold:#f0b429; --radius:12px; }
   * { box-sizing:border-box; margin:0; padding:0; }
   body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
-  body::before { content:''; position:fixed; inset:0; z-index:-1; background:radial-gradient(circle at 20% 10%,#1f6feb33 0%,transparent 40%),radial-gradient(circle at 80% 80%,#a78bfa22 0%,transparent 40%); }
+  body::before { content:''; position:fixed; inset:0; z-index:-1; background:#000000; }
   .topbar { padding:1rem 1.5rem; border-bottom:1px solid var(--border); }
   .topbar a { color:var(--accent); text-decoration:none; font-weight:500; }
   .container { max-width:1000px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
@@ -33,7 +33,7 @@
   <h1>Linux Distributions Archive</h1>
   <p class="subtitle">A catalog of notable Linux distributions, grouped by family. Tap to filter.</p>
   <div style="display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap;">
-    <button class="sortbtn active" data-sort="date" onclick="setSort('date')" style="padding:.5rem 1rem;border-radius:8px;border:1px solid var(--border);background:var(--surface-2);color:var(--text);cursor:pointer;">By release date</button>
+    <button class="sortbtn active" data-sort="date" onclick="setSort('date')" style="padding:.5rem 1rem;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;">By release date</button>
     <button class="sortbtn" data-sort="diff" onclick="setSort('diff')" style="padding:.5rem 1rem;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer;">By difficulty</button>
   </div>
   <input class="search" id="search" placeholder="Search distributions..." oninput="filter()">
