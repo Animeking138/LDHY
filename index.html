@@ -546,6 +546,15 @@ section:nth-child(10) { animation-delay: 0.45s; }
   const difficultyFilter = document.getElementById('difficulty-filter');
   const familyFilter = document.getElementById('family-filter');
   const cards = document.querySelectorAll('.card');
+
+  // Remove family filter choices that have no distributions in the catalog.
+  Array.from(familyFilter.options).forEach(option => {
+    if (option.value === 'all') return;
+    const section = document.querySelector(`section[data-section="${option.value}"]`);
+    if (!section || section.querySelectorAll('.card').length === 0) {
+      option.remove();
+    }
+  });
   const sections = document.querySelectorAll('section');
   const emptyState = document.getElementById('empty-state');
 
