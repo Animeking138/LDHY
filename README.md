@@ -8,7 +8,7 @@ A curated list of Linux distributions with official download links, difficulty r
 
 ## Features
 
-- **109 Linux distributions** organized by base family (Debian, Arch, RPM, Gentoo, Slackware, Source/Nix, and Others)
+- **Linux distributions** organized by base family (Debian, Arch, RPM, Gentoo, Slackware, Source/Nix, and Others)
 - **Difficulty badges** — Beginner, Intermediate, Advanced, Expert
 - **Official download links** where available, with DistroWatch fallback for others
 - **Paid (subscription)** section with pricing for RHEL, SUSE, Ubuntu Pro, and Zorin OS Pro
