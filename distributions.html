@@ -11,6 +11,8 @@
 <style>
   :root { --bg:#000000; --surface:#0b0b0b; --border:#242424; --text:#e8eef5; --muted:#7d8a99; --accent:#6ea8fe; --gold:#f0b429; --radius:12px; }
   * { box-sizing:border-box; margin:0; padding:0; }
+  :focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
   body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
   body::before { content:''; position:fixed; inset:0; z-index:-1; background:#000000; }
   .topbar { padding:1rem 1.5rem; border-bottom:1px solid var(--border); }
@@ -28,6 +30,10 @@
   .card .meta { color:var(--muted); font-size:.85rem; }
   .card .base { color:var(--gold); font-size:.8rem; margin-top:.5rem; display:inline-block; }
   .count { color:var(--muted); font-size:.9rem; margin-bottom:1rem; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior:auto; }
+    *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  }
 </style>
 </head>
 <body>
@@ -118,10 +124,14 @@ function render(query = '') {
     grid.appendChild(card);
   });
 
-  fragment.appendChild(makeText('div', 'count',
+  const summary = makeText('div', 'count',
     list.length + ' distributions shown (sorted by ' +
     (sortMode === 'date' ? 'release year' : 'difficulty') + ')'
-  ));
+  );
+  summary.setAttribute('role', 'status');
+  summary.setAttribute('aria-live', 'polite');
+  summary.setAttribute('aria-atomic', 'true');
+  fragment.appendChild(summary);
 
   if (list.length) {
     fragment.appendChild(grid);
