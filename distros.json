@@ -314,8 +314,8 @@
     "download": "https://distrowatch.com/table.php?distribution=biglinux",
     "creator": "",
     "release": "",
-    "based_on": "",
-    "package_manager": "",
+    "based_on": "Manjaro",
+    "package_manager": "pacman; Flatpak; AppImage",
     "status": "Not yet verified",
     "website": "https://www.biglinux.com.br/en/",
     "description": "A Brazilian desktop Linux distribution focused on usability, with a customized desktop experience and integrated system tools.",
@@ -780,7 +780,7 @@
     "package_manager": "APT (apt; dpkg)",
     "status": "Not yet verified",
     "website": "https://www.elivecd.org/",
-    "description": "",
+    "description": "A Debian-based desktop and live distribution featuring the Enlightenment desktop environment, with a preconfigured system intended for everyday use.",
     "price": ""
   },
   {
@@ -1294,11 +1294,11 @@
     "download": "https://distrowatch.com/table.php?distribution=minimallinuxlive",
     "creator": "",
     "release": "",
-    "based_on": "",
-    "package_manager": "",
+    "based_on": "Independent",
+    "package_manager": "N/A (minimal build system; no general-purpose package manager)",
     "status": "Not yet verified",
     "website": "https://ivandavidov.github.io/minimal/",
-    "description": "",
+    "description": "A minimal Linux system assembled from core components, intended as a small, customizable starting point for learning how a Linux system is built.",
     "price": ""
   },
   {
@@ -1462,7 +1462,7 @@
     "download": "https://distrowatch.com/table.php?distribution=openmandriva",
     "creator": "OpenMandriva Association and Cooker group",
     "release": "November 22, 2013 (2013-11-22)",
-    "based_on": "Mandriva lineage",
+    "based_on": "Independent",
     "package_manager": "",
     "status": "Not yet verified",
     "website": "https://www.openmandriva.org/",
