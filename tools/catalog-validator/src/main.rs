@@ -86,7 +86,8 @@ fn check_homepage(
     errors: &mut Vec<String>,
 ) -> Result<(), Box<dyn std::error::Error>> {
     let html = fs::read_to_string(root.join("index.html"))?;
-    let section_re = Regex::new(r#"(?s)<section\s+data-section="([^"]+)"[^>]*>(.*?)</section>"#)?;
+    let section_re = Regex::new(r#"(?s)<section\b([^>]*)>(.*?)</section>"#)?;
+    let section_name_re = Regex::new(r#"data-section="([^"]+)""#)?;
     let card_re = Regex::new(
         r#"(?s)<a class="card" data-diff="([^"]+)" href="([^"]+)">.*?<h3>([^<]+)</h3></a>"#,
     )?;
@@ -100,7 +101,10 @@ fn check_homepage(
     let mut card_count = 0usize;
 
     for section in section_re.captures_iter(&html) {
-        let section_name = &section[1];
+        let Some(section_name) = section_name_re.captures(&section[1]) else {
+            continue;
+        };
+        let section_name = &section_name[1];
         let section_html = &section[2];
 
         for card in card_re.captures_iter(section_html) {
