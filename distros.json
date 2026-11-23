@@ -1,5 +1,19 @@
 [
   {
+    "name": "/e/OS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://doc.e.foundation/devices",
+    "creator": "e Foundation",
+    "release": "",
+    "based_on": "LineageOS",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://e.foundation/",
+    "description": "A de-Googled Android operating system with microG integration and an ecosystem of privacy-oriented services.",
+    "price": ""
+  },
+  {
     "name": "Absolute Linux",
     "family": "Slackware-based",
     "difficulty": "Advanced",
@@ -56,6 +70,20 @@
     "price": ""
   },
   {
+    "name": "AICP",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://dwnld.aicp-rom.com/",
+    "creator": "AICP Team",
+    "release": "",
+    "based_on": "AOSP / LineageOS-derived",
+    "package_manager": "",
+    "status": "Active; device-specific build availability varies",
+    "website": "https://www.aicp-rom.com/",
+    "description": "A customizable Android aftermarket firmware project with a clean interface, frequent builds and OTA support.",
+    "price": ""
+  },
+  {
     "name": "AlmaLinux",
     "family": "RPM-based",
     "difficulty": "Intermediate",
@@ -67,6 +95,20 @@
     "status": "Not yet verified",
     "website": "",
     "description": "",
+    "price": ""
+  },
+  {
+    "name": "AlphaDroid",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://alphadroid.org/",
+    "creator": "AlphaDroid Project",
+    "release": "",
+    "based_on": "LineageOS / crDroid",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://alphadroid.org/",
+    "description": "A LineageOS- and crDroid-based ROM focused on extensive customization, Material You styling and performance refinements.",
     "price": ""
   },
   {
@@ -112,6 +154,20 @@
     "price": ""
   },
   {
+    "name": "AOSP Extended",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://www.aospextended.com/",
+    "creator": "AOSP Extended Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Discontinued; final builds only",
+    "website": "https://www.aospextended.com/",
+    "description": "An AOSP-based ROM that combined a near-stock Android experience with additional customization features.",
+    "price": ""
+  },
+  {
     "name": "Arch Linux",
     "family": "Arch-based (Pacman)",
     "difficulty": "Advanced",
@@ -126,6 +182,20 @@
     "price": ""
   },
   {
+    "name": "ArrowOS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://arrowos.net/",
+    "creator": "ArrowOS Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Discontinued; final builds only",
+    "website": "https://arrowos.net/",
+    "description": "A clean and simple AOSP-based Android ROM. The project is no longer shipping current builds.",
+    "price": ""
+  },
+  {
     "name": "Artix Linux",
     "family": "Arch-based (Pacman)",
     "difficulty": "Advanced",
@@ -137,6 +207,20 @@
     "status": "Not yet verified",
     "website": "https://artixlinux.org/",
     "description": "",
+    "price": ""
+  },
+  {
+    "name": "ASCP OS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://github.com/Pixelify-AOSP",
+    "creator": "Pixelify-AOSP community",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Active; community device builds",
+    "website": "https://github.com/Pixelify-AOSP",
+    "description": "An AOSP-based ROM project from the Pixelify-AOSP community, with official device and source information published through its GitHub organization.",
     "price": ""
   },
   {
@@ -165,6 +249,20 @@
     "status": "Not yet verified",
     "website": "http://cyti.latgola.lv/ruuni/",
     "description": "",
+    "price": ""
+  },
+  {
+    "name": "AxionOS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://www.axionos.org/download",
+    "creator": "AxionOS Team",
+    "release": "",
+    "based_on": "LineageOS",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://www.axionos.org/",
+    "description": "A LineageOS-based ROM offering GMS and vanilla editions, with an official device directory and downloads.",
     "price": ""
   },
   {
@@ -235,6 +333,20 @@
     "status": "Not yet verified",
     "website": "https://www.blackarch.org/",
     "description": "",
+    "price": ""
+  },
+  {
+    "name": "BlissRoms",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://blissroms.org/",
+    "creator": "BlissRoms Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://blissroms.org/",
+    "description": "An open-source Android-based operating system emphasizing customization and a broad range of device form factors.",
     "price": ""
   },
   {
@@ -322,6 +434,34 @@
     "price": ""
   },
   {
+    "name": "CalyxOS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://calyxos.org/install/",
+    "creator": "Calyx Institute",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://calyxos.org/",
+    "description": "A privacy-focused Android operating system developed by the Calyx Institute.",
+    "price": ""
+  },
+  {
+    "name": "CarbonROM",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://carbonrom.org/",
+    "creator": "CarbonROM Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Discontinued; final builds only",
+    "website": "https://carbonrom.org/",
+    "description": "An aftermarket AOSP firmware project focused on flexibility and customization.",
+    "price": ""
+  },
+  {
     "name": "CentOS Stream",
     "family": "RPM-based",
     "difficulty": "Intermediate",
@@ -336,6 +476,20 @@
     "price": ""
   },
   {
+    "name": "Cherish OS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://cherishos.com/",
+    "creator": "Cherish OS Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Discontinued; final builds only",
+    "website": "https://cherishos.com/",
+    "description": "An AOSP- and Pixel-inspired ROM known for its visual design and feature set.",
+    "price": ""
+  },
+  {
     "name": "Chimera Linux",
     "family": "Others",
     "difficulty": "Expert",
@@ -347,6 +501,20 @@
     "status": "Active; official documentation and package repositories are current",
     "website": "https://chimera-linux.org/",
     "description": "Independent rolling-release distribution built around a musl C library, LLVM toolchain, FreeBSD userland components, and dinit.",
+    "price": ""
+  },
+  {
+    "name": "CipherOS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://sourceforge.net/projects/cipheros/files/",
+    "creator": "CipherOS Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Last known device builds dated July 2025; no current builds confirmed",
+    "website": "https://cipheros.github.io/",
+    "description": "An Android custom operating system project. Its available archive includes older device builds; current device support is not confirmed.",
     "price": ""
   },
   {
@@ -378,6 +546,20 @@
     "price": ""
   },
   {
+    "name": "Clover",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://thecloverproject.com/files",
+    "creator": "The Clover Project",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://thecloverproject.com/",
+    "description": "An AOSP-based, Pixel-inspired ROM available in GMS and vanilla variants, with an official release browser.",
+    "price": ""
+  },
+  {
     "name": "Commodore OS",
     "family": "Others",
     "difficulty": "Intermediate",
@@ -389,6 +571,34 @@
     "status": "Not yet verified",
     "website": "https://www.commodoreos.net/CommodoreOS.aspx",
     "description": "",
+    "price": ""
+  },
+  {
+    "name": "Corvus OS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://github.com/CorvusRom",
+    "creator": "Corvus OS Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Discontinued; final builds only",
+    "website": "https://github.com/CorvusRom",
+    "description": "A formerly gaming-oriented AOSP custom ROM with extensive customization and performance features.",
+    "price": ""
+  },
+  {
+    "name": "crDroid",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://crdroid.net/",
+    "creator": "crDroid Team",
+    "release": "",
+    "based_on": "LineageOS",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://crdroid.net/",
+    "description": "A LineageOS-based ROM focused on performance, reliability and extensive customization.",
     "price": ""
   },
   {
@@ -448,6 +658,20 @@
     "price": ""
   },
   {
+    "name": "DerpFest",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://derpfest.org/",
+    "creator": "DerpFest Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://derpfest.org/",
+    "description": "An AOSP-based custom ROM combining Pixel-inspired design with additional features and customization.",
+    "price": ""
+  },
+  {
     "name": "Devuan",
     "family": "Debian-based",
     "difficulty": "Intermediate",
@@ -473,6 +697,34 @@
     "status": "Active",
     "website": "https://dietpi.com/",
     "description": "A lightweight Debian-based distribution with optimized images and setup tools for single-board computers, PCs and servers.",
+    "price": ""
+  },
+  {
+    "name": "DivestOS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://divestos.org/",
+    "creator": "DivestOS Project",
+    "release": "",
+    "based_on": "LineageOS",
+    "package_manager": "",
+    "status": "Discontinued in December 2024; final builds only",
+    "website": "https://divestos.org/",
+    "description": "A discontinued soft fork of LineageOS focused on free software, deblobbing and security hardening.",
+    "price": ""
+  },
+  {
+    "name": "DotOS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://www.droidontime.com/",
+    "creator": "Droid on Time Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Discontinued; final builds only",
+    "website": "https://www.droidontime.com/",
+    "description": "A formerly active AOSP-based Android ROM known for its distinctive interface and customization.",
     "price": ""
   },
   {
@@ -557,6 +809,20 @@
     "status": "Not yet verified",
     "website": "",
     "description": "",
+    "price": ""
+  },
+  {
+    "name": "Evolution X",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://evolution-x.org/",
+    "creator": "Evolution X Team",
+    "release": "",
+    "based_on": "LineageOS",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://evolution-x.org/",
+    "description": "A LineageOS-based ROM bringing Pixel-style features together with extensive customization options.",
     "price": ""
   },
   {
@@ -714,6 +980,20 @@
     "price": ""
   },
   {
+    "name": "GrapheneOS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://grapheneos.org/install/",
+    "creator": "GrapheneOS Foundation",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://grapheneos.org/",
+    "description": "A security- and privacy-focused mobile operating system with Android app compatibility.",
+    "price": ""
+  },
+  {
     "name": "Guix System",
     "family": "Source/Nix-based",
     "difficulty": "Expert",
@@ -725,6 +1005,34 @@
     "status": "Not yet verified",
     "website": "https://guix.gnu.org/",
     "description": "",
+    "price": ""
+  },
+  {
+    "name": "Halcyon",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://get.hlcyn.org/",
+    "creator": "Halcyon Project",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://hlcyn.org/",
+    "description": "A custom Android distribution with official device builds and releases hosted by the project.",
+    "price": ""
+  },
+  {
+    "name": "Havoc OS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://havoc-os.com/",
+    "creator": "Havoc OS Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Discontinued; final builds only",
+    "website": "https://havoc-os.com/",
+    "description": "A formerly popular AOSP-based aftermarket firmware with a broad customization feature set.",
     "price": ""
   },
   {
@@ -840,6 +1148,20 @@
     "price": ""
   },
   {
+    "name": "LineageOS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://download.lineageos.org/",
+    "creator": "LineageOS Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://lineageos.org/",
+    "description": "A free and open-source Android distribution with broad device support and a clean, close-to-AOSP experience.",
+    "price": ""
+  },
+  {
     "name": "Linux Lite",
     "family": "Debian-based",
     "difficulty": "Beginner",
@@ -893,6 +1215,20 @@
     "status": "Not yet verified",
     "website": "https://www.lunar-linux.org/",
     "description": "",
+    "price": ""
+  },
+  {
+    "name": "Lunaris AOSP",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://github.com/Lunaris-AOSP",
+    "creator": "Lunaris AOSP Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://github.com/Lunaris-AOSP",
+    "description": "An AOSP-based ROM combining features and components from several established custom ROM projects.",
     "price": ""
   },
   {
@@ -966,6 +1302,20 @@
     "price": ""
   },
   {
+    "name": "MistOS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://github.com/MistOS",
+    "creator": "MistOS Team",
+    "release": "",
+    "based_on": "LineageOS",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://github.com/MistOS",
+    "description": "A LineageOS-based Android ROM offering multiple Google-app package variants as well as a vanilla build.",
+    "price": ""
+  },
+  {
     "name": "Mobian",
     "family": "Debian-based",
     "difficulty": "Intermediate",
@@ -1005,6 +1355,20 @@
     "status": "Not yet verified",
     "website": "https://neptuneos.com/en/start-page.html",
     "description": "",
+    "price": ""
+  },
+  {
+    "name": "Nitrogen OS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://github.com/nitrogen-project",
+    "creator": "Nitrogen OS Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Discontinued; final builds only",
+    "website": "https://github.com/nitrogen-project",
+    "description": "An AOSP-based custom ROM with archived device builds; no current official device builds are listed.",
     "price": ""
   },
   {
@@ -1050,6 +1414,20 @@
     "price": ""
   },
   {
+    "name": "Nusantara Project",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://nusantararom.org/",
+    "creator": "Nusantara Project Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Discontinued; final builds only",
+    "website": "https://nusantararom.org/",
+    "description": "An Indonesian AOSP-based custom ROM project whose listed builds are no longer maintained.",
+    "price": ""
+  },
+  {
     "name": "NuTyX",
     "family": "Source/Nix-based",
     "difficulty": "Advanced",
@@ -1061,6 +1439,20 @@
     "status": "Not yet verified",
     "website": "https://www.nutyx.org/",
     "description": "A Linux From Scratch-inspired distribution for motivated users, featuring its own CARDS package manager and support for building packages from ports.",
+    "price": ""
+  },
+  {
+    "name": "OmniROM",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://omnirom.org/",
+    "creator": "OmniROM Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "No recent current device builds confirmed; legacy project",
+    "website": "https://omnirom.org/",
+    "description": "An open-source Android firmware project established in 2013 by Android developers.",
     "price": ""
   },
   {
@@ -1148,6 +1540,20 @@
     "price": ""
   },
   {
+    "name": "Paranoid Android",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://aospa.co/",
+    "creator": "Paranoid Android Team",
+    "release": "",
+    "based_on": "AOSP / CAF",
+    "package_manager": "",
+    "status": "No current builds confirmed; legacy project",
+    "website": "https://aospa.co/",
+    "description": "A long-running Android aftermarket firmware project known for its distinctive interface and feature innovations.",
+    "price": ""
+  },
+  {
     "name": "Pardus",
     "family": "Others",
     "difficulty": "Advanced",
@@ -1204,6 +1610,34 @@
     "price": ""
   },
   {
+    "name": "Pixel Experience",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://download.pixelexperience.org/",
+    "creator": "Pixel Experience Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Discontinued; final builds only",
+    "website": "https://download.pixelexperience.org/",
+    "description": "A discontinued AOSP-based ROM that brought Google Pixel applications and features to supported devices.",
+    "price": ""
+  },
+  {
+    "name": "PixelOS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://pixelos.net/download",
+    "creator": "PixelOS Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://pixelos.net/",
+    "description": "An AOSP-based ROM designed to deliver a Pixel-like Android experience with Google apps and Pixel features.",
+    "price": ""
+  },
+  {
     "name": "Pop!_OS",
     "family": "Debian-based",
     "difficulty": "Beginner",
@@ -1229,6 +1663,76 @@
     "status": "Official project site and documentation available; current maintenance cadence not independently verified",
     "website": "https://www.porteus.org/",
     "description": "Portable, modular live distribution based on Slackware, designed to run from removable media.",
+    "price": ""
+  },
+  {
+    "name": "Project Blaze",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://www.projectblaze.in/",
+    "creator": "Project Blaze Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Discontinued in January 2025; final builds only",
+    "website": "https://www.projectblaze.in/",
+    "description": "An AOSP-based ROM with a stock Android look and its own customization features.",
+    "price": ""
+  },
+  {
+    "name": "Project Elixir",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://projectelixiros.com/",
+    "creator": "Project Elixir Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Discontinued; final builds only",
+    "website": "https://projectelixiros.com/",
+    "description": "A formerly active AOSP-based ROM focused on a minimal interface and selected customization features.",
+    "price": ""
+  },
+  {
+    "name": "Project Infinity X",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://projectinfinity-x.com/downloads/",
+    "creator": "Project Infinity X Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://projectinfinity-x.com/",
+    "description": "An AOSP-based custom ROM offering GApps and vanilla builds with extensive customization.",
+    "price": ""
+  },
+  {
+    "name": "Project Matrixx",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://www.projectmatrixx.org/",
+    "creator": "Project Matrixx Team",
+    "release": "",
+    "based_on": "crDroid",
+    "package_manager": "",
+    "status": "Discontinued; final builds only",
+    "website": "https://www.projectmatrixx.org/",
+    "description": "A crDroid-based custom ROM with additional features and customization.",
+    "price": ""
+  },
+  {
+    "name": "Project Sakura",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://projectsakura.github.io/download.html",
+    "creator": "Project Sakura Team",
+    "release": "",
+    "based_on": "LineageOS",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://projectsakura.me/",
+    "description": "A LineageOS-based open-source custom ROM combining timely updates with additional customization.",
     "price": ""
   },
   {
@@ -1355,6 +1859,20 @@
     "status": "Not yet verified",
     "website": "https://regolith-desktop.com/",
     "description": "",
+    "price": ""
+  },
+  {
+    "name": "RisingOS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://github.com/RisingOS-Revived",
+    "creator": "RisingOS Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://github.com/RisingOS-Revived",
+    "description": "An AOSP-based custom ROM with a distinctive interface and a broad set of customization features.",
     "price": ""
   },
   {
@@ -1512,6 +2030,20 @@
     "price": ""
   },
   {
+    "name": "SparkOS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://www.spark-os.live/",
+    "creator": "SparkOS Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Discontinued; final builds only",
+    "website": "https://www.spark-os.live/",
+    "description": "A formerly active AOSP-based ROM focused on a lightweight and smooth Android experience.",
+    "price": ""
+  },
+  {
     "name": "SparkyLinux",
     "family": "Debian-based",
     "difficulty": "Intermediate",
@@ -1523,6 +2055,20 @@
     "status": "Not yet verified",
     "website": "https://sparkylinux.org/",
     "description": "",
+    "price": ""
+  },
+  {
+    "name": "StatiXOS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://github.com/StatiXOS",
+    "creator": "StatiXOS Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Project active; latest tracked device builds are older",
+    "website": "https://github.com/StatiXOS",
+    "description": "An AOSP-based homebrew Android distribution. The project remains identifiable, but its currently supported devices need checking.",
     "price": ""
   },
   {
@@ -1540,6 +2086,20 @@
     "price": ""
   },
   {
+    "name": "SuperiorOS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://superioros.github.io/",
+    "creator": "SuperiorOS Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Project active; latest tracked device builds are older",
+    "website": "https://superioros.github.io/",
+    "description": "An AOSP-based custom ROM focused on performance, stability and customization.",
+    "price": ""
+  },
+  {
     "name": "SUSE Linux Enterprise",
     "family": "Paid (subscription)",
     "difficulty": "Intermediate",
@@ -1552,6 +2112,20 @@
     "website": "https://www.suse.com/shop/server/",
     "description": "",
     "price": "Varies by product, architecture, subscription term and support tier; check SUSE's current store."
+  },
+  {
+    "name": "Syberia OS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://syberiaos.com/",
+    "creator": "Syberia OS Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Discontinued; final builds only",
+    "website": "https://syberiaos.com/",
+    "description": "A formerly maintained AOSP-based project intended to enhance the stock Android experience.",
+    "price": ""
   },
   {
     "name": "SystemRescue",
@@ -1733,6 +2307,20 @@
     "status": "Not yet verified",
     "website": "https://voidlinux.org/",
     "description": "",
+    "price": ""
+  },
+  {
+    "name": "VoltageOS",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://www.voltageos.com/",
+    "creator": "VoltageOS Team",
+    "release": "",
+    "based_on": "AOSP",
+    "package_manager": "",
+    "status": "Active",
+    "website": "https://www.voltageos.com/",
+    "description": "An AOSP-based ROM focused on performance and simplicity, with privacy features and a sandboxed Google Play environment.",
     "price": ""
   },
   {
