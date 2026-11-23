@@ -1,0 +1,148 @@
+
+const params = new URLSearchParams(location.search);
+const requestedName = params.get('name') || '';
+const requestedId = params.get('id') || '';
+const content = document.getElementById('content');
+
+function slugifyName(value) {
+  return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+function cleanRelease(value) {
+  if (!value) return '';
+  return String(value)
+    .replace(/\s*\(\)\s*/g, ' ')
+    .replace(/\s*\(\d{4}-\d{2}-\d{2}\)\s*$/, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function addRow(card, label, value, href, linkText) {
+  if (value === null || value === undefined || String(value).trim() === '') return;
+  const row = document.createElement('div');
+  row.className = 'row';
+  const key = document.createElement('div');
+  key.className = 'label';
+  key.textContent = label;
+  const val = document.createElement('div');
+  val.className = 'value';
+  if (href) {
+    const link = document.createElement('a');
+    link.href = href;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = linkText || 'Visit official page';
+    val.appendChild(link);
+  } else {
+    val.textContent = value;
+  }
+  row.append(key, val);
+  card.appendChild(row);
+}
+
+fetch('distros.json')
+  .then(response => {
+    if (!response.ok) throw new Error('Could not load catalog data');
+    return response.json();
+  })
+  .then(data => {
+    const d = data.find(item =>
+      (requestedName && item.name === requestedName) ||
+      (requestedId && slugifyName(item.name) === requestedId)
+    );
+    if (!d) {
+      document.title = 'Distribution not found — LDHY';
+      content.textContent = 'No catalog entry was found for this distribution.';
+      return;
+    }
+
+    document.title = d.name + ' — Distro Details';
+    content.replaceChildren();
+
+    const eyebrow = document.createElement('div');
+    eyebrow.className = 'eyebrow';
+    eyebrow.textContent = d.family || 'Linux distribution';
+
+    const heading = document.createElement('h1');
+    heading.textContent = d.name;
+
+    const subtitle = document.createElement('p');
+    subtitle.className = 'subtitle';
+    subtitle.textContent = d.description || 'Metadata is incomplete; see the project website for authoritative details.';
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    addRow(card, 'Family', d.family);
+    addRow(card, 'Difficulty estimate', d.difficulty);
+    addRow(card, 'Creator / Developer', d.creator);
+    addRow(card, 'Initial release', cleanRelease(d.release));
+    addRow(card, 'Based on', d.based_on);
+    addRow(card, 'Package manager', d.package_manager);
+    addRow(card, 'Maintenance status', d.status);
+    addRow(card, 'Last verified', d.verified);
+    addRow(card, 'Verification source', d.source, d.source, 'View official source ↗');
+    const isDistroWatchLink = /^https?:\/\/(www\.)?distrowatch\.com\//i.test(d.download || '');
+    const officialHomepage = (() => {
+      try {
+        const url = new URL(String(d.website || '').trim());
+        return url.protocol === 'https:' || url.protocol === 'http:' ? url.href : '';
+      } catch {
+        return '';
+      }
+    })();
+    const downloadHref = isDistroWatchLink
+      ? (officialHomepage || d.download)
+      : d.download;
+    const downloadText = isDistroWatchLink
+      ? (officialHomepage ? 'Open official homepage ↗' : 'View DistroWatch profile ↗')
+      : 'Open download / project page ↗';
+    const sameDestination = (() => {
+      if (!officialHomepage || !downloadHref) return false;
+      try {
+        const normalizeDestination = value => {
+          const url = new URL(value, location.href);
+          url.pathname = url.pathname.replace(/\/+$/, '') || '/';
+          return url.href;
+        };
+        return normalizeDestination(downloadHref) === normalizeDestination(officialHomepage);
+      } catch {
+        return false;
+      }
+    })();
+    if (!sameDestination) {
+      addRow(card, 'Official website', d.website, officialHomepage, 'Visit official website ↗');
+    }
+    addRow(card, 'Pricing', d.price);
+    addRow(
+      card,
+      isDistroWatchLink
+        ? (officialHomepage ? 'Download / official homepage' : 'DistroWatch profile')
+        : 'Download / project page',
+      d.download,
+      downloadHref,
+      downloadText
+    );
+
+    if (d.family === 'Android' && d.name !== 'Android') {
+      const note = document.createElement('div');
+      note.className = 'card';
+      note.setAttribute('role', 'note');
+      const noteTitle = document.createElement('strong');
+      noteTitle.textContent = 'Device compatibility';
+      const noteText = document.createElement('p');
+      noteText.className = 'device-note-text';
+      noteText.textContent = 'Custom ROM builds are device-specific. A project being active does not mean it supports every phone. Check the project’s official device list and installation instructions for your exact model and codename before proceeding. Build availability and maintenance can change.';
+      note.append(noteTitle, noteText);
+      content.append(eyebrow, heading, subtitle, card, note);
+    } else {
+      content.append(eyebrow, heading, subtitle, card);
+    }
+    const back = document.createElement('a');
+    back.className = 'back';
+    back.href = 'index.html';
+    back.textContent = '← Back to list';
+    content.appendChild(back);
+  })
+  .catch(() => {
+    content.textContent = 'Failed to load catalog data. Please try again later.';
+  });
