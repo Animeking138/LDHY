@@ -46,7 +46,7 @@ LDHY is an informational catalog. It does not develop, distribute, endorse, or i
 
 ### Metadata conventions
 
-A blank metadata field means the value has not been independently verified or does not apply; it is not an invitation to infer a value from a broad family label. `Not yet verified` means the project's current maintenance state has not been confirmed. Check official project documentation before relying on any catalog entry.
+A blank metadata field means the value has not been independently verified or does not apply; it is not an invitation to infer a value from a broad family label. `Not yet verified` means the project's current maintenance state has not been confirmed. Check official project documentation before relying on any catalog entry. Entries with `source` and `verified` fields include an official page used for the check and the date it was reviewed. These fields document provenance; they do not imply that every metadata field has been independently confirmed.
 
 ## Contributing
 
