@@ -281,6 +281,89 @@ fn check_archive_routes(
     Ok(())
 }
 
+
+fn check_page_security(
+    root: &Path,
+    page: &str,
+    required_css: &str,
+    required_js: &str,
+    errors: &mut Vec<String>,
+) -> Result<(), Box<dyn std::error::Error>> {
+    let html = fs::read_to_string(root.join(page))?;
+    let label = page;
+
+    let csp_re = Regex::new(
+        r#"(?is)<meta\\s+http-equiv=["']Content-Security-Policy["']\\s+content=["']([^"']*)["']"#
+    )?;
+    let csp = csp_re
+        .captures(&html)
+        .map(|capture| capture[1].to_ascii_lowercase());
+
+    match csp {
+        Some(policy) => {
+            if policy.contains("'unsafe-inline'") {
+                errors.push(format!("{label}: CSP must not allow unsafe-inline."));
+            }
+            for directive in ["default-src 'self'", "script-src 'self'", "style-src 'self'"] {
+                if !policy.contains(directive) {
+                    errors.push(format!("{label}: CSP is missing required directive {directive:?}."));
+                }
+            }
+            for directive in ["base-uri 'self'", "object-src 'none'", "form-action 'self'"] {
+                if !policy.contains(directive) {
+                    errors.push(format!("{label}: CSP is missing required directive {directive:?}."));
+                }
+            }
+        }
+        None => errors.push(format!("{label}: Content Security Policy meta tag is missing.")),
+    }
+
+    let inline_style_re = Regex::new(r"(?is)<style\\b[^>]*>")?;
+    let inline_script_re = Regex::new(r"(?is)<script\\b[^>]*>\\s*[^<\\s]")?;
+    let style_attribute_re = Regex::new(r#"(?is)\\sstyle\\s*="#)?;
+    if inline_style_re.is_match(&html) {
+        errors.push(format!("{label}: inline <style> blocks are not allowed; use a local stylesheet."));
+    }
+    if inline_script_re.is_match(&html) {
+        errors.push(format!("{label}: inline <script> code is not allowed; use a local script file."));
+    }
+    if style_attribute_re.is_match(&html) {
+        errors.push(format!("{label}: inline style attributes are not allowed."));
+    }
+
+    if !html.contains(required_css) {
+        errors.push(format!("{label}: required local stylesheet {required_css:?} is not referenced."));
+    }
+    if !html.contains(required_js) {
+        errors.push(format!("{label}: required local script {required_js:?} is not referenced."));
+    }
+
+    let tag_re = Regex::new(r#"(?is)<(?:link|script)\\b[^>]*>"#)?;
+    let attr_re = Regex::new(r#"(?is)\\b(?:href|src)\\s*=\\s*["']([^"']+)["']"#)?;
+    for tag in tag_re.find_iter(&html) {
+        if let Some(attribute) = attr_re.captures(tag.as_str()) {
+            let raw = attribute[1].trim();
+            if raw.is_empty()
+                || raw.starts_with('#')
+                || raw.starts_with("//")
+                || Url::parse(raw).is_ok()
+            {
+                continue;
+            }
+            let local = raw.split(['?', '#']).next().unwrap_or(raw);
+            let local = local.strip_prefix("./").unwrap_or(local);
+            let path = Path::new(local);
+            let unsafe_path = path.is_absolute()
+                || path.components().any(|part| !matches!(part, Component::Normal(_)));
+            if unsafe_path || !root.join(path).is_file() {
+                errors.push(format!("{label}: referenced local asset is missing or unsafe: {raw:?}."));
+            }
+        }
+    }
+
+    Ok(())
+}
+
 fn run() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<String> = env::args().skip(1).collect();
 
@@ -373,6 +456,13 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
 
     check_homepage(&root, &records, &mut errors)?;
     check_archive_routes(&root, &records, &mut errors)?;
+    for (page, css, js) in [
+        ("index.html", "assets/css/index.css", "assets/js/index.js"),
+        ("distributions.html", "assets/css/distributions.css", "assets/js/distributions.js"),
+        ("distro.html", "assets/css/distro.css", "assets/js/distro.js"),
+    ] {
+        check_page_security(&root, page, css, js, &mut errors)?;
+    }
 
     if !errors.is_empty() {
         eprintln!("LDHY catalog check failed with {} error(s):", errors.len());
@@ -451,6 +541,14 @@ mod tests {
         assert!(valid_verification_date("2026-11-24"));
         assert!(!valid_verification_date("2026-13-24"));
         assert!(!valid_verification_date("24-11-2026"));
+    }
+
+    #[test]
+    fn security_policy_rejects_inline_execution() {
+        let policy = "default-src 'self'; script-src 'self'; style-src 'self';";
+        assert!(!policy.contains("'unsafe-inline'"));
+        assert!(policy.contains("script-src 'self'"));
+        assert!(policy.contains("style-src 'self'"));
     }
 
     #[test]
