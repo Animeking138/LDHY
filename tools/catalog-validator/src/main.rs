@@ -614,7 +614,7 @@ mod tests {
         assert!(!has_clean_text("   "));
         assert!(!has_clean_text(" Linux"));
         assert!(!has_clean_text("Linux "));
-        assert!(!has_clean_text("Linux\\nOS"));
+        assert!(!has_clean_text("Linux\nOS"));
     }
 
     #[test]
