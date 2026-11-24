@@ -1314,7 +1314,7 @@
   {
     "name": "Linux From Scratch",
     "family": "Psychobath",
-    "difficulty": "Expert",
+    "difficulty": "Master",
     "download": "https://www.linuxfromscratch.org/lfs/download.html",
     "creator": "Linux From Scratch community",
     "release": "13.1 (September 1, 2026)",
