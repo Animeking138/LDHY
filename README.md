@@ -28,8 +28,6 @@ Not sure where to start? The **Discover Your Distro** quiz walks you through nin
 
 It takes things like your experience with Linux, what you use your computer for, your hardware, desktop preferences, update habits, and interest in building software from source into account. At the end, it suggests a handful of catalog entries and explains why they might suit your answers.
 
-There's also a small surprise before the quiz begins. We'll let you discover that one yourself.
-
 The recommendations depend on the information available in the catalog. If LDHY doesn't have enough reliable information to make a useful suggestion, it won't pretend otherwise.
 
 ### Browse Android projects, too
@@ -50,16 +48,6 @@ Before installing anything, visit the project's official page and read its curre
 - Shared catalog data powers the homepage, archive, and detail pages.
 - Keyboard focus and reduced-motion support are included.
 
-## Running LDHY locally
-
-The site is static, so getting it running locally is straightforward. From the repository root, run:
-
-```bash
-python server.py
-```
-
-Then visit http://127.0.0.1:8000/ in your browser.
-
 ## Project structure
 
 | File or folder | What it's for |
@@ -73,7 +61,6 @@ Then visit http://127.0.0.1:8000/ in your browser.
 | `android/` | Android-related pages |
 | `tools/catalog-validator/` | Rust catalog validation tool |
 | `.github/workflows/` | GitHub Actions workflows |
-| `server.py` | Local development server |
 
 ## Want to help?
 
