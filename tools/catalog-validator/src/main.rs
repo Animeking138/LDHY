@@ -262,6 +262,24 @@ fn check_archive_routes(
     if !archive.contains("assets/js/distributions.js") {
         errors.push("Archive must load its local catalog script.".to_owned());
     }
+    for required in ["compare-bar", "compare-clear", "compare-open"] {
+        if !archive.contains(required) {
+            errors.push(format!("Archive must expose the {required} comparison control."));
+        }
+    }
+    for required in ["COMPARE_LIMIT = 3", "localStorage", "compare-toggle", "compare.html"] {
+        if !archive_script.contains(required) {
+            errors.push(format!("Archive comparison script must include {required:?}."));
+        }
+    }
+    let compare = fs::read_to_string(root.join("compare.html"))?;
+    let compare_script = fs::read_to_string(root.join("assets/js/compare.js"))?;
+    if !compare.contains("assets/js/compare.js")
+        || !compare_script.contains("fetch('distros.json')")
+        || !compare_script.contains("localStorage")
+    {
+        errors.push("compare.html must load a JSON-driven comparison page that reads the saved selection.".to_owned());
+    }
 
     for (description, required) in [
         ("load the shared JSON catalog", "fetch('distros.json')"),
@@ -514,6 +532,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         ("index.html", "assets/css/index.css", "assets/js/index.js"),
         ("distributions.html", "assets/css/distributions.css", "assets/js/distributions.js"),
         ("distro.html", "assets/css/distro.css", "assets/js/distro.js"),
+        ("compare.html", "assets/css/compare.css", "assets/js/compare.js"),
     ] {
         check_page_security(&root, page, css, js, &mut errors)?;
     }

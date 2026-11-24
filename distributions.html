@@ -32,6 +32,13 @@
     <label for="difficulty-filter">Difficulty</label>
     <select id="difficulty-filter" class="filter-select"><option value="">All difficulties</option></select>
   </div>
+  <div class="compare-bar" id="compare-bar" hidden role="region" aria-label="Distribution comparison">
+    <div class="compare-summary"><strong id="compare-count">0 selected</strong><span>Select up to three distributions to compare.</span></div>
+    <div class="compare-actions">
+      <button class="compare-clear" id="compare-clear" type="button">Clear</button>
+      <button class="compare-open" id="compare-open" type="button" disabled>Compare selected</button>
+    </div>
+  </div>
   <div id="content"></div>
 </div>
 <script src="assets/js/distributions.js" defer></script>

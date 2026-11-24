@@ -1,5 +1,6 @@
-
 const DIFFICULTY_RANK = { Beginner: 1, Intermediate: 2, Advanced: 3, Expert: 4 };
+const COMPARE_KEY = 'ldhy.compare';
+const COMPARE_LIMIT = 3;
 let distros = [];
 let sortMode = 'newest';
 let selectedFamily = '';
@@ -9,14 +10,63 @@ const content = document.getElementById('content');
 const searchInput = document.getElementById('search');
 const familyFilter = document.getElementById('family-filter');
 const difficultyFilter = document.getElementById('difficulty-filter');
+const compareBar = document.getElementById('compare-bar');
+const compareCount = document.getElementById('compare-count');
+const compareOpen = document.getElementById('compare-open');
+const compareClear = document.getElementById('compare-clear');
 
 function slugifyName(value) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
 function releaseYear(value) {
-  const match = String(value || '').match(/\b(?:19|20)\d{2}\b/);
+  const match = String(value || '').match(/\\b(?:19|20)\\d{2}\\b/);
   return match ? Number(match[0]) : null;
+}
+
+function readComparison() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(COMPARE_KEY) || '[]');
+    return Array.isArray(saved) ? [...new Set(saved.filter(value => typeof value === 'string'))].slice(0, COMPARE_LIMIT) : [];
+  } catch {
+    return [];
+  }
+}
+
+let comparedIds = readComparison();
+
+function saveComparison() {
+  try {
+    localStorage.setItem(COMPARE_KEY, JSON.stringify(comparedIds));
+  } catch {
+    // Comparison still works for this page view when browser storage is unavailable.
+  }
+  updateCompareBar();
+  updateCompareButtons();
+}
+
+function updateCompareBar() {
+  compareBar.hidden = comparedIds.length === 0;
+  compareCount.textContent = comparedIds.length + ' of ' + COMPARE_LIMIT + ' selected';
+  compareOpen.disabled = comparedIds.length < 2;
+}
+
+function updateCompareButtons() {
+  document.querySelectorAll('.compare-toggle').forEach(button => {
+    const selected = comparedIds.includes(button.dataset.id);
+    button.setAttribute('aria-pressed', String(selected));
+    button.textContent = selected ? 'Added ✓' : 'Compare';
+    button.disabled = !selected && comparedIds.length >= COMPARE_LIMIT;
+  });
+}
+
+function toggleComparison(id) {
+  if (comparedIds.includes(id)) {
+    comparedIds = comparedIds.filter(value => value !== id);
+  } else if (comparedIds.length < COMPARE_LIMIT) {
+    comparedIds.push(id);
+  }
+  saveComparison();
 }
 
 function setSort(mode) {
@@ -65,17 +115,25 @@ function render(query = '') {
   const fragment = document.createDocumentFragment();
   const grid = makeText('div', 'grid', '');
   list.forEach(distro => {
-    const card = document.createElement('a');
+    const id = slugifyName(distro.name);
+    const card = document.createElement('article');
     card.className = 'card';
-    card.href = 'distro.html?id=' + encodeURIComponent(slugifyName(distro.name));
+    const link = document.createElement('a');
+    link.className = 'distro-link';
+    link.href = 'distro.html?id=' + encodeURIComponent(id);
 
     const year = releaseYear(distro.release);
     const name = makeText('div', 'name', distro.name + (year ? ' · ' + year : ''));
     const meta = makeText('div', 'meta', [distro.family, distro.package_manager].filter(Boolean).join(' · '));
     const base = makeText('span', 'base', distro.based_on || distro.family || 'Base not specified');
-    const difficulty = makeText('span', '', distro.difficulty || 'Difficulty not specified');
+    const difficulty = makeText('span', 'difficulty', distro.difficulty || 'Difficulty not specified');
+    link.append(name, meta, base, document.createTextNode(' · '), difficulty);
 
-    card.append(name, meta, base, document.createTextNode(' · '), difficulty);
+    const compare = makeText('button', 'compare-toggle', '');
+    compare.type = 'button';
+    compare.dataset.id = id;
+    compare.addEventListener('click', () => toggleComparison(id));
+    card.append(link, compare);
     grid.appendChild(card);
   });
 
@@ -94,6 +152,7 @@ function render(query = '') {
     fragment.appendChild(makeText('p', 'empty', 'No distributions match your search.'));
   }
   content.replaceChildren(fragment);
+  updateCompareButtons();
 }
 
 function filter() {
@@ -132,6 +191,14 @@ document.querySelectorAll('.sortbtn').forEach(button => {
 searchInput.addEventListener('input', filter);
 familyFilter.addEventListener('change', filter);
 difficultyFilter.addEventListener('change', filter);
+compareClear.addEventListener('click', () => {
+  comparedIds = [];
+  saveComparison();
+});
+compareOpen.addEventListener('click', () => {
+  if (comparedIds.length >= 2) location.href = 'compare.html';
+});
+updateCompareBar();
 
 fetch('distros.json')
   .then(response => {
@@ -141,6 +208,9 @@ fetch('distros.json')
   .then(data => {
     if (!Array.isArray(data)) throw new Error('Catalog format is invalid.');
     distros = data;
+    const validIds = new Set(distros.map(item => slugifyName(item.name)));
+    comparedIds = comparedIds.filter(id => validIds.has(id));
+    saveComparison();
     populateFilters();
     render(searchInput.value);
   })
