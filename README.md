@@ -52,6 +52,29 @@ LDHY is an informational catalog. It does not develop, distribute, endorse, or i
 
 A blank metadata field means the value has not been independently verified or does not apply. DistroWatch waiting-list entries intentionally leave base, package manager, creator, and release fields blank and use the Others family with an “Unknown” difficulty until reliable project information is reviewed; it is not an invitation to infer a value from a broad family label. `Not yet verified` means the project's current maintenance state has not been confirmed. Check official project documentation before relying on any catalog entry. Entries with `source` and `verified` fields include an official page used for the check and the date it was reviewed. These fields document provenance; they do not imply that every metadata field has been independently confirmed.
 
+## Rust catalog validator
+
+LDHY includes a Rust command-line checker in `tools/catalog-validator/`. It helps catch catalog and page-synchronization mistakes before they reach the website.
+
+### Run locally
+
+Install the stable Rust toolchain, then run these commands from the repository root:
+
+```bash
+cargo fmt --manifest-path tools/catalog-validator/Cargo.toml -- --check
+cargo clippy --manifest-path tools/catalog-validator/Cargo.toml --all-targets -- -D warnings
+cargo test --manifest-path tools/catalog-validator/Cargo.toml
+cargo run --manifest-path tools/catalog-validator/Cargo.toml -- --check
+```
+
+The catalog check validates JSON parsing, duplicate names and URL slugs, supported family and difficulty values (including the **Maniac** family and **Master** difficulty), maintenance-status presence, HTTP(S) URL syntax, verification-source/date pairs, homepage card synchronization, and archive detail-page routing.
+
+The checker also reports metadata completeness warnings. Those warnings do not fail validation. URL syntax checks do **not** confirm that a website is reachable, and the checker does not independently verify factual claims or project maintenance status.
+
+### Continuous integration
+
+The **Rust catalog validation** GitHub Actions workflow runs Clippy, the Rust test suite, and the catalog check on pushes to `main` and pull requests targeting `main`.
+
 ## Contributing
 
 Corrections, additions, and suggestions are welcome. When proposing a new entry or changing existing metadata, provide:
