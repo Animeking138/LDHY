@@ -5,10 +5,11 @@
 </style></head>
 <body><header><div class="eyebrow">LDHY / Distro finder</div><h1>Discover Your Distro</h1><p>Answer a few quick questions and we’ll find Linux distributions that fit what you’re looking for.</p></header>
 <main><div class="panel" id="quiz" aria-live="polite"><div class="meta"><span id="step-label">QUESTION 1 OF 6</span><span id="percent">17%</span></div><div class="progress-line"><div class="progress-fill" id="progress"></div></div><div id="question-area"><h2 id="question"></h2><div class="answers" id="answers"></div></div><div class="actions"><button class="action" id="back" type="button" disabled>← Back</button><button class="action primary" id="next" type="button" disabled>Next →</button></div></div>
-<section id="results" class="panel" hidden><div class="eyebrow">Your LDHY matches</div><h2>Here are your best matches</h2><div class="results" id="result-list"></div><p class="note">Recommendations use the catalog’s available metadata. Some distributions have incomplete or unverified details, so treat these as starting points and check each project page before installing.</p><div class="actions"><button class="action" id="restart" type="button">Retake quiz</button><a class="action primary" href="index.html">Browse all distros</a></div></section><a class="back" href="index.html">← Back to LDHY</a></main><footer>LDHY — Linux Distros Heck Yeah</footer>
+<section id="results" class="panel" hidden><div class="eyebrow">Your LDHY matches</div><h2>Here are your best matches</h2><div class="results" id="result-list"></div><p class="note">Recommendations weigh your current system, experience, main use and preferences. Where LDHY lacks reliable metadata, a distro may be harder to rank accurately; check its project page and hardware support before installing.</p><div class="actions"><button class="action" id="restart" type="button">Retake quiz</button><a class="action primary" href="index.html">Browse all distros</a></div></section><a class="back" href="index.html">← Back to LDHY</a></main><footer>LDHY — Linux Distros Heck Yeah</footer>
 <script>
 (() => {
 const questions=[
+{title:"Which system are you using right now?",key:"from",choices:[["windows","Windows"],["macos","macOS"],["linux","Linux"],["other","Something else / not sure"]]},
 {title:"How familiar are you with Linux?",key:"experience",choices:[["new","I’m completely new"],["some","I know the basics"],["comfortable","I’m comfortable using Linux"],["advanced","I like managing things myself"]]},
 {title:"What will you mainly use it for?",key:"purpose",choices:[["daily","Everyday use, school and browsing"],["gaming","Gaming"],["dev","Programming and development"],["server","Servers or containers"]]},
 {title:"What kind of device will it run on?",key:"hardware",choices:[["modern","A reasonably modern PC"],["older","An older or low-spec computer"],["laptop","A laptop"],["powerful","A powerful desktop/workstation"]]},
@@ -17,27 +18,59 @@ const questions=[
 {title:"What’s your budget?",key:"budget",choices:[["free","Free only"],["paid","Paid options are okay"]]}
 ],answers={};let current=0;const $=id=>document.getElementById(id);
 function render(){const q=questions[current],chosen=answers[q.key];$("step-label").textContent="QUESTION "+(current+1)+" OF "+questions.length;$("percent").textContent=Math.round((current+1)/questions.length*100)+"%";$("progress").style.width=((current+1)/questions.length*100)+"%";$("question").textContent=q.title;$("answers").replaceChildren();q.choices.forEach(([value,label],i)=>{const b=document.createElement("button");b.type="button";b.className="answer";b.setAttribute("aria-pressed",String(chosen===value));const key=document.createElement("span");key.className="key";key.textContent=String.fromCharCode(65+i);const t=document.createElement("span");t.textContent=label;b.append(key,t);b.addEventListener("click",()=>{answers[q.key]=value;render()});$("answers").append(b)});$("back").disabled=current===0;$("next").disabled=!chosen;$("next").textContent=current===questions.length-1?"Show my matches →":"Next →"}
-function score(d){let score=0,reasons=[];const family=d.family||"",text=((d.description||"")+" "+(d.name||"")+" "+(d.based_on||"")).toLowerCase(),diff=(d.difficulty||"").toLowerCase(),status=(d.status||"").toLowerCase();const add=(p,r)=>{score+=p;if(p>=2&&r)reasons.push(r)};
-if(answers.experience==="new")add(diff==="beginner"?5:diff==="intermediate"?1:diff==="advanced"||diff==="expert"?-3:0,diff==="beginner"?"Marked beginner-friendly":"");
-if(answers.experience==="some")add(diff==="beginner"||diff==="intermediate"?3:diff==="advanced"?0:-1,"A reasonable next step while learning Linux");
-if(answers.experience==="comfortable")add(diff==="intermediate"||diff==="advanced"?3:diff==="beginner"?1:0,"Room to grow beyond the basics");
-if(answers.experience==="advanced")add(diff==="advanced"||diff==="expert"?4:diff==="intermediate"?1:-1,"A more hands-on experience");
-if(answers.purpose==="gaming")add(/gaming|steam|proton|nvidia|mesa/.test(text)?5:0,/gaming|steam|proton/.test(text)?"Its description mentions gaming":"");
-if(answers.purpose==="dev")add(/developer|development|programming|container|workstation|nix/.test(text)?3:0,"Its description points to development or workstation use");
-if(answers.purpose==="server")add(/server|container|kubernetes|cloud|enterprise/.test(text)?5:0,"Designed for server, container or enterprise workloads");
-if(answers.hardware==="older")add(/lightweight|low.resource|older hardware|old computers|minimal/.test(text)?4:0,"Described as lightweight or suitable for older hardware");
-if(answers.hardware==="powerful")add(/workstation|gaming|performance|scientific|engineering/.test(text)?2:0,"Its focus can use capable hardware");
-if(answers.hardware==="laptop")add(/laptop|battery|mobile|desktop/.test(text)?1:0,"A general-purpose desktop option");
-if(answers.desktop==="ready")add(/desktop|kde|gnome|cinnamon|plasma|xfce|budgie|deepin/.test(text)?2:0,"Offers a desktop-oriented experience");
-if(answers.desktop==="simple")add(/xfce|lxde|lxqt|lightweight|minimal|moksha|window.manager/.test(text)?4:0,"Suggests a lightweight or minimal setup");
-if(answers.desktop==="custom")add(/custom|customiz|rolling|arch|gentoo|nix|tiling/.test(text)?3:0,"Offers a customizable or hands-on ecosystem");
-if(answers.stability==="stable"){add(/stable|lts|enterprise/.test(text)?3:0,"Its ecosystem emphasizes stability");add(/rolling|alpha|experimental/.test(text)?-2:0,"")}
-if(answers.stability==="latest")add(/rolling|latest|bleeding|current|alpha/.test(text)?3:0,"Its development model favors newer software");
-if(answers.stability==="balanced")add(/debian|ubuntu|fedora|mint|opensuse/.test(text)?2:0,"Its ecosystem offers a middle ground");
-if(answers.budget==="free")add(family==="Paid (subscription)"?-8:2,"Listed outside LDHY’s paid category");
-if(answers.budget==="paid")add(family==="Paid (subscription)"?4:0,"Paid option included in LDHY");
-if(/discontinued|archived|final builds only/.test(status))add(-20,"");if(/alpha|experimental/.test(status))add(-2,"");if(diff==="unknown")score-=1;
-return{d,score,reasons:[...new Set(reasons)].slice(0,2)}}
+function score(d){
+let score=0,reasons=[];
+const name=(d.name||"").toLowerCase(),family=(d.family||"").toLowerCase();
+const text=((d.description||"")+" "+(d.name||"")+" "+(d.based_on||"")+" "+(d.package_manager||"")).toLowerCase();
+const diff=(d.difficulty||"").toLowerCase(),status=(d.status||"").toLowerCase();
+const add=(points,reason)=>{score+=points;if(points>=2&&reason)reasons.push(reason)};
+const isServer=/server|cloud|embedded|iot|enterprise/.test(text+" "+family);
+const isDesktop=/desktop|workstation|cinnamon|gnome|kde|plasma|xfce|budgie|deepin/.test(text+" "+family);
+const isPaid=family.includes("paid")||family.includes("commercial");
+const isWindowsFriendly=/linux mint|zorin|kubuntu|kde neon|tuxedo os|ferrenos/.test(name);
+const isMacFriendly=/elementary os|deepin|pearos/.test(name);
+const isLightweight=/lightweight|low.resource|older hardware|old computers|minimal|lxde|lxqt|xfce/.test(text);
+
+if(answers.from==="windows"&&isWindowsFriendly)add(4,"A familiar desktop style for many Windows switchers");
+if(answers.from==="macos"&&isMacFriendly)add(4,"A desktop experience that may feel familiar to macOS users");
+if(answers.from==="linux"&&diff==="beginner")add(1,"An approachable option if you want a simpler Linux experience");
+
+if(answers.experience==="new")add(diff==="beginner"?4:diff==="intermediate"?1:diff==="advanced"||diff==="expert"?-3:0,diff==="beginner"?"Catalogued as beginner-friendly":"");
+if(answers.experience==="some")add(diff==="beginner"||diff==="intermediate"?2:diff==="advanced"?-1:0,"A reasonable level for someone learning Linux");
+if(answers.experience==="comfortable")add(diff==="intermediate"||diff==="advanced"?2:diff==="beginner"?1:0,"Suitable for someone already comfortable with Linux");
+if(answers.experience==="advanced")add(diff==="advanced"||diff==="expert"?3:diff==="intermediate"?1:-1,"Offers a more hands-on experience");
+
+if(answers.purpose==="daily"){
+if(isDesktop)add(4,"Designed around a desktop or workstation experience");
+if(isServer)add(-7,"Primarily aimed at servers or embedded systems, not everyday desktop use");
+}
+if(answers.purpose==="gaming")add(/gaming|steam|proton|nvidia|mesa/.test(text)?5:0,/gaming|steam|proton/.test(text)?"Its project information specifically mentions gaming":"");
+if(answers.purpose==="dev")add(/developer|development|programming|container|workstation|nix/.test(text)?4:0,"Its project information points to development or workstation use");
+if(answers.purpose==="server")add(/server|container|kubernetes|cloud|enterprise|embedded/.test(text)?6:0,"Its focus includes server, container or enterprise workloads");
+
+if(answers.hardware==="older")add(isLightweight?4:0,isLightweight?"Described as lightweight or suitable for modest hardware":"");
+if(answers.hardware==="powerful")add(/workstation|gaming|performance|scientific|engineering/.test(text)?2:0,"Its stated focus can benefit from capable hardware");
+if(answers.hardware==="laptop")add(/laptop|battery|power.management/.test(text)?3:0,"Its project information mentions laptop or power-management support");
+
+if(answers.desktop==="ready")add(isDesktop?2:0,isDesktop?"Offers a desktop-oriented experience":"");
+if(answers.desktop==="simple")add(isLightweight?3:0,isLightweight?"Offers a lightweight or minimal approach":"");
+if(answers.desktop==="custom")add(/custom|customiz|rolling|arch|gentoo|nix|tiling/.test(text)?3:0,"Its ecosystem offers more customization or control");
+
+if(answers.stability==="stable"){
+add(/lts|stable|enterprise|debian|ubuntu|linux mint|opensuse leap/.test(text)?3:0,"Its base or release model favors stability");
+if(/rolling|alpha|experimental/.test(text+" "+status))score-=3;
+}
+if(answers.stability==="latest")add(/rolling|latest|bleeding|current/.test(text+" "+status)?3:0,"Its release model favors newer software");
+if(answers.stability==="balanced")add(/debian|ubuntu|fedora|mint|opensuse/.test(text)?2:0,"Its ecosystem can offer a balance of freshness and stability");
+
+if(answers.budget==="free"&&isPaid)score-=10;
+if(/discontinued|archived|final builds only/.test(status))score-=30;
+else if(/alpha|experimental|development build/.test(status))score-=5;
+else if(/paused|no public download|not yet ready/.test(status))score-=4;
+if(/waiting for distrowatch evaluation|not yet verified|unverified/.test(status))score-=1;
+
+return{d,score,reasons:[...new Set(reasons)].slice(0,3)};
+}
 function showResults(){$("quiz").hidden=true;$("results").hidden=false;const matches=window.catalog.map(score).sort((a,b)=>b.score-a.score).slice(0,5),list=$("result-list");list.replaceChildren();matches.forEach((m,i)=>{const c=document.createElement("article");c.className="result";const rank=document.createElement("div");rank.className="rank";rank.textContent=i===0?"Best match":"Alternative "+i;const h=document.createElement("h3");h.textContent=m.d.name;const p=document.createElement("p");p.textContent=m.reasons.length?m.reasons.join(" · "):"A possible option from the LDHY catalog; check its details to see whether it fits.";const meta=document.createElement("p");meta.textContent=(m.d.family||"Family unknown")+" · "+(m.d.difficulty||"Difficulty unknown");const a=document.createElement("a");a.href="distro.html?name="+encodeURIComponent(m.d.name);a.textContent="Explore distro →";c.append(rank,h,p,meta,a);list.append(c)})}
 $("back").addEventListener("click",()=>{if(current>0){current--;render()}});$("next").addEventListener("click",()=>{if(!answers[questions[current].key])return;if(current<questions.length-1){current++;render()}else showResults()});$("restart").addEventListener("click",()=>{Object.keys(answers).forEach(k=>delete answers[k]);current=0;$("results").hidden=true;$("quiz").hidden=false;render()});
 fetch("distros.json").then(r=>{if(!r.ok)throw Error("Catalog unavailable");return r.json()}).then(data=>{window.catalog=data.filter(d=>d.name&&d.family!=="Android"&&d.family!=="Not found");render()}).catch(()=>$("question-area").textContent="Could not load the LDHY catalog. Please return and try again.");
