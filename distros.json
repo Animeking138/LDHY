@@ -1310,7 +1310,21 @@
     "website": "https://www.linuxliteos.com/",
     "description": "A lightweight, beginner-oriented desktop distribution based on Ubuntu LTS and designed to provide a familiar transition to Linux.",
     "price": ""
-  },
+  },,
+  {
+    "name": "Linux From Scratch",
+    "family": "Psychobath",
+    "difficulty": "Expert",
+    "download": "https://www.linuxfromscratch.org/lfs/download.html",
+    "creator": "Linux From Scratch community",
+    "release": "13.1 (September 1, 2026)",
+    "based_on": "Independent; built from source",
+    "package_manager": "None by default; packages are built manually from source",
+    "status": "Active project; current stable book is LFS 13.1.",
+    "website": "",
+    "description": "A project and detailed book that teaches you to build your own custom Linux system entirely from source. Linux From Scratch is not a conventional prebuilt distribution: you assemble the system yourself, following the project's build instructions.",
+    "price": ""
+  }
   {
     "name": "Linux Mint",
     "family": "Debian-based",
