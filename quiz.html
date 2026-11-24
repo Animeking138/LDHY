@@ -49,7 +49,7 @@ if(answers.experience==="some")add(diff==="beginner"||diff==="intermediate"?2:di
 if(answers.experience==="comfortable")add(diff==="intermediate"||diff==="advanced"?2:diff==="beginner"?1:0,"Suitable for someone already comfortable with Linux");
 if(answers.experience==="advanced")add(diff==="advanced"||diff==="expert"?3:diff==="intermediate"?1:-1,"Offers a more hands-on experience");
 
-const sourceFocused=/gentoo|exherbo|lunar linux|crux|gobolinux|nutyx/.test(name)||/source-based|build.*from source|ports system|compile.*source/.test(text);
+const sourceFocused=/gentoo|exherbo|lunar linux|crux|gobolinux|nutyx|linux from scratch/.test(name)||/source-based|build.*from source|ports system|compile.*source/.test(text);
 const sourceCapable=/gentoo|portage|ports|source-based|compile/.test(text+" "+family);
 if(answers.source==="source")add(sourceFocused?7:sourceCapable?2:0,sourceFocused?"A source-focused distro that gives you control over building packages":"Offers some source-building or ports-based capabilities");
 if(answers.source==="everything")add(sourceFocused?9:sourceCapable?3:0,sourceFocused?"A hands-on, source-oriented system for serious customization":"Has tools or workflows for building software from source");
