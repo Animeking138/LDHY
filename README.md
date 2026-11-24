@@ -16,9 +16,10 @@ Android is a Linux Distro we are not ignoring that😂
 
 ## Features
 
-- **Browse by family:** explore distributions grouped into families such as Debian-based, Arch-based, RPM-based, Gentoo-based, Slackware-based, source-based, and other categories, alongside Android.
+- **Browse by family:** explore distributions grouped into families such as Debian-based, Arch-based, RPM-based, Gentoo-based, Slackware-based, source-based, and other categories, alongside Android and a DistroWatch waiting-list section.
 - **Search and filter:** search catalog entries and narrow results by difficulty or family.
 - **Individual detail pages:** open an entry to view its available project information and links.
+- **DistroWatch waiting list:** includes projects waiting for evaluation and projects with trademark concerns; the separate “not yet ready” category is excluded. Waiting-list entries use an “Unknown” difficulty until their metadata can be independently reviewed.
 - **Android ROM details:** all Android catalog cards use the shared JSON-driven detail page, including a reminder to verify support for the exact device model and codename. The old `android/` URLs remain available for compatibility.
 - **Extended archive:** open `distributions.html` to search the full catalog and sort entries by available release-date or difficulty information.
 - **Responsive dark interface:** use the catalog on desktop and mobile, with an AMOLED-friendly black theme.
@@ -48,7 +49,7 @@ LDHY is an informational catalog. It does not develop, distribute, endorse, or i
 
 ### Metadata conventions
 
-A blank metadata field means the value has not been independently verified or does not apply; it is not an invitation to infer a value from a broad family label. `Not yet verified` means the project's current maintenance state has not been confirmed. Check official project documentation before relying on any catalog entry. Entries with `source` and `verified` fields include an official page used for the check and the date it was reviewed. These fields document provenance; they do not imply that every metadata field has been independently confirmed.
+A blank metadata field means the value has not been independently verified or does not apply. DistroWatch waiting-list entries intentionally leave base, package manager, creator, and release fields blank and use an “Unknown” difficulty until reliable project information is reviewed; it is not an invitation to infer a value from a broad family label. `Not yet verified` means the project's current maintenance state has not been confirmed. Check official project documentation before relying on any catalog entry. Entries with `source` and `verified` fields include an official page used for the check and the date it was reviewed. These fields document provenance; they do not imply that every metadata field has been independently confirmed.
 
 ## Contributing
 
