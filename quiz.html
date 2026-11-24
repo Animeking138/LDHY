@@ -68,14 +68,14 @@ function showLfsShortcut(){const lfs=window.catalog.find(d=>d.name==="Linux From
 function showResults(){
 $("quiz").hidden=true;$("results").hidden=false;
 const list=$("result-list");list.replaceChildren();
-const matches=(window.catalog||[]).map(score).filter(m=>m&&m.score>0).sort((a,b)=>b.score-a.score||((a.confidence==="verified"?0:1)-(b.confidence==="verified"?0:1))||b.completeness-a.completeness).slice(0,5);
+const matches=(window.catalog||[]).map(score).filter(m=>m&&m.score>=3).sort((a,b)=>b.score-a.score||((a.confidence==="verified"?0:1)-(b.confidence==="verified"?0:1))||b.completeness-a.completeness).slice(0,5);
 if(!matches.length){const p=document.createElement("p");p.textContent="LDHY does not have enough reliable information to recommend a distro for these answers yet. Browse the catalog and check each project's official documentation, supported hardware and current release status.";list.append(p);return;}
 matches.forEach((m,i)=>{
 const card=document.createElement("article");card.className="result";
-const rank=document.createElement("div");rank.className="rank";rank.textContent=i===0?"Strongest fit":"Alternative "+i;
+const rank=document.createElement("div");rank.className="rank";rank.textContent=i===0?"Top match — review before installing":"Alternative "+i;
 const h=document.createElement("h3");h.textContent=m.d.name;
 const p=document.createElement("p");p.textContent=m.reasons.length?m.reasons.join(" · "):"A possible match based on your answers.";
-const meta=document.createElement("p");meta.textContent=(m.d.family||"Family unknown")+" · "+m.d.difficulty+" · "+(m.confidence==="verified"?"Catalog status verified":m.confidence==="provisional"?"Provisional listing":"Limited catalog data");
+const meta=document.createElement("p");meta.textContent=(m.d.family||"Family unknown")+" · "+m.d.difficulty+" · "+(m.confidence==="verified"?"Active listing in LDHY":m.confidence==="provisional"?"Provisional listing":"Limited catalog data");
 const caution=document.createElement("p");caution.className="note";caution.textContent=m.cautions.join(" ");
 const link=document.createElement("a");link.href="distro.html?name="+encodeURIComponent(m.d.name);link.textContent="Review distro details and official project link →";
 card.append(rank,h,p,meta);if(caution.textContent)card.append(caution);card.append(link);list.append(card);
