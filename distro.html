@@ -155,19 +155,21 @@ fetch('distros.json')
         return false;
       }
     })();
-    if (!sameDestination) {
-      addRow(card, 'Official website', d.website, officialHomepage, 'Visit official website ↗');
-    }
+    // Always show one clearly labelled homepage link for every catalog entry.
+    addRow(card, 'Official homepage', d.website, officialHomepage, 'Visit official homepage ↗');
     addRow(card, 'Pricing', d.price);
-    addRow(
-      card,
-      isDistroWatchLink
-        ? (officialHomepage ? 'Download / official homepage' : 'DistroWatch profile')
-        : 'Download / project page',
-      d.download,
-      downloadHref,
-      downloadText
-    );
+    // Avoid a second link when the download destination is the homepage itself.
+    if (!sameDestination) {
+      addRow(
+        card,
+        isDistroWatchLink
+          ? (officialHomepage ? 'Download / project page' : 'DistroWatch profile')
+          : 'Download / project page',
+        d.download,
+        downloadHref,
+        downloadText
+      );
+    }
 
     if (d.family === 'Android' && d.name !== 'Android') {
       const note = document.createElement('div');
