@@ -54,7 +54,6 @@ fn family_section(family: &str) -> Option<&'static str> {
         "Android" => Some("android"),
         "Paid (subscription)" => Some("paid"),
         "Not found" => Some("notfound"),
-        "DistroWatch waiting list" => Some("waiting"),
         _ => None,
     }
 }
@@ -436,7 +435,6 @@ mod tests {
         assert_eq!(family_section("Arch-based (Pacman)"), Some("arch"));
         assert_eq!(family_section("Paid (subscription)"), Some("paid"));
         assert_eq!(family_section("Android"), Some("android"));
-        assert_eq!(family_section("DistroWatch waiting list"), Some("waiting"));
     }
 
     #[test]
