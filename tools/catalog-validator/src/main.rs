@@ -50,7 +50,7 @@ fn family_section(family: &str) -> Option<&'static str> {
         "Gentoo-based" => Some("gentoo"),
         "Slackware-based" => Some("slackware"),
         "Source/Nix-based" => Some("source"),
-        "Psychobath" => Some("psychobath"),
+        "Maniac" => Some("maniac"),
         "Others" => Some("others"),
         "Android" => Some("android"),
         "Paid (subscription)" => Some("paid"),
