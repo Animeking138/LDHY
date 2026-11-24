@@ -1,69 +1,95 @@
 # LDHY — Linux Distros Heck Yeah
 
-A searchable catalog of Linux distributions and related operating-system projects. Browse by family, review basic metadata, and follow official project or download links.
+LDHY is a dark-themed catalog for discovering and exploring Linux distributions and Android-based operating systems. It brings a large collection of projects into one searchable, filterable website, with a short quiz to help visitors find Linux distributions worth exploring.
 
-**Website:** [LDHY](https://animeking138.github.io/LDHY/)
+**Website:** https://animeking138.github.io/LDHY/
 
-## Overview
+## What the website includes
 
-LDHY helps users explore a broad range of operating systems through a categorized catalog. Entries include an estimated difficulty level and, where information is available, details such as the developer, release history, upstream base, package manager, maintenance status, official website, and project or download page.
+### Distribution catalog
 
-The catalog includes traditional Linux distributions as well as Android and custom Android ROM projects.
+- Browse hundreds of catalog entries grouped into families: Debian-based, Arch-based, RPM-based, Gentoo-based, Slackware-based, Source/Nix-based, Maniac, Others, Paid & Commercial, and Android.
+- Search by distribution name and filter by family or estimated difficulty.
+- Difficulty labels include Beginner, Intermediate, Advanced, Expert, Master, and Unknown / unverified.
+- Open a detail page for the available description, family, difficulty estimate, creator, initial release, base, package manager, maintenance status, verification date, pricing information, and project or download link. Empty fields are omitted.
+- The Maniac family currently highlights Linux From Scratch, with a custom Master difficulty label and a prominent warning on its detail page.
+- Paid and commercial projects are included alongside free distributions.
 
-## Note
+Catalog information varies by project. Some entries have incomplete or unverified metadata, so difficulty labels should be treated as guidance rather than guarantees.
 
-Android is a Linux Distro we are not ignoring that😂
+### Discover Your Distro quiz
 
-## Features
+The homepage links to a one-question-at-a-time quiz. It asks nine questions about:
 
-- **Browse by family:** explore distributions grouped into families such as Debian-based, Arch-based, RPM-based, Gentoo-based, Slackware-based, source-based, and other categories, alongside the dedicated **Maniac** section for extreme source-build projects, Android and other independent distributions.
-- **Search and filter:** search catalog entries and narrow results by difficulty or family.
-- **Individual detail pages:** open an entry to view its available project information and links.
-- **DistroWatch waiting-list entries:** eligible projects are integrated into the existing family categories. Projects without a reliably established base are placed under Others; their waiting-list status and Unknown difficulty remain documented. The separate “not yet ready” category is excluded.
-- **Android ROM details:** all Android catalog cards use the shared JSON-driven detail page, including a reminder to verify support for the exact device model and codename. The old `android/` URLs remain available for compatibility.
-- **Extended archive:** open `distributions.html` to search the full catalog and sort entries by available release-date or difficulty information.
-- **Responsive dark interface:** use the catalog on desktop and mobile, with an AMOLED-friendly black theme.
-- **Automatic empty-section handling:** categories with no visible entries are hidden from the page without removing their underlying section or filter option.
+- What the visitor is switching from.
+- Main computer use.
+- Linux experience.
+- Hardware.
+- Preferred desktop style.
+- Desired desktop control.
+- Update preferences.
+- Interest in compiling and source-building.
+- Budget.
 
-- **Paid & Commercial:** includes commercial Linux distributions, paid editions, and subscription-supported enterprise platforms. Entries identify free tiers or paused purchases where applicable.
+Before the questions, the quiz includes its playful “Are you a maniac?” challenge. Choosing “Absolutely.” skips the questionnaire and points to Linux From Scratch; “Nope.” continues to the regular quiz.
+
+Recommendations are generated from the answers and the available catalog metadata. The results can show up to five matches, explain why an entry matched, and flag incomplete or unverified information. The quiz avoids making a recommendation when the available data is not sufficient.
+
+**Scope note:** this is a Linux distribution finder, not an Android ROM compatibility checker. Android projects and custom ROMs can be browsed in the catalog, but the quiz does not match ROMs to a specific phone model or codename.
+
+### Additional pages
+
+- distributions.html is a searchable archive of the shared catalog. It can sort entries by release year or difficulty.
+- distro.html is the shared detail-page template used by catalog entries.
+- detail.html contains individual Linux history event content.
+
+## Design
+
+- Black, AMOLED-friendly interface with green accents.
+- Responsive layout for desktop and mobile screens.
+- Search and filter controls on the main catalog.
+- Reduced-motion support and visible keyboard focus styles.
+- Catalog and detail pages use the shared distros.json data source.
+
 ## Project structure
 
 | Path | Purpose |
 | --- | --- |
-| `index.html` | Main catalog, family sections, search, and filters |
-| `distros.json` | Catalog data and metadata |
-| `distro.html` | Shared JSON-driven detail-page template |
-| `detail.html` | Linux history event detail page |
-| `android/` | Legacy Android detail URLs retained for compatibility |
-| `distributions.html` | Extended catalog archive |
-| `.github/workflows/` | GitHub Actions workflows, including catalog validation |
-| `tools/catalog-validator/` | Rust-based catalog validation tool |
-| `server.py` | Local development server on `127.0.0.1:8000` |
+| index.html | Main catalog, search, filters, family sections, and quiz entry point |
+| quiz.html | Discover Your Distro questionnaire and recommendations |
+| distros.json | Shared catalog data and metadata |
+| distro.html | Shared distribution detail page |
+| distributions.html | Searchable and sortable catalog archive |
+| detail.html | Linux history event detail page |
+| android/ | Android-related pages retained in the repository |
+| tools/catalog-validator/ | Rust catalog validation utility |
+| .github/workflows/ | GitHub Actions workflows |
+| server.py | Local development server |
 
-## Data quality and safety
+## Run locally
 
-Catalog information can be incomplete, outdated, or awaiting verification. Difficulty labels are approximate guidance, not objective measures of how easy an operating system is to use.
+The site is static and can be served locally from the repository root:
 
-Before downloading or installing anything, check the project's official documentation for current maintenance status, supported hardware, system requirements, and installation instructions. This is especially important for Android ROMs: builds are device-specific, and support for one model or codename does not imply support for another. Treat unofficial builds separately from official project releases.
+```bash
+python server.py
+```
 
-LDHY is an informational catalog. It does not develop, distribute, endorse, or install the operating systems listed.
+Then open http://127.0.0.1:8000/ in a browser.
 
-### Metadata conventions
+## Catalog accuracy and installation safety
 
-A blank metadata field means the value has not been independently verified or does not apply. DistroWatch waiting-list entries intentionally leave base, package manager, creator, and release fields blank and use the Others family with an “Unknown” difficulty until reliable project information is reviewed; it is not an invitation to infer a value from a broad family label. `Not yet verified` means the project's current maintenance state has not been confirmed. Check official project documentation before relying on any catalog entry. Entries with `source` and `verified` fields include an official page used for the check and the date it was reviewed. These fields document provenance; they do not imply that every metadata field has been independently confirmed.
+LDHY is an informational discovery catalog. It does not develop, distribute, endorse, or install the listed operating systems.
+
+Project status, release availability, supported hardware, and installation requirements can change. Before installing a distribution, consult its official documentation and download pages. For Android ROMs, confirm that the build explicitly supports the exact device model and codename; support for one device does not imply support for another. Back up important data and follow the project's own installation instructions.
+
+A missing field means the information is not available in the catalog or does not apply. An Unknown / unverified label is not confirmation that a project is safe, maintained, or suitable for a particular device.
 
 ## Contributing
 
-Corrections, additions, and suggestions are welcome. When proposing a new entry or changing existing metadata, provide:
-
-- The project's name and official website.
-- A reliable official project, source, or download link.
-- Its family/category and relevant metadata.
-- Sources for claims about release history, maintenance, or device support.
-- Confirmation that the project is not already listed.
+Corrections, additions, and suggestions are welcome. Please include the project's official website or source, the proposed catalog details, and reliable sources for claims about release history, maintenance, or device support. Check that the project is not already listed before proposing a new entry.
 
 You can contribute by opening an issue or submitting a pull request.
 
 ## Built with
 
-HTML, CSS, JavaScript, JSON, and Rust (catalog validation).
+HTML, CSS, JavaScript, JSON, and Rust tooling for catalog validation.
