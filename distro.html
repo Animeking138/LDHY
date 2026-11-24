@@ -21,6 +21,9 @@
   h1 { font-size:clamp(1.8rem,5vw,2.6rem); font-weight:800; margin-bottom:.5rem; }
   .subtitle { color:var(--muted); font-size:1.1rem; margin-bottom:2rem; }
   .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:clamp(1rem,3vw,1.5rem); margin-bottom:1.25rem; }
+  .lfs-warning { border:1px solid #a33b32; border-left:4px solid #ff5147; background:linear-gradient(120deg,#210b0b,#100707); color:#ffd8d5; }
+  .lfs-warning strong { display:block; color:#ff7168; font-family:'JetBrains Mono',monospace; letter-spacing:.06em; margin-bottom:.35rem; }
+  .lfs-warning p { font-weight:700; }
   .row { display:grid; grid-template-columns:minmax(145px,190px) minmax(0,1fr); gap:1rem; align-items:start; padding:.8rem 0; border-bottom:1px solid var(--border); }
   .row:last-child { border-bottom:none; }
   .label { color:var(--muted); font-size:.92rem; font-weight:600; }
@@ -117,6 +120,18 @@ fetch('distros.json')
     subtitle.className = 'subtitle';
     subtitle.textContent = d.description || 'Metadata is incomplete; see the project website for authoritative details.';
 
+    let lfsWarning = null;
+    if (d.name === 'Linux From Scratch') {
+      lfsWarning = document.createElement('aside');
+      lfsWarning.className = 'card lfs-warning';
+      lfsWarning.setAttribute('role', 'note');
+      const warningTitle = document.createElement('strong');
+      warningTitle.textContent = '⚠ A WORD OF WARNING';
+      const warningText = document.createElement('p');
+      warningText.textContent = 'If you lack the resolve to build your own Linux system from source... Turn back NOW.';
+      lfsWarning.append(warningTitle, warningText);
+    }
+
     const card = document.createElement('div');
     card.className = 'card';
     addRow(card, 'Family', d.family);
@@ -166,7 +181,9 @@ fetch('distros.json')
       note.append(noteTitle, noteText);
       content.append(eyebrow, heading, subtitle, card, note);
     } else {
-      content.append(eyebrow, heading, subtitle, card);
+      content.append(eyebrow, heading, subtitle);
+      if (lfsWarning) content.appendChild(lfsWarning);
+      content.appendChild(card);
     }
     const back = document.createElement('a');
     back.className = 'back';
