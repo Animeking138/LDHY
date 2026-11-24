@@ -292,8 +292,10 @@ fn check_page_security(
     let html = fs::read_to_string(root.join(page))?;
     let label = page;
 
+    // CSP values contain single-quoted source keywords, so match the
+    // double-quoted HTML attribute without treating those apostrophes as delimiters.
     let csp_re = Regex::new(
-        r#"(?is)<meta\s+http-equiv=["']Content-Security-Policy["']\s+content=["']([^"']*)["']"#
+        r#"(?is)<meta\s+http-equiv="Content-Security-Policy"\s+content="([^"]*)""#
     )?;
     let csp = csp_re
         .captures(&html)
