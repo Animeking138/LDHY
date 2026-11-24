@@ -16,7 +16,7 @@ Android is a Linux Distro we are not ignoring that😂
 
 ## Features
 
-- **Browse by family:** explore distributions grouped into families such as Debian-based, Arch-based, RPM-based, Gentoo-based, Slackware-based, source-based, and other categories, alongside the dedicated **Psychobath** section for extreme source-build projects, Android and other independent distributions.
+- **Browse by family:** explore distributions grouped into families such as Debian-based, Arch-based, RPM-based, Gentoo-based, Slackware-based, source-based, and other categories, alongside the dedicated **Maniac** section for extreme source-build projects, Android and other independent distributions.
 - **Search and filter:** search catalog entries and narrow results by difficulty or family.
 - **Individual detail pages:** open an entry to view its available project information and links.
 - **DistroWatch waiting-list entries:** eligible projects are integrated into the existing family categories. Projects without a reliably established base are placed under Others; their waiting-list status and Unknown difficulty remain documented. The separate “not yet ready” category is excluded.
