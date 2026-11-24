@@ -50,7 +50,7 @@ A blank metadata field means the value has not been independently verified or do
 
 ## Security and deployment
 
-The pages apply a restrictive Content Security Policy through HTML metadata, along with referrer, MIME-sniffing, and browser-permission policies. The policy limits resource origins and disables embedded objects, but currently permits inline scripts and styles because the site uses inline page code. Moving those blocks into local files would allow a stricter script policy without `unsafe-inline`.
+The three main pages use local CSS and JavaScript assets and apply a restrictive Content Security Policy through HTML metadata without `unsafe-inline`. The Rust catalog validator checks that each page retains its required CSP directives, references its expected local CSS/JS files, contains no inline script/style blocks or style attributes, and does not reference missing local assets. It also checks the supporting referrer, MIME-sniffing, and browser-permission policies.
 
 These metadata policies are defense-in-depth, not a replacement for HTTP response headers. GitHub Pages does not provide a repository-level custom response-header configuration file; headers such as `Strict-Transport-Security`, `X-Frame-Options`, and a response-header CSP require a hosting layer or proxy that supports them. The `frame-ancestors` CSP directive is not supported in a meta policy.
 
