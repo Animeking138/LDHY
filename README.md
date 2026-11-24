@@ -25,6 +25,7 @@ Android is a Linux Distro we are not ignoring that😂
 - **Responsive dark interface:** use the catalog on desktop and mobile, with an AMOLED-friendly black theme.
 - **Automatic empty-section handling:** categories with no visible entries are hidden from the page without removing their underlying section or filter option.
 
+- **Paid & Commercial:** includes commercial Linux distributions, paid editions, and subscription-supported enterprise platforms. Entries identify free tiers or paused purchases where applicable.
 ## Project structure
 
 | Path | Purpose |
