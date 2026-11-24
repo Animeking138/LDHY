@@ -20,7 +20,7 @@ Android is a Linux Distro we are not ignoring that😂
 - **Search and filter:** search catalog entries and narrow results by difficulty or family.
 - **Individual detail pages:** open an entry to view its available project information and links.
 - **Android ROM details:** all Android catalog cards use the shared JSON-driven detail page, including a reminder to verify support for the exact device model and codename. The old `android/` URLs remain available for compatibility.
-- **Extended archive:** browse the larger catalog and sort entries by available release-date or difficulty information.
+- **Extended archive:** browse the larger catalog, search every metadata field, filter by distribution family and difficulty, and sort by newest release year, oldest release year, difficulty, or name.
 - **Responsive dark interface:** use the catalog on desktop and mobile, with an AMOLED-friendly black theme.
 - **Automatic empty-section handling:** categories with no visible entries are hidden from the page without removing their underlying section or filter option.
 
