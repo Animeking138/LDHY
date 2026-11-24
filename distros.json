@@ -2112,17 +2112,17 @@
     "price": ""
   },
   {
-    "name": "RisingOS",
+    "name": "RisingOS Revived",
     "family": "Android",
     "difficulty": "Advanced",
-    "download": "https://github.com/RisingOS-Revived/android",
-    "creator": "RisingOS Team",
+    "download": "https://sourceforge.net/projects/risingos-revived/files/",
+    "creator": "RisingOS Revived community",
     "release": "",
-    "based_on": "AOSP",
+    "based_on": "LineageOS",
     "package_manager": "Android PackageManager / PackageInstaller (APK)",
-    "status": "Active; official device builds are currently published. Also listed on the DistroWatch waiting list (submitted 2026-08-30).",
-    "website": "https://risingosrevived.tech/",
-    "description": "An AOSP-based custom ROM with a distinctive interface and a broad set of customization features.",
+    "status": "Active; official device builds are published, but support varies by device. Verified against the project's source and download listings on 2026-11-24.",
+    "website": "",
+    "description": "A revived continuation of RisingOS, based on LineageOS and focused on a distinctive, highly customizable Android experience. Offers different build variants; availability depends on the exact device.",
     "price": ""
   },
   {
@@ -8235,5 +8235,18 @@
     "description": "Closed-source Arch Linux-based desktop operating system combining Windows, Android, macOS and Linux application compatibility in one desktop. Uses Wine/Proton, Waydroid and Darling; the full desktop uses KDE Plasma/KWin. Early access is planned for December 2026.",
     "price": "$20 early-access booking until 30 November 2026, then $25; one-time purchase, not a subscription.",
     "verified": "2026-11-24"
+  },
+  {
+    "name": "UN1CA",
+    "family": "Android",
+    "difficulty": "Advanced",
+    "download": "https://github.com/salvogiangri/UN1CA/releases",
+    "creator": "UN1CA contributors",
+    "release": "",
+    "based_on": "Samsung One UI (Galaxy firmware)",
+    "package_manager": "Android PackageManager / PackageInstaller (APK)",
+    "status": "Active; version 3.2.0 was published on 13 September 2026. Supported Samsung Galaxy devices vary by release.",
+    "website": "",
+    "description": "A work-in-progress custom firmware for selected Samsung Galaxy devices, built around Samsung's One UI experience with additional refinements, optimizations and customization."
   }
 ]
