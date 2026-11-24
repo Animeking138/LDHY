@@ -1715,7 +1715,7 @@
     "based_on": "openSUSE",
     "package_manager": "Zypper (RPM)",
     "status": "Not yet verified",
-    "website": "https://www.opensuse.org/",
+    "website": "https://get.opensuse.org/tumbleweed/",
     "description": "The rolling-release edition of openSUSE, delivering continuously updated packages through tested snapshots.",
     "price": ""
   },
