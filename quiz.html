@@ -70,8 +70,7 @@ function showResults(){
 $("quiz").hidden=true;$("results").hidden=false;
 const list=$("result-list");list.replaceChildren();
 const matches=(window.catalog||[]).map(score).filter(m=>m&&m.score>=3).sort((a,b)=>b.score-a.score||((a.confidence==="verified"?0:1)-(b.confidence==="verified"?0:1))||b.completeness-a.completeness).slice(0,5);
-if(!matches.length){const p=document.createElement("p");p.textContent="Your answers point toward building a system from source, but you selected that you are new to Linux. LDHY cannot confidently recommend a source-focused distro for that combination. Retake the quiz with your current experience level, or compare official installation guides before choosing.";list.append(p);return;}
-matches.forEach((m,i)=>{
+if(!matches.length){const p=document.createElement("p");p.textContent=(answers.source==="everything"||answers.source==="source")&&(answers.experience==="new"||answers.experience==="some")?"Your answers point toward a source-focused system, but your selected Linux experience suggests that recommendation could be too demanding. LDHY won't guess: build experience first or review official installation guides carefully.":"LDHY does not have enough reliable information to recommend a distro for this combination of answers yet. Browse the catalog and check each project's official documentation, supported hardware and current release status.";list.append(p);return;}matches.forEach((m,i)=>{
 const card=document.createElement("article");card.className="result";
 const rank=document.createElement("div");rank.className="rank";rank.textContent=i===0?"Top match — review before installing":"Alternative "+i;
 const h=document.createElement("h3");h.textContent=m.d.name;
