@@ -912,7 +912,7 @@
     "release": "",
     "based_on": "Independent",
     "package_manager": "Paludis",
-    "status": "Not yet verified",
+    "status": "Active; project repositories show ongoing development activity in November 2026.",
     "website": "https://www.exherbo.org/",
     "description": "A source-based Linux distribution aimed at developers and experienced users who want flexible configuration and hands-on system maintenance.",
     "price": ""
@@ -1052,7 +1052,7 @@
     "release": "",
     "based_on": "Independent",
     "package_manager": "Portage (emerge)",
-    "status": "Not yet verified",
+    "status": "Active; official Portage releases and Gentoo repository news were updated in 2026.",
     "website": "https://www.gentoo.org/",
     "description": "A source-based Linux distribution built around Portage, offering extensive control over package configuration and system customization.",
     "price": ""
@@ -2092,7 +2092,7 @@
     "release": "",
     "based_on": "Gentoo",
     "package_manager": "Sisyphus (Portage)",
-    "status": "Not yet verified",
+    "status": "Active; official project news lists 2026 releases and development updates.",
     "website": "https://redcorelinux.org/",
     "description": "A Gentoo-based distribution that provides binary packages and a more approachable installation and package-management experience.",
     "price": ""
