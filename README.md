@@ -1,6 +1,6 @@
 # LDHY — Linux Distros Heck Yeah
 
-A searchable catalog of Linux distributions and related operating-system projects. Browse by family, compare basic metadata, and follow official project or download links.
+A searchable catalog of Linux distributions and related operating-system projects. Browse by family, review basic metadata, and follow official project or download links.
 
 **Website:** [LDHY](https://animeking138.github.io/LDHY/)
 
@@ -20,7 +20,7 @@ Android is a Linux Distro we are not ignoring that😂
 - **Search and filter:** search catalog entries and narrow results by difficulty or family.
 - **Individual detail pages:** open an entry to view its available project information and links.
 - **Android ROM details:** all Android catalog cards use the shared JSON-driven detail page, including a reminder to verify support for the exact device model and codename. The old `android/` URLs remain available for compatibility.
-- **Extended archive:** browse the larger catalog and sort entries by available release-date or difficulty information.
+- **Extended archive:** open `distributions.html` to search the full catalog and sort entries by available release-date or difficulty information.
 - **Responsive dark interface:** use the catalog on desktop and mobile, with an AMOLED-friendly black theme.
 - **Automatic empty-section handling:** categories with no visible entries are hidden from the page without removing their underlying section or filter option.
 
@@ -30,11 +30,13 @@ Android is a Linux Distro we are not ignoring that😂
 | --- | --- |
 | `index.html` | Main catalog, family sections, search, and filters |
 | `distros.json` | Catalog data and metadata |
-| `distro.html` | Shared detail-page template for entries that use it |
+| `distro.html` | Shared JSON-driven detail-page template |
+| `detail.html` | Linux history event detail page |
 | `android/` | Legacy Android detail URLs retained for compatibility |
 | `distributions.html` | Extended catalog archive |
 | `.github/workflows/` | GitHub Actions workflows, including catalog validation |
 | `tools/catalog-validator/` | Rust-based catalog validation tool |
+| `server.py` | Local development server on `127.0.0.1:8000` |
 
 ## Data quality and safety
 
