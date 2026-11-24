@@ -221,7 +221,7 @@
     "based_on": "AOSP",
     "package_manager": "Android PackageManager / PackageInstaller (APK)",
     "status": "Active; official device builds are currently published.",
-    "website": "https://github.com/Pixelify-AOSP",
+    "website": "https://projectascp.vercel.app/",
     "description": "An AOSP-based ROM project from the Pixelify-AOSP community, with official device and source information published through its GitHub organization.",
     "price": ""
   },
@@ -573,7 +573,7 @@
     "based_on": "Independent",
     "package_manager": "swupd",
     "status": "Discontinued: Intel ended security updates, maintenance, and support on 18 July 2025; the project was archived.",
-    "website": "https://github.com/clearlinux",
+    "website": "https://clearlinux.github.io/",
     "description": "Historical Intel Linux distribution focused on performance and modularity. No longer maintained; do not treat archived images as supported releases.",
     "price": ""
   },
@@ -629,7 +629,7 @@
     "based_on": "AOSP",
     "package_manager": "Android PackageManager / PackageInstaller (APK)",
     "status": "Discontinued; final tracked builds are archived.",
-    "website": "https://github.com/CorvusRom",
+    "website": "https://www.corvusrom.com/",
     "description": "A formerly gaming-oriented AOSP custom ROM with extensive customization and performance features.",
     "price": ""
   },
@@ -1475,7 +1475,7 @@
     "based_on": "LineageOS",
     "package_manager": "Android PackageManager / PackageInstaller (APK)",
     "status": "Active; official device builds are currently published.",
-    "website": "https://github.com/MistOS",
+    "website": "https://projectmistos.in/",
     "description": "A LineageOS-based Android ROM offering multiple Google-app package variants as well as a vanilla build.",
     "price": ""
   },
@@ -2149,7 +2149,7 @@
     "based_on": "Gentoo",
     "package_manager": "Entropy; Portage",
     "status": "Historical project; current maintenance status not independently verified",
-    "website": "",
+    "website": "https://web.archive.org/web/20221214122911/https://www.sabayon.org/",
     "description": "A Gentoo-derived Linux distribution historically known for combining Gentoo's Portage ecosystem with prebuilt binary packages.",
     "price": ""
   },
