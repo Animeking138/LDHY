@@ -2659,7 +2659,7 @@
   },
   {
     "name": "GNU/Linux Utopia/Personal",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://sourceforge.net/projects/utopiadistro/",
     "creator": "",
@@ -2675,7 +2675,7 @@
   },
   {
     "name": "Linkat",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://projectes.xtec.cat/linkat/",
     "creator": "",
@@ -2691,7 +2691,7 @@
   },
   {
     "name": "Daylight Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "http://daylightlinux.ch/",
     "creator": "",
@@ -2707,7 +2707,7 @@
   },
   {
     "name": "piCorePlayer",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.picoreplayer.org/",
     "creator": "",
@@ -2723,7 +2723,7 @@
   },
   {
     "name": "Coffee Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/LiquidSmokeX64/coffee",
     "creator": "",
@@ -2739,7 +2739,7 @@
   },
   {
     "name": "Chimbalix",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/Shedou/Chimbalix",
     "creator": "",
@@ -2755,7 +2755,7 @@
   },
   {
     "name": "Sleeper OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://sleeperos.sourceforge.io/",
     "creator": "",
@@ -2771,7 +2771,7 @@
   },
   {
     "name": "Quieux Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://quieux.github.io/",
     "creator": "",
@@ -2787,7 +2787,7 @@
   },
   {
     "name": "eLxr",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://elxr.org/",
     "creator": "",
@@ -2803,7 +2803,7 @@
   },
   {
     "name": "Radix Cross Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://radix-linux.su/",
     "creator": "",
@@ -2819,7 +2819,7 @@
   },
   {
     "name": "Malbian",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/MalbianLinux",
     "creator": "",
@@ -2835,7 +2835,7 @@
   },
   {
     "name": "Siyasat Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://siyasat.io/",
     "creator": "",
@@ -2851,7 +2851,7 @@
   },
   {
     "name": "TravelerOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://sites.google.com/view/traveleros/home",
     "creator": "",
@@ -2867,7 +2867,7 @@
   },
   {
     "name": "OpenBosniana OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://bosniana.org/",
     "creator": "",
@@ -2883,7 +2883,7 @@
   },
   {
     "name": "SerenityOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://serenityos.org/",
     "creator": "",
@@ -2899,7 +2899,7 @@
   },
   {
     "name": "CSI Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://csilinux.com/",
     "creator": "",
@@ -2915,7 +2915,7 @@
   },
   {
     "name": "AROS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://aros.sourceforge.io/",
     "creator": "",
@@ -2931,7 +2931,7 @@
   },
   {
     "name": "eweOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://os.ewe.moe/",
     "creator": "",
@@ -2947,7 +2947,7 @@
   },
   {
     "name": "MorphOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.morphos-team.net/",
     "creator": "",
@@ -2963,7 +2963,7 @@
   },
   {
     "name": "Policorp Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.policorp.com.br/policorp-linux",
     "creator": "",
@@ -2979,7 +2979,7 @@
   },
   {
     "name": "B OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://merdekasoft.id/",
     "creator": "",
@@ -2995,7 +2995,7 @@
   },
   {
     "name": "Kazeta",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://kazeta.org/",
     "creator": "",
@@ -3011,7 +3011,7 @@
   },
   {
     "name": "Türkmen Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://turkmen-linux.gitlab.io/",
     "creator": "",
@@ -3027,7 +3027,7 @@
   },
   {
     "name": "Senpai Respin ParrotOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://senpai-respin-parrot.sourceforge.io/",
     "creator": "",
@@ -3043,7 +3043,7 @@
   },
   {
     "name": "ROCKNIX",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://rocknix.org/",
     "creator": "",
@@ -3059,7 +3059,7 @@
   },
   {
     "name": "FyshOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://fyshos.com/",
     "creator": "",
@@ -3075,7 +3075,7 @@
   },
   {
     "name": "ShefOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://linuxshef.code.blog/shefos-linux/",
     "creator": "",
@@ -3091,7 +3091,7 @@
   },
   {
     "name": "Javi-OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://javi-os.sourceforge.io/",
     "creator": "",
@@ -3107,7 +3107,7 @@
   },
   {
     "name": "HelenOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.helenos.org/",
     "creator": "",
@@ -3123,7 +3123,7 @@
   },
   {
     "name": "Kairos",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://kairos.io/",
     "creator": "",
@@ -3139,7 +3139,7 @@
   },
   {
     "name": "LegendaryOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://legendaryos.sourceforge.io/",
     "creator": "",
@@ -3155,7 +3155,7 @@
   },
   {
     "name": "IncusOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://linuxcontainers.org/incus-os/",
     "creator": "",
@@ -3171,7 +3171,7 @@
   },
   {
     "name": "Alpaquita Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://bell-sw.com/alpaquita-linux/",
     "creator": "",
@@ -3187,7 +3187,7 @@
   },
   {
     "name": "Runget",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/Kolyadual/Runget-next_generating_operating_system",
     "creator": "",
@@ -3203,7 +3203,7 @@
   },
   {
     "name": "ZipperOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://project-zipper.github.io/",
     "creator": "",
@@ -3219,7 +3219,7 @@
   },
   {
     "name": "Dragon Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://sourceforge.net/projects/sujix-linux/",
     "creator": "",
@@ -3235,7 +3235,7 @@
   },
   {
     "name": "CodeCampusOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://sourceforge.net/projects/code-campus-os/",
     "creator": "",
@@ -3251,7 +3251,7 @@
   },
   {
     "name": "Xanmian GNU/Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.xanmian.com/",
     "creator": "",
@@ -3267,7 +3267,7 @@
   },
   {
     "name": "SnackLinux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://snacklinux.org/",
     "creator": "",
@@ -3283,7 +3283,7 @@
   },
   {
     "name": "EterTICs GNU/Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://gnuetertics.org/",
     "creator": "",
@@ -3299,7 +3299,7 @@
   },
   {
     "name": "Sherlock Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://sherlock-linux.org/",
     "creator": "",
@@ -3315,7 +3315,7 @@
   },
   {
     "name": "Wasta-Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.wastalinux.org/",
     "creator": "",
@@ -3331,7 +3331,7 @@
   },
   {
     "name": "Gopi OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://gopi-os.sourceforge.io/",
     "creator": "",
@@ -3347,7 +3347,7 @@
   },
   {
     "name": "Puavo OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://puavo.org/",
     "creator": "",
@@ -3363,7 +3363,7 @@
   },
   {
     "name": "Aserdev-OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://aserdevyt.github.io/aserdev-os/",
     "creator": "",
@@ -3379,7 +3379,7 @@
   },
   {
     "name": "dérive",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://derivelinux.org/",
     "creator": "",
@@ -3395,7 +3395,7 @@
   },
   {
     "name": "Vojtux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/vojtapolasek/vojtux",
     "creator": "",
@@ -3411,7 +3411,7 @@
   },
   {
     "name": "Desktop Classic System",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://mycophobia.org/dcs/",
     "creator": "",
@@ -3427,7 +3427,7 @@
   },
   {
     "name": "joborun linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://joborun.neocities.org/joborun",
     "creator": "",
@@ -3443,7 +3443,7 @@
   },
   {
     "name": "Slack.AR Cloud OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://slack.ar/distro",
     "creator": "",
@@ -3459,7 +3459,7 @@
   },
   {
     "name": "Gulubuntu",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://gulubuntu.sourceforge.io/",
     "creator": "",
@@ -3475,7 +3475,7 @@
   },
   {
     "name": "UTG/Linux Garfield",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/RunnerTechHype/untitled-tag-game-linux-rolling",
     "creator": "",
@@ -3491,7 +3491,7 @@
   },
   {
     "name": "HyperBian",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/Hyperion-Project/HyperBian/",
     "creator": "",
@@ -3507,7 +3507,7 @@
   },
   {
     "name": "LibreCMC",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://librecmc.org/",
     "creator": "",
@@ -3523,7 +3523,7 @@
   },
   {
     "name": "RemonOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://remonos.sourceforge.io/",
     "creator": "",
@@ -3539,7 +3539,7 @@
   },
   {
     "name": "AtlasLinux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/AtlasLinux",
     "creator": "",
@@ -3555,7 +3555,7 @@
   },
   {
     "name": "Kampala Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://kampala-linux.sourceforge.io/",
     "creator": "",
@@ -3571,7 +3571,7 @@
   },
   {
     "name": "Archshrike",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://archshrike.sourceforge.io/",
     "creator": "",
@@ -3587,7 +3587,7 @@
   },
   {
     "name": "StrikeLinux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://strikelinux.sourceforge.io/",
     "creator": "",
@@ -3603,7 +3603,7 @@
   },
   {
     "name": "Hasib OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.hasibos.xyz/",
     "creator": "",
@@ -3619,7 +3619,7 @@
   },
   {
     "name": "Tonarchy",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/tonybanters/tonarchy",
     "creator": "",
@@ -3635,7 +3635,7 @@
   },
   {
     "name": "Sonic-Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://sonic-linux.sourceforge.io/",
     "creator": "",
@@ -3651,7 +3651,7 @@
   },
   {
     "name": "JakiKaliOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://jakikalios.sourceforge.io/",
     "creator": "",
@@ -3667,7 +3667,7 @@
   },
   {
     "name": "AlterraOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://alterraos.sourceforge.io/",
     "creator": "",
@@ -3683,7 +3683,7 @@
   },
   {
     "name": "Comtos Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://sourceforge.net/projects/comtoslinux/",
     "creator": "",
@@ -3699,7 +3699,7 @@
   },
   {
     "name": "AnigmaOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://anigmaos.sourceforge.io/",
     "creator": "",
@@ -3715,7 +3715,7 @@
   },
   {
     "name": "RealmOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://realm-os-official.github.io/realmos-website/",
     "creator": "",
@@ -3731,7 +3731,7 @@
   },
   {
     "name": "DolphinOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/DolphinOS-Development",
     "creator": "",
@@ -3747,7 +3747,7 @@
   },
   {
     "name": "Arka Linux GUI",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://arkalinuxgui.org/",
     "creator": "",
@@ -3763,7 +3763,7 @@
   },
   {
     "name": "Flow Arch",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://flowarch-os.github.io/",
     "creator": "",
@@ -3779,7 +3779,7 @@
   },
   {
     "name": "VV OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://sourceforge.net/projects/vv-os/",
     "creator": "",
@@ -3795,7 +3795,7 @@
   },
   {
     "name": "Arch POWER",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://archlinuxpower.org/",
     "creator": "",
@@ -3811,7 +3811,7 @@
   },
   {
     "name": "lex-ex",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://lex-ex.sourceforge.io/",
     "creator": "",
@@ -3827,7 +3827,7 @@
   },
   {
     "name": "MilagrOS GNU/Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://proyectotictac.com/distros/",
     "creator": "",
@@ -3843,7 +3843,7 @@
   },
   {
     "name": "SecBSD",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://secbsd.org/",
     "creator": "",
@@ -3859,7 +3859,7 @@
   },
   {
     "name": "deadbang",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://sourceforge.net/projects/deadbang/",
     "creator": "",
@@ -3875,7 +3875,7 @@
   },
   {
     "name": "COS++ Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://cos-linux-ubuntu.sourceforge.io/",
     "creator": "",
@@ -3891,7 +3891,7 @@
   },
   {
     "name": "MaxOr OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://maxor-os.maxcloud.ro/",
     "creator": "",
@@ -3907,7 +3907,7 @@
   },
   {
     "name": "Nucora Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://nucoralinux.gt.tc/",
     "creator": "",
@@ -3923,7 +3923,7 @@
   },
   {
     "name": "Vostok Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://vostoklinux.org/",
     "creator": "",
@@ -3939,7 +3939,7 @@
   },
   {
     "name": "AkbyOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://akbylinux.org/",
     "creator": "",
@@ -3955,7 +3955,7 @@
   },
   {
     "name": "SARPi",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://sarpi.penthux.net/",
     "creator": "",
@@ -3971,7 +3971,7 @@
   },
   {
     "name": "Palco",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://estudio-debian.pages.dev/palco/",
     "creator": "",
@@ -3987,7 +3987,7 @@
   },
   {
     "name": "HyprFlux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.hyprflux.dev/",
     "creator": "",
@@ -4003,7 +4003,7 @@
   },
   {
     "name": "Tavashtr OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.tavashtr.com/",
     "creator": "",
@@ -4019,7 +4019,7 @@
   },
   {
     "name": "AdenosineOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.adenixgnulinux.org/adenosineos",
     "creator": "",
@@ -4035,7 +4035,7 @@
   },
   {
     "name": "VitruvianOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://v-os.dev/",
     "creator": "",
@@ -4051,7 +4051,7 @@
   },
   {
     "name": "KokoPlayOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://kokoplayos.sourceforge.io/",
     "creator": "",
@@ -4067,7 +4067,7 @@
   },
   {
     "name": "Shift OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://shift-os.sourceforge.io/",
     "creator": "",
@@ -4083,7 +4083,7 @@
   },
   {
     "name": "Kiira Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://kiira-linux.sourceforge.io/",
     "creator": "",
@@ -4099,7 +4099,7 @@
   },
   {
     "name": "openRuyi",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://openruyi.cn/",
     "creator": "",
@@ -4115,7 +4115,7 @@
   },
   {
     "name": "Querencia Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://querencialinux.org/",
     "creator": "",
@@ -4131,7 +4131,7 @@
   },
   {
     "name": "AVMultimedia",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://archivista.ch/cms/en/support-2/avmultimedia-2/",
     "creator": "",
@@ -4147,7 +4147,7 @@
   },
   {
     "name": "EasyDeb",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://easydeb.sourceforge.io/",
     "creator": "",
@@ -4163,7 +4163,7 @@
   },
   {
     "name": "Kid OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://kid-os.sourceforge.io/",
     "creator": "",
@@ -4179,7 +4179,7 @@
   },
   {
     "name": "MinderiaOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://minderiaos.sourceforge.io/",
     "creator": "",
@@ -4195,7 +4195,7 @@
   },
   {
     "name": "Overkill Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://nixovena.org/overkill/",
     "creator": "",
@@ -4211,7 +4211,7 @@
   },
   {
     "name": "LooM OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://loom-os.sourceforge.io/",
     "creator": "",
@@ -4227,7 +4227,7 @@
   },
   {
     "name": "LiaisonOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://liaisonos.sourceforge.io/",
     "creator": "",
@@ -4243,7 +4243,7 @@
   },
   {
     "name": "Almighty Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://nixovena.org/almighty/",
     "creator": "",
@@ -4259,7 +4259,7 @@
   },
   {
     "name": "AI_M_OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://aimos.sourceforge.io/",
     "creator": "",
@@ -4275,7 +4275,7 @@
   },
   {
     "name": "Kucing7 Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://kucing7-linux-operating-system.sourceforge.io/",
     "creator": "",
@@ -4291,7 +4291,7 @@
   },
   {
     "name": "MoltOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/James7688/MoltOS",
     "creator": "",
@@ -4307,7 +4307,7 @@
   },
   {
     "name": "ArchLatam",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://archlatam.github.io/",
     "creator": "",
@@ -4323,7 +4323,7 @@
   },
   {
     "name": "fomeOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://fomeos.com/",
     "creator": "",
@@ -4339,7 +4339,7 @@
   },
   {
     "name": "nellaOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://thenellaosproject.sourceforge.io/",
     "creator": "",
@@ -4355,7 +4355,7 @@
   },
   {
     "name": "ShivaOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://shivaos.com/",
     "creator": "",
@@ -4371,7 +4371,7 @@
   },
   {
     "name": "Insanely Small Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/neo059415-dev/Insanely-Small-Linux",
     "creator": "",
@@ -4387,7 +4387,7 @@
   },
   {
     "name": "KhanOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/Mehdikhan000/KhanOS",
     "creator": "",
@@ -4403,7 +4403,7 @@
   },
   {
     "name": "Beep OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://beepos13.sourceforge.io/",
     "creator": "",
@@ -4419,7 +4419,7 @@
   },
   {
     "name": "StackOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://stackoslinux-dev.github.io/",
     "creator": "",
@@ -4435,7 +4435,7 @@
   },
   {
     "name": "Solara",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://celestia-foundation.github.io/solara/",
     "creator": "",
@@ -4451,7 +4451,7 @@
   },
   {
     "name": "Ultra Performance Tuning (UPT)",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://nixovena.org/ultra-performance-tuning/",
     "creator": "",
@@ -4467,7 +4467,7 @@
   },
   {
     "name": "NeoBSD",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://neobsd.com/",
     "creator": "",
@@ -4483,7 +4483,7 @@
   },
   {
     "name": "kazamOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://kazamos.gitlab.io/",
     "creator": "",
@@ -4499,7 +4499,7 @@
   },
   {
     "name": "Archanoxy",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://nixovena.org/archanoxy",
     "creator": "",
@@ -4515,7 +4515,7 @@
   },
   {
     "name": "ChronShield",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://teejeetech.com/chronshield/",
     "creator": "",
@@ -4531,7 +4531,7 @@
   },
   {
     "name": "DevOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/tech-for-everyone/DevOS",
     "creator": "",
@@ -4547,7 +4547,7 @@
   },
   {
     "name": "DaviOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://davios.sourceforge.io/",
     "creator": "",
@@ -4563,7 +4563,7 @@
   },
   {
     "name": "SextantOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://existnt.net/projects/sextant",
     "creator": "",
@@ -4579,7 +4579,7 @@
   },
   {
     "name": "NoID Privacy Workstation",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://noid-privacy.com/linux.html",
     "creator": "",
@@ -4595,7 +4595,7 @@
   },
   {
     "name": "Linoutrox",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://nixovena.org/linoutrox/",
     "creator": "",
@@ -4611,7 +4611,7 @@
   },
   {
     "name": "StryxOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/jaromero74/StryxOS",
     "creator": "",
@@ -4627,7 +4627,7 @@
   },
   {
     "name": "Lumina Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://luminalinux.org/",
     "creator": "",
@@ -4643,7 +4643,7 @@
   },
   {
     "name": "Illogical Impulse ISO",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/El3ssar/illogical-impulse-iso",
     "creator": "",
@@ -4659,7 +4659,7 @@
   },
   {
     "name": "Logilocky AI Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://nixovena.org/logilocky/",
     "creator": "",
@@ -4675,7 +4675,7 @@
   },
   {
     "name": "Tflinux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://francisco-melchior.github.io/tflinux.github.io/",
     "creator": "",
@@ -4691,7 +4691,7 @@
   },
   {
     "name": "Kawaiintu OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/mifjpn/kawaiintu-os-neo-moebuntu",
     "creator": "",
@@ -4707,7 +4707,7 @@
   },
   {
     "name": "Gamma Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://gamma-linux.is-local.org/",
     "creator": "",
@@ -4723,7 +4723,7 @@
   },
   {
     "name": "Corvorum OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://corvorum-os.sourceforge.io/",
     "creator": "",
@@ -4739,7 +4739,7 @@
   },
   {
     "name": "nonlaOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://nonlaos.sourceforge.io/",
     "creator": "",
@@ -4755,7 +4755,7 @@
   },
   {
     "name": "Hannah Montana Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://gitlab.com/DecaCagle/hannahmontanalinux26",
     "creator": "",
@@ -4771,7 +4771,7 @@
   },
   {
     "name": "GlouOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://glouos.sourceforge.io/",
     "creator": "",
@@ -4787,7 +4787,7 @@
   },
   {
     "name": "Alpenglow",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/tschk/alpenglow",
     "creator": "",
@@ -4803,7 +4803,7 @@
   },
   {
     "name": "LUNA OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://lunaos.sourceforge.io/",
     "creator": "",
@@ -4819,7 +4819,7 @@
   },
   {
     "name": "BlazeOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://blazeos.com.tr/",
     "creator": "",
@@ -4835,7 +4835,7 @@
   },
   {
     "name": "Odyssey Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://odysseylinux.org/",
     "creator": "",
@@ -4851,7 +4851,7 @@
   },
   {
     "name": "Panwah",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://redwaresoft.github.io/panwah/",
     "creator": "",
@@ -4867,7 +4867,7 @@
   },
   {
     "name": "Anatol-X Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://anatolialabs.github.io/Anatol-X/",
     "creator": "",
@@ -4883,7 +4883,7 @@
   },
   {
     "name": "SageOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/zackmsa777-a11y/sageos",
     "creator": "",
@@ -4899,7 +4899,7 @@
   },
   {
     "name": "AntherOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://antheros.org/",
     "creator": "",
@@ -4915,7 +4915,7 @@
   },
   {
     "name": "red1900",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://red1900.sourceforge.io/",
     "creator": "",
@@ -4931,7 +4931,7 @@
   },
   {
     "name": "ShalaOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://edizsale.github.io/shalaos/",
     "creator": "",
@@ -4947,7 +4947,7 @@
   },
   {
     "name": "Scpsec OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://scpsec.cc/",
     "creator": "",
@@ -4963,7 +4963,7 @@
   },
   {
     "name": "Blue Archive Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://blue-archive-linux.sourceforge.io/",
     "creator": "",
@@ -4979,7 +4979,7 @@
   },
   {
     "name": "MochiOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/iluxz/MochiOS",
     "creator": "",
@@ -4995,7 +4995,7 @@
   },
   {
     "name": "Generatrix Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://gitlab.com/generatrix-linux/generatrix-linux",
     "creator": "",
@@ -5011,7 +5011,7 @@
   },
   {
     "name": "Amity OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://amity-os.sourceforge.io/",
     "creator": "",
@@ -5027,7 +5027,7 @@
   },
   {
     "name": "Luminus OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://luminusos.sourceforge.io/",
     "creator": "",
@@ -5043,7 +5043,7 @@
   },
   {
     "name": "Invelinux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://sumtas.codeberg.page/",
     "creator": "",
@@ -5059,7 +5059,7 @@
   },
   {
     "name": "PersisOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://persisos.arshavirm.com/",
     "creator": "",
@@ -5075,7 +5075,7 @@
   },
   {
     "name": "UrsaOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://ursaos.sourceforge.io/",
     "creator": "",
@@ -5091,7 +5091,7 @@
   },
   {
     "name": "OnemanBSD",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://bialamusic.com/onemanBSD/",
     "creator": "",
@@ -5107,7 +5107,7 @@
   },
   {
     "name": "Zyphor OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://zyphor-os.github.io/",
     "creator": "",
@@ -5123,7 +5123,7 @@
   },
   {
     "name": "BlossomOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://blossomos.org/",
     "creator": "",
@@ -5139,7 +5139,7 @@
   },
   {
     "name": "vinOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://vinos.computer/",
     "creator": "",
@@ -5155,7 +5155,7 @@
   },
   {
     "name": "Hardcore Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/AMAZING2545/HardcoreLinux/",
     "creator": "",
@@ -5171,7 +5171,7 @@
   },
   {
     "name": "FlowOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://projectaquarius.space/",
     "creator": "",
@@ -5187,7 +5187,7 @@
   },
   {
     "name": "BracefaceOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://bracefaceos.sourceforge.io/",
     "creator": "",
@@ -5203,7 +5203,7 @@
   },
   {
     "name": "Yuz OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/emad1234-msoudi/Yuz-OS_edu",
     "creator": "",
@@ -5219,7 +5219,7 @@
   },
   {
     "name": "Bac-Ha-OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://bac-ha-os.sourceforge.io/",
     "creator": "",
@@ -5235,7 +5235,7 @@
   },
   {
     "name": "ErasOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://erasos.sourceforge.io/",
     "creator": "",
@@ -5251,7 +5251,7 @@
   },
   {
     "name": "Amphiptere OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://amphiptere-os.sourceforge.io/",
     "creator": "",
@@ -5267,7 +5267,7 @@
   },
   {
     "name": "vArch-OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://varch-os.sourceforge.io/",
     "creator": "",
@@ -5283,7 +5283,7 @@
   },
   {
     "name": "Hyggshi OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://hyggshi-os.sourceforge.io/",
     "creator": "",
@@ -5299,7 +5299,7 @@
   },
   {
     "name": "FreeCORE",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://freecore.org/",
     "creator": "",
@@ -5315,7 +5315,7 @@
   },
   {
     "name": "LyargoOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://hotodogo.com/lyargoos/",
     "creator": "",
@@ -5331,7 +5331,7 @@
   },
   {
     "name": "ekkoBSD",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://ekkobsd.org/",
     "creator": "",
@@ -5347,7 +5347,7 @@
   },
   {
     "name": "Revenant OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/Fixitdaz/revenant-os",
     "creator": "",
@@ -5363,7 +5363,7 @@
   },
   {
     "name": "Akira Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://akiralinux.org/",
     "creator": "",
@@ -5379,7 +5379,7 @@
   },
   {
     "name": "Cix",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://cix.world/",
     "creator": "",
@@ -5395,7 +5395,7 @@
   },
   {
     "name": "FangOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://kiefer-d-hendricks.github.io/FangOS/",
     "creator": "",
@@ -5411,7 +5411,7 @@
   },
   {
     "name": "NeOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://neos.sourceforge.io/",
     "creator": "",
@@ -5427,7 +5427,7 @@
   },
   {
     "name": "Anatase",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://anatase.org/",
     "creator": "",
@@ -5443,7 +5443,7 @@
   },
   {
     "name": "Linux PataOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.linux-pataos.com/",
     "creator": "",
@@ -5459,7 +5459,7 @@
   },
   {
     "name": "OBLinux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://oblinux.sourceforge.io/",
     "creator": "",
@@ -5475,7 +5475,7 @@
   },
   {
     "name": "UmbraOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://umbraos.sourceforge.io/",
     "creator": "",
@@ -5491,7 +5491,7 @@
   },
   {
     "name": "Gravity Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://gravitylinux.org/",
     "creator": "",
@@ -5507,7 +5507,7 @@
   },
   {
     "name": "DeLinuxCo",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://delinux.co/",
     "creator": "",
@@ -5523,7 +5523,7 @@
   },
   {
     "name": "Merlot",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.adenixgnulinux.org/merlot",
     "creator": "",
@@ -5539,7 +5539,7 @@
   },
   {
     "name": "MollyOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.adenixgnulinux.org/mollyos",
     "creator": "",
@@ -5555,7 +5555,7 @@
   },
   {
     "name": "Auxo Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://auxolinux.com/",
     "creator": "",
@@ -5571,7 +5571,7 @@
   },
   {
     "name": "MikroTik RouterOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://mikrotik.com/software",
     "creator": "",
@@ -5587,7 +5587,7 @@
   },
   {
     "name": "AlgaOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://algaos.com/",
     "creator": "",
@@ -5603,7 +5603,7 @@
   },
   {
     "name": "Hidayah OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://hidayahos.gitlab.io/",
     "creator": "",
@@ -5619,7 +5619,7 @@
   },
   {
     "name": "Zohara OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://zohara-website.onrender.com/",
     "creator": "",
@@ -5635,7 +5635,7 @@
   },
   {
     "name": "Tobi Xu",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://tobixu.xyz/",
     "creator": "",
@@ -5651,7 +5651,7 @@
   },
   {
     "name": "Eslapion",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://eslapion.org/",
     "creator": "",
@@ -5667,7 +5667,7 @@
   },
   {
     "name": "Kalexon Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://kalexon-linux.sourceforge.io/",
     "creator": "",
@@ -5683,7 +5683,7 @@
   },
   {
     "name": "error.os",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://zynomon.github.io/error/",
     "creator": "",
@@ -5699,7 +5699,7 @@
   },
   {
     "name": "MXD Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/yosh781/MXD-Linux",
     "creator": "",
@@ -5715,7 +5715,7 @@
   },
   {
     "name": "KemmOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://nawre-tech.log.bzh/kemmos/",
     "creator": "",
@@ -5731,7 +5731,7 @@
   },
   {
     "name": "Octlitch",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://octlitch.com/",
     "creator": "",
@@ -5747,7 +5747,7 @@
   },
   {
     "name": "LupiOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://lupios.sourceforge.io/",
     "creator": "",
@@ -5763,7 +5763,7 @@
   },
   {
     "name": "FilzaOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/Peshimam-Ashar-Mohammed/Filza-OS",
     "creator": "",
@@ -5779,7 +5779,7 @@
   },
   {
     "name": "Tenka",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/naman-sharma12345/tenka",
     "creator": "",
@@ -5795,7 +5795,7 @@
   },
   {
     "name": "VaeVictis OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://vaevictisos.org/",
     "creator": "",
@@ -5811,7 +5811,7 @@
   },
   {
     "name": "Lindows OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://lindows.org/",
     "creator": "",
@@ -5827,7 +5827,7 @@
   },
   {
     "name": "Gh0ulOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.gh0ulos.com/",
     "creator": "",
@@ -5843,7 +5843,7 @@
   },
   {
     "name": "LMIM Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://lmim.tech/LMIMLINUX/",
     "creator": "",
@@ -5859,7 +5859,7 @@
   },
   {
     "name": "JatayuOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://jatayuos.in/",
     "creator": "",
@@ -5875,7 +5875,7 @@
   },
   {
     "name": "SegLinux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://seglinux.vercel.app/",
     "creator": "",
@@ -5891,7 +5891,7 @@
   },
   {
     "name": "dwm-titus",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://dwm.christitus.com/",
     "creator": "",
@@ -5907,7 +5907,7 @@
   },
   {
     "name": "HelixOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://sourceforge.net/projects/helixos-surge/",
     "creator": "",
@@ -5923,7 +5923,7 @@
   },
   {
     "name": "Veldmuis Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://veldmuislinux.org/",
     "creator": "",
@@ -5939,7 +5939,7 @@
   },
   {
     "name": "DINX",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/rufl/DINX",
     "creator": "",
@@ -5955,7 +5955,7 @@
   },
   {
     "name": "ReyOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://reyos.reyapps.com/",
     "creator": "",
@@ -5971,7 +5971,7 @@
   },
   {
     "name": "AgentUX",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://agentuxos.org/",
     "creator": "",
@@ -5987,7 +5987,7 @@
   },
   {
     "name": "SpectrumOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://gibranlp.dev/en/spectrum/",
     "creator": "",
@@ -6003,7 +6003,7 @@
   },
   {
     "name": "Alnix",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://alnix.org/",
     "creator": "",
@@ -6019,7 +6019,7 @@
   },
   {
     "name": "ErgenOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/ErgenosSW/ErgenOS-Linux",
     "creator": "",
@@ -6035,7 +6035,7 @@
   },
   {
     "name": "CatosTV",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://catostv.com/",
     "creator": "",
@@ -6051,7 +6051,7 @@
   },
   {
     "name": "TelcoChisel",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://telcochisel.com/",
     "creator": "",
@@ -6067,7 +6067,7 @@
   },
   {
     "name": "MeccanicOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://meccanicos.com/",
     "creator": "",
@@ -6083,7 +6083,7 @@
   },
   {
     "name": "VeyraOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/danielwav1/VeyraOS",
     "creator": "",
@@ -6099,7 +6099,7 @@
   },
   {
     "name": "Frametide OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/ChopstickGuy/frametide-os",
     "creator": "",
@@ -6115,7 +6115,7 @@
   },
   {
     "name": "SelahOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.selahos.io/",
     "creator": "",
@@ -6131,7 +6131,7 @@
   },
   {
     "name": "Ashington OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://ashingtonos.com/",
     "creator": "",
@@ -6147,7 +6147,7 @@
   },
   {
     "name": "OlesurOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.olesur.com/recursos/olesuros-linux-gratis-para-el-aula/",
     "creator": "",
@@ -6163,7 +6163,7 @@
   },
   {
     "name": "NULIGN-MX",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://nulign-mx1-0.sourceforge.io/",
     "creator": "",
@@ -6179,7 +6179,7 @@
   },
   {
     "name": "Ankora Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://ankora-linux.github.io/",
     "creator": "",
@@ -6195,7 +6195,7 @@
   },
   {
     "name": "Maginat",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/Aleps31/Maginat",
     "creator": "",
@@ -6211,7 +6211,7 @@
   },
   {
     "name": "LordOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://lordos.org/",
     "creator": "",
@@ -6227,7 +6227,7 @@
   },
   {
     "name": "ZacOS9",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://zac-os-9.sourceforge.io/",
     "creator": "",
@@ -6243,7 +6243,7 @@
   },
   {
     "name": "MindOS Paradise",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://mindos.studio/",
     "creator": "",
@@ -6259,7 +6259,7 @@
   },
   {
     "name": "AIMS OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://a-i-m-s-senegal.github.io/aims-os/",
     "creator": "",
@@ -6275,7 +6275,7 @@
   },
   {
     "name": "AnNIXion",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/Pyth3rEx/AnNIXion",
     "creator": "",
@@ -6291,7 +6291,7 @@
   },
   {
     "name": "SnapOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://snapos-distro.github.io/",
     "creator": "",
@@ -6307,7 +6307,7 @@
   },
   {
     "name": "Mobius",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/Spetrius/mobius",
     "creator": "",
@@ -6323,7 +6323,7 @@
   },
   {
     "name": "rorkos",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://rorkos.duckdns.org/",
     "creator": "",
@@ -6339,7 +6339,7 @@
   },
   {
     "name": "Quantum Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://quantumlinux-arch.github.io/",
     "creator": "",
@@ -6355,7 +6355,7 @@
   },
   {
     "name": "Infinity OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/juanpjimenez-afk/mi-distro-linux",
     "creator": "",
@@ -6371,7 +6371,7 @@
   },
   {
     "name": "Chamesle",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://chamesle.org/",
     "creator": "",
@@ -6387,7 +6387,7 @@
   },
   {
     "name": "FeniceOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://danilodauria.github.io/feniceos/",
     "creator": "",
@@ -6403,7 +6403,7 @@
   },
   {
     "name": "Rivet Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/vewi67/Rivet-Linux",
     "creator": "",
@@ -6419,7 +6419,7 @@
   },
   {
     "name": "KrelboyneOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://krelboyneos.org/",
     "creator": "",
@@ -6435,7 +6435,7 @@
   },
   {
     "name": "Emaki",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.emaki.sh/",
     "creator": "",
@@ -6451,7 +6451,7 @@
   },
   {
     "name": "Niveth Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/panosxdIx/Niveth",
     "creator": "",
@@ -6467,7 +6467,7 @@
   },
   {
     "name": "Interstellar OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/Blehh13/osaima",
     "creator": "",
@@ -6483,7 +6483,7 @@
   },
   {
     "name": "H3XD OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/h3xdOS/h3xdos",
     "creator": "",
@@ -6499,7 +6499,7 @@
   },
   {
     "name": "Halkurd",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://karamuser.github.io/halkurd/",
     "creator": "",
@@ -6515,7 +6515,7 @@
   },
   {
     "name": "Linexia",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.linexia.org/",
     "creator": "",
@@ -6531,7 +6531,7 @@
   },
   {
     "name": "Koppie Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://koppielinux.netlify.app/",
     "creator": "",
@@ -6547,7 +6547,7 @@
   },
   {
     "name": "Tiny Hat",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://roboticoverlords.org/tinyhat/",
     "creator": "",
@@ -6563,7 +6563,7 @@
   },
   {
     "name": "openVana",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/crasyonyt-max/openVana",
     "creator": "",
@@ -6579,7 +6579,7 @@
   },
   {
     "name": "LuxOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://luxos.lux-ai.cz/",
     "creator": "",
@@ -6595,7 +6595,7 @@
   },
   {
     "name": "Lulu Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://lululinux.org/",
     "creator": "",
@@ -6611,7 +6611,7 @@
   },
   {
     "name": "InterGenOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://intergenos.org/",
     "creator": "",
@@ -6627,7 +6627,7 @@
   },
   {
     "name": "Sururu Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://sururu.kurumintecnologia.com.br/",
     "creator": "",
@@ -6643,7 +6643,7 @@
   },
   {
     "name": "DRIFT Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.driftlinux.org/",
     "creator": "",
@@ -6659,7 +6659,7 @@
   },
   {
     "name": "OrvixOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://orvixos.com.tr/",
     "creator": "",
@@ -6675,7 +6675,7 @@
   },
   {
     "name": "KoreOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://koreos-kappa.vercel.app/",
     "creator": "",
@@ -6691,7 +6691,7 @@
   },
   {
     "name": "Cairn Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://aceyx3-sudo.github.io/cairn-site/",
     "creator": "",
@@ -6707,7 +6707,7 @@
   },
   {
     "name": "zakk-OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/zakkos-yt/zakk-OS",
     "creator": "",
@@ -6723,7 +6723,7 @@
   },
   {
     "name": "ISOG Nusantara (IGN)",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://igos-nusantara.or.id/",
     "creator": "",
@@ -6739,7 +6739,7 @@
   },
   {
     "name": "TechTux OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://sourceforge.net/projects/techtuxos/",
     "creator": "",
@@ -6755,7 +6755,7 @@
   },
   {
     "name": "Maospix-KDE",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/maospy/Maospix-KDE",
     "creator": "",
@@ -6771,7 +6771,7 @@
   },
   {
     "name": "GenesiOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.genesios.org/",
     "creator": "",
@@ -6787,7 +6787,7 @@
   },
   {
     "name": "Pond",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.butterfly.so/pond",
     "creator": "",
@@ -6803,7 +6803,7 @@
   },
   {
     "name": "FygoOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://fygonas.com/",
     "creator": "",
@@ -6819,7 +6819,7 @@
   },
   {
     "name": "Vyrm Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://vyrm-linux.sourceforge.io/",
     "creator": "",
@@ -6835,7 +6835,7 @@
   },
   {
     "name": "CometOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://cipheros.org.in/linux",
     "creator": "",
@@ -6851,7 +6851,7 @@
   },
   {
     "name": "AshlarOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://ashlaros.download/",
     "creator": "",
@@ -6867,7 +6867,7 @@
   },
   {
     "name": "ZÜL Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://z-l-linux.sourceforge.io/",
     "creator": "",
@@ -6883,7 +6883,7 @@
   },
   {
     "name": "Linsoft OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://linsoft1.github.io/linsoft-os/",
     "creator": "",
@@ -6899,7 +6899,7 @@
   },
   {
     "name": "Biokids",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://biokids.bilalgurkansanli.com/",
     "creator": "",
@@ -6915,7 +6915,7 @@
   },
   {
     "name": "PengyOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://pengyos.catbee.ca/",
     "creator": "",
@@ -6931,7 +6931,7 @@
   },
   {
     "name": "AikaOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/emiliaplays/AikaOS",
     "creator": "",
@@ -6947,7 +6947,7 @@
   },
   {
     "name": "Eitr Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://eitr.info/",
     "creator": "",
@@ -6963,7 +6963,7 @@
   },
   {
     "name": "Calico Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/FelineFantasy/calico-linux",
     "creator": "",
@@ -6979,7 +6979,7 @@
   },
   {
     "name": "Cyclop OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://cyclop-tech.com/cyclop-os/",
     "creator": "",
@@ -6995,7 +6995,7 @@
   },
   {
     "name": "Lázaro Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://sourceforge.net/projects/lazaro-linux/",
     "creator": "",
@@ -7011,7 +7011,7 @@
   },
   {
     "name": "Karakulak",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://onurbaydas.github.io/karakulak/",
     "creator": "",
@@ -7027,7 +7027,7 @@
   },
   {
     "name": "Amethystora",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://amethystora.org/",
     "creator": "",
@@ -7043,7 +7043,7 @@
   },
   {
     "name": "CindraOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://danielwav1.github.io/CindraOS/",
     "creator": "",
@@ -7059,7 +7059,7 @@
   },
   {
     "name": "Firox Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/kurodenkou/firox",
     "creator": "",
@@ -7075,7 +7075,7 @@
   },
   {
     "name": "WinDoesNot",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://windoesnot.me/",
     "creator": "",
@@ -7091,7 +7091,7 @@
   },
   {
     "name": "DMOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://diogomadail1000-ship-it.github.io/DMOS/",
     "creator": "",
@@ -7107,7 +7107,7 @@
   },
   {
     "name": "Zainium OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://zainiumdynamics.tech/",
     "creator": "",
@@ -7123,7 +7123,7 @@
   },
   {
     "name": "Rime",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://rimeos.com/",
     "creator": "",
@@ -7139,7 +7139,7 @@
   },
   {
     "name": "LMG OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://mineswordteam.github.io/LmgOS/",
     "creator": "",
@@ -7155,7 +7155,7 @@
   },
   {
     "name": "Owl OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://owlsec.org/",
     "creator": "",
@@ -7171,7 +7171,7 @@
   },
   {
     "name": "Kiln Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://kilnlinux.org/",
     "creator": "",
@@ -7187,7 +7187,7 @@
   },
   {
     "name": "KinetixOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/Dexmodzz/KinetixOS",
     "creator": "",
@@ -7203,7 +7203,7 @@
   },
   {
     "name": "Wild OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://wildos.io/",
     "creator": "",
@@ -7219,7 +7219,7 @@
   },
   {
     "name": "WinKDE OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://achour-417414.web.app/",
     "creator": "",
@@ -7235,7 +7235,7 @@
   },
   {
     "name": "NewDeb",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://newdeb.sourceforge.io/",
     "creator": "",
@@ -7251,7 +7251,7 @@
   },
   {
     "name": "TermOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://developer1-vd.github.io/TermOS/",
     "creator": "",
@@ -7267,7 +7267,7 @@
   },
   {
     "name": "BREOGAN OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://breogandev.com/breogan-os/",
     "creator": "",
@@ -7283,7 +7283,7 @@
   },
   {
     "name": "Widow9 OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://widow9.org/",
     "creator": "",
@@ -7299,7 +7299,7 @@
   },
   {
     "name": "My_OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/gonicolas12/My_OS",
     "creator": "",
@@ -7315,7 +7315,7 @@
   },
   {
     "name": "ShadowRealm-OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://shadowrealm-os.sourceforge.io/",
     "creator": "",
@@ -7331,7 +7331,7 @@
   },
   {
     "name": "Omaxian",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://omaxian.org/",
     "creator": "",
@@ -7347,7 +7347,7 @@
   },
   {
     "name": "NoahOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://somerandomtechperson.github.io/Noah-OS/",
     "creator": "",
@@ -7363,7 +7363,7 @@
   },
   {
     "name": "IPRPS OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://infiniteplane.space/downloads/iprps/",
     "creator": "",
@@ -7379,7 +7379,7 @@
   },
   {
     "name": "Trindle",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://trindle.org/",
     "creator": "",
@@ -7395,7 +7395,7 @@
   },
   {
     "name": "Kettle Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/thatluigiguyy/kettle-linux",
     "creator": "",
@@ -7411,7 +7411,7 @@
   },
   {
     "name": "CIPHER Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/cipher-linux/cipher-linux",
     "creator": "",
@@ -7427,7 +7427,7 @@
   },
   {
     "name": "Nodalix OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/danielmigueltejedor/nodalix-os",
     "creator": "",
@@ -7443,7 +7443,7 @@
   },
   {
     "name": "NAVIN OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/naveenpalecha00-coder/navin-os",
     "creator": "",
@@ -7459,7 +7459,7 @@
   },
   {
     "name": "OrkaLinux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://cyzs-retroweb.rf.gd/orkalinux.php",
     "creator": "",
@@ -7475,7 +7475,7 @@
   },
   {
     "name": "Ark Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://abshar1976.github.io/ark-linux/",
     "creator": "",
@@ -7491,7 +7491,7 @@
   },
   {
     "name": "Citron OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://citron-software.github.io/Citron-OS/",
     "creator": "",
@@ -7507,7 +7507,7 @@
   },
   {
     "name": "Lunarc",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://lunarclinux.com/",
     "creator": "",
@@ -7523,7 +7523,7 @@
   },
   {
     "name": "Choutes Project",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://choutes.com/",
     "creator": "",
@@ -7539,7 +7539,7 @@
   },
   {
     "name": "Jace OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://okjace.github.io/jace-os/",
     "creator": "",
@@ -7555,7 +7555,7 @@
   },
   {
     "name": "RSOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://steffes.industries/projekt/rsos",
     "creator": "",
@@ -7571,7 +7571,7 @@
   },
   {
     "name": "WhiteHat Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/mbastida43/whitehat",
     "creator": "",
@@ -7587,7 +7587,7 @@
   },
   {
     "name": "LilArch",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/iguszdev/LilArch",
     "creator": "",
@@ -7603,7 +7603,7 @@
   },
   {
     "name": "Codebyr OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://os.codebyr.dev/",
     "creator": "",
@@ -7619,7 +7619,7 @@
   },
   {
     "name": "Guatá OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://guataos.com.br/",
     "creator": "",
@@ -7635,7 +7635,7 @@
   },
   {
     "name": "Kan-Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://kan-linux.org/",
     "creator": "",
@@ -7651,7 +7651,7 @@
   },
   {
     "name": "HyprBSD",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://hyprbsd.org/",
     "creator": "",
@@ -7667,7 +7667,7 @@
   },
   {
     "name": "Lubit Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://lubitlinux.com/",
     "creator": "",
@@ -7683,7 +7683,7 @@
   },
   {
     "name": "DeCaf Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://decaf-linux.sourceforge.io/",
     "creator": "",
@@ -7699,7 +7699,7 @@
   },
   {
     "name": "DiptaOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://diptaos.sourceforge.io/",
     "creator": "",
@@ -7715,7 +7715,7 @@
   },
   {
     "name": "myLinuxBSD",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.mylinuxbsd.com/",
     "creator": "",
@@ -7731,7 +7731,7 @@
   },
   {
     "name": "GoldenDog Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://goldendoglinux.org/",
     "creator": "",
@@ -7747,7 +7747,7 @@
   },
   {
     "name": "MATE Wayland Desktop",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://mate-wayland.org/",
     "creator": "",
@@ -7763,7 +7763,7 @@
   },
   {
     "name": "WASD",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://wasd.run/",
     "creator": "",
@@ -7779,7 +7779,7 @@
   },
   {
     "name": "epixOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://os.epix.tr/",
     "creator": "",
@@ -7795,7 +7795,7 @@
   },
   {
     "name": "Synapta OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://synaptaos.com/",
     "creator": "",
@@ -7811,7 +7811,7 @@
   },
   {
     "name": "CrownOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://crownos.org/",
     "creator": "",
@@ -7827,7 +7827,7 @@
   },
   {
     "name": "CyberForge OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://cyberforge-os.org/",
     "creator": "",
@@ -7843,7 +7843,7 @@
   },
   {
     "name": "Violyx",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://merecete.org/violyx/",
     "creator": "",
@@ -7859,7 +7859,7 @@
   },
   {
     "name": "Galery OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://galery-os.sourceforge.io/",
     "creator": "",
@@ -7875,7 +7875,7 @@
   },
   {
     "name": "matOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://raantss18.github.io/MatOS/",
     "creator": "",
@@ -7891,7 +7891,7 @@
   },
   {
     "name": "PendriveLinux OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://pendrivelinux.com/os/",
     "creator": "",
@@ -7907,7 +7907,7 @@
   },
   {
     "name": "Aether OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.runaether.tn/",
     "creator": "",
@@ -7923,7 +7923,7 @@
   },
   {
     "name": "Flux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/FacileStudio/Flux",
     "creator": "",
@@ -7939,7 +7939,7 @@
   },
   {
     "name": "KrissOS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://krazetech.github.io/krissos/",
     "creator": "",
@@ -7955,7 +7955,7 @@
   },
   {
     "name": "Halcora",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/Ron-warrior/halcora",
     "creator": "",
@@ -7971,7 +7971,7 @@
   },
   {
     "name": "Sandcastle",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://ur.foo-projects.org/",
     "creator": "",
@@ -7987,7 +7987,7 @@
   },
   {
     "name": "joe Linux",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://joelinux.io/",
     "creator": "",
@@ -8003,7 +8003,7 @@
   },
   {
     "name": "NovaPlay OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/EinfachGame/novaplay-os",
     "creator": "",
@@ -8019,7 +8019,7 @@
   },
   {
     "name": "Eleria OS",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/eleria-official/Eleria-OS",
     "creator": "",
@@ -8035,7 +8035,7 @@
   },
   {
     "name": "Czo Linux Debian",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://sourceforge.net/projects/czo-rescue-debian/",
     "creator": "",
@@ -8051,7 +8051,7 @@
   },
   {
     "name": "Krubuntu",
-    "family": "DistroWatch waiting list",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://github.com/krinry/krubuntu",
     "creator": "",
