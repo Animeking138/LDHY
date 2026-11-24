@@ -466,24 +466,6 @@ section:nth-child(10) { animation-delay: 0.45s; }
 </style>
 
 
-/* LDHY polish pass */
-.discover-nav{display:flex;gap:.75rem;align-items:stretch}
-.discover-tab{flex:1;min-width:0}
-.discover-tab.secondary{border-color:var(--border);background:rgba(255,255,255,.025);color:var(--text)}
-.discover-tab.secondary:hover{border-color:var(--accent);background:var(--accent-glow)}
-.intro-copy{max-width:760px;margin:1rem auto 0;padding:0 1rem;text-align:center;color:var(--muted);font-size:.95rem}
-.toolbar{max-width:1040px;border:1px solid rgba(255,255,255,.07);border-top:0;box-shadow:0 14px 32px rgba(0,0,0,.25)}
-main{max-width:1040px}
-.grid{gap:.9rem}
-.card{min-height:88px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
-.card h3{font-size:.95rem}
-.trust-filter{display:flex;align-items:center;gap:.55rem;color:var(--muted);font-size:.82rem;cursor:pointer}
-.trust-filter input{accent-color:var(--accent);width:1rem;height:1rem}
-.back-to-top{position:fixed;right:1.25rem;bottom:1.25rem;z-index:20;display:flex;align-items:center;gap:.4rem;padding:.7rem .9rem;border:1px solid rgba(0,255,65,.4);border-radius:999px;background:rgba(8,12,8,.92);color:var(--accent);font:600 .85rem Inter,sans-serif;box-shadow:0 8px 28px rgba(0,0,0,.45);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s;cursor:pointer}
-.back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
-.back-to-top:hover{background:rgba(0,255,65,.12);border-color:var(--accent)}
-@media(max-width:600px){.discover-nav{flex-direction:column}.intro-copy{font-size:.88rem;margin-top:.85rem}.toolbar{top:0;border-radius:0 0 12px 12px}.trust-filter{padding:.15rem 0}.card{min-height:76px}}
-
 </style>
 </head>
 <body>
@@ -509,9 +491,7 @@ main{max-width:1040px}
 
 <nav class="discover-nav" aria-label="Main navigation">
   <a class="discover-tab" href="quiz.html"><span aria-hidden="true">✦</span> Discover your distro <span aria-hidden="true">→</span></a>
-  <a class="discover-tab secondary" href="distributions.html">Browse full catalog <span aria-hidden="true">↗</span></a>
 </nav>
-<p class="intro-copy">Explore Linux distributions, compare their basics, and find a system that fits the way you use your computer.</p>
 
 <div class="toolbar">
   <div class="toolbar-inner">
@@ -549,7 +529,6 @@ main{max-width:1040px}
         </select>
       </label>
     </div>
-    <label class="trust-filter"><input type="checkbox" id="hide-unverified"> Hide unverified entries</label>
   </div>
 </div>
 <p class="sr-only" id="results-status" role="status" aria-live="polite" aria-atomic="true"></p>
@@ -579,8 +558,6 @@ main{max-width:1040px}
 <section data-section="notfound"><h2>Not found <span class="count">0</span></h2><div class="grid"></div></section>
 
 </main>
-<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">↑ <span>Top</span></button>
-
 <footer>
   <p>LDHY — Linux Distros Heck Yeah</p>
   <div class="footer-links">
@@ -608,8 +585,6 @@ main{max-width:1040px}
   const searchInput = document.getElementById('search');
   const difficultyFilter = document.getElementById('difficulty-filter');
   const familyFilter = document.getElementById('family-filter');
-  const hideUnverified = document.getElementById('hide-unverified');
-  const backToTop = document.getElementById('back-to-top');
   const sections = document.querySelectorAll('main > section');
   const emptyState = document.getElementById('empty-state');
   const resultsStatus = document.getElementById('results-status');
@@ -640,9 +615,7 @@ main{max-width:1040px}
       const matchesSearch = !query || name.includes(query);
       const matchesDifficulty = difficulty === 'all' || cardDifficulty === difficulty;
       const matchesFamily = family === 'all' || cardFamily === family;
-      const matchesVerification = !hideUnverified.checked || cardDifficulty !== 'unknown';
-
-      const isVisible = matchesSearch && matchesDifficulty && matchesFamily && matchesVerification;
+      const isVisible = matchesSearch && matchesDifficulty && matchesFamily;
       card.hidden = !isVisible;
       if (isVisible) visibleCount++;
     });
@@ -661,12 +634,6 @@ main{max-width:1040px}
   searchInput.addEventListener('input', filterCards);
   difficultyFilter.addEventListener('change', filterCards);
   familyFilter.addEventListener('change', filterCards);
-  hideUnverified.addEventListener('change', filterCards);
-  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  const updateBackToTop = () => backToTop.classList.toggle('visible', window.scrollY > 500);
-  window.addEventListener('scroll', updateBackToTop, { passive: true });
-  updateBackToTop();
-
   // Apply visibility rules immediately, including hiding empty categories on page load.
   filterCards();
 })();
