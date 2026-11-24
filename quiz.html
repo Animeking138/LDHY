@@ -28,7 +28,7 @@ if(blocked||!d.download||!description||!diff||diff==="unknown"||!(based||pkg))re
 let score=0,reasons=[],cautions=[];
 const add=(n,r)=>{score+=n;if(n>0&&r)reasons.push(r)};
 const lfs=name==="linux from scratch",sourceBased=!lfs&&!/redcore/.test(name)&&(/gentoo|calculate linux|exherbo|lunar linux|crux|dragora/.test(name)||/portage|paludis|lunar package manager|source-based|ports system/.test(pkg+" "+description)),sourceCapable=sourceBased||/\bports\b|portage|compile|build.*from source|source code/.test(pkg+" "+description);
-if(answers.source==="source"&&!sourceCapable)return null;if(answers.source==="everything"&&!sourceCapable&&!lfs)return null;if(lfs&&answers.experience!=="advanced")return null;if(answers.experience==="comfortable"&&diff==="expert"&&sourceBased)return null;
+if(answers.source==="source"&&!sourceCapable)return null;if(answers.source==="everything"&&answers.experience!=="advanced")return null;if(answers.source==="everything"&&!sourceCapable&&!lfs)return null;if(lfs&&answers.experience!=="advanced")return null;if(answers.experience==="comfortable"&&diff==="expert"&&sourceBased)return null;
 const paid=/paid|commercial|subscription/.test(family+" "+status)||Boolean(String(d.price||"").trim()),desktop=!lfs&&/desktop|workstation|cinnamon|gnome|kde plasma|plasma|xfce|budgie|deepin|pantheon|lxqt|lxde/.test(text),server=/server-focused|server distribution|designed primarily for servers|firewall distribution|router distribution|hypervisor|nas operating system|cloud appliance|embedded system|container host/.test(text),light=/lightweight|low.resource|older hardware|old computers|minimal|lxde|lxqt|xfce/.test(text);
 const windowsStyle=/linux mint|zorin os|kubuntu|kde neon|tuxedo os|feren os|cinnamon|kde plasma/.test(name+" "+description),macStyle=/elementary os|deepin|pearos|pantheon/.test(name+" "+description),distinctive=/tiling|hyprland|niri|sway|cosmic|river|awesomewm|window manager/.test(text);
 const verified=/^active\b/i.test(status)&&!/not independently verified|not yet verified|cadence not verified/i.test(status),complete=["description","difficulty","family","based_on","package_manager","download","status"].filter(k=>String(d[k]??"").trim()).length,confidence=verified&&complete===7?"verified":(based||pkg)?"provisional":"limited";
@@ -70,7 +70,7 @@ function showResults(){
 $("quiz").hidden=true;$("results").hidden=false;
 const list=$("result-list");list.replaceChildren();
 const matches=(window.catalog||[]).map(score).filter(m=>m&&m.score>=3).sort((a,b)=>b.score-a.score||((a.confidence==="verified"?0:1)-(b.confidence==="verified"?0:1))||b.completeness-a.completeness).slice(0,5);
-if(!matches.length){const p=document.createElement("p");p.textContent="LDHY does not have enough reliable information to recommend a distro for these answers yet. Browse the catalog and check each project's official documentation, supported hardware and current release status.";list.append(p);return;}
+if(!matches.length){const p=document.createElement("p");p.textContent="Your answers point toward building a system from source, but you selected that you are new to Linux. LDHY cannot confidently recommend a source-focused distro for that combination. Retake the quiz with your current experience level, or compare official installation guides before choosing.";list.append(p);return;}
 matches.forEach((m,i)=>{
 const card=document.createElement("article");card.className="result";
 const rank=document.createElement("div");rank.className="rank";rank.textContent=i===0?"Top match — review before installing":"Alternative "+i;
