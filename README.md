@@ -21,7 +21,7 @@ Android is a Linux Distro we are not ignoring that😂
 - **Individual detail pages:** open an entry to view its available project information and links.
 - **Android ROM details:** all Android catalog cards use the shared JSON-driven detail page, including a reminder to verify support for the exact device model and codename. The old `android/` URLs remain available for compatibility.
 - **Extended archive:** browse the larger catalog, search every metadata field, filter by distribution family and difficulty, and sort by newest release year, oldest release year, difficulty, or name.
-- **Side-by-side comparison:** select up to three distributions in the archive and compare their available metadata, official links, and maintenance details in one responsive table. Selections stay in the browser using local storage.
+- **Side-by-side comparison:** open the comparison page directly from the homepage, select up to three distributions in the archive, and compare their available metadata, official links, and maintenance details in one responsive table. Selections stay in the browser using local storage.
 - **Responsive dark interface:** use the catalog on desktop and mobile, with an AMOLED-friendly black theme.
 - **Automatic empty-section handling:** categories with no visible entries are hidden from the page without removing their underlying section or filter option.
 

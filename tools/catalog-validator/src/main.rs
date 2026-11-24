@@ -126,6 +126,10 @@ fn check_homepage(
     errors: &mut Vec<String>,
 ) -> Result<(), Box<dyn std::error::Error>> {
     let html = fs::read_to_string(root.join("index.html"))?;
+
+    if !html.contains("href=\\"compare.html\\"") {
+        errors.push("Homepage must link directly to the distribution comparison page.".to_owned());
+    }
     let section_re = Regex::new(r#"(?s)<section\b([^>]*)>(.*?)</section>"#)?;
     let section_name_re = Regex::new(r#"data-section="([^"]+)""#)?;
     let card_re = Regex::new(
