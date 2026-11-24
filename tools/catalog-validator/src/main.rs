@@ -319,12 +319,15 @@ fn check_page_security(
     }
 
     let inline_style_re = Regex::new(r"(?is)<style\\b[^>]*>")?;
-    let inline_script_re = Regex::new(r"(?is)<script\\b[^>]*>\\s*[^<\\s]")?;
+    let inline_script_re = Regex::new(r"(?is)<script\\b[^>]*>(.*?)</script>")?;
     let style_attribute_re = Regex::new(r#"(?is)\\sstyle\\s*="#)?;
     if inline_style_re.is_match(&html) {
         errors.push(format!("{label}: inline <style> blocks are not allowed; use a local stylesheet."));
     }
-    if inline_script_re.is_match(&html) {
+    if inline_script_re
+        .captures_iter(&html)
+        .any(|capture| !capture[1].trim().is_empty())
+    {
         errors.push(format!("{label}: inline <script> code is not allowed; use a local script file."));
     }
     if style_attribute_re.is_match(&html) {
