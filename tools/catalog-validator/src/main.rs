@@ -256,7 +256,8 @@ fn check_archive_routes(
         ("load the shared JSON catalog", "fetch('distros.json')"),
         ("build links from catalog entries", "distro.html?id="),
         ("render catalog text safely", "textContent"),
-        ("rank every difficulty level", "Expert: 4", "Master: 5"),
+        ("rank every difficulty level (Expert)", "Expert: 4"),
+        ("rank every difficulty level (Master)", "Master: 5"),
     ] {
         if !archive.contains(required) {
             errors.push(format!("Archive must {description}."));
@@ -320,7 +321,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             ));
         }
 
-        if !["Beginner", "Intermediate", "Advanced", "Expert", "Unknown"]
+        if !["Beginner", "Intermediate", "Advanced", "Expert", "Master", "Unknown"]
             .contains(&record.difficulty.as_str())
         {
             errors.push(format!(
@@ -436,6 +437,7 @@ mod tests {
         assert_eq!(family_section("Arch-based (Pacman)"), Some("arch"));
         assert_eq!(family_section("Paid (subscription)"), Some("paid"));
         assert_eq!(family_section("Android"), Some("android"));
+        assert_eq!(family_section("Maniac"), Some("maniac"));
     }
 
     #[test]
