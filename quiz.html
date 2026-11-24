@@ -27,37 +27,38 @@ const blocked=/discontinued|archived|waiting for distrowatch|trademark concerns|
 if(blocked||!d.download||!description||!diff||diff==="unknown"||!(based||pkg))return null;
 let score=0,reasons=[],cautions=[];
 const add=(n,r)=>{score+=n;if(n>0&&r)reasons.push(r)};
-const lfs=name==="linux from scratch",sourceBased=!lfs&&(/gentoo|calculate linux|exherbo|lunar linux|crux|dragora/.test(name)||/portage|paludis|lunar package manager|source-based|ports system/.test(pkg+" "+description)),sourceCapable=sourceBased||/ports|compile|build.*from source|source code/.test(pkg+" "+description);
-const paid=/paid|commercial|subscription/.test(family+" "+status)||Boolean(String(d.price||"").trim()),desktop=!lfs&&/desktop|workstation|cinnamon|gnome|kde plasma|plasma|xfce|budgie|deepin|pantheon|lxqt|lxde/.test(text),server=/server-focused|server distribution|designed primarily for servers|firewall distribution|router distribution|hypervisor|nas operating system|cloud appliance|embedded system/.test(text),light=/lightweight|low.resource|older hardware|old computers|minimal|lxde|lxqt|xfce/.test(text);
+const lfs=name==="linux from scratch",sourceBased=!lfs&&(/gentoo|calculate linux|exherbo|lunar linux|crux|dragora/.test(name)||/portage|paludis|lunar package manager|source-based|ports system/.test(pkg+" "+description)),sourceCapable=sourceBased||/\bports\b|compile|build.*from source|source code/.test(pkg+" "+description);
+const paid=/paid|commercial|subscription/.test(family+" "+status)||Boolean(String(d.price||"").trim()),desktop=!lfs&&/desktop|workstation|cinnamon|gnome|kde plasma|plasma|xfce|budgie|deepin|pantheon|lxqt|lxde/.test(text),server=/server-focused|server distribution|designed primarily for servers|firewall distribution|router distribution|hypervisor|nas operating system|cloud appliance|embedded system|container host/.test(text),light=/lightweight|low.resource|older hardware|old computers|minimal|lxde|lxqt|xfce/.test(text);
+const windowsStyle=/linux mint|zorin os|kubuntu|kde neon|tuxedo os|feren os|cinnamon|kde plasma/.test(name+" "+description),macStyle=/elementary os|deepin|pearos|pantheon/.test(name+" "+description),distinctive=/tiling|hyprland|niri|sway|cosmic|river|awesomewm|window manager/.test(text);
 const verified=/^active\b/i.test(status)&&!/not independently verified|not yet verified|cadence not verified/i.test(status),complete=["description","difficulty","family","based_on","package_manager","download","status"].filter(k=>String(d[k]??"").trim()).length,confidence=verified&&complete===7?"verified":(based||pkg)?"provisional":"limited";
 if(confidence==="provisional"){score-=2;cautions.push("Current maintenance or release status has not been independently verified by LDHY.");}
 if(confidence==="limited"){score-=5;cautions.push("Some important catalog details are missing; verify the project before choosing it.");}
 if(answers.from==="windows"&&/linux mint|zorin|kubuntu|kde neon|tuxedo os|feren os/.test(name))add(2,"May offer a familiar transition from Windows");
 if(answers.from==="macos"&&/elementary os|deepin|pearos/.test(name))add(2,"May offer a desktop workflow familiar to macOS users");
-if(answers.look==="windows"&&/linux mint|zorin os|kubuntu|kde neon|cinnamon|plasma|xfce/.test(name+" "+description))add(3,"Offers a familiar desktop layout");
-if(answers.look==="macos"&&/elementary os|deepin|pearos|pantheon|gnome/.test(name+" "+description))add(3,"Offers a desktop workflow that may feel familiar to macOS users");
-if(answers.look==="new"&&/tiling|hyprland|niri|sway|cosmic|river|awesomewm|window manager|immutable|atomic/.test(text))add(3,"Offers a distinctive desktop experience");
+if(answers.look==="windows"&&windowsStyle)add(3,"Offers a familiar desktop layout");
+if(answers.look==="macos"&&macStyle)add(3,"Offers a desktop workflow that may feel familiar to macOS users");
+if(answers.look==="new"&&distinctive)add(3,"Offers a distinctive desktop experience");
 if(answers.experience==="new")add(diff==="beginner"?5:diff==="intermediate"?1:diff==="advanced"?-8:diff==="expert"?-12:-16,diff==="beginner"?"Catalogued as beginner-friendly":"");
 if(answers.experience==="some")add(diff==="beginner"||diff==="intermediate"?2:diff==="advanced"?-3:-8,diff==="beginner"||diff==="intermediate"?"A more approachable level for someone learning Linux":"");
 if(answers.experience==="comfortable")add(diff==="intermediate"?3:diff==="advanced"?2:diff==="expert"?-2:diff==="master"?-8:0,diff==="intermediate"||diff==="advanced"?"Fits an experienced everyday Linux user":"");
 if(answers.experience==="advanced")add(diff==="advanced"?4:diff==="expert"?5:diff==="master"?1:diff==="intermediate"?1:-2,diff==="advanced"||diff==="expert"?"Matches an experienced user's appetite for hands-on control":"");
 if(answers.source==="source")add(sourceBased?9:sourceCapable?2:lfs?-12:0,sourceBased?"Uses a source-based package ecosystem with build configuration":sourceCapable?"Offers some ports or source-building workflows":"");
-if(answers.source==="everything")add(lfs?(answers.experience==="advanced"?12:-20):sourceBased?8:sourceCapable?3:0,lfs&&answers.experience==="advanced"?"A from-scratch build project for experienced users":sourceBased?"A source-oriented package system for hands-on users":"");
+if(answers.source==="everything")add(lfs?(answers.experience==="advanced"?20:-20):sourceBased?5:sourceCapable?2:0,lfs&&answers.experience==="advanced"?"A from-scratch build project for experienced users":sourceBased?"A source-oriented package system for hands-on users":"");
 if(answers.source==="occasional"&&sourceCapable)add(1,"Supports source-building or ports when needed");
 if(answers.source==="binary"&&(sourceBased||lfs))score-=5;
 if(lfs&&answers.source!=="everything")score-=20;
-if(answers.purpose==="daily"){if(desktop)add(4,"Has a desktop-oriented system or edition");if(server)score-=10;}
-if(answers.purpose==="gaming"&&/gaming|steam|proton|mesa|gamescope/.test(text))add(5,"Project information specifically mentions gaming technologies");
-if(answers.purpose==="dev"&&/developer|development|programming|container|workstation|nix/.test(text))add(3,"Its project information points to development or workstation use");
+if(answers.purpose==="daily"){if(desktop)add(4,"Has a desktop-oriented system or edition");if(server&&!desktop)score-=10;}
+if(answers.purpose==="gaming"){if(/gaming|steam|proton|mesa|gamescope/.test(text))add(5,"Project information specifically mentions gaming technologies");else if(server&&!desktop)score-=8;}
+if(answers.purpose==="dev"&&/developer|development|programming|workstation|nix/.test(text))add(3,"Its project information points to development or workstation use");
 if(answers.purpose==="server"){if(server||/server|container|kubernetes|cloud/.test(name+" "+family+" "+description))add(5,"Its stated focus includes server or cloud workloads");else if(desktop)score-=3;}
 if(answers.hardware==="older"&&light)add(3,"Described as lightweight or suitable for modest hardware");
 if(answers.hardware==="powerful"&&/workstation|gaming|performance|scientific|engineering/.test(text))add(2,"Its stated focus can make use of capable hardware");
 if(answers.hardware==="laptop"&&/laptop|battery|power.management/.test(text))add(2,"Project information mentions laptop or power-management support");
 if(answers.desktop==="ready"&&desktop)add(2,"Offers a desktop-oriented experience");
 if(answers.desktop==="simple"&&light)add(3,"Offers a lightweight or minimal approach");
-if(answers.desktop==="custom"&&(/custom|customiz|rolling|arch|gentoo|nix|tiling/.test(text)||sourceBased))add(3,"Offers substantial customization or system control");
-if(answers.stability==="stable"){if(/lts|long.term support|stable release|debian|ubuntu|linux mint|opensuse leap/.test(text))add(3,"Its release or base is associated with stability");if(/rolling|alpha|experimental/.test(text+" "+status))score-=3;}
-if(answers.stability==="latest"&&/rolling.release|rolling|latest packages|bleeding.edge|gentoo|arch linux/.test(text+" "+status))add(3,"Its release model favors newer software");
+if(answers.desktop==="custom"&&(/custom|customiz|rolling|\barch\b|arch linux|gentoo|nix|tiling/.test(text)||sourceBased))add(3,"Offers substantial customization or system control");
+if(answers.stability==="stable"){if(/lts|long.term support|stable release|debian|ubuntu|linux mint|opensuse leap/.test(text))add(3,"Its release or base is associated with stability");if(/\brolling\b|alpha|experimental/.test(text+" "+status))score-=3;}
+if(answers.stability==="latest"&&/\brolling\b|latest packages|bleeding.edge|gentoo|arch linux/.test(text+" "+status))add(3,"Its release model favors newer software");
 if(answers.stability==="balanced"&&/debian|ubuntu|fedora|mint|opensuse/.test(text))add(2,"Its ecosystem can offer a balance of freshness and stability");
 if(answers.budget==="free"&&paid)score-=12;
 if(answers.budget==="paid"&&paid)add(1,"A paid or commercially supported option is available");
