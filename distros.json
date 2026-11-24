@@ -1170,22 +1170,6 @@
     "price": ""
   },
   {
-    "name": "illumos",
-    "family": "Others",
-    "difficulty": "Advanced",
-    "download": "https://www.illumos.org/docs/about/distro/",
-    "creator": "illumos community",
-    "release": "",
-    "based_on": "OpenSolaris",
-    "package_manager": "Varies by downstream distribution",
-    "status": "Active; the illumos project and downstream distributions are maintained.",
-    "website": "https://illumos.org/",
-    "description": "An open-source Unix operating-system ecosystem descended from OpenSolaris. The illumos codebase provides the foundation for independent distributions such as OpenIndiana, OmniOS, SmartOS, and Tribblix; installable systems are obtained through those downstream distributions rather than a single universal illumos installer.",
-    "price": "",
-    "source": "https://www.illumos.org/docs/about/distro/",
-    "verified": "2026-11-24"
-  },
-  {
     "name": "IPFire",
     "family": "Others",
     "difficulty": "Intermediate",
