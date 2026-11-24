@@ -68,6 +68,12 @@ fn valid_url(value: &str) -> bool {
         .unwrap_or(false)
 }
 
+fn has_clean_text(value: &str) -> bool {
+    !value.trim().is_empty()
+        && value == value.trim()
+        && !value.chars().any(char::is_control)
+}
+
 fn valid_verification_date(value: &str) -> bool {
     let bytes = value.as_bytes();
     if bytes.len() != 10 || bytes[4] != b'-' || bytes[7] != b'-' {
@@ -392,12 +398,45 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
 
     let mut names = HashSet::new();
     let mut slugs = HashSet::new();
+    let mut verification_sources = HashSet::new();
 
     for (index, record) in records.iter().enumerate() {
         let label = format!("Entry {} ({})", index + 1, record.name);
 
+        for (field, value) in [
+            ("name", record.name.as_str()),
+            ("family", record.family.as_str()),
+            ("difficulty", record.difficulty.as_str()),
+            ("status", record.status.as_str()),
+            ("description", record.description.as_str()),
+        ] {
+            if !has_clean_text(value) {
+                errors.push(format!(
+                    "{label}: required field {field} must be non-empty, trimmed text without control characters."
+                ));
+            }
+        }
+
+        for (field, value) in [
+            ("download", record.download.as_str()),
+            ("creator", record.creator.as_str()),
+            ("release", record.release.as_str()),
+            ("based_on", record.based_on.as_str()),
+            ("package_manager", record.package_manager.as_str()),
+            ("website", record.website.as_str()),
+            ("price", record.price.as_str()),
+            ("source", record.source.as_str()),
+            ("verified", record.verified.as_str()),
+        ] {
+            if value != value.trim() || value.chars().any(char::is_control) {
+                errors.push(format!(
+                    "{label}: optional field {field} contains leading/trailing whitespace or control characters."
+                ));
+            }
+        }
+
         if record.name.trim().is_empty() {
-            errors.push(format!("{label}: name is empty."));
+            // The required-field check above reports this once.
         } else if !names.insert(record.name.trim().to_lowercase()) {
             errors.push(format!("Duplicate distribution name: {}.", record.name));
         }
@@ -451,6 +490,16 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 record.source
             ));
         }
+        if !record.source.trim().is_empty() {
+            if let Ok(url) = Url::parse(&record.source) {
+                if !verification_sources.insert(url.to_string()) {
+                    errors.push(format!(
+                        "{label}: verification source URL is duplicated by another catalog entry: {:?}.",
+                        record.source
+                    ));
+                }
+            }
+        }
         if !record.verified.trim().is_empty() && !valid_verification_date(&record.verified) {
             errors.push(format!(
                 "{label}: verification date must use YYYY-MM-DD format: {:?}.",
@@ -498,6 +547,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     println!("  Homepage cards: synchronized");
     println!("  Archive detail routes: valid");
     println!("  Duplicate names/slugs: none");
+    println!("  Duplicate verification sources: none");
+    println!("  Required metadata and text formatting: valid");
     println!("  URL syntax: valid (reachability not tested)");
     println!("  Verification provenance: {with_provenance}/{} entries", records.len());
     println!();
@@ -554,6 +605,16 @@ mod tests {
         assert!(!policy.contains("'unsafe-inline'"));
         assert!(policy.contains("script-src 'self'"));
         assert!(policy.contains("style-src 'self'"));
+    }
+
+    #[test]
+    fn required_metadata_must_be_trimmed_and_nonempty() {
+        assert!(has_clean_text("Linux distribution"));
+        assert!(!has_clean_text(""));
+        assert!(!has_clean_text("   "));
+        assert!(!has_clean_text(" Linux"));
+        assert!(!has_clean_text("Linux "));
+        assert!(!has_clean_text("Linux\\nOS"));
     }
 
     #[test]
