@@ -256,7 +256,7 @@ fn check_archive_routes(
         ("load the shared JSON catalog", "fetch('distros.json')"),
         ("build links from catalog entries", "distro.html?id="),
         ("render catalog text safely", "textContent"),
-        ("rank every difficulty level", "Expert: 4"),
+        ("rank every difficulty level", "Expert: 4", "Master: 5"),
     ] {
         if !archive.contains(required) {
             errors.push(format!("Archive must {description}."));
