@@ -35,26 +35,10 @@
     *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
   }
 
-:root{--accent:#00ff41;--gold:#00d936}
-body{background:radial-gradient(ellipse at 50% -20%,rgba(0,255,65,.08),transparent 42%),var(--bg)}
-.topbar{display:flex;justify-content:space-between;align-items:center;gap:1rem;background:rgba(0,0,0,.8);backdrop-filter:blur(14px)}
-.topbar nav{display:flex;gap:1rem;flex-wrap:wrap}
-.topbar a{color:var(--accent);text-decoration:none}
-.topbar a:hover{text-decoration:underline;text-underline-offset:4px}
-.container{max-width:1100px}
-h1{letter-spacing:-.04em}
-h2{color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:.5rem}
-.search{border-radius:10px;transition:border-color .2s,box-shadow .2s}
-.search:focus{box-shadow:0 0 0 3px rgba(0,255,65,.12)}
-.card{background:linear-gradient(145deg,#101510,#080808 75%);box-shadow:0 8px 24px rgba(0,0,0,.18)}
-.card:hover{border-color:rgba(0,255,65,.55);box-shadow:0 12px 28px rgba(0,0,0,.3)}
-.sortbtn{font:600 .88rem Inter,system-ui,sans-serif!important;transition:border-color .2s,background .2s}
-.sortbtn:hover{border-color:var(--accent)!important}
-@media(max-width:560px){.topbar{align-items:flex-start}.topbar nav{gap:.7rem;justify-content:flex-end}.container{padding:1.75rem 1rem 3rem}}
 </style>
 </head>
 <body>
-<div class="topbar"><a href="index.html">← Back to LDHY</a><nav aria-label="Page navigation"><a href="quiz.html">Distro finder</a><a href="index.html">Home</a></nav></div>
+<div class="topbar"><a href="index.html">← Back to catalog</a></div>
 <div class="container">
   <h1>Linux Distributions Archive</h1>
   <p class="subtitle">Browse the shared catalog. Search distribution details or sort by release year and difficulty.</p>
