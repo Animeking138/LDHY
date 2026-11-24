@@ -122,193 +122,22 @@ fn find_root() -> Result<PathBuf, Box<dyn std::error::Error>> {
 
 fn check_homepage(
     root: &Path,
-    records: &[Distro],
-    errors: &mut Vec<String>,
-) -> Result<(), Box<dyn std::error::Error>> {
-    let html = fs::read_to_string(root.join("index.html"))?;
-
-    if !html.contains("href=\\"compare.html\\"") {
-        errors.push("Homepage must link directly to the distribution comparison page.".to_owned());
-    }
-    let section_re = Regex::new(r#"(?s)<section\b([^>]*)>(.*?)</section>"#)?;
-    let section_name_re = Regex::new(r#"data-section="([^"]+)""#)?;
-    let card_re = Regex::new(
-        r#"(?s)<a class="card" data-diff="([^"]+)" href="([^"]+)">.*?<h3>([^<]+)</h3></a>"#,
-    )?;
-
-    let catalog: HashMap<&str, &Distro> = records
-        .iter()
-        .map(|record| (record.name.as_str(), record))
-        .collect();
-
-    let mut seen = HashSet::new();
-    let mut card_count = 0usize;
-
-    for section in section_re.captures_iter(&html) {
-        let Some(section_name) = section_name_re.captures(&section[1]) else {
-            continue;
-        };
-        let section_name = &section_name[1];
-        let section_html = &section[2];
-
-        for card in card_re.captures_iter(section_html) {
-            card_count += 1;
-            let difficulty = &card[1];
-            let href = &card[2];
-            let heading_name = card[3].trim();
-
-            let decoded_name = href
-                .split_once('?')
-                .and_then(|(_, query)| {
-                    form_urlencoded::parse(query.as_bytes())
-                        .find(|(key, _)| key == "name" || key == "id")
-                        .map(|(key, value)| {
-                            let value = value.into_owned();
-                            if key == "id" {
-                                records
-                                    .iter()
-                                    .find(|record| slug(&record.name) == value)
-                                    .map(|record| record.name.clone())
-                                    .unwrap_or(value)
-                            } else {
-                                value
-                            }
-                        })
-                })
-                .unwrap_or_else(|| heading_name.to_owned());
-
-            if section_name == "android" && !href.starts_with("distro.html?id=") {
-                errors.push(format!(
-                    "Android card {heading_name:?} must use the shared JSON detail page: {href:?}."
-                ));
-            }
-
-            if !href.starts_with("distro.html?") {
-                let path = Path::new(href);
-                let unsafe_path = path.is_absolute()
-                    || path.components().any(|part| !matches!(part, Component::Normal(_)));
-                if unsafe_path || !root.join(path).is_file() {
-                    errors.push(format!(
-                        "Homepage card {heading_name:?} points to a missing or unsafe page: {href:?}."
-                    ));
-                }
-            }
-
-            if decoded_name != heading_name {
-                errors.push(format!(
-                    "Homepage link/name mismatch: link resolves to {decoded_name:?}, heading is {heading_name:?}."
-                ));
-            }
-
-            if !seen.insert(heading_name.to_owned()) {
-                errors.push(format!("Duplicate homepage card: {heading_name}."));
-            }
-
-            match catalog.get(heading_name) {
-                Some(record) => {
-                    if difficulty != record.difficulty.to_ascii_lowercase() {
-                        errors.push(format!(
-                            "Homepage difficulty mismatch for {}: card={}, JSON={}.",
-                            record.name, difficulty, record.difficulty
-                        ));
-                    }
-
-                    match family_section(&record.family) {
-                        Some(expected) if expected == section_name => {}
-                        Some(expected) => errors.push(format!(
-                            "Homepage section mismatch for {}: section={}, expected={}.",
-                            record.name, section_name, expected
-                        )),
-                        None => errors.push(format!(
-                            "Unknown family {:?} for {}.",
-                            record.family, record.name
-                        )),
-                    }
-                }
-                None => errors.push(format!(
-                    "Homepage card {:?} has no matching distros.json entry.",
-                    heading_name
-                )),
-            }
-        }
-    }
-
-    if card_count != records.len() {
-        errors.push(format!(
-            "Homepage/JSON count mismatch: {} cards versus {} catalog records.",
-            card_count,
-            records.len()
-        ));
-    }
-
-    for record in records {
-        if !seen.contains(&record.name) {
-            errors.push(format!(
-                "Catalog entry is missing from index.html: {}.",
-                record.name
-            ));
-        }
-    }
-
-    Ok(())
-}
-
-fn check_archive_routes(
-    root: &Path,
     _records: &[Distro],
     errors: &mut Vec<String>,
 ) -> Result<(), Box<dyn std::error::Error>> {
-    let archive = fs::read_to_string(root.join("distributions.html"))?;
-    let archive_script = fs::read_to_string(root.join("assets/js/distributions.js"))?;
-    let detail = fs::read_to_string(root.join("distro.html"))?;
-    let detail_script = fs::read_to_string(root.join("assets/js/distro.js"))?;
-
-    if !archive.contains("assets/js/distributions.js") {
-        errors.push("Archive must load its local catalog script.".to_owned());
+    let html = fs::read_to_string(root.join("index.html"))?;
+    let script = fs::read_to_string(root.join("assets/js/catalog.js"))?;
+    for required in ["id=\"content\"", "id=\"search\"", "id=\"family-filter\"", "id=\"difficulty-filter\"", "id=\"compare-bar\"", "id=\"comparison-panel\""] {
+        if !html.contains(required) { errors.push(format!("LDHY homepage is missing integrated catalog control: {required}.")); }
     }
-    for required in ["compare-bar", "compare-clear", "compare-open"] {
-        if !archive.contains(required) {
-            errors.push(format!("Archive must expose the {required} comparison control."));
-        }
+    for required in ["fetch('distros.json')", "distro.html?id=", "textContent", "COMPARE_KEY", "COMPARE_LIMIT", "compare-table", "localStorage"] {
+        if !script.contains(required) { errors.push(format!("Integrated catalog script is missing required behavior: {required}.")); }
     }
-    for required in ["COMPARE_LIMIT = 3", "localStorage", "compare-toggle", "compare.html"] {
-        if !archive_script.contains(required) {
-            errors.push(format!("Archive comparison script must include {required:?}."));
-        }
+    if root.join("distributions.html").exists() || root.join("compare.html").exists() {
+        errors.push("Separate archive and comparison pages must not exist; these features belong inside LDHY.".to_owned());
     }
-    let compare = fs::read_to_string(root.join("compare.html"))?;
-    let compare_script = fs::read_to_string(root.join("assets/js/compare.js"))?;
-    if !compare.contains("assets/js/compare.js")
-        || !compare_script.contains("fetch('distros.json')")
-        || !compare_script.contains("localStorage")
-    {
-        errors.push("compare.html must load a JSON-driven comparison page that reads the saved selection.".to_owned());
-    }
-
-    for (description, required) in [
-        ("load the shared JSON catalog", "fetch('distros.json')"),
-        ("build links from catalog entries", "distro.html?id="),
-        ("render catalog text safely", "textContent"),
-        ("rank every difficulty level", "Expert: 4"),
-    ] {
-        if !archive_script.contains(required) {
-            errors.push(format!("Archive script must {description}."));
-        }
-    }
-
-    if !detail.contains("assets/js/distro.js")
-        || !detail_script.contains("params.get('id')")
-        || !detail_script.contains("slugifyName")
-    {
-        errors.push(
-            "distro.html does not load the shared script that resolves archive id-based links."
-                .to_owned(),
-        );
-    }
-
     Ok(())
 }
-
 
 fn check_page_security(
     root: &Path,
@@ -401,7 +230,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<String> = env::args().skip(1).collect();
 
     if args.iter().any(|arg| arg == "--help" || arg == "-h") {
-        println!("LDHY catalog checker\n\nUsage: cargo run -- [--check]\n\nValidates distros.json, homepage synchronization, and archive detail routes.\nIt checks URL syntax only; it does not claim that links are reachable or that metadata is factually verified.");
+        println!("LDHY catalog checker\n\nUsage: cargo run -- [--check]\n\nValidates distros.json, the unified LDHY homepage, and detail routes.\nIt checks URL syntax only; it does not claim that links are reachable or that metadata is factually verified.");
         return Ok(());
     }
 
@@ -531,12 +360,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     check_homepage(&root, &records, &mut errors)?;
-    check_archive_routes(&root, &records, &mut errors)?;
     for (page, css, js) in [
         ("index.html", "assets/css/index.css", "assets/js/index.js"),
-        ("distributions.html", "assets/css/distributions.css", "assets/js/distributions.js"),
         ("distro.html", "assets/css/distro.css", "assets/js/distro.js"),
-        ("compare.html", "assets/css/compare.css", "assets/js/compare.js"),
     ] {
         check_page_security(&root, page, css, js, &mut errors)?;
     }
@@ -568,7 +394,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     println!("LDHY catalog check passed.");
     println!("  Catalog entries: {}/{}", records.len(), records.len());
     println!("  Homepage cards: synchronized");
-    println!("  Archive detail routes: valid");
+    println!("  Unified catalog and inline comparison: valid");
     println!("  Duplicate names/slugs: none");
     println!("  Duplicate verification sources: none");
     println!("  Required metadata and text formatting: valid");
