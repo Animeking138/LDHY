@@ -466,39 +466,6 @@ section:nth-child(10) { animation-delay: 0.45s; }
 .discover-tab:hover{transform:translateY(-2px);border-color:#00ff41;background:rgba(0,255,65,.12)}
 .toolbar{margin-top:.75rem}
 
-/* Phone layout: keep the discovery action compact and the search controls easy to use */
-@media (max-width: 600px) {
-  .discover-nav {
-    width: fit-content;
-    max-width: calc(100% - 2rem);
-    margin: .85rem auto 0;
-  }
-  .discover-tab {
-    max-width: 100%;
-    padding: .62rem .9rem;
-    gap: .45rem;
-    font-size: .84rem;
-    border-radius: 9px;
-  }
-  .toolbar {
-    width: 100%;
-    margin: .65rem auto 1rem;
-    padding: .75rem;
-    border-radius: 0 0 var(--radius) var(--radius);
-  }
-  .toolbar-inner { gap: .65rem; }
-  .search-box input {
-    min-height: 46px;
-    font-size: 16px;
-  }
-  .filter-select {
-    min-height: 44px;
-    font-size: 16px;
-  }
-}
-@media (max-width: 360px) {
-  .discover-tab { padding: .58rem .72rem; font-size: .78rem; }
-}
 </style>
 </head>
 <body>
@@ -520,7 +487,6 @@ section:nth-child(10) { animation-delay: 0.45s; }
 <h1 aria-label="LDHY"><span id="typed-title" aria-hidden="true">LDHY</span><span class="cursor" aria-hidden="true"></span></h1>
 <p class="sub">Linux Distros Heck Yeah</p>
 </header>
-
 
 <nav class="discover-nav" aria-label="Main navigation">
   <a class="discover-tab" href="quiz.html"><span aria-hidden="true">✦</span> Discover your distro <span aria-hidden="true">→</span></a>
