@@ -12,7 +12,7 @@ Finding a Linux distribution shouldn't feel like doing homework.
 
 There are hundreds of entries to browse, from familiar names like Ubuntu and Linux Mint to smaller independent projects and Android-based systems.
 
-The catalog is organized into groups, including Debian-based, Arch-based, RPM-based, Gentoo-based, Slackware-based, Source/Nix-based, Maniac, Others, Paid & Commercial, and Android.
+The catalog is organized into groups, including Debian-based, Arch-based, RPM-based, Gentoo-based, Slackware-based, Source/Nix-based, Others, Paid & Commercial, and Android.
 
 You can:
 - Search for a project by name.
@@ -31,10 +31,6 @@ It takes things like your experience with Linux, what you use your computer for,
 There's also a small surprise before the quiz begins. We'll let you discover that one yourself.
 
 The recommendations depend on the information available in the catalog. If LDHY doesn't have enough reliable information to make a useful suggestion, it won't pretend otherwise.
-
-### Meet the Maniacs
-
-For anyone who wants a challenge beyond installing a ready-made distribution, the **Maniac** family gives Linux From Scratch its own place in the catalog. It has a custom **Master** difficulty label and a detail page with a warning worth reading.
 
 ### Browse Android projects, too
 
