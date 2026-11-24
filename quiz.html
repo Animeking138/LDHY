@@ -10,6 +10,7 @@
 (() => {
 const questions=[
 {title:"Which system are you using right now?",key:"from",choices:[["windows","Windows"],["macos","macOS"],["linux","Linux"],["other","Something else / not sure"]]},
+{title:"What kind of desktop experience would you prefer?",key:"look",choices:[["windows","Something familiar, like Windows"],["macos","Something similar to macOS"],["new","Something completely new and different"],["any","No preference — surprise me"]]},
 {title:"How familiar are you with Linux?",key:"experience",choices:[["new","I’m completely new"],["some","I know the basics"],["comfortable","I’m comfortable using Linux"],["advanced","I like managing things myself"]]},
 {title:"What will you mainly use it for?",key:"purpose",choices:[["daily","Everyday use, school and browsing"],["gaming","Gaming"],["dev","Programming and development"],["server","Servers or containers"]]},
 {title:"What kind of device will it run on?",key:"hardware",choices:[["modern","A reasonably modern PC"],["older","An older or low-spec computer"],["laptop","A laptop"],["powerful","A powerful desktop/workstation"]]},
@@ -29,11 +30,17 @@ const isDesktop=/desktop|workstation|cinnamon|gnome|kde|plasma|xfce|budgie|deepi
 const isPaid=family.includes("paid")||family.includes("commercial");
 const isWindowsFriendly=/linux mint|zorin|kubuntu|kde neon|tuxedo os|ferrenos/.test(name);
 const isMacFriendly=/elementary os|deepin|pearos/.test(name);
+const windowsStyle=/linux mint|zorin os|kubuntu|kde neon|cinnamon|plasma|xfce/.test(name+" "+text);
+const macStyle=/elementary os|deepin|pantheon|gnome/.test(name+" "+text);
+const distinctive=/tiling|hyprland|niri|sway|cosmic|river|awesomewm|window manager|immutable|atomic/.test(name+" "+text);
 const isLightweight=/lightweight|low.resource|older hardware|old computers|minimal|lxde|lxqt|xfce/.test(text);
 
 if(answers.from==="windows"&&isWindowsFriendly)add(4,"A familiar desktop style for many Windows switchers");
 if(answers.from==="macos"&&isMacFriendly)add(4,"A desktop experience that may feel familiar to macOS users");
 if(answers.from==="linux"&&diff==="beginner")add(1,"An approachable option if you want a simpler Linux experience");
+if(answers.look==="windows"&&windowsStyle)add(4,"Offers a desktop layout or workflow familiar to many Windows users");
+if(answers.look==="macos"&&macStyle)add(4,"Offers a desktop layout or workflow that may feel familiar to macOS users");
+if(answers.look==="new"&&distinctive)add(4,"Offers a distinctive desktop experience beyond the usual Windows/macOS layouts");
 
 if(answers.experience==="new")add(diff==="beginner"?4:diff==="intermediate"?1:diff==="advanced"||diff==="expert"?-3:0,diff==="beginner"?"Catalogued as beginner-friendly":"");
 if(answers.experience==="some")add(diff==="beginner"||diff==="intermediate"?2:diff==="advanced"?-1:0,"A reasonable level for someone learning Linux");
