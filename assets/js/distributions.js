@@ -1,10 +1,14 @@
 
 const DIFFICULTY_RANK = { Beginner: 1, Intermediate: 2, Advanced: 3, Expert: 4 };
 let distros = [];
-let sortMode = 'date';
+let sortMode = 'newest';
+let selectedFamily = '';
+let selectedDifficulty = '';
 
 const content = document.getElementById('content');
 const searchInput = document.getElementById('search');
+const familyFilter = document.getElementById('family-filter');
+const difficultyFilter = document.getElementById('difficulty-filter');
 
 function slugifyName(value) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -34,21 +38,28 @@ function makeText(tag, className, value) {
 
 function render(query = '') {
   const term = query.trim().toLocaleLowerCase();
-  const list = distros.filter(distro =>
-    !term || Object.values(distro).some(value =>
+  const list = distros.filter(distro => {
+    const matchesSearch = !term || Object.values(distro).some(value =>
       String(value ?? '').toLocaleLowerCase().includes(term)
-    )
-  );
+    );
+    return matchesSearch &&
+      (!selectedFamily || distro.family === selectedFamily) &&
+      (!selectedDifficulty || distro.difficulty === selectedDifficulty);
+  });
 
   list.sort((a, b) => {
+    const yearA = releaseYear(a.release);
+    const yearB = releaseYear(b.release);
     if (sortMode === 'diff') {
       return (DIFFICULTY_RANK[a.difficulty] || 99) -
         (DIFFICULTY_RANK[b.difficulty] || 99) ||
         a.name.localeCompare(b.name);
     }
-    const yearA = releaseYear(a.release) ?? Infinity;
-    const yearB = releaseYear(b.release) ?? Infinity;
-    return yearA - yearB || a.name.localeCompare(b.name);
+    if (sortMode === 'name') return a.name.localeCompare(b.name);
+    if (yearA === null) return yearB === null ? a.name.localeCompare(b.name) : 1;
+    if (yearB === null) return -1;
+    return (sortMode === 'oldest' ? yearA - yearB : yearB - yearA) ||
+      a.name.localeCompare(b.name);
   });
 
   const fragment = document.createDocumentFragment();
@@ -70,7 +81,7 @@ function render(query = '') {
 
   const summary = makeText('div', 'count',
     list.length + ' distributions shown (sorted by ' +
-    (sortMode === 'date' ? 'release year' : 'difficulty') + ')'
+    ({ newest: 'newest release year', oldest: 'oldest release year', diff: 'difficulty', name: 'name' }[sortMode]) + ')'
   );
   summary.setAttribute('role', 'status');
   summary.setAttribute('aria-live', 'polite');
@@ -86,7 +97,32 @@ function render(query = '') {
 }
 
 function filter() {
+  selectedFamily = familyFilter.value;
+  selectedDifficulty = difficultyFilter.value;
   render(searchInput.value);
+}
+
+function populateFilters() {
+  const families = [...new Set(distros.map(item => item.family).filter(Boolean))].sort();
+  const difficulties = [...new Set(distros.map(item => item.difficulty).filter(Boolean))]
+    .sort((a, b) => (DIFFICULTY_RANK[a] || 99) - (DIFFICULTY_RANK[b] || 99));
+
+  for (const [select, values, label] of [
+    [familyFilter, families, 'All families'],
+    [difficultyFilter, difficulties, 'All difficulties']
+  ]) {
+    select.replaceChildren();
+    const all = document.createElement('option');
+    all.value = '';
+    all.textContent = label;
+    select.appendChild(all);
+    values.forEach(value => {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = value;
+      select.appendChild(option);
+    });
+  }
 }
 
 document.querySelectorAll('.sortbtn').forEach(button => {
@@ -94,6 +130,8 @@ document.querySelectorAll('.sortbtn').forEach(button => {
   button.setAttribute('aria-pressed', String(button.dataset.sort === sortMode));
 });
 searchInput.addEventListener('input', filter);
+familyFilter.addEventListener('change', filter);
+difficultyFilter.addEventListener('change', filter);
 
 fetch('distros.json')
   .then(response => {
@@ -103,6 +141,7 @@ fetch('distros.json')
   .then(data => {
     if (!Array.isArray(data)) throw new Error('Catalog format is invalid.');
     distros = data;
+    populateFilters();
     render(searchInput.value);
   })
   .catch(error => {
