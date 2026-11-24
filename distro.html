@@ -39,10 +39,25 @@
     html { scroll-behavior:auto; }
     *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
   }
+
+:root{--accent:#00ff41;--accent-soft:rgba(0,255,65,.12);--gold:#00d936}
+body{background:radial-gradient(ellipse at 50% -20%,rgba(0,255,65,.09),transparent 42%),var(--bg)}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem max(1rem,calc((100% - 980px)/2));background:rgba(0,0,0,.8);backdrop-filter:blur(14px)}
+.topbar nav{display:flex;gap:1rem;flex-wrap:wrap}
+.topbar a{color:var(--accent);text-decoration:none;font-size:.9rem}
+.topbar a:hover{text-decoration:underline;text-underline-offset:4px}
+.container{max-width:900px;padding-top:3rem}
+.eyebrow{color:var(--accent);letter-spacing:.08em;text-transform:uppercase;font-size:.75rem}
+h1{letter-spacing:-.04em;line-height:1.15}
+.subtitle{max-width:70ch}
+.card{background:linear-gradient(145deg,#101510,#080808 70%);box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.row{grid-template-columns:minmax(150px,200px) minmax(0,1fr)}
+.value a,.back{color:var(--accent)}
+@media(max-width:560px){.topbar{align-items:flex-start}.topbar nav{gap:.7rem;justify-content:flex-end}.container{padding-top:2rem}}
 </style>
 </head>
 <body>
-<div class="topbar"><a href="index.html">← Back to list</a></div>
+<div class="topbar"><a href="index.html">← Catalog</a><nav aria-label="Page navigation"><a href="quiz.html">Distro finder</a><a href="distributions.html">Full catalog</a></nav></div>
 <div class="container" id="content">Loading…</div>
 <script>
 const params = new URLSearchParams(location.search);
