@@ -293,7 +293,7 @@ fn check_page_security(
     let label = page;
 
     let csp_re = Regex::new(
-        r#"(?is)<meta\\s+http-equiv=["']Content-Security-Policy["']\\s+content=["']([^"']*)["']"#
+        r#"(?is)<meta\s+http-equiv=["']Content-Security-Policy["']\s+content=["']([^"']*)["']"#
     )?;
     let csp = csp_re
         .captures(&html)
@@ -318,9 +318,9 @@ fn check_page_security(
         None => errors.push(format!("{label}: Content Security Policy meta tag is missing.")),
     }
 
-    let inline_style_re = Regex::new(r"(?is)<style\\b[^>]*>")?;
-    let inline_script_re = Regex::new(r"(?is)<script\\b[^>]*>(.*?)</script>")?;
-    let style_attribute_re = Regex::new(r#"(?is)\\sstyle\\s*="#)?;
+    let inline_style_re = Regex::new(r"(?is)<style\b[^>]*>")?;
+    let inline_script_re = Regex::new(r"(?is)<script\b[^>]*>(.*?)</script>")?;
+    let style_attribute_re = Regex::new(r#"(?is)\sstyle\s*="#)?;
     if inline_style_re.is_match(&html) {
         errors.push(format!("{label}: inline <style> blocks are not allowed; use a local stylesheet."));
     }
@@ -341,8 +341,8 @@ fn check_page_security(
         errors.push(format!("{label}: required local script {required_js:?} is not referenced."));
     }
 
-    let tag_re = Regex::new(r#"(?is)<(?:link|script)\\b[^>]*>"#)?;
-    let attr_re = Regex::new(r#"(?is)\\b(?:href|src)\\s*=\\s*["']([^"']+)["']"#)?;
+    let tag_re = Regex::new(r#"(?is)<(?:link|script)\b[^>]*>"#)?;
+    let attr_re = Regex::new(r#"(?is)\b(?:href|src)\s*=\s*["']([^"']+)["']"#)?;
     for tag in tag_re.find_iter(&html) {
         if let Some(attribute) = attr_re.captures(tag.as_str()) {
             let raw = attribute[1].trim();
