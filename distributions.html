@@ -20,10 +20,18 @@
   <h1>Linux Distributions Archive</h1>
   <p class="subtitle">Browse the shared catalog. Search distribution details or sort by release year and difficulty.</p>
   <div class="sort-controls">
-    <button class="sortbtn active" data-sort="date" aria-pressed="true">By release date</button>
+    <button class="sortbtn active" data-sort="newest" aria-pressed="true">Newest first</button>
+    <button class="sortbtn" data-sort="oldest" aria-pressed="false">Oldest first</button>
     <button class="sortbtn" data-sort="diff" aria-pressed="false">By difficulty</button>
+    <button class="sortbtn" data-sort="name" aria-pressed="false">A–Z</button>
   </div>
   <input class="search" id="search" placeholder="Search all distribution details..." aria-label="Search distributions">
+  <div class="filters">
+    <label for="family-filter">Family</label>
+    <select id="family-filter" class="filter-select"><option value="">All families</option></select>
+    <label for="difficulty-filter">Difficulty</label>
+    <select id="difficulty-filter" class="filter-select"><option value="">All difficulties</option></select>
+  </div>
   <div id="content"></div>
 </div>
 <script src="assets/js/distributions.js" defer></script>
