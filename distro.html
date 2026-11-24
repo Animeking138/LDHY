@@ -4,19 +4,195 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self';">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
 <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=3">
 <link rel="shortcut icon" href="./favicon.svg?v=3">
 <title>Distro Details — LDHY</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/distro.css">
+<style>
+  :root { --bg:#000000; --surface:#0b0b0b; --border:#242424; --text:#e8eef5; --muted:#7d8a99; --accent:#6ea8fe; --gold:#f0b429; --radius:12px; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  :focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
+  body::before { content:''; position:fixed; inset:0; z-index:-1; background:#000000; }
+  .topbar { padding:1rem 1.5rem; border-bottom:1px solid var(--border); }
+  .topbar a { color:var(--accent); text-decoration:none; font-weight:500; }
+  .container { max-width:820px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
+  .eyebrow { font-family:'JetBrains Mono',monospace; color:var(--gold); font-size:.85rem; margin-bottom:.5rem; }
+  h1 { font-size:clamp(1.8rem,5vw,2.6rem); font-weight:800; margin-bottom:.5rem; }
+  .subtitle { color:var(--muted); font-size:1.1rem; margin-bottom:2rem; }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:clamp(1rem,3vw,1.5rem); margin-bottom:1.25rem; }
+  .row { display:grid; grid-template-columns:minmax(145px,190px) minmax(0,1fr); gap:1rem; align-items:start; padding:.8rem 0; border-bottom:1px solid var(--border); }
+  .row:last-child { border-bottom:none; }
+  .label { color:var(--muted); font-size:.92rem; font-weight:600; }
+  .value { min-width:0; overflow-wrap:anywhere; color:var(--text); }
+  .value a { display:inline-flex; align-items:center; gap:.35rem; font-weight:600; text-decoration:none; }
+  .value a:hover, .back:hover { text-decoration:underline; }
+  .back { display:inline-block; margin-top:1.5rem; color:var(--accent); text-decoration:none; font-weight:600; }
+  a { color:var(--accent); }
+  @media (max-width:560px) {
+    .container { padding:1.75rem 1rem 3rem; }
+    .row { grid-template-columns:1fr; gap:.2rem; padding:.7rem 0; }
+    .label { font-size:.82rem; }
+    .subtitle { font-size:1rem; margin-bottom:1.4rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior:auto; }
+    *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  }
+</style>
 </head>
 <body>
 <div class="topbar"><a href="index.html">← Back to list</a></div>
 <div class="container" id="content">Loading…</div>
-<script src="assets/js/distro.js" defer></script>
+<script>
+const params = new URLSearchParams(location.search);
+const requestedName = params.get('name') || '';
+const requestedId = params.get('id') || '';
+const content = document.getElementById('content');
+
+function slugifyName(value) {
+  return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+function cleanRelease(value) {
+  if (!value) return '';
+  return String(value)
+    .replace(/\s*\(\)\s*/g, ' ')
+    .replace(/\s*\(\d{4}-\d{2}-\d{2}\)\s*$/, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function addRow(card, label, value, href, linkText) {
+  if (value === null || value === undefined || String(value).trim() === '') return;
+  const row = document.createElement('div');
+  row.className = 'row';
+  const key = document.createElement('div');
+  key.className = 'label';
+  key.textContent = label;
+  const val = document.createElement('div');
+  val.className = 'value';
+  if (href) {
+    const link = document.createElement('a');
+    link.href = href;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = linkText || 'Visit official page';
+    val.appendChild(link);
+  } else {
+    val.textContent = value;
+  }
+  row.append(key, val);
+  card.appendChild(row);
+}
+
+fetch('distros.json')
+  .then(response => {
+    if (!response.ok) throw new Error('Could not load catalog data');
+    return response.json();
+  })
+  .then(data => {
+    const d = data.find(item =>
+      (requestedName && item.name === requestedName) ||
+      (requestedId && slugifyName(item.name) === requestedId)
+    );
+    if (!d) {
+      document.title = 'Distribution not found — LDHY';
+      content.textContent = 'No catalog entry was found for this distribution.';
+      return;
+    }
+
+    document.title = d.name + ' — Distro Details';
+    content.replaceChildren();
+
+    const eyebrow = document.createElement('div');
+    eyebrow.className = 'eyebrow';
+    eyebrow.textContent = d.family || 'Linux distribution';
+
+    const heading = document.createElement('h1');
+    heading.textContent = d.name;
+
+    const subtitle = document.createElement('p');
+    subtitle.className = 'subtitle';
+    subtitle.textContent = d.description || 'Metadata is incomplete; see the project website for authoritative details.';
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    addRow(card, 'Family', d.family);
+    addRow(card, 'Difficulty estimate', d.difficulty);
+    addRow(card, 'Creator / Developer', d.creator);
+    addRow(card, 'Initial release', cleanRelease(d.release));
+    addRow(card, 'Based on', d.based_on);
+    addRow(card, 'Package manager', d.package_manager);
+    addRow(card, 'Maintenance status', d.status);
+    addRow(card, 'Last verified', d.verified);
+    addRow(card, 'Verification source', d.source, d.source, 'View official source ↗');
+    const isDistroWatchLink = /^https?:\/\/(www\.)?distrowatch\.com\//i.test(d.download || '');
+    const officialHomepage = (() => {
+      try {
+        const url = new URL(String(d.website || '').trim());
+        return url.protocol === 'https:' || url.protocol === 'http:' ? url.href : '';
+      } catch {
+        return '';
+      }
+    })();
+    const downloadHref = isDistroWatchLink
+      ? (officialHomepage || d.download)
+      : d.download;
+    const downloadText = isDistroWatchLink
+      ? (officialHomepage ? 'Open official homepage ↗' : 'View DistroWatch profile ↗')
+      : 'Open download / project page ↗';
+    const sameDestination = (() => {
+      if (!officialHomepage || !downloadHref) return false;
+      try {
+        const normalizeDestination = value => {
+          const url = new URL(value, location.href);
+          url.pathname = url.pathname.replace(/\/+$/, '') || '/';
+          return url.href;
+        };
+        return normalizeDestination(downloadHref) === normalizeDestination(officialHomepage);
+      } catch {
+        return false;
+      }
+    })();
+    if (!sameDestination) {
+      addRow(card, 'Official website', d.website, officialHomepage, 'Visit official website ↗');
+    }
+    addRow(card, 'Pricing', d.price);
+    addRow(
+      card,
+      isDistroWatchLink
+        ? (officialHomepage ? 'Download / official homepage' : 'DistroWatch profile')
+        : 'Download / project page',
+      d.download,
+      downloadHref,
+      downloadText
+    );
+
+    if (d.family === 'Android' && d.name !== 'Android') {
+      const note = document.createElement('div');
+      note.className = 'card';
+      note.setAttribute('role', 'note');
+      const noteTitle = document.createElement('strong');
+      noteTitle.textContent = 'Device compatibility';
+      const noteText = document.createElement('p');
+      noteText.style.marginTop = '.45rem';
+      noteText.style.color = 'var(--muted)';
+      noteText.textContent = 'Custom ROM builds are device-specific. A project being active does not mean it supports every phone. Check the project’s official device list and installation instructions for your exact model and codename before proceeding. Build availability and maintenance can change.';
+      note.append(noteTitle, noteText);
+      content.append(eyebrow, heading, subtitle, card, note);
+    } else {
+      content.append(eyebrow, heading, subtitle, card);
+    }
+    const back = document.createElement('a');
+    back.className = 'back';
+    back.href = 'index.html';
+    back.textContent = '← Back to list';
+    content.appendChild(back);
+  })
+  .catch(() => {
+    content.textContent = 'Failed to load catalog data. Please try again later.';
+  });
+</script>
 </body>
 </html>

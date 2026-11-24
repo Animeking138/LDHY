@@ -20,8 +20,7 @@ Android is a Linux Distro we are not ignoring that😂
 - **Search and filter:** search catalog entries and narrow results by difficulty or family.
 - **Individual detail pages:** open an entry to view its available project information and links.
 - **Android ROM details:** all Android catalog cards use the shared JSON-driven detail page, including a reminder to verify support for the exact device model and codename. The old `android/` URLs remain available for compatibility.
-- **Unified catalog:** browse all distributions directly on the LDHY homepage, search every metadata field, filter by family and difficulty, and sort by newest release year, oldest release year, difficulty, or name.
-- **Side-by-side comparison:** select up to three distributions on the homepage and compare their available metadata, official links, and maintenance details in an inline responsive table. Selections stay in the browser using local storage.
+- **Extended archive:** browse the larger catalog and sort entries by available release-date or difficulty information.
 - **Responsive dark interface:** use the catalog on desktop and mobile, with an AMOLED-friendly black theme.
 - **Automatic empty-section handling:** categories with no visible entries are hidden from the page without removing their underlying section or filter option.
 
@@ -29,10 +28,9 @@ Android is a Linux Distro we are not ignoring that😂
 
 | Path | Purpose |
 | --- | --- |
-| `index.html` | Unified catalog, search, filters, sorting, and inline comparison |
+| `index.html` | Main catalog, family sections, search, and filters |
 | `distros.json` | Catalog data and metadata |
 | `distro.html` | Shared detail-page template for entries that use it |
-| `compare.html` | Side-by-side comparison view for selected catalog entries |
 | `android/` | Legacy Android detail URLs retained for compatibility |
 | `distributions.html` | Extended catalog archive |
 | `.github/workflows/` | GitHub Actions workflows, including catalog validation |
@@ -49,14 +47,6 @@ LDHY is an informational catalog. It does not develop, distribute, endorse, or i
 ### Metadata conventions
 
 A blank metadata field means the value has not been independently verified or does not apply; it is not an invitation to infer a value from a broad family label. `Not yet verified` means the project's current maintenance state has not been confirmed. Check official project documentation before relying on any catalog entry. Entries with `source` and `verified` fields include an official page used for the check and the date it was reviewed. These fields document provenance; they do not imply that every metadata field has been independently confirmed.
-
-## Security and deployment
-
-The site pages use local CSS and JavaScript assets and apply a restrictive Content Security Policy through HTML metadata without `unsafe-inline`. The Rust catalog validator checks that each page retains its required CSP directives, references its expected local CSS/JS files, contains no inline script/style blocks or style attributes, and does not reference missing local assets. It also checks the supporting referrer, MIME-sniffing, and browser-permission policies. Catalog checks also reject duplicate names, ambiguous detail slugs, duplicate verification-source URLs, malformed or unsupported required metadata, and text fields with unsafe whitespace/control characters. Optional metadata may remain blank when information is unavailable; the validator reports completeness counts without inventing values.
-
-These metadata policies are defense-in-depth, not a replacement for HTTP response headers. GitHub Pages does not provide a repository-level custom response-header configuration file; headers such as `Strict-Transport-Security`, `X-Frame-Options`, and a response-header CSP require a hosting layer or proxy that supports them. The `frame-ancestors` CSP directive is not supported in a meta policy.
-
-GitHub Actions dependencies should be reviewed and updated regularly. The repository uses GitHub Actions for automated catalog validation; successful CI checks do not replace a security review of third-party workflow actions or catalog destinations.
 
 ## Contributing
 

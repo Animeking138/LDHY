@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg?v=3">
+<link rel="shortcut icon" href="./favicon.svg?v=3">
+<title>Linux Distributions Archive</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#000000; --surface:#0b0b0b; --border:#242424; --text:#e8eef5; --muted:#7d8a99; --accent:#6ea8fe; --gold:#f0b429; --radius:12px; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  :focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+  body::before { content:''; position:fixed; inset:0; z-index:-1; background:#000000; }
+  .topbar { padding:1rem 1.5rem; border-bottom:1px solid var(--border); }
+  .topbar a { color:var(--accent); text-decoration:none; font-weight:500; }
+  .container { max-width:1000px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
+  h1 { font-size:clamp(1.8rem,5vw,2.6rem); font-weight:800; margin-bottom:.5rem; }
+  .subtitle { color:var(--muted); font-size:1.1rem; margin-bottom:2rem; }
+  .search { width:100%; padding:.75rem 1rem; background:var(--surface); border:1px solid var(--border); border-radius:8px; color:var(--text); font-size:1rem; margin-bottom:2rem; }
+  .search:focus { outline:none; border-color:var(--accent); }
+  h2 { color:var(--accent); margin:2rem 0 1rem; font-size:1.3rem; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.25rem; transition:transform .2s,border-color .2s; cursor:pointer; }
+  .card:hover { transform:translateY(-2px); border-color:var(--accent); }
+  .card .name { font-weight:700; font-size:1.05rem; margin-bottom:.25rem; }
+  .card .meta { color:var(--muted); font-size:.85rem; }
+  .card .base { color:var(--gold); font-size:.8rem; margin-top:.5rem; display:inline-block; }
+  .count { color:var(--muted); font-size:.9rem; margin-bottom:1rem; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior:auto; }
+    *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar"><a href="index.html">← Back to Linux history</a></div>
+<div class="container">
+  <h1>Linux Distributions Archive</h1>
+  <p class="subtitle">Browse the shared catalog. Search distribution details or sort by release year and difficulty.</p>
+  <div style="display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap;">
+    <button class="sortbtn active" data-sort="date" aria-pressed="true" style="padding:.5rem 1rem;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;">By release date</button>
+    <button class="sortbtn" data-sort="diff" aria-pressed="false" style="padding:.5rem 1rem;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer;">By difficulty</button>
+  </div>
+  <input class="search" id="search" placeholder="Search all distribution details..." aria-label="Search distributions">
+  <div id="content"></div>
+</div>
+<script>
+const DIFFICULTY_RANK = { Beginner: 1, Intermediate: 2, Advanced: 3, Expert: 4 };
+let distros = [];
+let sortMode = 'date';
+
+const content = document.getElementById('content');
+const searchInput = document.getElementById('search');
+
+function slugifyName(value) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+function releaseYear(value) {
+  const match = String(value || '').match(/\b(?:19|20)\d{2}\b/);
+  return match ? Number(match[0]) : null;
+}
+
+function setSort(mode) {
+  sortMode = mode;
+  document.querySelectorAll('.sortbtn').forEach(button => {
+    const active = button.dataset.sort === mode;
+    button.classList.toggle('active', active);
+    button.style.color = active ? 'var(--text)' : 'var(--muted)';
+    button.style.background = active ? 'var(--surface-2)' : 'var(--surface)';
+    button.setAttribute('aria-pressed', String(active));
+  });
+  filter();
+}
+
+function makeText(tag, className, value) {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  element.textContent = value;
+  return element;
+}
+
+function render(query = '') {
+  const term = query.trim().toLocaleLowerCase();
+  const list = distros.filter(distro =>
+    !term || Object.values(distro).some(value =>
+      String(value ?? '').toLocaleLowerCase().includes(term)
+    )
+  );
+
+  list.sort((a, b) => {
+    if (sortMode === 'diff') {
+      return (DIFFICULTY_RANK[a.difficulty] || 99) -
+        (DIFFICULTY_RANK[b.difficulty] || 99) ||
+        a.name.localeCompare(b.name);
+    }
+    const yearA = releaseYear(a.release) ?? Infinity;
+    const yearB = releaseYear(b.release) ?? Infinity;
+    return yearA - yearB || a.name.localeCompare(b.name);
+  });
+
+  const fragment = document.createDocumentFragment();
+  const grid = makeText('div', 'grid', '');
+  list.forEach(distro => {
+    const card = document.createElement('a');
+    card.className = 'card';
+    card.href = 'distro.html?id=' + encodeURIComponent(slugifyName(distro.name));
+    card.style.textDecoration = 'none';
+    card.style.color = 'inherit';
+    card.style.display = 'block';
+
+    const year = releaseYear(distro.release);
+    const name = makeText('div', 'name', distro.name + (year ? ' · ' + year : ''));
+    const meta = makeText('div', 'meta', [distro.family, distro.package_manager].filter(Boolean).join(' · '));
+    const base = makeText('span', 'base', distro.based_on || distro.family || 'Base not specified');
+    const difficulty = makeText('span', '', distro.difficulty || 'Difficulty not specified');
+    difficulty.style.color = 'var(--accent)';
+
+    card.append(name, meta, base, document.createTextNode(' · '), difficulty);
+    grid.appendChild(card);
+  });
+
+  const summary = makeText('div', 'count',
+    list.length + ' distributions shown (sorted by ' +
+    (sortMode === 'date' ? 'release year' : 'difficulty') + ')'
+  );
+  summary.setAttribute('role', 'status');
+  summary.setAttribute('aria-live', 'polite');
+  summary.setAttribute('aria-atomic', 'true');
+  fragment.appendChild(summary);
+
+  if (list.length) {
+    fragment.appendChild(grid);
+  } else {
+    fragment.appendChild(makeText('p', 'empty', 'No distributions match your search.'));
+  }
+  content.replaceChildren(fragment);
+}
+
+function filter() {
+  render(searchInput.value);
+}
+
+document.querySelectorAll('.sortbtn').forEach(button => {
+  button.addEventListener('click', () => setSort(button.dataset.sort));
+  button.setAttribute('aria-pressed', String(button.dataset.sort === sortMode));
+});
+searchInput.addEventListener('input', filter);
+
+fetch('distros.json')
+  .then(response => {
+    if (!response.ok) throw new Error('Catalog request failed: ' + response.status);
+    return response.json();
+  })
+  .then(data => {
+    if (!Array.isArray(data)) throw new Error('Catalog format is invalid.');
+    distros = data;
+    render(searchInput.value);
+  })
+  .catch(error => {
+    console.error('LDHY archive:', error);
+    content.replaceChildren(makeText('p', 'empty',
+      'The distribution catalog could not be loaded. Please try again later.'
+    ));
+  });
+</script>
+</body>
+</html>

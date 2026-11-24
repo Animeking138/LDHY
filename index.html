@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data:;">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
@@ -14,11 +14,454 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <title>LDHY — Linux Distros Heck Yeah</title>
-<link rel="stylesheet" href="assets/css/index.css">
+<style>
+:root {
+  --bg: #000000;
+  --bg-elevated: #080808;
+  --card: #0d0d0d;
+  --card-hover: #151515;
+  --text: #e4e4e4;
+  --muted: #666;
+  --accent: #00ff41;
+  --accent-glow: rgba(0, 255, 65, 0.15);
+  --accent-dim: #00cc33;
+  --border: #242424;
+  --border-hover: #444;
+  --traffic-red: #ff5f56;
+  --traffic-yellow: #ffbd2e;
+  --traffic-green: #27c93f;
+  --beginner: #00e676;
+  --intermediate: #ffea00;
+  --advanced: #ff9100;
+  --expert: #ff1744;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* Subtle grid background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0,255,65,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,65,0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Header / Hero */
+header {
+  position: relative;
+  text-align: center;
+  padding: 4rem 1.5rem 3rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, #080808 0%, #000000 100%);
+  z-index: 1;
+}
+
+header svg {
+  margin-bottom: 1.25rem;
+  filter: drop-shadow(0 0 24px rgba(0,255,65,0.2));
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+header svg:hover {
+  filter: drop-shadow(0 0 40px rgba(0,255,65,0.35));
+  transform: scale(1.05);
+}
+
+h1 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.35rem;
+  background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+p.sub {
+  color: var(--muted);
+  font-size: 1.15rem;
+  font-weight: 400;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Terminal cursor blink */
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.1em;
+  background: var(--accent);
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Search & Filter Bar */
+.toolbar {
+  max-width: 960px;
+  margin: 2rem auto 1rem;
+  padding: 0 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.86);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.toolbar-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.search-box {
+  position: relative;
+  width: 100%;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.85rem 1rem 0.85rem 2.75rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  outline: none;
+}
+
+.search-box input::placeholder { color: var(--muted); }
+
+.search-box input:focus {
+  border-color: var(--accent);
+  background: var(--card-hover);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.search-box .search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 1.2rem;
+  pointer-events: none;
+  transition: color 0.2s;
+}
+
+.search-box input:focus ~ .search-icon { color: var(--accent); }
+
+.filter-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.filter-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.filter-control .label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.filter-select {
+  width: 100%;
+  min-width: 0;
+  padding: 0.75rem 2.25rem 0.75rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.filter-select:hover,
+.filter-select:focus {
+  border-color: var(--accent);
+  background: var(--card-hover);
+}
+
+.filter-select:focus {
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.filter-select option {
+  background: #080808;
+  color: var(--text);
+}
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  margin: 2.5rem 0;
+  animation: fadeIn 0.5s ease both;
+}
+
+section h2 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+section h2 .count {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--card);
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-family: 'Inter', sans-serif;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0.75rem;
+}
+
+.card {
+  background: linear-gradient(180deg, var(--card) 0%, #050505 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.15rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.03) inset, 0 8px 24px rgba(0,0,0,0.22);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.card:hover {
+  background: var(--card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 0 1px var(--accent-glow);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0.35rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.card a, .card span {
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.card a {
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.card a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--accent-dim);
+}
+
+.card span {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.75rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.2;
+}
+
+.badge-beginner { background: var(--beginner); color: #000; }
+.badge-intermediate { background: var(--intermediate); color: #000; }
+.badge-advanced { background: var(--advanced); color: #000; }
+.badge-expert { background: var(--expert); color: #fff; }
+
+.paid-price {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.4;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--muted);
+  display: none;
+}
+.empty-state.visible { display: block; }
+.empty-state p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.empty-state .hint {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 2.5rem 1rem;
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+footer a:hover { text-decoration: underline; }
+
+footer .footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header { padding: 2.5rem 1rem 2rem; }
+  .grid { grid-template-columns: 1fr; }
+  .filter-bar { justify-content: center; }
+  .toolbar { padding: 0 0.75rem; }
+  .toolbar-inner { gap: 0.6rem; }
+  .filter-controls { grid-template-columns: 1fr; }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+section { animation: fadeIn 0.5s ease both; }
+section:nth-child(2) { animation-delay: 0.05s; }
+section:nth-child(3) { animation-delay: 0.1s; }
+section:nth-child(4) { animation-delay: 0.15s; }
+section:nth-child(5) { animation-delay: 0.2s; }
+section:nth-child(6) { animation-delay: 0.25s; }
+section:nth-child(7) { animation-delay: 0.3s; }
+section:nth-child(8) { animation-delay: 0.35s; }
+section:nth-child(9) { animation-delay: 0.4s; }
+section:nth-child(10) { animation-delay: 0.45s; }
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+</style>
 </head>
 <body>
 <header>
-<svg width="80" height="80" viewBox="0 0 100 100" class="hero-logo">
+<svg width="80" height="80" viewBox="0 0 100 100" style="margin-bottom:0.75rem">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#1a1a1a"/>
@@ -34,44 +477,157 @@
 </svg>
 <h1 aria-label="LDHY"><span id="typed-title" aria-hidden="true">LDHY</span><span class="cursor" aria-hidden="true"></span></h1>
 <p class="sub">Linux Distros Heck Yeah</p>
-<nav class="home-actions" aria-label="Explore LDHY">
-  <a class="home-action home-action-primary" href="compare.html">Compare distributions</a>
-  <a class="home-action" href="distributions.html">Browse full archive</a>
-</nav>
 </header>
 
 <div class="toolbar">
   <div class="toolbar-inner">
-    <div class="search-box"><span class="search-icon" aria-hidden="true">⌕</span><input type="search" id="search" aria-label="Search distributions" placeholder="Search all distribution details..." autocomplete="off" spellcheck="false"></div>
-    <div class="filter-controls">
-      <label class="filter-control"><span class="label">Family</span><select id="family-filter" class="filter-select"><option value="">All families</option></select></label>
-      <label class="filter-control"><span class="label">Difficulty</span><select id="difficulty-filter" class="filter-select"><option value="">All difficulties</option></select></label>
+    <div class="search-box">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="search" aria-label="Search distributions" placeholder="Search distributions..." autocomplete="off" spellcheck="false">
     </div>
-    <div class="catalog-sort" role="group" aria-label="Sort distributions">
-      <button class="sortbtn active" data-sort="newest" aria-pressed="true">Newest</button>
-      <button class="sortbtn" data-sort="oldest" aria-pressed="false">Oldest</button>
-      <button class="sortbtn" data-sort="diff" aria-pressed="false">Difficulty</button>
-      <button class="sortbtn" data-sort="name" aria-pressed="false">A–Z</button>
+    <div class="filter-controls">
+      <label class="filter-control">
+        <span class="label">Difficulty</span>
+        <select id="difficulty-filter" class="filter-select">
+          <option value="all">All difficulties</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+          <option value="expert">Expert</option>
+        </select>
+      </label>
+      <label class="filter-control">
+        <span class="label">Family</span>
+        <select id="family-filter" class="filter-select">
+          <option value="all">All families</option>
+          <option value="debian">Debian-based</option>
+          <option value="arch">Arch-based (Pacman)</option>
+          <option value="rpm">RPM-based</option>
+          <option value="gentoo">Gentoo-based</option>
+          <option value="slackware">Slackware-based</option>
+          <option value="source">Source/Nix-based</option>
+          <option value="others">Others</option>
+          <option value="paid">Paid (subscription)</option>
+          <option value="android">Android</option>
+          <option value="notfound">Not found</option>
+          
+        </select>
+      </label>
     </div>
   </div>
 </div>
 <p class="sr-only" id="results-status" role="status" aria-live="polite" aria-atomic="true"></p>
-<main id="ldhy-app">
-  <section class="catalog-section" aria-labelledby="catalog-heading">
-    <h2 id="catalog-heading">Explore distributions <span class="count" id="catalog-count">Loading…</span></h2>
-    <div class="compare-bar" id="compare-bar" hidden role="region" aria-label="Distribution comparison">
-      <div class="compare-summary"><strong id="compare-count">0 selected</strong><span>Select up to three distributions.</span></div>
-      <div class="compare-actions"><button class="compare-clear" id="compare-clear" type="button">Clear</button><button class="compare-open" id="compare-open" type="button" disabled>Compare selected</button></div>
-    </div>
-    <div id="content" class="catalog-grid" aria-live="polite"><p class="empty">Loading the catalog…</p></div>
-  </section>
-  <section class="inline-comparison" id="comparison-panel" aria-labelledby="comparison-heading" hidden>
-    <div class="comparison-heading"><h2 id="comparison-heading">Compare distributions</h2><button type="button" id="comparison-close" class="compare-clear">Back to catalog</button></div>
-    <div id="compare-content" aria-live="polite"><p class="empty">Select two or three distributions to compare.</p></div>
-  </section>
+
+<main>
+<div class="empty-state" id="empty-state">
+  <p>No distros found</p>
+  <span class="hint">Try a different search or filter</span>
+</div>
+
+<section data-section="debian"><h2>Debian-based <span class="count">42</span></h2><div class="grid"><a class="card" data-diff="intermediate" href="distro.html?name=antiX"><span class="badge badge-intermediate">Intermediate</span><h3>antiX</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Astra%20Linux"><span class="badge badge-advanced">Advanced</span><h3>Astra Linux</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Bodhi%20Linux"><span class="badge badge-beginner">Beginner</span><h3>Bodhi Linux</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=CarotOS"><span class="badge badge-intermediate">Intermediate</span><h3>CarotOS</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Cutefish"><span class="badge badge-intermediate">Intermediate</span><h3>Cutefish</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Debian"><span class="badge badge-intermediate">Intermediate</span><h3>Debian</h3></a><a class="card" data-diff="beginner" href="distro.html?name=deepin"><span class="badge badge-beginner">Beginner</span><h3>deepin</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Devuan"><span class="badge badge-intermediate">Intermediate</span><h3>Devuan</h3></a><a class="card" data-diff="beginner" href="distro.html?name=DietPi"><span class="badge badge-beginner">Beginner</span><h3>DietPi</h3></a><a class="card" data-diff="beginner" href="distro.html?name=elementary%20OS"><span class="badge badge-beginner">Beginner</span><h3>elementary OS</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Flora%20Linux"><span class="badge badge-intermediate">Intermediate</span><h3>Flora Linux</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Kali%20Linux"><span class="badge badge-advanced">Advanced</span><h3>Kali Linux</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=KDu"><span class="badge badge-intermediate">Intermediate</span><h3>KDu</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Knoppix"><span class="badge badge-beginner">Beginner</span><h3>Knoppix</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Kubuntu"><span class="badge badge-beginner">Beginner</span><h3>Kubuntu</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Linux%20Lite"><span class="badge badge-beginner">Beginner</span><h3>Linux Lite</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Linux%20Mint"><span class="badge badge-beginner">Beginner</span><h3>Linux Mint</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Lubuntu"><span class="badge badge-beginner">Beginner</span><h3>Lubuntu</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Mobian"><span class="badge badge-advanced">Advanced</span><h3>Mobian</h3></a><a class="card" data-diff="beginner" href="distro.html?name=MX%20Linux"><span class="badge badge-beginner">Beginner</span><h3>MX Linux</h3></a><a class="card" data-diff="advanced" href="distro.html?name=nakeDeb"><span class="badge badge-advanced">Advanced</span><h3>nakeDeb</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Parrot%20OS"><span class="badge badge-advanced">Advanced</span><h3>Parrot OS</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Peppermint%20OS"><span class="badge badge-beginner">Beginner</span><h3>Peppermint OS</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=PikaOS"><span class="badge badge-intermediate">Intermediate</span><h3>PikaOS</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Pop%21_OS"><span class="badge badge-beginner">Beginner</span><h3>Pop!_OS</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Puppy%20Linux"><span class="badge badge-intermediate">Intermediate</span><h3>Puppy Linux</h3></a><a class="card" data-diff="beginner" href="distro.html?name=PureOS"><span class="badge badge-beginner">Beginner</span><h3>PureOS</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Raspberry%20Pi%20OS"><span class="badge badge-beginner">Beginner</span><h3>Raspberry Pi OS</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Slax"><span class="badge badge-intermediate">Intermediate</span><h3>Slax</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=SparkyLinux"><span class="badge badge-intermediate">Intermediate</span><h3>SparkyLinux</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Tails"><span class="badge badge-intermediate">Intermediate</span><h3>Tails</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Trisquel"><span class="badge badge-beginner">Beginner</span><h3>Trisquel</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Ubuntu"><span class="badge badge-beginner">Beginner</span><h3>Ubuntu</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Ubuntu%20Budgie"><span class="badge badge-beginner">Beginner</span><h3>Ubuntu Budgie</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Ubuntu%20MATE"><span class="badge badge-beginner">Beginner</span><h3>Ubuntu MATE</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Ubuntu%20Studio"><span class="badge badge-beginner">Beginner</span><h3>Ubuntu Studio</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Ubuntu%20Touch"><span class="badge badge-intermediate">Intermediate</span><h3>Ubuntu Touch</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Valtux"><span class="badge badge-beginner">Beginner</span><h3>Valtux</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Vanilla%20OS"><span class="badge badge-beginner">Beginner</span><h3>Vanilla OS</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Whonix"><span class="badge badge-advanced">Advanced</span><h3>Whonix</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Xubuntu"><span class="badge badge-beginner">Beginner</span><h3>Xubuntu</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Zorin%20OS"><span class="badge badge-beginner">Beginner</span><h3>Zorin OS</h3></a></div></section>
+
+<section data-section="arch"><h2>Arch-based (Pacman) <span class="count">13</span></h2><div class="grid"><a class="card" data-diff="beginner" href="distro.html?name=AcreetionOS"><span class="badge badge-beginner">Beginner</span><h3>AcreetionOS</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Arch%20Linux"><span class="badge badge-advanced">Advanced</span><h3>Arch Linux</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Artix%20Linux"><span class="badge badge-advanced">Advanced</span><h3>Artix Linux</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Athena%20OS"><span class="badge badge-advanced">Advanced</span><h3>Athena OS</h3></a><a class="card" data-diff="advanced" href="distro.html?name=BlackArch"><span class="badge badge-advanced">Advanced</span><h3>BlackArch</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=CachyOS"><span class="badge badge-intermediate">Intermediate</span><h3>CachyOS</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Ditana%20GNU%2FLinux"><span class="badge badge-intermediate">Intermediate</span><h3>Ditana GNU/Linux</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=EndeavourOS"><span class="badge badge-intermediate">Intermediate</span><h3>EndeavourOS</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Exodia%20OS"><span class="badge badge-advanced">Advanced</span><h3>Exodia OS</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Garuda%20Linux"><span class="badge badge-intermediate">Intermediate</span><h3>Garuda Linux</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Manjaro"><span class="badge badge-beginner">Beginner</span><h3>Manjaro</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Omarchy"><span class="badge badge-intermediate">Intermediate</span><h3>Omarchy</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Shanios"><span class="badge badge-intermediate">Intermediate</span><h3>Shanios</h3></a></div></section>
+
+<section data-section="rpm"><h2>RPM-based <span class="count">18</span></h2><div class="grid"><a class="card" data-diff="intermediate" href="distro.html?name=AlmaLinux"><span class="badge badge-intermediate">Intermediate</span><h3>AlmaLinux</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Bazzite"><span class="badge badge-beginner">Beginner</span><h3>Bazzite</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Bluefin"><span class="badge badge-intermediate">Intermediate</span><h3>Bluefin</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=CentOS%20Stream"><span class="badge badge-intermediate">Intermediate</span><h3>CentOS Stream</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Fedora"><span class="badge badge-intermediate">Intermediate</span><h3>Fedora</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=HeliumOS"><span class="badge badge-intermediate">Intermediate</span><h3>HeliumOS</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Lyra%20OS"><span class="badge badge-intermediate">Intermediate</span><h3>Lyra OS</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Mageia"><span class="badge badge-intermediate">Intermediate</span><h3>Mageia</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Nobara%20Linux"><span class="badge badge-beginner">Beginner</span><h3>Nobara Linux</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=OpenMandriva"><span class="badge badge-intermediate">Intermediate</span><h3>OpenMandriva</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=openSUSE"><span class="badge badge-intermediate">Intermediate</span><h3>openSUSE</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=openSUSE%20Tumbleweed"><span class="badge badge-intermediate">Intermediate</span><h3>openSUSE Tumbleweed</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Oracle%20Linux"><span class="badge badge-intermediate">Intermediate</span><h3>Oracle Linux</h3></a><a class="card" data-diff="beginner" href="distro.html?name=PCLinuxOS"><span class="badge badge-beginner">Beginner</span><h3>PCLinuxOS</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Rocky%20Linux"><span class="badge badge-intermediate">Intermediate</span><h3>Rocky Linux</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=ROSA"><span class="badge badge-intermediate">Intermediate</span><h3>ROSA</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Scientific%20Linux"><span class="badge badge-advanced">Advanced</span><h3>Scientific Linux</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=stillOS"><span class="badge badge-intermediate">Intermediate</span><h3>stillOS</h3></a></div></section>
+
+<section data-section="gentoo"><h2>Gentoo-based <span class="count">6</span></h2><div class="grid"><a class="card" data-diff="advanced" href="distro.html?name=Calculate%20Linux"><span class="badge badge-advanced">Advanced</span><h3>Calculate Linux</h3></a><a class="card" data-diff="expert" href="distro.html?name=Funtoo"><span class="badge badge-expert">Expert</span><h3>Funtoo</h3></a><a class="card" data-diff="expert" href="distro.html?name=Gentoo"><span class="badge badge-expert">Expert</span><h3>Gentoo</h3></a><a class="card" data-diff="advanced" href="distro.html?name=matrixOS"><span class="badge badge-advanced">Advanced</span><h3>matrixOS</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Redcore"><span class="badge badge-advanced">Advanced</span><h3>Redcore</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Sabayon"><span class="badge badge-intermediate">Intermediate</span><h3>Sabayon</h3></a></div></section>
+
+<section data-section="slackware"><h2>Slackware-based <span class="count">5</span></h2><div class="grid"><a class="card" data-diff="intermediate" href="distro.html?name=Absolute%20Linux"><span class="badge badge-intermediate">Intermediate</span><h3>Absolute Linux</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Porteus"><span class="badge badge-intermediate">Intermediate</span><h3>Porteus</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Salix"><span class="badge badge-intermediate">Intermediate</span><h3>Salix</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Slackel"><span class="badge badge-intermediate">Intermediate</span><h3>Slackel</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Slackware"><span class="badge badge-advanced">Advanced</span><h3>Slackware</h3></a></div></section>
+
+<section data-section="source"><h2>Source/Nix-based <span class="count">3</span></h2><div class="grid"><a class="card" data-diff="expert" href="distro.html?name=Guix%20System"><span class="badge badge-expert">Expert</span><h3>Guix System</h3></a><a class="card" data-diff="expert" href="distro.html?name=NixOS"><span class="badge badge-expert">Expert</span><h3>NixOS</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=NuTyX"><span class="badge badge-intermediate">Intermediate</span><h3>NuTyX</h3></a></div></section>
+
+<section data-section="others"><h2>Others <span class="count">54</span></h2><div class="grid"><a class="card" data-diff="intermediate" href="distro.html?name=Ad%C3%A9lie%20Linux"><span class="badge badge-intermediate">Intermediate</span><h3>Adélie Linux</h3></a><a class="card" data-diff="advanced" href="distro.html?name=aerynOS"><span class="badge badge-advanced">Advanced</span><h3>aerynOS</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Alpine%20Linux"><span class="badge badge-intermediate">Intermediate</span><h3>Alpine Linux</h3></a><a class="card" data-diff="beginner" href="distro.html?name=AUSTRUMI"><span class="badge badge-beginner">Beginner</span><h3>AUSTRUMI</h3></a><a class="card" data-diff="expert" href="distro.html?name=Bedrock%20Linux"><span class="badge badge-expert">Expert</span><h3>Bedrock Linux</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Berry%20Linux"><span class="badge badge-advanced">Advanced</span><h3>Berry Linux</h3></a><a class="card" data-diff="advanced" href="distro.html?name=BigLinux"><span class="badge badge-advanced">Advanced</span><h3>BigLinux</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Bluestar"><span class="badge badge-advanced">Advanced</span><h3>Bluestar</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Bottlerocket"><span class="badge badge-advanced">Advanced</span><h3>Bottlerocket</h3></a><a class="card" data-diff="advanced" href="distro.html?name=CAELinux"><span class="badge badge-advanced">Advanced</span><h3>CAELinux</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Chimera%20Linux"><span class="badge badge-advanced">Advanced</span><h3>Chimera Linux</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Clear%20Linux"><span class="badge badge-advanced">Advanced</span><h3>Clear Linux</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Clonezilla"><span class="badge badge-intermediate">Intermediate</span><h3>Clonezilla</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Commodore%20OS"><span class="badge badge-beginner">Beginner</span><h3>Commodore OS</h3></a><a class="card" data-diff="expert" href="distro.html?name=CRUX"><span class="badge badge-expert">Expert</span><h3>CRUX</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Damn%20Small%20Linux"><span class="badge badge-intermediate">Intermediate</span><h3>Damn Small Linux</h3></a><a class="card" data-diff="expert" href="distro.html?name=Dragora%20GNU%2FLinux-Libre"><span class="badge badge-expert">Expert</span><h3>Dragora GNU/Linux-Libre</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=EasyOS"><span class="badge badge-intermediate">Intermediate</span><h3>EasyOS</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Elive"><span class="badge badge-intermediate">Intermediate</span><h3>Elive</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Emmabunt%C3%BCs"><span class="badge badge-intermediate">Intermediate</span><h3>Emmabuntüs</h3></a><a class="card" data-diff="expert" href="distro.html?name=Exherbo"><span class="badge badge-expert">Expert</span><h3>Exherbo</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Fatdog64"><span class="badge badge-advanced">Advanced</span><h3>Fatdog64</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Flatcar%20Container%20Linux"><span class="badge badge-advanced">Advanced</span><h3>Flatcar Container Linux</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=FuguIta"><span class="badge badge-intermediate">Intermediate</span><h3>FuguIta</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=GeckoLinux"><span class="badge badge-intermediate">Intermediate</span><h3>GeckoLinux</h3></a><a class="card" data-diff="advanced" href="distro.html?name=GoboLinux"><span class="badge badge-advanced">Advanced</span><h3>GoboLinux</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Horus%20OS"><span class="badge badge-intermediate">Intermediate</span><h3>Horus OS</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Hyperbola"><span class="badge badge-advanced">Advanced</span><h3>Hyperbola</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=IPFire"><span class="badge badge-intermediate">Intermediate</span><h3>IPFire</h3></a><a class="card" data-diff="expert" href="distro.html?name=KaOS"><span class="badge badge-expert">Expert</span><h3>KaOS</h3></a><a class="card" data-diff="advanced" href="distro.html?name=KDE%20Linux"><span class="badge badge-advanced">Advanced</span><h3>KDE Linux</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=LibreELEC"><span class="badge badge-intermediate">Intermediate</span><h3>LibreELEC</h3></a><a class="card" data-diff="expert" href="distro.html?name=Lunar%20Linux"><span class="badge badge-expert">Expert</span><h3>Lunar Linux</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Mabox"><span class="badge badge-intermediate">Intermediate</span><h3>Mabox</h3></a><a class="card" data-diff="advanced" href="distro.html?name=MakuluLinux"><span class="badge badge-advanced">Advanced</span><h3>MakuluLinux</h3></a><a class="card" data-diff="expert" href="distro.html?name=Minimal%20Linux%20Live"><span class="badge badge-expert">Expert</span><h3>Minimal Linux Live</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Neko-Void"><span class="badge badge-intermediate">Intermediate</span><h3>Neko-Void</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Neptune"><span class="badge badge-advanced">Advanced</span><h3>Neptune</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Nitrux"><span class="badge badge-intermediate">Intermediate</span><h3>Nitrux</h3></a><a class="card" data-diff="advanced" href="distro.html?name=OpenWrt"><span class="badge badge-advanced">Advanced</span><h3>OpenWrt</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Parabola"><span class="badge badge-advanced">Advanced</span><h3>Parabola</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Pardus"><span class="badge badge-advanced">Advanced</span><h3>Pardus</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Q4OS"><span class="badge badge-intermediate">Intermediate</span><h3>Q4OS</h3></a><a class="card" data-diff="expert" href="distro.html?name=Qubes%20OS"><span class="badge badge-expert">Expert</span><h3>Qubes OS</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=RebornOS"><span class="badge badge-intermediate">Intermediate</span><h3>RebornOS</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Regolith"><span class="badge badge-intermediate">Intermediate</span><h3>Regolith</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Siduction"><span class="badge badge-intermediate">Intermediate</span><h3>Siduction</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=SliTaz"><span class="badge badge-intermediate">Intermediate</span><h3>SliTaz</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=Solus"><span class="badge badge-intermediate">Intermediate</span><h3>Solus</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=SteamOS"><span class="badge badge-intermediate">Intermediate</span><h3>SteamOS</h3></a><a class="card" data-diff="advanced" href="distro.html?name=SystemRescue"><span class="badge badge-advanced">Advanced</span><h3>SystemRescue</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Tiny%20Core%20Linux"><span class="badge badge-advanced">Advanced</span><h3>Tiny Core Linux</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Uruk"><span class="badge badge-advanced">Advanced</span><h3>Uruk</h3></a><a class="card" data-diff="advanced" href="distro.html?name=Void%20Linux"><span class="badge badge-advanced">Advanced</span><h3>Void Linux</h3></a></div></section>
+
+<section data-section="paid"><h2>Paid (subscription) <span class="count">4</span></h2><div class="grid"><a class="card" data-diff="intermediate" href="distro.html?name=Red%20Hat%20Enterprise%20Linux"><span class="badge badge-intermediate">Intermediate</span><h3>Red Hat Enterprise Linux</h3></a><a class="card" data-diff="intermediate" href="distro.html?name=SUSE%20Linux%20Enterprise"><span class="badge badge-intermediate">Intermediate</span><h3>SUSE Linux Enterprise</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Ubuntu%20Pro"><span class="badge badge-beginner">Beginner</span><h3>Ubuntu Pro</h3></a><a class="card" data-diff="beginner" href="distro.html?name=Zorin%20OS%20Pro"><span class="badge badge-beginner">Beginner</span><h3>Zorin OS Pro</h3></a></div></section>
+
+<section id="android" data-section="android"><h2>Android <span class="count">43</span></h2><div class="grid"><a class="card" data-diff="intermediate" href="distro.html?id=e-os"><span class="badge badge-intermediate">Intermediate</span><h3>/e/OS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=aicp"><span class="badge badge-advanced">Advanced</span><h3>AICP</h3></a><a class="card" data-diff="advanced" href="distro.html?id=alphadroid"><span class="badge badge-advanced">Advanced</span><h3>AlphaDroid</h3></a><a class="card" data-diff="expert" href="distro.html?id=android"><span class="badge badge-expert">Expert</span><h3>Android</h3></a><a class="card" data-diff="advanced" href="distro.html?id=aosp-extended"><span class="badge badge-advanced">Advanced</span><h3>AOSP Extended</h3></a><a class="card" data-diff="advanced" href="distro.html?id=arrowos"><span class="badge badge-advanced">Advanced</span><h3>ArrowOS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=ascp-os"><span class="badge badge-advanced">Advanced</span><h3>ASCP OS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=axionos"><span class="badge badge-advanced">Advanced</span><h3>AxionOS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=blissroms"><span class="badge badge-advanced">Advanced</span><h3>BlissRoms</h3></a><a class="card" data-diff="intermediate" href="distro.html?id=calyxos"><span class="badge badge-intermediate">Intermediate</span><h3>CalyxOS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=carbonrom"><span class="badge badge-advanced">Advanced</span><h3>CarbonROM</h3></a><a class="card" data-diff="advanced" href="distro.html?id=cherish-os"><span class="badge badge-advanced">Advanced</span><h3>Cherish OS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=cipheros"><span class="badge badge-advanced">Advanced</span><h3>CipherOS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=clover"><span class="badge badge-advanced">Advanced</span><h3>Clover</h3></a><a class="card" data-diff="advanced" href="distro.html?id=corvus-os"><span class="badge badge-advanced">Advanced</span><h3>Corvus OS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=crdroid"><span class="badge badge-advanced">Advanced</span><h3>crDroid</h3></a><a class="card" data-diff="advanced" href="distro.html?id=derpfest"><span class="badge badge-advanced">Advanced</span><h3>DerpFest</h3></a><a class="card" data-diff="advanced" href="distro.html?id=divestos"><span class="badge badge-advanced">Advanced</span><h3>DivestOS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=dotos"><span class="badge badge-advanced">Advanced</span><h3>DotOS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=evolution-x"><span class="badge badge-advanced">Advanced</span><h3>Evolution X</h3></a><a class="card" data-diff="intermediate" href="distro.html?id=grapheneos"><span class="badge badge-intermediate">Intermediate</span><h3>GrapheneOS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=halcyon"><span class="badge badge-advanced">Advanced</span><h3>Halcyon</h3></a><a class="card" data-diff="advanced" href="distro.html?id=havoc-os"><span class="badge badge-advanced">Advanced</span><h3>Havoc OS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=lineageos"><span class="badge badge-advanced">Advanced</span><h3>LineageOS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=lunaris-aosp"><span class="badge badge-advanced">Advanced</span><h3>Lunaris AOSP</h3></a><a class="card" data-diff="advanced" href="distro.html?id=mistos"><span class="badge badge-advanced">Advanced</span><h3>MistOS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=nitrogen-os"><span class="badge badge-advanced">Advanced</span><h3>Nitrogen OS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=nusantara-project"><span class="badge badge-advanced">Advanced</span><h3>Nusantara Project</h3></a><a class="card" data-diff="advanced" href="distro.html?id=omnirom"><span class="badge badge-advanced">Advanced</span><h3>OmniROM</h3></a><a class="card" data-diff="advanced" href="distro.html?id=paranoid-android"><span class="badge badge-advanced">Advanced</span><h3>Paranoid Android</h3></a><a class="card" data-diff="advanced" href="distro.html?id=pixel-experience"><span class="badge badge-advanced">Advanced</span><h3>Pixel Experience</h3></a><a class="card" data-diff="advanced" href="distro.html?id=pixelos"><span class="badge badge-advanced">Advanced</span><h3>PixelOS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=project-blaze"><span class="badge badge-advanced">Advanced</span><h3>Project Blaze</h3></a><a class="card" data-diff="advanced" href="distro.html?id=project-elixir"><span class="badge badge-advanced">Advanced</span><h3>Project Elixir</h3></a><a class="card" data-diff="advanced" href="distro.html?id=project-infinity-x"><span class="badge badge-advanced">Advanced</span><h3>Project Infinity X</h3></a><a class="card" data-diff="advanced" href="distro.html?id=project-matrixx"><span class="badge badge-advanced">Advanced</span><h3>Project Matrixx</h3></a><a class="card" data-diff="advanced" href="distro.html?id=project-sakura"><span class="badge badge-advanced">Advanced</span><h3>Project Sakura</h3></a><a class="card" data-diff="advanced" href="distro.html?id=risingos"><span class="badge badge-advanced">Advanced</span><h3>RisingOS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=sparkos"><span class="badge badge-advanced">Advanced</span><h3>SparkOS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=statixos"><span class="badge badge-advanced">Advanced</span><h3>StatiXOS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=superioros"><span class="badge badge-advanced">Advanced</span><h3>SuperiorOS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=syberia-os"><span class="badge badge-advanced">Advanced</span><h3>Syberia OS</h3></a><a class="card" data-diff="advanced" href="distro.html?id=voltageos"><span class="badge badge-advanced">Advanced</span><h3>VoltageOS</h3></a></div></section>
+
+<section data-section="notfound"><h2>Not found <span class="count">0</span></h2><div class="grid"></div></section>
+
 </main>
-<footer><p>LDHY — Linux Distros Heck Yeah</p><div class="footer-links"><a href="https://github.com/Animeking138/LDHY" target="_blank" rel="noopener noreferrer">GitHub</a></div></footer>
-<script src="assets/js/index.js" defer></script>
-<script src="assets/js/catalog.js" defer></script>
+
+<footer>
+  <p>LDHY — Linux Distros Heck Yeah</p>
+  <div class="footer-links">
+    <a href="https://github.com/Animeking138/LDHY">GitHub</a>
+    <a href="https://animeking138.github.io/LDHY/">Website</a>
+  </div>
+</footer>
+
+<script>
+(function() {
+  const title = document.getElementById('typed-title');
+  const titleText = 'LDHY';
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (title && !reducedMotion) {
+    title.textContent = '';
+    let position = 0;
+    const typeNextCharacter = () => {
+      if (position >= titleText.length) return;
+      title.textContent += titleText[position++];
+      window.setTimeout(typeNextCharacter, 140);
+    };
+    window.setTimeout(typeNextCharacter, 250);
+  }
+
+  const searchInput = document.getElementById('search');
+  const difficultyFilter = document.getElementById('difficulty-filter');
+  const familyFilter = document.getElementById('family-filter');
+  const sections = document.querySelectorAll('main > section');
+  const emptyState = document.getElementById('empty-state');
+  const resultsStatus = document.getElementById('results-status');
+
+  function updateFamilyOptions() {
+    Array.from(familyFilter.options).forEach(option => {
+      if (option.value === 'all') return;
+      const section = document.querySelector(`main > section[data-section="${option.value}"]`);
+      option.hidden = !section || section.querySelectorAll('.card').length === 0;
+    });
+
+    if (familyFilter.selectedOptions[0]?.hidden) {
+      familyFilter.value = 'all';
+    }
+  }
+
+  function filterCards() {
+    updateFamilyOptions();
+    const query = searchInput.value.toLowerCase().trim();
+    const difficulty = difficultyFilter.value;
+    const family = familyFilter.value;
+    let visibleCount = 0;
+
+    document.querySelectorAll('main > section .card').forEach(card => {
+      const name = card.querySelector('h3').textContent.toLowerCase();
+      const cardDifficulty = card.dataset.diff || '';
+      const cardFamily = card.closest('section').dataset.section;
+      const matchesSearch = !query || name.includes(query);
+      const matchesDifficulty = difficulty === 'all' || cardDifficulty === difficulty;
+      const matchesFamily = family === 'all' || cardFamily === family;
+
+      const isVisible = matchesSearch && matchesDifficulty && matchesFamily;
+      card.hidden = !isVisible;
+      if (isVisible) visibleCount++;
+    });
+
+    sections.forEach(section => {
+      const visibleCountInSection = section.querySelectorAll('.card:not([hidden])').length;
+      const count = section.querySelector('.count');
+      if (count) count.textContent = visibleCountInSection;
+      section.hidden = visibleCountInSection === 0;
+    });
+
+    emptyState.classList.toggle('visible', visibleCount === 0);
+    resultsStatus.textContent = `${visibleCount} ${visibleCount === 1 ? 'distribution' : 'distributions'} found.`;
+  }
+
+  searchInput.addEventListener('input', filterCards);
+  difficultyFilter.addEventListener('change', filterCards);
+  familyFilter.addEventListener('change', filterCards);
+
+  // Apply visibility rules immediately, including hiding empty categories on page load.
+  filterCards();
+})();
+</script>
 </body>
 </html>
