@@ -20,7 +20,7 @@ function slugifyName(value) {
 }
 
 function releaseYear(value) {
-  const match = String(value || '').match(/\\b(?:19|20)\\d{2}\\b/);
+  const match = String(value || '').match(/\b(?:19|20)\d{2}\b/);
   return match ? Number(match[0]) : null;
 }
 
