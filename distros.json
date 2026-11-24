@@ -1578,6 +1578,22 @@
     "price": ""
   },
   {
+    "name": "Nyarch Linux",
+    "family": "Arch-based (Pacman)",
+    "difficulty": "Intermediate",
+    "download": "https://nyarchlinux.moe/",
+    "creator": "Nyarch Linux project",
+    "release": "",
+    "based_on": "Arch Linux",
+    "package_manager": "pacman",
+    "status": "Active; official website lists GNOME and KDE Plasma editions.",
+    "website": "https://nyarchlinux.moe/",
+    "description": "An Arch-based distribution with anime-inspired branding and a curated desktop experience. It offers GNOME and KDE Plasma editions, themed customization, and a selection of community-developed desktop applications.",
+    "price": "",
+    "source": "https://nyarchlinux.moe/",
+    "verified": "2026-11-24"
+  },
+  {
     "name": "NixOS",
     "family": "Source/Nix-based",
     "difficulty": "Expert",
