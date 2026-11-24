@@ -130,7 +130,7 @@ fn check_homepage(
     for required in ["id=\"content\"", "id=\"search\"", "id=\"family-filter\"", "id=\"difficulty-filter\"", "id=\"compare-bar\"", "id=\"comparison-panel\""] {
         if !html.contains(required) { errors.push(format!("LDHY homepage is missing integrated catalog control: {required}.")); }
     }
-    for required in ["fetch('distros.json')", "distro.html?id=", "textContent", "COMPARE_KEY", "COMPARE_LIMIT", "compare-table", "localStorage"] {
+    for required in ["fetch('distros.json')", "distro.html?id=", "textContent", "COMPARE_KEY", "LIMIT = 3", "compare-table", "localStorage"] {
         if !script.contains(required) { errors.push(format!("Integrated catalog script is missing required behavior: {required}.")); }
     }
     if root.join("distributions.html").exists() || root.join("compare.html").exists() {
