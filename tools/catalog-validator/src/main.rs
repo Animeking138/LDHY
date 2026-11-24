@@ -1,12 +1,12 @@
 use regex::Regex;
 use serde::Deserialize;
 use std::{
-    collections::{HashMap, HashSet},
+    collections::HashSet,
     env, fs,
     path::{Component, Path, PathBuf},
     process,
 };
-use url::{form_urlencoded, Url};
+use url::Url;
 
 #[derive(Debug, Deserialize)]
 struct Distro {
