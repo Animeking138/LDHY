@@ -8207,5 +8207,19 @@
     "status": "Free Core Edition available; optional paid enterprise subscriptions provide support and extended maintenance.",
     "description": "Debian-based server platform for identity and access management and application integration. A free Core Edition exists; paid enterprise subscriptions add vendor support and extended maintenance.",
     "price": "Core Edition free; Nubus Enterprise Subscription from €35 net per user/year (recommended retail price; terms vary)."
+  },
+  {
+    "name": "FlowOS (Velotic Studios)",
+    "family": "Paid (subscription)",
+    "difficulty": "Intermediate",
+    "download": "https://flow-os.one/",
+    "creator": "Velotic Studios",
+    "release": "Early access planned for December 2026",
+    "based_on": "Arch Linux",
+    "package_manager": "Pacman",
+    "status": "Paid early-access booking announced at $20 until 30 November 2026, then $25. Early access is planned to open in December 2026; no public download is available yet.",
+    "description": "Closed-source Arch Linux-based desktop operating system combining Windows, Android, macOS and Linux application compatibility in one desktop. Uses Wine/Proton, Waydroid and Darling; the full desktop uses KDE Plasma/KWin. Early access is planned for December 2026.",
+    "price": "$20 early-access booking until 30 November 2026, then $25; one-time purchase, not a subscription.",
+    "verified": "2026-11-24"
   }
 ]
