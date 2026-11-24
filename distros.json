@@ -1310,7 +1310,7 @@
     "website": "https://www.linuxliteos.com/",
     "description": "A lightweight, beginner-oriented desktop distribution based on Ubuntu LTS and designed to provide a familiar transition to Linux.",
     "price": ""
-  },,
+  },
   {
     "name": "Linux From Scratch",
     "family": "Psychobath",
@@ -1324,7 +1324,7 @@
     "website": "",
     "description": "A project and detailed book that teaches you to build your own custom Linux system entirely from source. Linux From Scratch is not a conventional prebuilt distribution: you assemble the system yourself, following the project's build instructions.",
     "price": ""
-  }
+  },
   {
     "name": "Linux Mint",
     "family": "Debian-based",
