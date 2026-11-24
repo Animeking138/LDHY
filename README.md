@@ -8,7 +8,7 @@ A searchable catalog of Linux distributions and related operating-system project
 
 LDHY helps users explore a broad range of operating systems through a categorized catalog. Entries include an estimated difficulty level and, where information is available, details such as the developer, release history, upstream base, package manager, maintenance status, official website, and project or download page.
 
-The catalog includes traditional Linux distributions as well as Android and custom Android ROM projects.
+The catalog includes traditional Linux distributions, Android and custom Android ROM projects, and selected related operating-system ecosystems such as illumos. Non-Linux systems are identified in their descriptions rather than presented as Linux distributions.
 
 ## Note
 
