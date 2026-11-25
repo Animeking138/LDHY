@@ -2154,6 +2154,22 @@
     "price": ""
   },
   {
+    "name": "Ryoku",
+    "family": "Arch-based (Pacman)",
+    "difficulty": "Advanced",
+    "download": "https://ryoku.dev/",
+    "creator": "Ryoku Project",
+    "release": "2026 (Ryoku 1.0, Amaterasu)",
+    "based_on": "Arch Linux (stable Arch and CachyOS editions); Void Linux and Fedora editions are experimental",
+    "package_manager": "pacman (Arch/CachyOS); XBPS (Void); DNF/RPM (Fedora)",
+    "status": "Active; Ryoku 1.0 is stable on Arch and CachyOS; Void and Fedora editions are experimental.",
+    "source": "https://github.com/Ryoku-dev/ryoku",
+    "verified": "2026-11-25",
+    "website": "https://ryoku.dev/",
+    "description": "A hand-built, opinionated Linux distribution built around the Ryoku desktop, installer and system definition. Its stable Arch and CachyOS editions offer Hyprland, niri and experimental Wayfire support; Void and Fedora editions are experimental. Designed for x86_64 desktops and laptops.",
+    "price": ""
+  },
+  {
     "name": "Sabayon",
     "family": "Gentoo-based",
     "difficulty": "Intermediate",
