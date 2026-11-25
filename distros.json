@@ -2658,10 +2658,12 @@
     "release": "2009",
     "based_on": "Ubuntu LTS",
     "package_manager": "APT (apt; dpkg); Flatpak; Snap",
-    "status": "Not yet verified",
+    "status": "Active; free Core edition available. The separate Pro edition is paid.",
     "website": "https://zorin.com/os/",
-    "description": "An Ubuntu-based desktop distribution designed to make Linux approachable, with familiar desktop layouts and integrated application options.",
-    "price": ""
+    "description": "An Ubuntu-based desktop distribution designed to make Linux approachable. The free Core edition is available at no cost; Zorin OS Pro is a separate paid edition.",
+    "price": "",
+    "source": "https://zorin.com/os/",
+    "verified": "2026-11-25"
   },
   {
     "name": "Zorin OS Pro",
@@ -2672,10 +2674,12 @@
     "release": "",
     "based_on": "Ubuntu LTS",
     "package_manager": "APT (apt; dpkg); Flatpak; Snap",
-    "status": "Not yet verified",
+    "status": "Active; separate paid edition of Zorin OS. The Core edition remains free.",
     "website": "https://zorin.com/os/pro/",
     "description": "The paid edition of Zorin OS, adding premium desktop layouts and additional applications to the Ubuntu-based operating system.",
-    "price": "One-time purchase; current price is shown by Zorin at checkout."
+    "price": "One-time purchase; current price is shown by Zorin at checkout.",
+    "source": "https://zorin.com/os/why-pay/",
+    "verified": "2026-11-25"
   },
   {
     "name": "GNU/Linux Utopia/Personal",
