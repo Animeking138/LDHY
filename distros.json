@@ -833,19 +833,19 @@
   },
   {
     "name": "elementary OS",
-    "family": "Paid (subscription)",
+    "family": "Debian-based",
     "difficulty": "Beginner",
     "download": "https://elementary.io/",
     "creator": "elementary, Inc",
     "release": "31 March 2011 (2011-03-31)",
     "based_on": "Ubuntu LTS",
     "package_manager": "APT (apt; dpkg); Flatpak",
-    "status": "Active; pay-what-you-can purchase model with free download option.",
+    "status": "Active; official download is available at $0 or through a pay-what-you-can contribution.",
     "website": "",
-    "description": "Ubuntu-based desktop operating system featuring the Pantheon desktop environment. Its official download is offered on a pay-what-you-can basis, including a zero-dollar option.",
-    "price": "Pay what you can; a $0 download is available.",
-    "source": "",
-    "verified": "2026-11-24"
+    "description": "Ubuntu-based desktop distribution featuring the Pantheon desktop environment. The official OS download is pay-what-you-can, including a $0 option; there is no separate paid OS edition.",
+    "price": "Free download ($0 option); optional pay-what-you-can contribution.",
+    "source": "https://elementary.io/",
+    "verified": "2026-11-25"
   },
   {
     "name": "Elive",
@@ -2080,10 +2080,12 @@
     "release": "February 22, 2000 (2000-02-22)",
     "based_on": "Independent (Red Hat)",
     "package_manager": "DNF (RPM)",
-    "status": "Not yet verified",
+    "status": "Commercial enterprise distribution with paid subscriptions; a no-cost Red Hat Developer Subscription for Individuals is available under its eligibility and usage terms.",
     "website": "https://www.redhat.com/en/store/linux-platforms",
     "description": "Red Hat's commercial enterprise Linux platform, providing a supported operating-system foundation for servers, cloud environments, and enterprise workloads.",
-    "price": "US$383.90 starting price for Server; US$196.90 for Workstation (US store; actual cost varies by subscription and support tier)."
+    "price": "Paid commercial subscriptions vary by product and support tier. Eligible individuals can obtain a no-cost developer subscription; see Red Hat's current terms.",
+    "source": "https://developers.redhat.com/products/rhel/overview",
+    "verified": "2026-11-25"
   },
   {
     "name": "Redcore",
@@ -2520,20 +2522,6 @@
     "website": "https://ubuntu-mate.org/",
     "description": "An official Ubuntu flavor using the MATE desktop environment, providing a traditional desktop layout and a range of configuration options.",
     "price": ""
-  },
-  {
-    "name": "Ubuntu Pro",
-    "family": "Paid (subscription)",
-    "difficulty": "Beginner",
-    "download": "https://ubuntu.com/pricing/pro",
-    "creator": "",
-    "release": "",
-    "based_on": "Ubuntu",
-    "package_manager": "APT (apt; dpkg)",
-    "status": "Not yet verified",
-    "website": "https://ubuntu.com/pricing/pro",
-    "description": "A Canonical subscription for Ubuntu systems that extends security maintenance and compliance features; it is not a separate Linux distribution.",
-    "price": "Free for personal use on up to 5 physical machines. Enterprise base tiers: US$25/workstation/year or US$500/server/year; check current pricing."
   },
   {
     "name": "Ubuntu Studio",
@@ -8107,99 +8095,115 @@
     "based_on": "Ubuntu",
     "package_manager": "APT (apt; dpkg)",
     "status": "Commercial desktop distribution; current delivery is through physical media, with ISO supplied on request.",
-    "description": "Commercial desktop Linux distribution with a paid Linspire edition and separate free Freespire community edition.",
-    "price": "Paid purchase; current pricing is listed in the official webstore."
+    "description": "Commercial desktop Linux distribution. Its publisher also offers Freespire, a separate free and open-source community edition with a subset of Linspire's features.",
+    "price": "Paid purchase; current pricing is listed in the official webstore.",
+    "source": "https://www.linspirelinux.com/p/about-linspire.html",
+    "verified": "2026-11-25"
   },
   {
     "name": "ALT Workstation",
-    "family": "Paid (subscription)",
+    "family": "RPM-based",
     "difficulty": "Unknown",
     "download": "https://getalt.org/en/alt-workstation/",
     "creator": "BaseALT",
     "release": "",
     "based_on": "ALT Linux (Sisyphus)",
     "package_manager": "APT-RPM (RPM)",
-    "status": "Free for private individuals; organizations require a license for production use.",
+    "status": "Free for private individuals. Organizations may test the downloaded version, but production use requires a commercial license.",
     "description": "ALT Linux desktop edition for general workstation use. Private individuals may use the downloaded version free; organizational production use requires a license.",
-    "price": "Commercial licensing for organizational production use; contact BaseALT for current terms."
+    "price": "Free for private individuals; commercial production licensing is required for organizations. Check BaseALT for current terms.",
+    "source": "https://www.basealt.ru/products",
+    "verified": "2026-11-25"
   },
   {
     "name": "ALT KWorkstation",
-    "family": "Paid (subscription)",
+    "family": "RPM-based",
     "difficulty": "Unknown",
     "download": "https://getalt.org/en/alt-kworkstation/",
     "creator": "BaseALT",
     "release": "",
     "based_on": "ALT Linux (Sisyphus)",
     "package_manager": "APT-RPM (RPM)",
-    "status": "Free for private individuals; organizations require a license for production use.",
+    "status": "Free for private individuals. Organizations may test the downloaded version, but production use requires a commercial license.",
     "description": "ALT Linux workstation edition using KDE Plasma. Private individuals may use the downloaded version free; organizational production use requires a license.",
-    "price": "Commercial licensing for organizational production use; contact BaseALT for current terms."
+    "price": "Free for private individuals; commercial production licensing is required for organizations. Check BaseALT for current terms.",
+    "source": "https://www.basealt.ru/products",
+    "verified": "2026-11-25"
   },
   {
     "name": "ALT Server",
-    "family": "Paid (subscription)",
+    "family": "RPM-based",
     "difficulty": "Unknown",
     "download": "https://getalt.org/en/alt-server/",
     "creator": "BaseALT",
     "release": "",
     "based_on": "ALT Linux (Sisyphus)",
     "package_manager": "APT-RPM (RPM)",
-    "status": "Free for private individuals; organizations require a license for production use.",
+    "status": "Free for private individuals. Organizations may test the downloaded version, but production use requires a commercial license.",
     "description": "ALT Linux server operating system for enterprise infrastructure, databases, directory integration and network services.",
-    "price": "Commercial licensing for organizational production use; contact BaseALT for current terms."
+    "price": "Free for private individuals; commercial production licensing is required for organizations. Check BaseALT for current terms.",
+    "source": "https://www.basealt.ru/products",
+    "verified": "2026-11-25"
   },
   {
     "name": "ALT Education",
-    "family": "Paid (subscription)",
+    "family": "RPM-based",
     "difficulty": "Unknown",
     "download": "https://getalt.org/en/alt-education/",
     "creator": "BaseALT",
     "release": "",
     "based_on": "ALT Linux (Sisyphus)",
     "package_manager": "APT-RPM (RPM)",
-    "status": "Free for private individuals; institutional production use requires a license.",
+    "status": "Free for private individuals. Organizations may test the downloaded version, but production use requires a commercial license.",
     "description": "ALT Linux education distribution for schools, colleges and universities, integrating student and teacher workstations.",
-    "price": "Institutional licensing; terms vary by organization and license type."
+    "price": "Free for private individuals; commercial production licensing is required for organizations. Check BaseALT for current terms.",
+    "source": "https://www.basealt.ru/products",
+    "verified": "2026-11-25"
   },
   {
     "name": "ALT Virtualization",
-    "family": "Paid (subscription)",
+    "family": "RPM-based",
     "difficulty": "Unknown",
     "download": "https://getalt.org/en/alt-virtualization/",
     "creator": "BaseALT",
     "release": "",
     "based_on": "ALT Linux (Sisyphus)",
     "package_manager": "APT-RPM (RPM)",
-    "status": "Free for private individuals; organizational production use requires a license.",
+    "status": "Free for private individuals. Organizations may test the downloaded version, but production use requires a commercial license.",
     "description": "ALT Linux enterprise virtualization platform for virtual machines, containers, clusters, networking and storage.",
-    "price": "Commercial licensing for organizational production use; contact BaseALT for current terms."
+    "price": "Free for private individuals; commercial production licensing is required for organizations. Check BaseALT for current terms.",
+    "source": "https://www.basealt.ru/products",
+    "verified": "2026-11-25"
   },
   {
     "name": "ALT SP",
-    "family": "Paid (subscription)",
+    "family": "RPM-based",
     "difficulty": "Unknown",
     "download": "https://www.basealt.ru/en/products",
     "creator": "BaseALT",
     "release": "",
     "based_on": "ALT Linux (Sisyphus)",
     "package_manager": "APT-RPM (RPM)",
-    "status": "Commercially licensed security-focused editions; test images are available by contacting BaseALT.",
+    "status": "Available for individual use without charge; organizations need a commercial license for production use. Test images can be requested from BaseALT.",
     "description": "Security-focused ALT Linux distribution family with ALT SP Server and ALT SP Workstation variants and built-in information-protection features.",
-    "price": "Commercial licensing; request current terms and test images from BaseALT."
+    "price": "Free for private individuals; commercial production licensing is required for organizations. Check BaseALT for current terms.",
+    "source": "https://www.basealt.ru/products",
+    "verified": "2026-11-25"
   },
   {
     "name": "Wind River Linux",
-    "family": "Paid (subscription)",
+    "family": "Others",
     "difficulty": "Unknown",
     "download": "https://www.windriver.com/products/embedded/linux",
     "creator": "Wind River",
     "release": "",
     "based_on": "Yocto Project / OpenEmbedded",
     "package_manager": "",
-    "status": "Commercial subscription offering; evaluation source access is available, subscription terms are arranged with Wind River.",
-    "description": "Commercial Yocto Project-based embedded Linux platform with long-term maintenance, proactive vulnerability monitoring and hardware board-support packages.",
-    "price": "Subscription pricing by quote."
+    "status": "GPL-2.0 open-source platform. Wind River's Developer Program is free for noncommercial use; commercial use requires a separate agreement.",
+    "description": "An embedded Linux platform built around the Yocto Project and OpenEmbedded. The project publishes GPL-2.0 open-source components and offers a free noncommercial developer program; commercial use is handled separately.",
+    "price": "Free for eligible noncommercial developer use; commercial terms by agreement.",
+    "source": "https://www.windriver.com/company/developer-program",
+    "verified": "2026-11-25"
   },
   {
     "name": "eLxr Pro",
@@ -8223,22 +8227,26 @@
     "release": "",
     "based_on": "Debian 13",
     "package_manager": "APT (apt; dpkg)",
-    "status": "New Pro purchases and downloads are paused during release review; check release status before considering the product.",
-    "description": "Paid Pro edition of Dagric OS, adding a preconfigured creative, gaming, developer and privacy toolkit to its Debian-based desktop.",
-    "price": "US$39 one-time purchase; sales currently paused."
+    "status": "Paid Pro edition; new purchases and downloads are currently paused during release review. The free Dagric OS edition is also listed in LDHY.",
+    "description": "Paid Pro edition of Dagric OS, adding expanded preconfigured creative, gaming, developer and privacy toolkits to the same Debian-based desktop foundation.",
+    "price": "US$39 one-time purchase; sales currently paused.",
+    "source": "https://dagric.com/",
+    "verified": "2026-11-25"
   },
   {
     "name": "Univention Corporate Server (UCS)",
-    "family": "Paid (subscription)",
+    "family": "Debian-based",
     "difficulty": "Intermediate",
     "download": "https://www.univention.com/products/ucs/",
     "creator": "Univention",
     "release": "",
     "based_on": "Debian",
     "package_manager": "APT (apt; dpkg)",
-    "status": "Free Core Edition available; optional paid enterprise subscriptions provide support and extended maintenance.",
+    "status": "Free Core Edition is available; optional paid enterprise subscriptions add vendor support and extended maintenance.",
     "description": "Debian-based server platform for identity and access management and application integration. A free Core Edition exists; paid enterprise subscriptions add vendor support and extended maintenance.",
-    "price": "Core Edition free; Nubus Enterprise Subscription from €35 net per user/year (recommended retail price; terms vary)."
+    "price": "Core Edition: free download and use. Enterprise subscriptions are optional and priced separately.",
+    "source": "https://www.univention.com/products/download/terms-of-use/",
+    "verified": "2026-11-25"
   },
   {
     "name": "FlowOS (Velotic Studios)",
@@ -8409,6 +8417,38 @@
     "description": "A community-developed Arch-based desktop distribution focused on a ready-to-use experience. Its primary edition uses XFCE, with KDE Plasma and MATE alternatives, and it maintains a small project-specific package repository.",
     "price": "",
     "source": "https://archman.org/",
+    "verified": "2026-11-25"
+  },
+  {
+    "name": "Freespire",
+    "family": "Debian-based",
+    "difficulty": "Beginner",
+    "download": "https://www.linspirelinux.com/",
+    "creator": "PC/OpenSystems LLC",
+    "release": "Freespire 10 Beta 1 — 20 July 2023",
+    "based_on": "Ubuntu",
+    "package_manager": "APT (apt; dpkg)",
+    "status": "Free and open-source community edition. The latest official release located is Freespire 10 Beta 1 from July 2023; current maintenance and newer stable releases could not be confirmed.",
+    "website": "https://www.linspirelinux.com/",
+    "description": "A free and open-source Ubuntu-based desktop distribution published by the Linspire team, with a subset of Linspire's commercial edition features.",
+    "price": "Free",
+    "source": "https://www.linspirelinux.com/p/about-linspire.html",
+    "verified": "2026-11-25"
+  },
+  {
+    "name": "Dagric OS",
+    "family": "Debian-based",
+    "difficulty": "Beginner",
+    "download": "https://dagric.com/",
+    "creator": "Dagric / Impressions Direct 360 LLC",
+    "release": "",
+    "based_on": "Debian 13",
+    "package_manager": "APT (apt; dpkg)",
+    "status": "Free edition; release testing is in progress and downloads are currently paused. Check the official release status before planning an installation.",
+    "website": "https://dagric.com/",
+    "description": "A Debian 13-based desktop operating system with a privacy-focused, preconfigured KDE Plasma environment. The free edition provides the core desktop; Dagric OS Pro adds optional preconfigured software suites.",
+    "price": "Free; downloads are temporarily paused during release testing.",
+    "source": "https://dagric.com/",
     "verified": "2026-11-25"
   }
 ]
