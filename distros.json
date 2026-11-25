@@ -2159,7 +2159,7 @@
     "difficulty": "Advanced",
     "download": "https://ryoku.dev/",
     "creator": "Ryoku Project",
-    "release": "2026 (Ryoku 1.0, Amaterasu)",
+    "release": "",
     "based_on": "Arch Linux (stable Arch and CachyOS editions); Void Linux and Fedora editions are experimental",
     "package_manager": "pacman (Arch/CachyOS); XBPS (Void); DNF/RPM (Fedora)",
     "status": "Active; Ryoku 1.0 is stable on Arch and CachyOS; Void and Fedora editions are experimental.",
