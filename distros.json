@@ -1198,7 +1198,7 @@
     "download": "https://www.ipfire.org/docs/installation/images",
     "creator": "IPFire team",
     "release": "",
-    "based_on": "Linux From Scratch (LFS)",
+    "based_on": "",
     "package_manager": "Pakfire",
     "status": "Active; IPFire 2.29 Core Update 206 was released on 24 November 2026.",
     "website": "https://www.ipfire.org/",
