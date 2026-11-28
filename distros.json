@@ -89,13 +89,15 @@
     "difficulty": "Intermediate",
     "download": "https://almalinux.org/get-almalinux/",
     "creator": "The AlmaLinux OS Foundation",
-    "release": "30 March 2021 () (2021-03-30)",
+    "release": "30 March 2021 (2021-03-30)",
     "based_on": "RHEL-compatible (independent rebuild)",
     "package_manager": "DNF (RPM)",
-    "status": "Not yet verified",
+    "status": "Active; AlmaLinux OS 10.3 and 9.9 were released on 16 November 2026.",
     "website": "https://almalinux.org/",
     "description": "A community-governed enterprise Linux distribution designed to be binary-compatible with Red Hat Enterprise Linux.",
-    "price": ""
+    "price": "",
+    "source": "https://almalinux.org/blog/2026-11-16-almalinux_103_and_99_stable/",
+    "verified": "2026-11-28"
   },
   {
     "name": "AlphaDroid",
@@ -694,14 +696,16 @@
     "family": "Debian-based",
     "difficulty": "Intermediate",
     "download": "https://www.debian.org/download",
-    "creator": "propose↑",
+    "creator": "Ian Murdock (founder); Debian Project (community-maintained)",
     "release": "16 August 1993 (1993-08-16)",
     "based_on": "Independent",
     "package_manager": "APT (apt; dpkg)",
     "status": "Active; official project documentation and repositories are maintained.",
     "website": "https://www.debian.org/",
     "description": "A community-developed free operating system known for its broad hardware support, extensive software archive, and stable, testing, and unstable branches. It is a major upstream base for many other distributions.",
-    "price": ""
+    "price": "",
+    "source": "https://www.debian.org/doc/manuals/project-history/intro.en.html",
+    "verified": "2026-11-28"
   },
   {
     "name": "deepin",
@@ -841,11 +845,11 @@
     "based_on": "Ubuntu LTS",
     "package_manager": "APT (apt; dpkg); Flatpak",
     "status": "Active; official download is available at $0 or through a pay-what-you-can contribution.",
-    "website": "",
+    "website": "https://elementary.io/",
     "description": "Ubuntu-based desktop distribution featuring the Pantheon desktop environment. The official OS download is pay-what-you-can, including a $0 option; there is no separate paid OS edition.",
     "price": "Free download ($0 option); optional pay-what-you-can contribution.",
     "source": "https://elementary.io/",
-    "verified": "2026-11-25"
+    "verified": "2026-11-28"
   },
   {
     "name": "Elive",
@@ -881,13 +885,15 @@
     "difficulty": "Intermediate",
     "download": "https://endeavouros.com/download/",
     "creator": "Bryan Poerwoatmodjo, Fernando Omiechuk Frozi, Johannes Kamprad, Manuel",
-    "release": "EndeavourOS 19.6 / 15 July 2019 () (2019-07-15)",
+    "release": "15 July 2019 (2019-07-15)",
     "based_on": "Arch Linux",
     "package_manager": "pacman; yay (AUR helper)",
     "status": "Active; official project documentation and releases are maintained.",
     "website": "https://endeavouros.com/",
     "description": "A lightweight, terminal-oriented Arch-based distribution designed to provide an approachable installation experience while retaining close access to the Arch ecosystem and user customization.",
-    "price": ""
+    "price": "",
+    "source": "https://endeavouros.com/about-us/",
+    "verified": "2026-11-28"
   },
   {
     "name": "Evolution X",
@@ -950,14 +956,16 @@
     "family": "RPM-based",
     "difficulty": "Intermediate",
     "download": "https://fedoraproject.org/workstation/download",
-    "creator": "",
-    "release": "",
+    "creator": "Fedora Project",
+    "release": "November 2003 (Fedora Core 1)",
     "based_on": "Independent",
     "package_manager": "DNF5 (RPM)",
     "status": "Active; official project documentation and releases are maintained.",
     "website": "https://fedoraproject.org/",
     "description": "A community-driven Linux distribution sponsored by Red Hat that emphasizes free and open-source software and serves as an upstream platform for technologies later used in Red Hat Enterprise Linux.",
-    "price": ""
+    "price": "",
+    "source": "https://fedoraproject.org/wiki/Releases/HistoricalSchedules",
+    "verified": "2026-11-28"
   },
   {
     "name": "Flatcar Container Linux",
@@ -1189,15 +1197,15 @@
     "difficulty": "Advanced",
     "download": "https://www.kali.org/get-kali/",
     "creator": "Offensive Security",
-    "release": "13 March 2013 () (2013-03-13)",
+    "release": "13 March 2013 (2013-03-13)",
     "based_on": "Debian (Testing)",
     "package_manager": "APT (apt; dpkg)",
-    "status": "Active; official Kali 2026.3 images released 26 October 2026.",
+    "status": "Active; Kali Linux 2026.3 was released on 26 October 2026.",
     "website": "https://www.kali.org/",
     "description": "A Debian-based distribution maintained by Offensive Security for professional penetration testing, security auditing, and digital forensics.",
     "price": "",
     "source": "https://www.kali.org/releases/",
-    "verified": "2026-11-24"
+    "verified": "2026-11-28"
   },
   {
     "name": "KaOS",
@@ -1612,14 +1620,16 @@
     "family": "Source/Nix-based",
     "difficulty": "Expert",
     "download": "https://nixos.org/download/",
-    "creator": "NixOS contributors NixOS Foundation[1][2]",
+    "creator": "NixOS community",
     "release": "3 June 2006 (2006-06-03)",
     "based_on": "Independent",
     "package_manager": "Nix",
-    "status": "Not yet verified",
+    "status": "Active; NixOS 26.05 was released on 30 May 2026 and is scheduled to receive security updates through 31 December 2026.",
     "website": "https://nixos.org/",
     "description": "A Linux distribution built around the Nix package manager and declarative system configuration, enabling reproducible setups and reliable rollbacks.",
-    "price": ""
+    "price": "",
+    "source": "https://nixos.org/blog/announcements/2026/nixos-2605/",
+    "verified": "2026-11-28"
   },
   {
     "name": "Nobara Linux",
@@ -1714,10 +1724,12 @@
     "release": "March 1994 (1994-03) (as SUSE Linux)7 December 2006 (2006-12-07) (as openSUSE)",
     "based_on": "Independent (SUSE ecosystem)",
     "package_manager": "Zypper (RPM)",
-    "status": "Not yet verified",
+    "status": "Active; the openSUSE project continues to maintain its Leap and Tumbleweed release lines.",
     "website": "https://www.opensuse.org/",
     "description": "A community Linux distribution project offering distinct release models, including the fixed-release Leap line and rolling Tumbleweed.",
-    "price": ""
+    "price": "",
+    "source": "https://www.opensuse.org/",
+    "verified": "2026-11-28"
   },
   {
     "name": "openSUSE Tumbleweed",
@@ -1728,10 +1740,12 @@
     "release": "March 1994 (1994-03) (as SUSE Linux)7 December 2006 (2006-12-07) (as openSUSE)",
     "based_on": "openSUSE",
     "package_manager": "Zypper (RPM)",
-    "status": "Not yet verified",
+    "status": "Active rolling-release distribution; official documentation describes snapshot-based updates through zypper.",
     "website": "https://get.opensuse.org/tumbleweed/",
     "description": "The rolling-release edition of openSUSE, delivering continuously updated packages through tested snapshots.",
-    "price": ""
+    "price": "",
+    "source": "https://doc.opensuse.org/documentation/tumbleweed/updating_upgrading_reverting/",
+    "verified": "2026-11-28"
   },
   {
     "name": "OpenWrt",
@@ -2266,10 +2280,12 @@
     "release": "17 July 1993 (1993-07-17)",
     "based_on": "Independent",
     "package_manager": "pkgtools (installpkg; upgradepkg; removepkg)",
-    "status": "Not yet verified",
+    "status": "Active; the official current package tree was updated on 26 November 2026.",
     "website": "https://www.slackware.com/",
     "description": "One of the oldest actively maintained Linux distributions, emphasizing simplicity, Unix-like design, and minimal modification of upstream software.",
-    "price": ""
+    "price": "",
+    "source": "https://packages.slackware.com/",
+    "verified": "2026-11-28"
   },
   {
     "name": "Slax",
@@ -2487,13 +2503,15 @@
     "difficulty": "Beginner",
     "download": "https://ubuntu.com/download/desktop",
     "creator": "Canonical Ltd.",
-    "release": "20 October 2004 () (2004-10-20)",
+    "release": "20 October 2004 (2004-10-20)",
     "based_on": "Debian",
     "package_manager": "APT (apt; dpkg); Snap",
     "status": "Active; official project documentation and releases are maintained.",
     "website": "https://ubuntu.com/",
     "description": "A Debian-based Linux distribution developed by Canonical and its community, with regular releases, long-term support editions, and desktop, server, and cloud variants.",
-    "price": ""
+    "price": "",
+    "source": "https://ubuntu.com/blog/ubuntu-4-10-end-of-support-cycle",
+    "verified": "2026-11-28"
   },
   {
     "name": "Ubuntu Budgie",
@@ -2598,14 +2616,16 @@
     "family": "Others",
     "difficulty": "Advanced",
     "download": "https://distrowatch.com/table.php?distribution=void",
-    "creator": "Void Linux Team[1] Void Linux Community Original developer: Juan Romero Pardines (xtraeme)",
+    "creator": "Void Linux community",
     "release": "2008 (2008)",
     "based_on": "Independent",
     "package_manager": "XBPS",
-    "status": "Not yet verified",
+    "status": "Active; the official project site reports current package and infrastructure updates in 2026.",
     "website": "https://voidlinux.org/",
     "description": "An independently developed rolling-release Linux distribution using the XBPS package manager and runit as its init system.",
-    "price": ""
+    "price": "",
+    "source": "https://voidlinux.org/",
+    "verified": "2026-11-28"
   },
   {
     "name": "VoltageOS",
@@ -7739,19 +7759,19 @@
   },
   {
     "name": "myLinuxBSD",
-    "family": "Others",
+    "family": "Debian-based",
     "difficulty": "Unknown",
-    "download": "https://www.mylinuxbsd.com/",
-    "creator": "",
+    "download": "https://www.mylinuxbsd.com/download.html",
+    "creator": "myLinuxBSD project",
     "release": "",
-    "based_on": "",
-    "package_manager": "",
-    "status": "Waiting for DistroWatch evaluation (submitted 2026-11-18).",
+    "based_on": "Debian 13 (Trixie)",
+    "package_manager": "APT (apt; dpkg)",
+    "status": "Active; official documentation describes Debian 13-based Full and Minimal editions.",
     "website": "https://www.mylinuxbsd.com/",
-    "description": "Listed on DistroWatch's waiting list. LDHY has not independently verified the project's base, package manager, release history, or maintenance status.",
+    "description": "A Debian 13-based Linux distribution with Full (Cinnamon desktop) and Minimal server editions, developed by myLinuxBSD in Malaysia.",
     "price": "",
-    "source": "https://distrowatch.com/new",
-    "verified": "2026-11-24"
+    "source": "https://www.mylinuxbsd.com/docs.html",
+    "verified": "2026-11-28"
   },
   {
     "name": "GoldenDog Linux",
@@ -7771,19 +7791,19 @@
   },
   {
     "name": "MATE Wayland Desktop",
-    "family": "Others",
+    "family": "Debian-based",
     "difficulty": "Unknown",
-    "download": "https://mate-wayland.org/",
+    "download": "https://mate-wayland.org/download/",
     "creator": "",
     "release": "",
-    "based_on": "",
-    "package_manager": "",
-    "status": "Waiting for DistroWatch evaluation (submitted 2026-11-19).",
+    "based_on": "Ubuntu 26.04 LTS",
+    "package_manager": "APT (apt; dpkg)",
+    "status": "Active; the official source repository documents a live installable ISO and build system.",
     "website": "https://mate-wayland.org/",
-    "description": "Listed on DistroWatch's waiting list. LDHY has not independently verified the project's base, package manager, release history, or maintenance status.",
+    "description": "An independent Linux distribution built around the MATE desktop running on Wayland via labwc, based on Ubuntu 26.04 LTS.",
     "price": "",
-    "source": "https://distrowatch.com/new",
-    "verified": "2026-11-24"
+    "source": "https://github.com/scottsturrock/mate-wayland-desktop",
+    "verified": "2026-11-28"
   },
   {
     "name": "WASD",
@@ -8454,5 +8474,85 @@
     "price": "Free; downloads are temporarily paused during release testing.",
     "source": "https://dagric.com/",
     "verified": "2026-11-25"
+  },
+  {
+    "name": "AOSC OS",
+    "family": "Others",
+    "difficulty": "Unknown",
+    "download": "https://aosc.io/download",
+    "creator": "Anthon Open Source Community (AOSC)",
+    "release": "",
+    "based_on": "Independent",
+    "package_manager": "APT (apt; dpkg); oma APT-compatible frontend",
+    "status": "Active; official October 2026 release notes were revised on 7 November 2026.",
+    "website": "https://aosc.io/",
+    "description": "An independent, multi-architecture Linux distribution developed by the Anthon Open Source Community, focused on a polished desktop experience and supported by the oma APT-compatible package-management frontend.",
+    "price": "",
+    "source": "https://aosc.io/aosc-os/relnote",
+    "verified": "2026-11-28"
+  },
+  {
+    "name": "KDE neon",
+    "family": "Debian-based",
+    "difficulty": "Unknown",
+    "download": "https://neon.kde.org/download",
+    "creator": "KDE neon team",
+    "release": "",
+    "based_on": "Ubuntu LTS",
+    "package_manager": "APT (apt; dpkg); Snap; Flatpak",
+    "status": "Active; official live/install images are available, with KDE software continuously updated.",
+    "website": "https://neon.kde.org/",
+    "description": "An Ubuntu LTS-based Linux distribution built by the KDE neon team to deliver current KDE Plasma and application releases on a stable Ubuntu base.",
+    "price": "",
+    "source": "https://neon.kde.org/faq",
+    "verified": "2026-11-28"
+  },
+  {
+    "name": "Ultramarine Linux",
+    "family": "RPM-based",
+    "difficulty": "Unknown",
+    "download": "https://ultramarine-linux.org/download/",
+    "creator": "Fyra Labs",
+    "release": "",
+    "based_on": "Fedora",
+    "package_manager": "DNF5 (RPM); Flatpak",
+    "status": "Active; the official project describes a semi-rolling model beginning with Ultramarine 44 and publishes current installation images.",
+    "website": "https://ultramarine-linux.org/",
+    "description": "A Fedora-based desktop distribution developed by Fyra Labs, with curated desktop editions, hardware support and a semi-rolling update model.",
+    "price": "",
+    "source": "https://ultramarine-linux.org/",
+    "verified": "2026-11-28"
+  },
+  {
+    "name": "Rhino Linux",
+    "family": "Debian-based",
+    "difficulty": "Unknown",
+    "download": "https://rhinolinux.org/download",
+    "creator": "Rhino Linux community",
+    "release": "",
+    "based_on": "Ubuntu (devel branch)",
+    "package_manager": "Pacstall; APT; Snap; Flatpak (via rhino-pkg)",
+    "status": "Active; the official site lists Rhino Linux 2026.1 installation images.",
+    "website": "https://rhinolinux.org/",
+    "description": "An Ubuntu-based rolling-release Linux distribution with Pacstall at its core and the Unicorn desktop environment.",
+    "price": "",
+    "source": "https://rhinolinux.org/",
+    "verified": "2026-11-28"
+  },
+  {
+    "name": "PorteuX",
+    "family": "Slackware-based",
+    "difficulty": "Unknown",
+    "download": "https://github.com/porteux/porteux/releases/latest",
+    "creator": "PorteuX project",
+    "release": "",
+    "based_on": "Slackware 64-bit current/rolling",
+    "package_manager": "Slackware packages; getpkg and App Store (XZM modules)",
+    "status": "Active; PorteuX 2.9 was released on 1 November 2026.",
+    "website": "https://github.com/porteux/porteux",
+    "description": "A modular, portable Slackware-based Linux distribution with multiple desktop spins and optional immutable operation.",
+    "price": "",
+    "source": "https://github.com/porteux/porteux/releases",
+    "verified": "2026-11-28"
   }
 ]
