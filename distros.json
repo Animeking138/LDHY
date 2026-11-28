@@ -50,10 +50,12 @@
     "release": "",
     "based_on": "Independent",
     "package_manager": "APK",
-    "status": "Not yet verified",
+    "status": "Project documentation is available; current release activity has not been independently confirmed.",
     "website": "https://www.adelielinux.org/",
-    "description": "An independent Linux distribution for desktops and servers, using musl libc, a GNU userland, APK packages and OpenRC or s6.",
-    "price": ""
+    "description": "An independent, libre Linux distribution using musl libc, a GNU userland, APK packages and OpenRC or s6.",
+    "price": "",
+    "source": "https://oldwww.adelielinux.org/about/faq.html",
+    "verified": "2026-11-28"
   },
   {
     "name": "aerynOS",
@@ -462,10 +464,12 @@
     "release": "6 June 2007 (2007-06-06)",
     "based_on": "Gentoo",
     "package_manager": "Portage (emerge)",
-    "status": "Not yet verified",
+    "status": "Active; official project describes Calculate as a rolling-release distribution and publishes Desktop, Server and Cloud editions.",
     "website": "https://www.calculate-linux.org/",
     "description": "A Gentoo-based distribution that combines Portage with prebuilt binary packages and desktop, server, and directory-server editions.",
-    "price": ""
+    "price": "",
+    "source": "https://www.calculate-linux.org/",
+    "verified": "2026-11-28"
   },
   {
     "name": "CalyxOS",
@@ -514,14 +518,16 @@
     "family": "RPM-based",
     "difficulty": "Intermediate",
     "download": "https://www.centos.org/download/",
-    "creator": "The CentOS Project(affiliated with Red Hat)",
+    "creator": "The CentOS Project",
     "release": "24 September 2019 (2019-09-24)",
     "based_on": "Fedora / RHEL development ecosystem",
     "package_manager": "DNF (RPM)",
-    "status": "Not yet verified",
+    "status": "Active; continuously delivered distribution tracking just ahead of Red Hat Enterprise Linux development.",
     "website": "https://www.centos.org/",
     "description": "A continuously delivered enterprise Linux distribution positioned between Fedora and Red Hat Enterprise Linux, serving as the next-minor-release development stream for RHEL.",
-    "price": ""
+    "price": "",
+    "source": "https://www.centos.org/centos-stream/",
+    "verified": "2026-11-28"
   },
   {
     "name": "Cherish OS",
@@ -742,14 +748,16 @@
     "family": "Debian-based",
     "difficulty": "Intermediate",
     "download": "https://distrowatch.com/table.php?distribution=devuan",
-    "creator": "Veteran Unix Admins[1]",
-    "release": "May 3, 2016 (2016-05-03)",
+    "creator": "Devuan project",
+    "release": "25 May 2017 (2017-05-25)",
     "based_on": "Debian",
     "package_manager": "APT (apt; dpkg)",
-    "status": "Not yet verified",
+    "status": "Active; Excalibur 6 is current stable (released 2 November 2025); Daedalus 5 remains maintained as oldstable.",
     "website": "https://www.devuan.org/",
     "description": "A Debian-derived distribution that provides systemd-free installations and init-system choice while retaining compatibility with much of Debian's ecosystem.",
-    "price": ""
+    "price": "",
+    "source": "https://www.devuan.org/os/releases",
+    "verified": "2026-11-28"
   },
   {
     "name": "DietPi",
@@ -826,14 +834,16 @@
     "family": "Others",
     "difficulty": "Intermediate",
     "download": "https://distrowatch.com/table.php?distribution=easyos",
-    "creator": "",
+    "creator": "Barry Kauler / EasyOS project",
     "release": "",
-    "based_on": "Puppy Linux (historical lineage; now independently developed)",
-    "package_manager": "PKGget (PET packages)",
-    "status": "Not yet verified",
+    "based_on": "Independent (Puppy Linux lineage; current builds use Debian/Devuan package sources)",
+    "package_manager": "PKGget (APT frontend); SFSget; Appi; Flapi",
+    "status": "Active; EasyOS 7.5.4 release notes record updates through 19 November 2026.",
     "website": "https://easyos.org/",
-    "description": "An experimental, lightweight Linux distribution developed by Barry Kauler, using container-oriented design and retaining ideas from the Puppy Linux project.",
-    "price": ""
+    "description": "An experimental, container-oriented Linux distribution from the Puppy Linux lineage, using layered filesystems, SFS packages and multiple application/package management tools.",
+    "price": "",
+    "source": "https://easyos.org/releases/7.5.4/release-notes.htm",
+    "verified": "2026-11-28"
   },
   {
     "name": "elementary OS",
@@ -925,17 +935,19 @@
   },
   {
     "name": "Exodia OS",
-    "family": "Arch-based",
+    "family": "Arch-based (Pacman)",
     "difficulty": "Advanced",
     "download": "https://exodiaos.com/download.html",
-    "creator": "Cyb3rTh1eveZ Team",
+    "creator": "Exodia OS team",
     "release": "",
     "based_on": "Arch Linux",
     "package_manager": "pacman; yay (AUR helper)",
-    "status": "Not yet verified",
+    "status": "Active; official site publishes rolling-release editions and current download images.",
     "website": "https://exodiaos.com/",
-    "description": "An Arch-based distribution with customizable desktop editions, including general-purpose and cybersecurity-focused variants. Its project has described the editions as being under testing; check the official release page for current availability.",
-    "price": ""
+    "description": "An Arch-based rolling-release desktop distribution with customized editions and preconfigured desktop environments.",
+    "price": "",
+    "source": "https://exodiaos.com/",
+    "verified": "2026-11-28"
   },
   {
     "name": "Fatdog64",
@@ -1028,14 +1040,16 @@
     "family": "Arch-based (Pacman)",
     "difficulty": "Intermediate",
     "download": "https://garudalinux.org/downloads",
-    "creator": "SGS, Shrinivas Vishnu Kumbhar (Librewish), tbg, dr460nf1r3 (Nico), Yorper, Naman Garg, Filo, TNE, Πέτρος (Petsam), Dalto, Zoeruda, Eduard Tolosa, Ankur Kumar",
+    "creator": "Garuda Linux team",
     "release": "26 March 2020 (2020-03-26)",
     "based_on": "Arch Linux",
     "package_manager": "pacman",
-    "status": "Not yet verified",
+    "status": "Active; rolling-release distribution with official ISO release history updated in August 2026.",
     "website": "https://garudalinux.org/",
     "description": "An Arch-based rolling-release desktop distribution offering multiple desktop editions, graphical tools, and Btrfs snapshot integration.",
-    "price": ""
+    "price": "",
+    "source": "https://wiki.garudalinux.org/en/changelogs/",
+    "verified": "2026-11-28"
   },
   {
     "name": "GeckoLinux",
