@@ -2280,7 +2280,7 @@
     "release": "17 July 1993 (1993-07-17)",
     "based_on": "Independent",
     "package_manager": "pkgtools (installpkg; upgradepkg; removepkg)",
-    "status": "Active; the official current package tree was updated on 26 November 2026.",
+    "status": "Active; the official current package tree was updated on 28 November 2026.",
     "website": "https://www.slackware.com/",
     "description": "One of the oldest actively maintained Linux distributions, emphasizing simplicity, Unix-like design, and minimal modification of upstream software.",
     "price": "",
