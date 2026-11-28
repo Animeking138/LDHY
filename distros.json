@@ -1426,10 +1426,12 @@
     "release": "June 1, 2011 (2011-06-01)",
     "based_on": "Mandriva (Mandrake lineage)",
     "package_manager": "urpmi (RPM)",
-    "status": "Not yet verified",
+    "status": "Active; Mageia 10 was released on 30 June 2026 and is supported until 31 March 2028.",
     "website": "https://www.mageia.org/",
     "description": "A community-developed Linux distribution descended from Mandriva, with desktop editions and its own package-management tools.",
-    "price": ""
+    "price": "",
+    "source": "https://www.mageia.org/en/support/",
+    "verified": "2026-11-28"
   },
   {
     "name": "MakuluLinux",
@@ -1755,11 +1757,13 @@
     "creator": "OpenWrt project",
     "release": "",
     "based_on": "Independent",
-    "package_manager": "opkg (stable releases); apk in newer development/release branches—check device and release documentation",
-    "status": "Not yet verified",
+    "package_manager": "apk (OpenWrt 25.12); opkg (older 24.10 series)",
+    "status": "Active; OpenWrt 25.12.6 is the current stable release, published on 18 October 2026.",
     "website": "https://openwrt.org/",
     "description": "A Linux operating system for embedded devices and network equipment, providing a writable filesystem and package management for supported routers and devices.",
-    "price": ""
+    "price": "",
+    "source": "https://downloads.openwrt.org/",
+    "verified": "2026-11-28"
   },
   {
     "name": "Oracle Linux",
@@ -2152,10 +2156,12 @@
     "release": "1 May 2021 (2021-05-01)",
     "based_on": "RHEL-compatible",
     "package_manager": "DNF (RPM)",
-    "status": "Not yet verified",
+    "status": "Active; Rocky Linux 10.3 and 9.9 were released on 16 November 2026. Rocky Linux 10 security support runs through 31 May 2035.",
     "website": "https://rockylinux.org/",
     "description": "A community-driven enterprise Linux distribution designed to be bug-for-bug compatible with Red Hat Enterprise Linux.",
-    "price": ""
+    "price": "",
+    "source": "https://docs.rockylinux.org/latest/releases/",
+    "verified": "2026-11-28"
   },
   {
     "name": "ROSA",
